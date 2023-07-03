@@ -49,6 +49,7 @@ public class MyApplication {
 
         System.out.println("testing something else");
         System.out.println("some updates");
+        System.out.println("some more updates");
 
 
     }
