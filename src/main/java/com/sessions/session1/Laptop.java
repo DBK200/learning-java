@@ -1,4 +1,4 @@
-package com.sessions;
+package com.sessions.session1;
 
 public class Laptop {
 
