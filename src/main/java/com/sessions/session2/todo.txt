@@ -21,3 +21,4 @@ Homework for session2:
 Exercises:
 - Using git, upload a small project to a repository created by you, make a few branches and practice git commands (status, add, commit, merge, etc)
 - Create a new branch, add some code, add & commit & push to remote repository
+
