@@ -1,6 +1,6 @@
 package com.sessions.session2;
 
-public class Myclass {
+public class MyClass {
     public static void main(String[] args) {
         // Java treats a literal integer value as an INTEGER.
         // Every literal value that exceeds [Integer.MAX_VALUE]
