@@ -19,6 +19,6 @@ Practice:
 Homework for session2:
 - objectives: becoming able to collaborate in a git repository, create a new git repository and add a new project to it
 Exercises:
-- Using git, upload a small project to a repository created by you, make a few branches and practice git commands (status, add, commit, merge, etc)
 - Create a new branch, add some code, add & commit & push to remote repository
+- Using git, upload a small project to a repository created by you, make a few branches and practice git commands (status, add, commit, merge, etc)
 
