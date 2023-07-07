@@ -48,6 +48,10 @@ public class Tractor {
         this.speed = dTempSpeed;
     }
 
+    /**
+     * Prints out the class as follows:
+     * <pre>{@code [Class name]} {@link make} has {@link wheels} wheels, {@link traction} and runs with {@link speed} km/h.</pre>
+     */
     public void printClass() {
         System.out.printf("[%s] %s has %d wheels, %s and runs with %.1f km/h.%n",
                 this.getClass().getSimpleName(), make ,wheels, traction, speed);

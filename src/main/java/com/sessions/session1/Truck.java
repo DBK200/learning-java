@@ -36,6 +36,11 @@ public class Truck {
         return bArticulated;
     }
 
+    /**
+     * Prints out the class as follows:
+     * <pre>{@code [Class name]} {@link make} has {@link wheels} wheels, {/doesn't have} the cabin placed
+     * over the engine and {is/is not} articulated in Europe.</pre>
+     */
     public void printClass() {
         System.out.printf("[%s] %s has %d wheels,"
                 + ( (cabOver) ? " " : " doesn't have " )
