@@ -31,6 +31,10 @@ public class Bicycle {
         discBrakes = true;
     }
 
+    /**
+     * Prints out the class as follows:
+     * <pre>{@code [Class name]} {@link make} {is/is not} a mountain bike and {has/doesn't have} disc brakes.</pre>
+     */
     public void printClass() {
         System.out.printf("[%s] %s is"
                         + ( (mountainBike) ? " " : " not " )

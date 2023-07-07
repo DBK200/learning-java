@@ -56,6 +56,14 @@ public class Car {
         return (speed > 0);
     }
 
+
+    /**
+     * Prints out the class as follows:
+     * <pre>{@code [Class name]} {@link make} has colour {@link colour}
+     * and runs with {@link speed}.</pre>or
+     * <pre>{@code [Class name]} {@link make} has colour {@link colour}
+     * and currently is not moving.</pre>
+     */
     public void printClass() {
         System.out.printf("[%s] %s has colour %s and "
                         + ( (speed > 0) ? "runs with %.1f km/h."
