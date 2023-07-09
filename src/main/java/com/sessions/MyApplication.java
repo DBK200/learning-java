@@ -8,5 +8,4 @@ public class MyApplication {
 
         System.out.println("Salutari din InteliJ");
     }
-
 }
