@@ -155,6 +155,13 @@ public class operatorsHomework {
             System.out.println("The username is not valid");
         }
          */
+
+        /*
+        // a simple roll dice simulator that gives a random number from 1 to 6
+        int min = 1;
+        int rollResult = min + (int) (Math.random() *6);
+        System.out.println("You rolled: " + rollResult);
+         */
     }
 }
 
