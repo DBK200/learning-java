@@ -1,31 +1,31 @@
 package com.sessions.session1;
 
 /*
-
-    === Session 01 Challenge ===
-
-    Imagine you have a house, and you want to map the objects from that house, to Java classes.
-    The properties of the real life objects are translated to Java as the class fields (variables).
-    Try to identify at least 10 objects from the house and create classes and fields.
-    Try to use local, instance and static variables.
-
-    Example:
-    public class Couch {
-	    private String brand;
-    	private String colour;
-    	private int weight;
-    }
-
-    Create at least 5 methods for each class that return some properties from the house.
-    As an example, we can have {getBalanceAccount()} method that returns the subtraction
-    between 2 variables (totalAmount and totalSpent).
-
-    Please pay attention to the code formatting (spacing & indentation), and keep it as clean as possible.
-    Use shortcut ctrl+alt+l to format the code.
-
-    Note: the first row below the class name is empty.
-          We should always leave an empty row after the class, just for indentation purposes.
-
+//
+//    === Session 01 Challenge ===
+//
+//    Imagine you have a house, and you want to map the objects from that house, to Java classes.
+//    The properties of the real life objects are translated to Java as the class fields (variables).
+//    Try to identify at least 10 objects from the house and create classes and fields.
+//    Try to use local, instance and static variables.
+//
+//    Example:
+//    public class Couch {
+//	    private String brand;
+//    	private String colour;
+//    	private int weight;
+//    }
+//
+//    Create at least 5 methods for each class that return some properties from the house.
+//    As an example, we can have {getBalanceAccount()} method that returns the subtraction
+//    between 2 variables (totalAmount and totalSpent).
+//
+//    Please pay attention to the code formatting (spacing & indentation), and keep it as clean as possible.
+//    Use shortcut ctrl+alt+l to format the code.
+//
+//    Note: the first row below the class name is empty.
+//          We should always leave an empty row after the class, just for indentation purposes.
+//
 */
 
 public class Main {
