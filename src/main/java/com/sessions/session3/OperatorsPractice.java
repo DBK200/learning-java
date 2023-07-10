@@ -82,6 +82,7 @@ public class OperatorsPractice {
 //        float result1 = 2 + 3L + 2.3f;
 //        double result2 = 2 + 3L + 2.3f + 3.4;
 
+
 // ----------------------------------------------------------------------------
         //CASTING PRIMITIVE VALUES -
         // convert from floating-point to integral value
@@ -121,7 +122,7 @@ public class OperatorsPractice {
 //        boolean y = true & true;
 //        System.out.println(y);
 //
-//        boolean z = true ^ false;
+//        boolean z = 2 < 3 ^ 3 < 4;
 //        System.out.println(z);
 
         //Short-circuit logical operators &&, ||
