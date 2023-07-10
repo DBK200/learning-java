@@ -38,7 +38,7 @@ public class JavaOperatorsChallenge {
         short shortValue3 = (short) (shortValue1 / 2); // no error here
 
         // The same goes if the literal number is grater than
-        // the maximum integer (2.147.483.647).
+        // the maximum integer (i.e., 2.147.483.647).
         // In this case, the literal value must be
         // suffixed with "L" to remove the error.
 //        long longValue1 = 2_147_483_648;   // error here
@@ -72,10 +72,14 @@ public class JavaOperatorsChallenge {
             iSpeed += 0;
         }
 
+        /*---------------
+        |  Expressions  |
+        ----------------*/
+
         // next declaration sets an array with
         // 2 null elements, because String is not a
         // primitive type.
-        // Primitive types are initialised with values.
+        // Primitive types are initialised with values {0} or {false}.
         String arStrValues[] = new String[2];
 
         if (arStrValues[0] == null || arStrValues[1] == null) {
