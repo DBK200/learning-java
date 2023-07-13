@@ -9,7 +9,8 @@ public class StatementsChallenge {
         System.out.printf("The statement \"%d is an integer number\" is %b.%n",number,isInteger(number));
         System.out.printf("The statement \"%d is a palindrome\" is %b.%n",number,isPalindrome(number));
 
-        System.out.println(numberToWord(8));
+        int iNumber = 8;
+        System.out.printf("%d is %s.", iNumber, numberToWord(iNumber));
     }
 
     // FOR example
