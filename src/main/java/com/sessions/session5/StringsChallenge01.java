@@ -5,7 +5,7 @@
 
      Notes:
      1. printing order is arbitrary.
-     2. each letter (together with its number of occurrences) will be printed ones.
+     2. each letter (together with its number of occurrences) will be printed once.
 
  */
 
