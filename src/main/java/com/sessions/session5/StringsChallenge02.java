@@ -25,9 +25,6 @@ import java.util.Scanner;
 public class StringsChallenge02 {
 
     public static void main(String[] args) {
-
-//        System.out.println(Character.isWhitespace(','));
-
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter initial text: ");
         String sText = sc.nextLine();
