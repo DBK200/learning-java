@@ -33,5 +33,4 @@ public class StringsChallenge01 {
         } while (sText.length() > 0);
     }
 
-
 }
