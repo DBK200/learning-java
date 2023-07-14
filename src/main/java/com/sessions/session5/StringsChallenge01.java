@@ -27,7 +27,7 @@ public class StringsChallenge01 {
             char chLetter = sText.charAt(0);
             String sTemp = sText.replaceAll(String.valueOf(chLetter), "");
             int i = sText.length() - sTemp.length();
-            System.out.printf("\t- '%c' is present in the text %d time" +
+            System.out.printf("\t- '%c' appears in the text %d time" +
                     (i == 1 ? "" : "s") + "%n", chLetter, i);
             sText = sTemp;
         } while (sText.length() > 0);
