@@ -1,4 +1,4 @@
-package com.sessions.session4;
+package com.sessions.session5;
 
 public class StatementsChallenge {
 
