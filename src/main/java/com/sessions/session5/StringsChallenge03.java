@@ -93,61 +93,63 @@ public class StringsChallenge03 {
 
         System.out.println("Please enter [" + n + "] word(s) separated by spaces:");
 
-        // gets the array from console by splitting console content
+        // Gets the array from console by splitting console content
         // using white spaces as delimiter.
-        String sArray[] = sc.nextLine().split("\\W");
+        String arWords[] = sc.nextLine().split("\\W");
 
-        // stores console array length
+        // Stores console array length
         // not to call the function many times
-        int intLen1 = sArray.length;
+        int iLen1 = arWords.length;
 
-        // iterates while array content is not as required
-        while (intLen1 != n) {
+        // Iterates while array content is not as required.
+        // This solution will not use the ArrayList class
+        while (iLen1 != n) {
 
-            // console array is smaller than needed
-            if (intLen1 < n) {
-                System.out.printf("Please enter another [%d] word(s) separated by spaces:%n", n - intLen1);
+            // Console array is smaller than needed
+            if (iLen1 < n) {
+                System.out.printf("Please enter another [%d] word(s) separated by spaces:%n", n - iLen1);
 
-                // gets console input and splits it into [sTmpArr1] array.
-                // Sets [limit] identifier to get only needed elements + 1
-                String sTmpArr1[] = sc.nextLine().split("\\W",n - intLen1 + 1);
+                // Gets console input and splits it into [arTmp1] array.
+                // Sets [limit] identifier of SPLIT method to get
+                // only needed elements + 1
+                String arTmp1[] = sc.nextLine().split("\\W",n - iLen1 + 1);
 
-                // gets new array's extra length
-                int intLen2 = Math.min(n-intLen1, sTmpArr1.length);
+                // Gets new array's extra length
+                int iLen2 = Math.min(n-iLen1, arTmp1.length);
 
-                // declares new array that will append the result
-                String sTmpArr2[] = new String[intLen1 + intLen2];
+                // Declares new array that will append the result
+                String arTmp2[] = new String[iLen1 + iLen2];
 
-                // inserts content of incomplete array
-                System.arraycopy(sArray,0,sTmpArr2,0, intLen1);
+                // Inserts content of incomplete array
+                System.arraycopy(arWords,0,arTmp2,0, iLen1);
 
-                // appends [sTmpArr1]
-                System.arraycopy(sTmpArr1,0,sTmpArr2,intLen1,intLen2);
+                // Appends [arTmp1]
+                System.arraycopy(arTmp1,0,arTmp2,iLen1,iLen2);
 
-                // sets new final array
-                sArray = sTmpArr2;
+                // Sets new final array
+                arWords = arTmp2;
 
-                // updates array's length
-                intLen1 += intLen2;
+                // Updates array's length
+                iLen1 += iLen2;
             }
-            // input is too long and has to be cut down to size
+            // Input is too long and has to be cut down to size
             else {
-                // declares the newly cut to size array
-                String sTmpArr1[] = new String[n];
+                // Declares the newly cut to size array
+                String arTmp1[] = new String[n];
 
-                // inserts content from oversized array
-                System.arraycopy(sArray,0,sTmpArr1,0, n);
+                // Inserts content from oversized array
+                System.arraycopy(arWords,0,arTmp1,0, n);
 
-                // sets new final array
-                sArray = sTmpArr1;
+                // Sets new final array
+                arWords = arTmp1;
 
-                // updates array's length
-                intLen1 = n;
+                // Updates array's length
+                iLen1 = n;
             }
         }
 
-        // method's return declaration
-        return sArray;
+        // Returned result
+        return arWords;
     }
 
     public static String[] lettersMatchIgnoreCase(String[] array, String key) {
@@ -155,34 +157,34 @@ public class StringsChallenge03 {
     }
 
     public static String[] lettersMatchIgnoreCase(String[] array, String key, boolean bAll) {
-        // sets temporary result holding variable
+        // Temporary result holding variable
         StringBuilder sbResult = new StringBuilder();
 
-        // transforms [key] into a lower case char array
+        // Transforms [key] into a lower case char array
         char arTarget[] = key.toLowerCase().toCharArray();
 
-        // stores [array] upper bound for further use
+        // Stores [array] upper bound for further use
         int N = array.length - 1;
 
 
         for (int i = 0; i <= N; i++) {
 
-            // transforms array[i] into a lower case char array
+            // Transforms array[i] into a lower case char array
             char arSource[] = array[i].toLowerCase().toCharArray();
 
             StringBuilder sbCounter = new StringBuilder();
 
-            // source -> target character comparing
+            // Source -> Target character comparison
 //            Exit_For:
             for (int j = 0; j < Math.min(arTarget.length,arSource.length); j++) {
 
-                // if match is found, updates temporary result.
+                // If match is found, updates temporary result.
                 // The final added separator (i.e., [,]), will be erased at a later stage.
                 if (arSource[j] == arTarget[j]) {
 
                     sbCounter.append(arSource[j]).append(":").append(j).append(",");
 
-                    // exit for loop when first match is found based on [bAll] flag value.
+                    // Exits for loop when first match is found based on [bAll] flag value.
                     if (!bAll) break; //Exit_For;
                 }
             }
@@ -200,8 +202,7 @@ public class StringsChallenge03 {
             sbResult.deleteCharAt(sbResult.length() - 1);
         }
 
-        // returns the array based on temporary result
+        // Returns the array based on temporary result
         return sbResult.toString().split(";");
     }
 }
-
