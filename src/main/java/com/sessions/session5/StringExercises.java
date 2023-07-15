@@ -1,0 +1,198 @@
+/*
+
+[x] 1.  Write a program to print out English alphabet.
+[x] 2.  Write a program to print out reversed English alphabet.
+[x] 3.  Write a program to print out all odd numbers between 1 and 100.
+[x] 4.  Write a program to check if given string IS a Palindrome or NOT.
+[x] 5.  Write a program to find the number and sum of all integers
+        between 100 and 200 which are divisible by 9.
+[ ] 6.  Write a program to get from console a variable number of numbers
+        and display the largest and smallest number entered.
+
+ */
+
+package com.sessions.session5;
+
+import java.text.DecimalFormatSymbols;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class StringExercises {
+    public static void main(String[] args) {
+
+        /*-------------------
+         |  Exercise no. 1  |
+         -------------------*/
+        System.out.printf("[Exercise 01]%nAlphabet print out is: %s%n", printAlphabet());
+
+        /*-------------------
+         |  Exercise no. 2  |
+         -------------------*/
+        System.out.printf("%n[Exercise 02]%nReversed alphabet print out is: %s%n", printReverseAlphabet());
+
+        /*-------------------
+         |  Exercise no. 3  |
+         -------------------*/
+        int iStart = 0;
+        int iEnd = 100;
+        System.out.printf("%n[Exercise 03]%nOdd numbers between %d and %d are:%n", iStart, iEnd);
+        System.out.printf("%s%n",getOddNumers(iStart,iEnd));
+
+        /*-------------------
+         |  Exercise no. 4  |
+         -------------------*/
+        String sText = "A radar a";
+        System.out.printf("%n[Exercise 04]%n\"%s\" is a palindrome returned:%n"+
+                          "\t- %b, when case-sensitive%n" +
+                          "\t- %b, when case-insensitive%n",
+                          sText,
+                          isPalindrome(sText, true),
+                          isPalindrome(sText, false));
+
+        /*-------------------
+         |  Exercise no. 5  |
+         -------------------*/
+        iStart = 0;
+        iEnd = 20;
+        String arData[] = getDivisibleByNine(iStart, iEnd).split(";");
+
+        System.out.printf("%n[Exercise 05]%nNumber count of numbers between %d and %d divisible by 9 is: %s%n" +
+                          "The sum of numbers between %1$d and %2$d divisible by 9 is: %s%n",
+                iStart, iEnd,
+                arData[0], arData[1]);
+
+        /*-------------------
+         |  Exercise no. 6  |
+         -------------------*/
+        Scanner sc = new Scanner(System.in);
+        StringBuilder sbNumbers = new StringBuilder();
+
+        System.out.printf("%n[Exercise 06]%nEnter the numbers you want to get MIN and MAX values, separated by spaces (press enter to quit):%n");
+
+        sbNumbers.append(sc.nextLine());
+        sc.close();
+
+        arData = getArrayLimits(sbNumbers).split(";");
+
+        System.out.printf("The number with MIN value is: %s%n" +
+                        "The number with MAX value is: %s%n",
+                arData[0], arData[1]);
+
+/*
+        System.out.printf("%n[Exercise 06]%nEnter the numbers you want to get MIN and MAX values, separated by spaces (type q/Q to quit):%n");
+
+
+        // !!! This declaration doesn't seem to get negative numbers !!!
+        while (true) {
+            if (sc.next().equalsIgnoreCase("q")) break;
+            if (sc.hasNextInt()) {
+                sbNumbers.append((sbNumbers.length() == 0) ? "" : ";").append(sc.nextInt());
+            }
+        }
+*/
+
+    }
+
+    private static String printAlphabet(){
+        // English alphabet is starting with
+        // 'a' and ends up with 'Z'
+        // This method will print out alphabet's letters
+        // as mentioned above.
+        // (https://symbl.cc/en/unicode/blocks/basic-latin/)
+
+        StringBuilder sbAlphabet = new StringBuilder();
+        for (int i = 'a'; i <= 'z'; i++) sbAlphabet.append(Character.toString(i));
+        for (int i = 'A'; i <= 'Z'; i++) sbAlphabet.append(Character.toString(i));
+
+        return sbAlphabet.toString();
+    }
+
+    private static String printReverseAlphabet(){
+        // English alphabet is starting with
+        // 'a' and ends up with 'Z'
+        // This method will print out alphabet's letters
+        // in reverse as opposed mentioned above.
+
+        StringBuilder sbRevAlphabet = new StringBuilder();
+        for (int i = 'Z'; i >= 'A'; i--) sbRevAlphabet.append(Character.toString(i));
+        for (int i = 'z'; i >= 'a'; i--) sbRevAlphabet.append(Character.toString(i));
+
+        return sbRevAlphabet.toString();
+    }
+
+    private static String getOddNumers(int iStart, int iEnd){
+        // Initial validation
+        if (iStart >= iEnd) return "[Error] START is bigger or equal to END argument.";
+
+        StringBuilder sbResult = new StringBuilder();
+
+        for (int i = (iStart % 2 == 0) ? iStart + 1 : iStart; i <= iEnd; i += 2) {
+            sbResult.append( (sbResult.length() == 0) ? "" : ", ").append(i);
+        }
+
+        return sbResult.toString();
+    }
+
+    private static boolean isPalindrome(String sText, boolean bCaseSensitive){
+        // This method will return a boolean that tells if passed argument
+        // is a palindrome or not, taking into account
+        // the value of [bCaseSensitive] flag.
+        // A palindrome is a string that's the same when reversed.
+
+        if (bCaseSensitive) return new StringBuilder(sText).reverse().toString().equals(sText);
+        else return new StringBuilder(sText).reverse().toString().equalsIgnoreCase(sText);
+    }
+
+    private static String getDivisibleByNine(int iStart, int iEnd){
+        // This method will return the following for the numbers
+        // between [iStart] and [iEnd] divisible by 9:
+        // [Numbers count];[Numbers sum]
+
+        // Initial validation
+        if (iStart < 0) iStart *= -1;
+        if (iEnd < 0) iEnd *= -1;
+        if (iStart >= iEnd) return "ERROR;ERROR";
+
+        long lSumResult = 0;
+        int iCountResult = 0;
+
+        iStart = (iStart % 9 == 0) ?
+                 ((iStart == 0) ? 9 : iStart) : iStart + iStart % 9;
+
+        while(iStart <= iEnd){
+            iCountResult++;
+            lSumResult += iStart;
+            iStart += 9;
+        }
+
+        return iCountResult + ";" + lSumResult;
+    }
+
+    private static String getArrayLimits(StringBuilder sbValues){
+        // This method will store into a string the MIN and MAX values
+        // from a StringBuilder argument.
+        // The method will separate all the numbers from the string argument
+        // and will return a string result as follows:
+        // [MIN Value];[MAX value]
+
+        // Initial validation
+        if (sbValues.isEmpty()) return "ERROR;ERROR";
+
+        // Regular expression for split method: every non number character
+        // except for '-' and current decimal separator
+        String sRegEx = "[^0-9-" + new DecimalFormatSymbols().getDecimalSeparator() + "]";
+
+        // Stores only numbers into an array of doubles
+        String arValues[] = sbValues.toString().split(sRegEx);
+
+        double dMinValue = Double.MAX_VALUE;
+        double dMaxValue = Double.MIN_VALUE;
+
+        for (int i = 0; i < arValues.length; i++) {
+            double dTempValue = Double.parseDouble(arValues[i]);
+            if (dTempValue < dMinValue) dMinValue = dTempValue;
+            else if (dTempValue > dMaxValue) dMaxValue = dTempValue;
+        }
+        return dMinValue + ";" + dMaxValue;
+    }
+}
