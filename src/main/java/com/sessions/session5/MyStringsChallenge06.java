@@ -19,7 +19,7 @@
 
 package com.sessions.session5;
 
-public class StringsChallenge06 {
+public class MyStringsChallenge06 {
     public static void main(String[] args) {
         String str1 = "One quacK";
         String str2 = "One quack";

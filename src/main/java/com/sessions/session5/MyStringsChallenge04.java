@@ -10,7 +10,7 @@
 
 package com.sessions.session5;
 
-public class StringsChallenge04 {
+public class MyStringsChallenge04 {
     public static void main(String[] args) {
         //String sText = "";
         String sText = "The number 1 deadliest animal on the PLANET Earth is the ©Human!®";

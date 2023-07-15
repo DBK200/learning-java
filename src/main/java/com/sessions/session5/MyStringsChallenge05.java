@@ -21,7 +21,7 @@
 
 package com.sessions.session5;
 
-public class StringsChallenge05 {
+public class MyStringsChallenge05 {
     public static void main(String[] args) {
         // Input sentence
         String sText = "A quack";

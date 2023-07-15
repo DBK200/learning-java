@@ -14,7 +14,7 @@ package com.sessions.session5;
 
 import java.util.Scanner;
 
-public class StringsChallenge01 {
+public class MyStringsChallenge01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter some text and press ENTER: ");

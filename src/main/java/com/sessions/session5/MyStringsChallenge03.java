@@ -28,7 +28,7 @@ package com.sessions.session5;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StringsChallenge03 {
+public class MyStringsChallenge03 {
 
     public static void main(String[] args) {
 
