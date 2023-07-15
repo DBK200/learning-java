@@ -6,7 +6,7 @@
 [x] 4.  Write a program to check if given string IS a Palindrome or NOT.
 [x] 5.  Write a program to find the number and sum of all integers
         between 100 and 200 which are divisible by 9.
-[ ] 6.  Write a program to get from console a variable number of numbers
+[x] 6.  Write a program to get from console a variable number of numbers
         and display the largest and smallest number entered.
 
  */
@@ -78,9 +78,9 @@ public class StringExercises {
                         "The number with MAX value is: %s%n",
                 arData[0], arData[1]);
 
-/*
-        System.out.printf("%n[Exercise 06]%nEnter the numbers you want to get MIN and MAX values, separated by spaces (type q/Q to quit):%n");
+/*      !!! WHILE declaration doesn't get negative numbers !!!
 
+        System.out.printf("%n[Exercise 06]%nEnter the numbers you want to get MIN and MAX values, separated by spaces (type q/Q to quit):%n");
 
         // !!! This declaration doesn't seem to get negative numbers !!!
         while (true) {
