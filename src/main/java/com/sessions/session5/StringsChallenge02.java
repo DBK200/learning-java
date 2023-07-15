@@ -78,7 +78,7 @@ public class StringsChallenge02 {
     }
 
     public static int indexOfWord(String sSourceText, String sLookUpText) {
-        // Overloaded function
+        // Overloaded method
         return indexOfWord(sSourceText, sLookUpText, true);
     }
 
