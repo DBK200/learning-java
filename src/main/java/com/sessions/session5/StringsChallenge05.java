@@ -38,6 +38,10 @@ public class StringsChallenge05 {
     }
 
     public static int[] getWordSpacesPosition(String sText) {
+        // === INFO ===
+        // The final array it will also hold the start and length of [sText]
+        // because it will be used as an array of indexes in subsequent operations.
+
         // Validation
         if (sText.length() == 0) return new int[] {0};
 
@@ -55,6 +59,8 @@ public class StringsChallenge05 {
             if (Character.isSpaceChar(chChar)) sbSpacePos.append(i).append(";");
             else {
                 // Enters the last element, [sText] length
+                // === INFO ===
+                // It will always hold [sText] end position index / length.
                 if (i == iTextLength - 1) sbSpacePos.append(iTextLength);
             }
         }
