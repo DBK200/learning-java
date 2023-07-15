@@ -34,11 +34,9 @@ public class MyStringsChallenge03 {
 
         Scanner sc = new Scanner(System.in);
 
-/*
-        ==========================
-            Words number entry
-        ==========================
-*/
+        /*-----------------------
+         |  Words number entry  |
+         -----------------------*/
         int n;
         do {
             System.out.println("Please enter the number of words (n): ");
@@ -52,22 +50,18 @@ public class MyStringsChallenge03 {
         // gets to new line
         sc.nextLine();
 
-/*
-        ================================
-            Words and keyword entry
-        ================================
-*/
+        /*----------------------------
+         |  Words and keyword entry  |
+         ----------------------------*/
         // Words entry
         String arArray[] = readConsoleStringArray(sc,n);
 
         // Keyword entry
         String key = readConsoleStringArray(sc);
 
-/*
-        ===============
-            Results
-        ===============
-*/
+        /*------------
+         |  Results  |
+         ------------*/
         System.out.println("Source array: " + Arrays.toString(arArray));
 
         // Complete result: returns all matches

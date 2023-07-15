@@ -81,7 +81,7 @@ public class MyStringsChallenge05 {
     }
 
     public static int oneCharMatch(String sText, String sKey) {
-        // Validation
+        // Initial validation
         if (sText.length() == 0 || sKey.length() == 0) return -1;
 
         // Holds position of spaces between words, 0 and length of [sText].
@@ -110,7 +110,7 @@ public class MyStringsChallenge05 {
     }
 
     public static int firstCharMatch(String sText, String sKey) {
-        // Validation
+        // Initial validation
         if (sText.length() == 0 || sKey.length() == 0) return -1;
 
         // Holds position of spaces between words, 0 and length of [sText].

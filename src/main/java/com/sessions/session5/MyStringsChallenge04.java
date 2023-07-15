@@ -18,8 +18,8 @@ public class MyStringsChallenge04 {
     }
 
     public static String changeCase(String sText) {
-        // validation
-        if (sText.length() == 0) return "(Error) Empty string input.";
+        // Initial validation
+        if (sText.length() == 0) return "(Error) Empty input string.";
 
         StringBuilder sbText = new StringBuilder();
 
