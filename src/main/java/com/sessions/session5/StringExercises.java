@@ -94,7 +94,7 @@ public class StringExercises {
 
     private static String printAlphabet(){
         // English alphabet is starting with
-        // 'a' and ends up with 'Z'
+        // 'a' and ends up with 'Z'.
         // This method will print out alphabet's letters
         // as mentioned above.
         // (https://symbl.cc/en/unicode/blocks/basic-latin/)
@@ -109,7 +109,7 @@ public class StringExercises {
 
     private static String printReverseAlphabet(){
         // English alphabet is starting with
-        // 'a' and ends up with 'Z'
+        // 'a' and ends up with 'Z'.
         // This method will print out alphabet's letters
         // in reverse as opposed mentioned above.
 
@@ -150,7 +150,11 @@ public class StringExercises {
     private static String getDivisibleByNine(int iStart, int iEnd){
         // This method will return the following for the numbers
         // between [iStart] and [iEnd] divisible by 9:
-        // [Numbers count];[Numbers sum]
+        //  [Numbers count];[Numbers sum]
+        //
+        // Note:
+        //  The method is working only with positive numbers
+        //
 
         // Initial validation
         if (iStart < 0) iStart *= -1;
@@ -180,7 +184,7 @@ public class StringExercises {
         //   number (0..9), decimal separator or '-'.
         // The method will separate all the numbers from the argument
         // and will return a string result as follows:
-        // [MIN Value];[MAX value]
+        //  [MIN Value];[MAX value]
 
         // Initial validation
         if (sbValues.isEmpty()) return "ERROR;ERROR";
