@@ -11,15 +11,15 @@
      at least one letter identical to the keyword.
 
      Two words have an identical letter if:
-     (1) the letter is the same (i.e., not case sensitive)
+      (1) the letter is the same (i.e., not case sensitive)
      and
-     (2) the letter is on the same position in both words.
+      (2) the letter is on the same position in both words.
 
      Examples:
-     1. c[a]r ↔ r[a]bbit: -1- identical letter
-     2. doctor ↔ risk: no identical letters
-     3. des[i]gn ↔ eng[i]neer: -1- identical letter
-     4. d[a]n[c]e ↔ v[a]c[c]ine: -2- identical letters
+      1. c[a]r ↔ r[a]bbit: -1- identical letter
+      2. doctor ↔ risk: no identical letters
+      3. des[i]gn ↔ eng[i]neer: -1- identical letter
+      4. d[a]n[c]e ↔ v[a]c[c]ine: -2- identical letters
 
  */
 

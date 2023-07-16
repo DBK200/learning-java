@@ -10,10 +10,10 @@
      of [oldWord] with [newWord], except for first and last ones.
 
      The rules are:
-     1. if [oldWord] doesn't occur: nothing is replaced.
-     2. if [oldWord] occurs once or twice: nothing is replaced (first and last occurrence).
-     3. if [oldWord] occurs at least 3 times: replace all [oldWord] occurrences with [newWord],
-        except for first and last ones.
+      1. if [oldWord] doesn't occur: nothing is replaced.
+      2. if [oldWord] occurs once or twice: nothing is replaced (first and last occurrence).
+      3. if [oldWord] occurs at least 3 times: replace all [oldWord] occurrences with [newWord],
+         except for first and last ones.
 
  */
 

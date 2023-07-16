@@ -26,8 +26,10 @@ public class MyStringsChallenge04 {
         for (int i = 0; i < sText.length(); i++) {
             char chLetter = sText.charAt(i);
             if (Character.isLetter(chLetter)) {
-                if (Character.isLowerCase(chLetter)) sbText.append(Character.toUpperCase(chLetter));
-                else if (Character.isUpperCase(chLetter)) sbText.append(Character.toLowerCase(chLetter));
+                if (Character.isLowerCase(chLetter))
+                    sbText.append(Character.toUpperCase(chLetter));
+                else if (Character.isUpperCase(chLetter))
+                    sbText.append(Character.toLowerCase(chLetter));
             }
             else sbText.append(chLetter);
         }

@@ -8,9 +8,9 @@
 
     The methods will act identical to Java's {int compareTo(String anotherString)} method
     and return the following:
-    • a negative value (e.g., -1) if str1 < str2
-    • 0 if str1 is equal to str2
-    • a positive value (e.g., +1) if str1 > str2
+     • a negative value (e.g., -1) if str1 < str2
+     • 0 if str1 is equal to str2
+     • a positive value (e.g., +1) if str1 > str2
 
     Note:
       You're not allowed to use COMPARE methods from Java's String class.

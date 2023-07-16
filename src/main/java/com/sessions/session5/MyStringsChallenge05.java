@@ -30,10 +30,10 @@ public class MyStringsChallenge05 {
         String sKey = "abc";
 
         // Result print out
-        System.out.printf("Input text: %s%n" +
-                        "Input keyword: %s%n" +
-                        "oneCharMatch() output: %d%n" +
-                        "firstCharMatch() output: %d%n",
+        System.out.printf("Input text: %s%n"
+                        + "Input keyword: %s%n"
+                        + "oneCharMatch() output: %d%n"
+                        + "firstCharMatch() output: %d%n",
                 sText, sKey, oneCharMatch(sText, sKey), firstCharMatch(sText, sKey));
     }
 

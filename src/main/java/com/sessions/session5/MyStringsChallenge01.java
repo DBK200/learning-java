@@ -4,8 +4,8 @@
      Print the number of occurrences of each character in the given string.
 
      Notes:
-     1. printing order is arbitrary.
-     2. each letter (together with its number of occurrences) will be printed once.
+      1. printing order is arbitrary.
+      2. each letter (together with its number of occurrences) will be printed once.
 
  */
 
