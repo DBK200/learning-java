@@ -137,7 +137,7 @@ public class StringExercises {
 
     private static boolean isPalindrome(String sText, boolean bCaseSensitive){
         // This method will return a boolean that tells if passed argument
-        // is a palindrome or not, taking into account cas-sensitivity
+        // is a palindrome or not, taking into account case-sensitivity
         // by the value of [bCaseSensitive] flag.
         // A palindrome is a string that remains the same when reversed.
 
