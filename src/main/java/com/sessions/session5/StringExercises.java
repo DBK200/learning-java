@@ -14,7 +14,6 @@
 package com.sessions.session5;
 
 import java.text.DecimalFormatSymbols;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StringExercises {
@@ -36,18 +35,18 @@ public class StringExercises {
         int iStart = 0;
         int iEnd = 100;
         System.out.printf("%n[Exercise 03]%nOdd numbers between %d and %d are:%n", iStart, iEnd);
-        System.out.printf("%s%n",getOddNumers(iStart,iEnd));
+        System.out.printf("%s%n", getOddNumbers(iStart,iEnd));
 
         /*-------------------
          |  Exercise no. 4  |
          -------------------*/
         String sText = "A radar a";
-        System.out.printf("%n[Exercise 04]%n\"%s\" is a palindrome returned:%n"+
-                          "\t- %b, when case-sensitive%n" +
-                          "\t- %b, when case-insensitive%n",
-                          sText,
-                          isPalindrome(sText, true),
-                          isPalindrome(sText, false));
+        System.out.printf("%n[Exercise 04]%n\"%s\" is a palindrome returned:%n"
+                        + "\t- %b, when case-sensitive%n"
+                        + "\t- %b, when case-insensitive%n",
+                sText,
+                isPalindrome(sText, true),
+                isPalindrome(sText, false));
 
         /*-------------------
          |  Exercise no. 5  |
@@ -56,8 +55,8 @@ public class StringExercises {
         iEnd = 20;
         String arData[] = getDivisibleByNine(iStart, iEnd).split(";");
 
-        System.out.printf("%n[Exercise 05]%nNumber count of numbers between %d and %d divisible by 9 is: %s%n" +
-                          "The sum of numbers between %1$d and %2$d divisible by 9 is: %s%n",
+        System.out.printf("%n[Exercise 05]%nNumber count of numbers between %d and %d divisible by 9 is: %s%n"
+                        + "The sum of numbers between %1$d and %2$d divisible by 9 is: %s%n",
                 iStart, iEnd,
                 arData[0], arData[1]);
 
@@ -67,20 +66,20 @@ public class StringExercises {
         Scanner sc = new Scanner(System.in);
         StringBuilder sbNumbers = new StringBuilder();
 
-        System.out.printf("%n[Exercise 06]%nEnter the numbers you want to get MIN and MAX values, separated by spaces (press enter to quit):%n");
+        System.out.printf("%n[Exercise 06]%nEnter the numbers for which you want to get MIN and MAX values, separated by spaces (press enter to quit):%n");
 
         sbNumbers.append(sc.nextLine());
         sc.close();
 
-        arData = getArrayLimits(sbNumbers).split(";");
+        arData = getRangeLimits(sbNumbers).split(";");
 
-        System.out.printf("The number with MIN value is: %s%n" +
-                        "The number with MAX value is: %s%n",
+        System.out.printf("MIN value is: %s%n"
+                        + "MAX value is: %s%n",
                 arData[0], arData[1]);
 
 /*      !!! WHILE declaration doesn't get negative numbers !!!
 
-        System.out.printf("%n[Exercise 06]%nEnter the numbers you want to get MIN and MAX values, separated by spaces (type q/Q to quit):%n");
+        System.out.printf("%n[Exercise 06]%nEnter the numbers for which you want to get MIN and MAX values, separated by spaces (type q/Q to quit):%n");
 
         // !!! This declaration doesn't seem to get negative numbers !!!
         while (true) {
@@ -104,6 +103,7 @@ public class StringExercises {
         for (int i = 'a'; i <= 'z'; i++) sbAlphabet.append(Character.toString(i));
         for (int i = 'A'; i <= 'Z'; i++) sbAlphabet.append(Character.toString(i));
 
+        // Returned value
         return sbAlphabet.toString();
     }
 
@@ -117,12 +117,13 @@ public class StringExercises {
         for (int i = 'Z'; i >= 'A'; i--) sbRevAlphabet.append(Character.toString(i));
         for (int i = 'z'; i >= 'a'; i--) sbRevAlphabet.append(Character.toString(i));
 
+        // Returned value
         return sbRevAlphabet.toString();
     }
 
-    private static String getOddNumers(int iStart, int iEnd){
+    private static String getOddNumbers(int iStart, int iEnd){
         // Initial validation
-        if (iStart >= iEnd) return "[Error] START is bigger or equal to END argument.";
+        if (iStart >= iEnd) return "[Error] Arguments issue: START >= END";
 
         StringBuilder sbResult = new StringBuilder();
 
@@ -130,6 +131,7 @@ public class StringExercises {
             sbResult.append( (sbResult.length() == 0) ? "" : ", ").append(i);
         }
 
+        // Returned value
         return sbResult.toString();
     }
 
@@ -137,10 +139,12 @@ public class StringExercises {
         // This method will return a boolean that tells if passed argument
         // is a palindrome or not, taking into account
         // the value of [bCaseSensitive] flag.
-        // A palindrome is a string that's the same when reversed.
+        // A palindrome is a string that remains the same when reversed.
 
-        if (bCaseSensitive) return new StringBuilder(sText).reverse().toString().equals(sText);
-        else return new StringBuilder(sText).reverse().toString().equalsIgnoreCase(sText);
+        String sResult = new StringBuilder(sText).reverse().toString();
+
+        if (bCaseSensitive) return sResult.equals(sText);
+        else return sResult.equalsIgnoreCase(sText);
     }
 
     private static String getDivisibleByNine(int iStart, int iEnd){
@@ -164,27 +168,31 @@ public class StringExercises {
             lSumResult += iStart;
             iStart += 9;
         }
-
+        // Returned value
         return iCountResult + ";" + lSumResult;
     }
 
-    private static String getArrayLimits(StringBuilder sbValues){
-        // This method will store into a string the MIN and MAX values
-        // from a StringBuilder argument.
-        // The method will separate all the numbers from the string argument
+    private static String getRangeLimits(StringBuilder sbValues){
+        // This method will return a string with the MIN and MAX values
+        // from a StringBuilder argument that holds numbers separated
+        // usually by spaces.
+        // Actually, the method will separate the numbers by anything is not:
+        //   number (0..9), decimal separator or '-'.
+        // The method will separate all the numbers from the argument
         // and will return a string result as follows:
         // [MIN Value];[MAX value]
 
         // Initial validation
         if (sbValues.isEmpty()) return "ERROR;ERROR";
 
-        // Regular expression for split method: every non number character
+        // Regular expression for SPLIT method: anything that's not a number character
         // except for '-' and current decimal separator
         String sRegEx = "[^0-9-" + new DecimalFormatSymbols().getDecimalSeparator() + "]";
 
-        // Stores only numbers into an array of doubles
+        // Stores the numbers into an array of doubles
         String arValues[] = sbValues.toString().split(sRegEx);
 
+        // Initialises returned values
         double dMinValue = Double.MAX_VALUE;
         double dMaxValue = Double.MIN_VALUE;
 
@@ -193,6 +201,7 @@ public class StringExercises {
             if (dTempValue < dMinValue) dMinValue = dTempValue;
             else if (dTempValue > dMaxValue) dMaxValue = dTempValue;
         }
+        // Returned value
         return dMinValue + ";" + dMaxValue;
     }
 }
