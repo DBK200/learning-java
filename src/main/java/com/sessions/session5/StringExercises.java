@@ -200,8 +200,8 @@ public class StringExercises {
         double dMinValue = Double.MAX_VALUE;
         double dMaxValue = Double.MIN_VALUE;
 
-        for (int i = 0; i < arValues.length; i++) {
-            double dTempValue = Double.parseDouble(arValues[i]);
+        for (String item : arValues) {
+            double dTempValue = Double.parseDouble(item);
             if (dTempValue < dMinValue) dMinValue = dTempValue;
             else if (dTempValue > dMaxValue) dMaxValue = dTempValue;
         }
