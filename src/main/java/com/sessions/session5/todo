@@ -1,0 +1,18 @@
+1. Write a program to print all alphabets from a to z
+2. Write a program to print reverse alphabets from Z to A
+3. Write a program to print all odd number between 1 to 100
+4. Write a Program to Check Given String is a Palindrome or Not
+5. Write a program to find number and sum of all integer between 100 and 200 which are divisible by 9
+6. Write a program to enter the numbers till the user wants and at the end the program should display the largest and smallest numbers entered.
+
+Notes:
+- there is more than one way to solve the exercises :)
+- the inputs of the methods you write does not necessarily needs to come from the user input, but if you want you can use Scanner class to request inputs
+from the user, for example:
+         Scanner input = new Scanner(System.in);
+         String str = input.nextLine();
+         //  this will wait for the user to input a String and then store it as a String object with the refference name "str"
+         // in this way the values are dinamic, inserted by an user in the terminal
+
+    - as an alternative, you can just provide a hardcoded String in your method like
+     String str = "some string here for testing";
