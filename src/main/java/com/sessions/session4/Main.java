@@ -1,4 +1,7 @@
-package com.sessions;
+package com.sessions.session4;
+
+import com.sessions.session4.Car;
+import com.sessions.session4.GPU;
 
 public class Main {
     public static void main(String[] args) {

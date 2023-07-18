@@ -1,4 +1,4 @@
-package com.sessions;
+package com.sessions.session4;
 
 public class GPU {
     String brandName;
