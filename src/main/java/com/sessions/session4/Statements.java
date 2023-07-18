@@ -4,7 +4,7 @@ public class Statements {
 
 
     public static void main(String[] args) {
-//33333
+        //33333
         //conditional statements
         //if-then
 //        int x =1;
