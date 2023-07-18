@@ -1,12 +1,13 @@
 package com.sessions;
 
+//import java.time.LocalDate;
+
+import java.time.*;
 
 public class MyApplication {
 
     public static void main(String[] args) {
-        System.out.println("Hello World");
-            System.out.println("Hello World");
-            System.out.println("Hello World");
+        LocalDate localDate = LocalDate.now();
 
     }
 

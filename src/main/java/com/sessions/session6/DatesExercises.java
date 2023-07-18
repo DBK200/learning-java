@@ -16,12 +16,18 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.TimeZone;
 
 public class DatesExercises {
 
     public static void main(String[] args) {
+
+//        DatesExercises datesExercises = new DatesExercises();
+//        datesExercises.toString();
+
 //        LocalDate dateNow = LocalDate.now();
 //        dateNow.plusDays(2);
 //        System.out.println(dateNow); // date without a time-zone, immutable, year-month-day format
@@ -33,27 +39,41 @@ public class DatesExercises {
 
         //isBefore method
 
-        //now(), with zone id
+//        //now(), with zone id
 //        ZoneId zoneId= ZoneId.of("Australia/Darwin");
 //        LocalDate nowWIthZone= LocalDate.now(zoneId);
 //        System.out.println(nowWIthZone);
 
-//        What Is UTC?
+        //changing current default timezone
+//
+//        LocalDateTime now1=LocalDateTime.now();
+//        System.out.println(now1);
+
+//        System.out.println(now);
+//        TimeZone.setDefault(TimeZone.getTimeZone("Australia/Darwin")); //set current timezone to ...
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC")); //set current timezone to UTC
+
+        LocalDateTime now2=LocalDateTime.now();
+        System.out.println(now2);
+
+
+
+        //        What Is UTC?
 //        UTC—Coordinated Universal Time—is the 24-hour time standard used as a basis for civil time today.
 //        All time zones are defined by their offset from UTC.
 //        The offset is expressed as either UTC- or UTC+ and the number of hours and minutes.
 
         //now() with clock - A clock provides access to the current instant, date and time using a time-zone.
-        Clock clock = Clock.systemDefaultZone();
-        Clock clockWithInstantAndZone = Clock.fixed(Instant.ofEpochSecond(1000000), ZoneId.of("Australia/Darwin")); //helpful for testing
-        System.out.println(LocalDate.now(clockWithInstantAndZone));
-
-        System.out.println(clock);
-        System.out.println(clockWithInstantAndZone);
-        System.out.println(LocalDate.now(clock));
+//        Clock clock = Clock.systemDefaultZone();
+//        Clock clockWithInstantAndZone = Clock.fixed(Instant.ofEpochSecond(1000000), ZoneId.of("Australia/Darwin")); //helpful for testing
+//        System.out.println(LocalDate.now(clockWithInstantAndZone));
+//
+//        System.out.println(clock);
+//        System.out.println(clockWithInstantAndZone);
+//        System.out.println(LocalDate.now(clock));
 //        clock= Clock.system(ZoneId.of("Australia/Darwin"));
 //        System.out.println(LocalDate.now(clock));
-        System.out.println(LocalDate.now(clockWithInstantAndZone));
+//        System.out.println(LocalDate.now(clockWithInstantAndZone));
 
 
         //leap years
@@ -85,13 +105,13 @@ public class DatesExercises {
 //        System.out.println(epochDate2);
 
         //Period
-        Period period = Period.of(1, 1, 1);
-        LocalDate localDate = LocalDate.of(1990, 01, 01);
-        System.out.println(localDate);
-        System.out.println(localDate.plus(period));
-        //Period.between
-        System.out.println(Period.between(localDate, LocalDate.now()));
-        System.out.println(Period.between(localDate, LocalDate.now()).getYears());
+//        Period period = Period.of(1, 1, 1);
+//        LocalDate localDate = LocalDate.of(1990, 01, 01);
+//        System.out.println(localDate);
+//        System.out.println(localDate.plus(period));
+//        //Period.between
+//        System.out.println(Period.between(localDate, LocalDate.now()));
+//        System.out.println(Period.between(localDate, LocalDate.now()).getYears());
 
         //Parsing from string to localdate
 //        String myDateAsString = "2023-12-01";
@@ -113,12 +133,12 @@ public class DatesExercises {
 //        System.out.println(localDateTime1);
 
 //        //Duration
-        LocalTime localTime = LocalTime.now();
+//        LocalTime localTime = LocalTime.now();
 //        Duration duration = Duration.ofHours(1);
 //        System.out.println(localTime.plus(duration));
-        System.out.println(Duration.between(localTime, LocalTime.of(2, 0)));
-        System.out.println(Duration.between(localTime, LocalTime.of(2, 0)).getSeconds());
-        System.out.println(Duration.between(LocalTime.of(2, 0), localTime).getSeconds());
+//        System.out.println(Duration.between(localTime, LocalTime.of(2, 0)));
+//        System.out.println(Duration.between(localTime, LocalTime.of(2, 0)).getSeconds());
+//        System.out.println(Duration.between(LocalTime.of(2, 0), localTime).getSeconds());
 
 
         //LocalDateTime
@@ -203,9 +223,19 @@ public class DatesExercises {
 //        System.out.println(random.nextInt(6, 9));
 
         //Scanner
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+
+        System.out.println("Your value was " + input);
+
 //        Scanner scanner = new Scanner(System.in);
-//        int input = scanner.nextInt();
-//        System.out.println("Your value was " + input);
+//        System.out.println("Input first date: ");
+//        String date1AsString = scanner.nextLine();
+//        LocalDate localDate1 = LocalDate.parse(date1AsString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+//        System.out.println("Input second date: ");
+//        String date2AsString = scanner.nextLine();
+//        LocalDate localDate2 = LocalDate.parse(date2AsString, DateTimeFormatter.ofPattern("yyyy-dd-MM"));
+//        System.out.println(localDate1.equals(localDate2));
 
     }
 

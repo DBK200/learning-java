@@ -13,6 +13,7 @@ public class StringExercises {
         //String
 //        String animal1="Lion";
 //        String animal2=new String("Lion");
+
 //        System.out.println(animal1.equals(animal2));
 //        System.out.println(animal1 == animal2);
 
