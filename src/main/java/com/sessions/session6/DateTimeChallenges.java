@@ -1,5 +1,5 @@
 package com.sessions.session6;
 
-public class DateTimeChallenge {
+public class DateTimeChallenges {
     //
 }
