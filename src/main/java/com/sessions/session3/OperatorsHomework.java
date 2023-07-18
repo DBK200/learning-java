@@ -1,7 +1,7 @@
 package com.sessions.session3;
 import java.util.Scanner;
 
-public class Main
+public class OperatorsHomework
 {
     public static void main(String[] args)
     {
