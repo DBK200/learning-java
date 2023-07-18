@@ -4,11 +4,13 @@ package com.sessions;
 
 import java.time.*;
 
-public class MyApplication {
+public class MyApplication{
 
     public static void main(String[] args) {
-        LocalDate localDate = LocalDate.now();
+        MyApplication myApplication = new MyApplication();
+        myApplication.toString();
 
+        LocalDate localDate = LocalDate.now();
     }
 
 }
