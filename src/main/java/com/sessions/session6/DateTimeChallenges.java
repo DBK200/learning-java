@@ -13,7 +13,6 @@ Challenges with LocalDate and LocalDateTime
 
 package com.sessions.session6;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
