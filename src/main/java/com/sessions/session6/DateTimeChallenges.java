@@ -1,6 +1,6 @@
 /*
 
-Challenge with LocalDate and LocalDateTime
+Challenges with LocalDate and LocalDateTime
 [X]  1  Display today's date
 [X]  2  Write a method that prints a LocalDate with the following format 12-2005-20 (month-year-day)
 [X]  3  Check if today is 2019-12-22
