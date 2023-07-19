@@ -74,10 +74,16 @@ public class DateTimeChallenges {
         System.out.printf("%n%s%n%n", "== Exercise no. 4 " + "=".repeat(2));
 
         // Comment the next call if you want to run Exercise no. 6
+        // !!!!
+        // Solved it by eliminating the "scanner.close()" call
+        // !!!!
         compareDates();
         // ==================================================
         // After executing this method,
         // the next one using the Scanner has weird behaviour
+        // !!!!
+        // Solved it by eliminating the "scanner.close()" call
+        // !!!!
         // ==================================================
 
         System.out.printf("%n%s%n", "=".repeat(20));
@@ -99,7 +105,10 @@ public class DateTimeChallenges {
 
         // ====================================================
         // Calling twice the Scanner makes this weird behaviour
-        // in which it's not stopping to get some input
+        // in which it's not stopping to get some input.
+        // !!!!
+        // Solved it by eliminating the "scanner.close()" call
+        // !!!!
         // ====================================================
         getAge();
 
@@ -153,7 +162,7 @@ public class DateTimeChallenges {
             // Skips to next line
             sc.nextLine();
             // Closes the scanner
-            sc.close();
+            //sc.close();
 
             // Uses [n] variable for storing separator index position
             n = sbDates.indexOf("|");
@@ -184,7 +193,7 @@ public class DateTimeChallenges {
             LocalDate dateBDate = LocalDate.parse(sc.nextLine().replaceAll("[^0-9-]","-"));
 
             // Closes the scanner
-            sc.close();
+            //sc.close();
 
             Period periodAge = Period.between(dateBDate, LocalDate.now());
             int iYears = periodAge.getYears();
