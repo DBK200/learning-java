@@ -125,7 +125,7 @@ public class DateTimeChallenges {
         /*-------------------
          |  Exercise no. 6  |
          -------------------*/
-        System.out.printf("%n%s%n%n", "== Exercise no. 5 " + "=".repeat(2));
+        System.out.printf("%n%s%n%n", "== Exercise no. 6 " + "=".repeat(2));
 
         System.out.printf("You are %s old%n", sGetAge());
 
