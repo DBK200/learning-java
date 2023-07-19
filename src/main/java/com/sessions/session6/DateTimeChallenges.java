@@ -47,7 +47,7 @@ public class DateTimeChallenges {
         System.out.println("Current local (Custom) date is: " + LocalDate.now(ZoneId.of("Europe/London"))
                 + "\nCurrent local (Custom) time: " + LocalTime.now(ZoneId.of("Europe/London")));
 
-        System.out.printf("%n%s%n", "=".repeat(21));
+        System.out.printf("%n%s%n", "=".repeat(20));
 
         /*-------------------
          |  Exercise no. 2  |
@@ -57,7 +57,7 @@ public class DateTimeChallenges {
         System.out.println("1. " + customDateFormat("9/17/2023"));
         System.out.println("2. " + customDateFormat("19/07/2023"));
 
-        System.out.printf("%n%s%n", "=".repeat(21));
+        System.out.printf("%n%s%n", "=".repeat(20));
 
         /*-------------------
          |  Exercise no. 3  |
@@ -67,12 +67,70 @@ public class DateTimeChallenges {
         System.out.println("Today is 2019-12-22 returned: " +
                 LocalDate.now().isEqual(LocalDate.parse("2019-12-22")));
 
-        System.out.printf("%n%s%n", "=".repeat(21));
+        System.out.printf("%n%s%n", "=".repeat(20));
 
         /*-------------------
          |  Exercise no. 4  |
          -------------------*/
         System.out.printf("%n%s%n%n", "== Exercise no. 4 " + "=".repeat(2));
+
+        // Comment the next call if you want to run Exercise no. 6
+        compareDates();
+        // ==================================================
+        // After executing this method,
+        // the next one using the Scanner has weird behaviour
+        // ==================================================
+
+        System.out.printf("%n%s%n", "=".repeat(20));
+
+        /*-------------------
+         |  Exercise no. 5  |
+         -------------------*/
+        System.out.printf("%n%s%n%n", "== Exercise no. 5 " + "=".repeat(2));
+
+        System.out.printf("Non-formatted local time is %s%n", LocalTime.now());
+        System.out.printf("Formatted local time is %s%n", customTimeFormat());
+
+        System.out.printf("%n%s%n", "=".repeat(20));
+
+        /*-------------------
+         |  Exercise no. 6  |
+         -------------------*/
+        System.out.printf("%n%s%n%n", "== Exercise no. 6 " + "=".repeat(2));
+
+        // ====================================================
+        // Calling twice the Scanner makes this weird behaviour
+        // in which it's not stopping to get some input
+        // ====================================================
+        getAge();
+
+        System.out.printf("%n%s%n", "=".repeat(20));
+    }
+
+    private static String customDateFormat(String sDate) {
+        // Initial validation
+        // Because [sDate] argument should be of type "dd.MM.yyyy",
+        // changes separators into '.'
+        String sResult = sDate.replaceAll("[^0-9-]","-");
+
+        try {
+            // Gets the date from [sDate] string
+            // [dateResult] will have Java's native format "yyyy-M-d"
+            LocalDate dateResult = LocalDate.parse(sResult,
+                    DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+            // Method output with requested date format
+            return "Input date: " + sDate + "\n" +
+                    "[MM-yyyy-dd] formatted date is: " +
+                    dateResult.format(DateTimeFormatter.ofPattern("MM-yyyy-dd"));
+        }
+        catch (DateTimeParseException e) {
+            return "Wrong input date!\nInput date has to have the following succession: Day, Month and Year!";
+        }
+
+    }
+
+    private static void compareDates() {
 
         // Scanner initialising
         Scanner sc = new Scanner(System.in);
@@ -106,51 +164,8 @@ public class DateTimeChallenges {
             System.out.printf("The statement \"%tF is the same with %tF\" returned: %b%n",
                     dateFirst, dateSecond, dateFirst.isEqual(dateSecond));
         }
-        catch (DateTimeParseException e) {
+        catch (Exception e) {//DateTimeParseException e) {
             System.out.println("Wrong input date!\nInput date has to have Java's native format yyyy-M-d.");
-        }
-
-        System.out.printf("%n%s%n", "=".repeat(21));
-
-        /*-------------------
-         |  Exercise no. 5  |
-         -------------------*/
-        System.out.printf("%n%s%n%n", "== Exercise no. 5 " + "=".repeat(2));
-
-        System.out.printf("Non-formatted local time is %s%n", LocalTime.now());
-        System.out.printf("Formatted local time is %s%n", customTimeFormat());
-
-        System.out.printf("%n%s%n", "=".repeat(21));
-
-        /*-------------------
-         |  Exercise no. 6  |
-         -------------------*/
-        System.out.printf("%n%s%n%n", "== Exercise no. 6 " + "=".repeat(2));
-
-        System.out.printf("You are %s old%n", sGetAge());
-
-        System.out.printf("%n%s%n", "=".repeat(21));
-    }
-
-    private static String customDateFormat(String sDate) {
-        // Initial validation
-        // Because [sDate] argument should be of type "dd.MM.yyyy",
-        // changes separators into '.'
-        String sResult = sDate.replaceAll("[^0-9-]","-");
-
-        try {
-            // Gets the date from [sDate] string
-            // [dateResult] will have Java's native format "yyyy-M-d"
-            LocalDate dateResult = LocalDate.parse(sResult,
-                    DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-
-            // Method output with requested date format
-            return "Input date: " + sDate + "\n" +
-                    "[MM-yyyy-dd] formatted date is: " +
-                    dateResult.format(DateTimeFormatter.ofPattern("MM-yyyy-dd"));
-        }
-        catch (DateTimeParseException e) {
-            return "Wrong input date!\nInput date has to have the following succession: Day, Month and Year!";
         }
 
     }
@@ -158,16 +173,16 @@ public class DateTimeChallenges {
         return LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
 
-    private static String sGetAge() {
-        // Scanner initialising
-        Scanner sc = new Scanner(System.in);
-
-        // Input message
-        System.out.print("Please enter your birth date [yyyy-MM-dd]: ");
-
+    private static void getAge() {
         try {
-            // Birthdate storage variable with some validation applied
-            LocalDate  dateBDate = LocalDate.parse(sc.nextLine().replaceAll("[^0-9-]","-"));
+            // Scanner initialising
+            Scanner sc = new Scanner(System.in);
+
+            // Input message
+            System.out.print("Please enter your birth date [yyyy-MM-dd]: ");
+
+             // Birthdate storage variable with some validation applied
+            LocalDate dateBDate = LocalDate.parse(sc.nextLine().replaceAll("[^0-9-]","-"));
 
             // Closes the scanner
             sc.close();
@@ -180,12 +195,12 @@ public class DateTimeChallenges {
             // Method output takes into account if entered birthdate
             // is before current date, otherwise returns an
             // implausible input date message
-            return (dateBDate.isBefore(LocalDate.now())) ?
-                    iYears + " years " + iMonths + " months and " + iDays + " days" :
-                    "{Implausible birthdate input}";
+            System.out.println( (dateBDate.isBefore(LocalDate.now())) ?
+                    "You are " + iYears + " years " + iMonths + " months and " + iDays + " days old" :
+                    "ERROR: Implausible birthdate input!" );
         }
         catch (DateTimeParseException e) {
-            return "Wrong input date!\nInput date has to have the following succession: Year, Month and Day.";
+            System.out.println("Wrong input date!\nInput date has to be yyyy-MM-dd.");
         }
     }
 
