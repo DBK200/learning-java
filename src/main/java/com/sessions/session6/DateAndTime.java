@@ -43,5 +43,7 @@ public class DateAndTime {
         System.out.println(myLocalDateFromString.getDayOfWeek());
         System.out.println(myLocalDateFromString.getYear());
 
+
+
     }
 }
