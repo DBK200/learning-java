@@ -91,6 +91,7 @@ public class DateTimeContinuedClass {
 
 
         // Scanner class
+/*
         Scanner sc = new Scanner(System.in);
         int userNumber = sc.nextInt();
         int pcNumber = random.nextInt();
@@ -98,13 +99,15 @@ public class DateTimeContinuedClass {
                 + "\nYou have inserted this number: " + userNumber
                 + "\nPC has generated this number: " + pcNumber);
         sc.close();
+*/
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int i = 0;
         System.out.println("Please some numbers to be added [q/Q to quit]:");
-        while (sc.hasNext()) {
-            i += sc.nextInt();
-            if (sc.next().equalsIgnoreCase("q")) break;
+        //scanner.useDelimiter("-");
+        while (scanner.hasNextInt()) {
+            i += scanner.nextInt();
+            //if (scanner.next().equalsIgnoreCase("q")) break;
         }
         System.out.println("Sum is " + i);
 
