@@ -3,6 +3,7 @@ package com.sessions.session6;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
 
 
 public class DateAndTimePractice {
@@ -17,7 +18,7 @@ public class DateAndTimePractice {
         System.out.println(localDate);
 
         localDate.plusDays(2);
-        System.out.println(localDate); //prints...
+        System.out.println(localDate);
 
         localDate.plus(2, ChronoUnit.YEARS);
 
@@ -51,6 +52,10 @@ public class DateAndTimePractice {
         System.out.println(myLocalDateFromString.getDayOfWeek());
         System.out.println(myLocalDateFromString.getDayOfMonth());
         System.out.println(myLocalDateFromString.getDayOfYear());
+
+
+
+
 
 
 
