@@ -91,7 +91,6 @@ public class DateTimeContinuedClass {
 
 
         // Scanner class
-/*
         Scanner sc = new Scanner(System.in);
         int userNumber = sc.nextInt();
         int pcNumber = random.nextInt();
@@ -99,7 +98,6 @@ public class DateTimeContinuedClass {
                 + "\nYou have inserted this number: " + userNumber
                 + "\nPC has generated this number: " + pcNumber);
         sc.close();
-*/
 
         Scanner scanner = new Scanner(System.in);
         int i = 0;
