@@ -38,13 +38,14 @@ public class DateAndTime
 
                 // parse
 
-                String myDateAsString = "1990-10-11";
-                LocalDate myLocalDateFromString = LocalDate.parse(myDateAsString);
-                    DateTimeFormatter.ofPattern("yyyy.MM.dd");
-                 System.out.println(myLocalDateFromString.format(DateTimeFormatter.ofPattern("yy-dd-M")));
-                 System.out.println(myLocalDateFromString.getDayOfWeek());
-                 System.out.println(myLocalDateFromString.getDayOfYear());
-                 System.out.println(myLocalDateFromString.getDayOfMonth());
+                //String myDateAsString = "1990-10-11";
+               // LocalDate myLocalDateFromString = LocalDate.parse(myDateAsString);
+                    //DateTimeFormatter.ofPattern("yyyy.MM.dd");
+                // System.out.println(myLocalDateFromString.format(DateTimeFormatter.ofPattern("yy-dd-M")));
+                // System.out.println(myLocalDateFromString.getDayOfWeek());
+                // System.out.println(myLocalDateFromString.getDayOfYear());
+                // System.out.println(myLocalDateFromString.getDayOfMonth());
+
 
     }
 }
