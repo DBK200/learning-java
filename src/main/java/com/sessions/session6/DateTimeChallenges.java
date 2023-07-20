@@ -133,7 +133,7 @@ public class DateTimeChallenges {
                     dateResult.format(DateTimeFormatter.ofPattern("MM-yyyy-dd"));
         }
         catch (DateTimeParseException e) {
-            return "Wrong input date!\nInput date has to have the following succession: Day, Month and Year!";
+            return "Wrong input date ["+ sDate +"]!\nInput date has to have the following succession: Day, Month and Year!";
         }
 
     }
