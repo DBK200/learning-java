@@ -166,8 +166,8 @@ public class DateTimeChallenges {
 
             // Uses [n] variable for storing separator index position
             n = sbDates.indexOf("|");
-            LocalDate dateFirst = LocalDate.parse(sbDates.substring(0,n));
-            LocalDate dateSecond = LocalDate.parse(sbDates.substring(n+1));
+            LocalDate dateFirst = LocalDate.parse(sbDates.substring(0,n).replaceAll("[^0-9-]","-"));
+            LocalDate dateSecond = LocalDate.parse(sbDates.substring(n+1).replaceAll("[^0-9-]","-"));
 
             System.out.printf("The statement \"%tF is the same with %tF\" returned: %b%n",
                     dateFirst, dateSecond, dateFirst.isEqual(dateSecond));
