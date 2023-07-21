@@ -5,6 +5,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.ZoneId;
+
 public class DateAndTime {
     public static void main(String[] args) {
 //        LocalDate myLocalDate1 = LocalDate.now();
@@ -35,13 +36,29 @@ public class DateAndTime {
 //        System.out.println(myLocalDate2.format(DateTimeFormatter.ofPattern("yyy-dd-MMMM")));
 
         //parse
-        String myDateAsString = "1990-10-11";
-        LocalDate myLocalDateFromString = LocalDate.parse(myDateAsString);
-        System.out.println(myLocalDateFromString);
+//        String myDateAsString = "1990-10-11";
+//        LocalDate myLocalDateFromString = LocalDate.parse(myDateAsString);
+//        System.out.println(myLocalDateFromString);
+//
+//        System.out.println(myLocalDateFromString.format(DateTimeFormatter.ofPattern("yy-dd-m")));
+//        System.out.println(myLocalDateFromString.getDayOfWeek());
+//        System.out.println(myLocalDateFromString.getYear());
 
-        System.out.println(myLocalDateFromString.format(DateTimeFormatter.ofPattern("yy-dd-m")));
-        System.out.println(myLocalDateFromString.getDayOfWeek());
-        System.out.println(myLocalDateFromString.getYear());
+        //Period
+//       Period discountPeriod = Period.of(1,1,1);
+//       LocalDate localDate = LocalDate.of(1990,10,3);
+//        System.out.println(localDate);
+//        System.out.println(localDate.plus(discountPeriod));
+
+        //LocalTime
+        LocalTime presentLocalTime = LocalTime.now();
+        System.out.println(presentLocalTime);
+
+        Duration duration = Duration.ofHours(2);
+        LocalTime localTimeplusPeriod = presentLocalTime.plus(duration);
+        System.out.println(localTimeplusPeriod);
+        Duration durationBetween = Duration.between(presentLocalTime, localTimeplusPeriod);
+        System.out.println(durationBetween);
 
 
 
