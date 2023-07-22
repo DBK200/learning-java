@@ -11,6 +11,5 @@ public class MyApplication
         System.out.println("Hello world");
 
         System.out.println("Salutari din InteliJ");
-
     }
 }

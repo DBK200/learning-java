@@ -107,21 +107,21 @@ public class DateTimePractice
 //
 //        System.out.println(asiaZoneDateTime);
 
-        Date date = new Date();
-
-        date.setTime(7807);
-
-        System.out.println(date.toInstant());
-
-        int sum = 0;
-
-        Scanner scanner = new Scanner(System.in);
-
-        while(scanner.hasNextInt())
-        {
-            sum += scanner.nextInt();
-        }
-
-        System.out.println("Sum is: " + sum);
+//        Date date = new Date();
+//
+//        date.setTime(7807);
+//
+//        System.out.println(date.toInstant());
+//
+//        int sum = 0;
+//
+//        Scanner scanner = new Scanner(System.in);
+//
+//        while(scanner.hasNextInt())
+//        {
+//            sum += scanner.nextInt();
+//        }
+//
+//        System.out.println("Sum is: " + sum);
     }
 }
