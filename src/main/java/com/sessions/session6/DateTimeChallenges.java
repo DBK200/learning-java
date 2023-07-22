@@ -13,6 +13,7 @@ Challenges with LocalDate and LocalDateTime
 
 package com.sessions.session6;
 
+import java.io.FilterInputStream;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
@@ -141,7 +142,8 @@ public class DateTimeChallenges {
     private static void compareDates() {
 
         // Scanner initialising
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(new FilterInputStream(System.in){public void close(){}});
 
         // Input message
         System.out.print("Please enter next two dates for comparison [yyyy-MM-dd]: ");
@@ -162,7 +164,7 @@ public class DateTimeChallenges {
             // Skips to next line
             sc.nextLine();
             // Closes the scanner
-            //sc.close();
+            sc.close();
 
             // Uses [n] variable for storing separator index position
             n = sbDates.indexOf("|");
@@ -193,7 +195,7 @@ public class DateTimeChallenges {
             LocalDate dateBDate = LocalDate.parse(sc.nextLine().replaceAll("[^0-9-]","-"));
 
             // Closes the scanner
-            //sc.close();
+            sc.close();
 
             Period periodAge = Period.between(dateBDate, LocalDate.now());
             int iYears = periodAge.getYears();
