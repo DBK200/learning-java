@@ -1,9 +1,9 @@
-1. Write a program to print all alphabets from a to z
-2. Write a program to print reverse alphabets from Z to A
-3. Write a program to print all odd number between 1 to 100
-4. Write a Program to Check Given String is a Palindrome or Not
-5. Write a program to find number and sum of all integer between 100 and 200 which are divisible by 9
-6. Write a program to enter the numbers till the user wants and at the end the program should display the largest and smallest numbers entered.
+1. Write a program to print all alphabets from a to z -- done in method
+2. Write a program to print reverse alphabets from Z to A -- done in method with StringBuilder class
+3. Write a program to print all odd number between 1 to 100 -- done without conditional statement
+4. Write a Program to Check Given String is a Palindrome or Not -- done with 2 methods using String and StringBuilder classes
+5. Write a program to find number and sum of all integer between 100 and 200 which are divisible by 9 --done
+6. Write a program to enter the numbers till the user wants and at the end the program should display the largest and smallest numbers entered. --done
 
 Notes:
 - there is more than one way to solve the exercises :)
