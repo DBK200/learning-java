@@ -9,8 +9,6 @@ Challenges with LocalDate and LocalDateTime
 [X]  6  Write a method that calculates your age based on your birthday. The date of birth must be read from the console
         (you can use Period object to compare the date of birth with current date)
 
-
-
  */
 
 package com.sessions.session6;
