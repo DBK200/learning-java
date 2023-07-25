@@ -4,9 +4,25 @@ package com.sessions.session6;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 import java.util.Scanner;
 
 public class DateAndTimeHomework {
+    public static String resultChoiceString(int choice) {
+        switch (choice) {
+            case 0:
+                return "Rock";
+
+            case 1:
+                return "Paper";
+
+            default:
+                return "Scissors";
+
+
+
+        }
+    }
 
     public static void main(String[] args){
 //-----------   1 Display today's date
@@ -86,6 +102,8 @@ public class DateAndTimeHomework {
         System.out.println();
         String localTime=LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         System.out.println("Locat time is: "+localTime);
+        String localTime1=LocalTime.now().format(DateTimeFormatter.ofPattern("mm:HH:ss"));
+        System.out.println("Locat time is: "+localTime1);
 
         System.out.println();
 
@@ -110,6 +128,55 @@ public class DateAndTimeHomework {
 //        System.out.println("You are: "+period.getYears() + " years "+period.getMonths() + " months "+ period.getDays()+" days old");
 
 
+
+        //rock scissors paper game
+        Random random=new Random();
+        int pcChoice=random.nextInt(3);
+
+        String pcChoiceString=resultChoiceString(pcChoice);
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Choices: " );
+        System.out.println("0 - Rock");
+        System.out.println("1 - Paper");
+        System.out.println("2 - Scissors");
+        System.out.print("Enter the number corresponding to your choice: ");
+        int userChoice=scanner.nextInt();
+        while(userChoice<0 || userChoice>2){
+            System.out.print("You entered an invalid number. Please enter one of the options above: ");
+            userChoice=scanner.nextInt();
+        }
+
+        String userChoiceString=resultChoiceString(userChoice);
+
+        System.out.printf("%-15s %-11s %n","Your Choice", "PC Choice");
+        System.out.println("-----------------------------------------");
+        System.out.printf("%-15s %-11s %n",userChoiceString,pcChoiceString);
+        System.out.println("-----------------------------------------");
+
+
+
+        if(userChoiceString.equals(pcChoiceString)){
+            System.out.println("Draw");
+        }
+        if(userChoiceString.equals("Rock") && pcChoiceString.equals("Scissors")){
+            System.out.println("You win");
+        }
+        if(userChoiceString.equals("Scissors") && pcChoiceString.equals("Rock")){
+            System.out.println("PC wins");
+        }
+        if(userChoiceString.equals("Paper") && pcChoiceString.equals("Scissors")){
+            System.out.println("PC wins");
+        }
+        if(userChoiceString.equals("Scissors") && pcChoiceString.equals("Paper")){
+            System.out.println("You win");
+        }
+        if(userChoiceString.equals("Rock") && pcChoiceString.equals("Paper")){
+            System.out.println("You win");
+        }
+        if(userChoiceString.equals("Paper") && pcChoiceString.equals("Rock")){
+            System.out.println("PC wins");
+        }
 
 
 
