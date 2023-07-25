@@ -2,9 +2,7 @@ package com.sessions.session6;
 
 
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -33,7 +31,7 @@ public class DateAndTimeHomework {
 //  ---------  3 Checking if today is 2019-12-22
         System.out.println("3. Checking if today is 2019-12-22");
         //the variable today is defined in the first exercise
-        boolean isToday=LocalDate.of(2019,12,22).equals(today);
+        boolean isToday=LocalDate.of(2019,12,22).isEqual(today);
         if(isToday){
             System.out.println("Today is 2019-12-22");
 
@@ -41,6 +39,13 @@ public class DateAndTimeHomework {
             System.out.println("Today is not 2019-12-22 ");
         }
         System.out.println();
+
+
+//        LocalDate someDate=LocalDate.of(2023,7,20);
+//        boolean dateIsBefore=today.isBefore(someDate);
+//        boolean dateIsAfter=today.isAfter(someDate);
+//
+//        System.out.println((dateIsBefore  || dateIsAfter) ? "not equal" :"equal");
 
 
 
@@ -103,6 +108,8 @@ public class DateAndTimeHomework {
 //
 //        Period period= Period.between(birthday,today);
 //        System.out.println("You are: "+period.getYears() + " years "+period.getMonths() + " months "+ period.getDays()+" days old");
+
+
 
 
 
