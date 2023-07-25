@@ -18,9 +18,19 @@ public class Tema {
         System.out.println("2."+HomeworkDate1.format(DateTimeFormatter.ofPattern("MM-YYYY-dd")));
 
         //3 Checking if today is 2019-12-22
-        LocalDate HomeworkDate2 = LocalDate.of(2019,12,22);
-        boolean date1isBeforeHomeworkDate2 = TodayDate.isBefore(HomeworkDate2);
-        System.out.println("3."+date1isBeforeHomeworkDate2);
+        LocalDate HomeworkDate2 = LocalDate.of(2023,07,20);
+         boolean date1isBeforeHomeworkDate2 = TodayDate.isBefore(HomeworkDate2);
+         boolean date1isBeforeHomeworkDate3 = TodayDate.isAfter(HomeworkDate2);
+         boolean date1isBeforeHomeworkDate4 = (!date1isBeforeHomeworkDate2 | !date1isBeforeHomeworkDate3);
+        System.out.println("3."+date1isBeforeHomeworkDate4);
+
+      /* if (TodayDate.isEqual(HomeworkDate2)) {
+            System.out.println("3.The dates are equal");
+        } else {
+            System.out.println("3.The dates are not equal");}
+*/
+
+
 
         //4 Judging whether two dates read from console are equal
         ZoneId zoneId = ZoneId.of("Europe/Paris");
