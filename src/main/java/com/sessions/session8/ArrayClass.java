@@ -47,12 +47,24 @@ public class ArrayClass {
         Arrays.sort(carMakers);
         System.out.println(Arrays.toString(carMakers));
 
-        System.out.println("[Mercedes] is found in position " + Arrays.binarySearch(carMakers, "Mercedes"));
+        System.out.println("[Mercedes] was found in position " + Arrays.binarySearch(carMakers, "Mercedes"));
 
         // Variable arguments
-
+        printAddressFromVarArgs("Romania", "Bucuresti", "Bd. Balcescu", "Nr. 2");
 
 
     }
+
+    private static void printAddress(String sCountry, String sCity, String sStreet) {
+        System.out.println(sCountry + " " + sCity + " " + sStreet);
+    }
+
+    // Var arg must be placed at the end of method's declaration
+    private static void printAddressFromVarArgs(String ... sInput) {
+        for (int i = 0; i < sInput.length; i++){
+            System.out.print(((i == 0) ? "" : ", ") + sInput[i]);
+        }
+    }
+
 
 }
