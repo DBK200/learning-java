@@ -71,6 +71,8 @@ public class HomeworkAplication {
         LocalDate birthDay = LocalDate.parse(input.next() ,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         homework.yourAge(birthDay);
 
+        input.close();
+
     }
 
 }
