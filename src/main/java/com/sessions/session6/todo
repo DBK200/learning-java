@@ -1,0 +1,8 @@
+Challenge with LocalDate and LocalDateTime
+   1 Display today's date
+   2 Write a method that prints a LocalDate with the following format 12-2005-20 (month-year-day)
+   3 Checking if today is 2019-12-22
+   4 Judging whether two dates read from console are equal
+   5 Write a method that prints local time with the following format HH:mm:ss
+   6 Write a method that calculates your age based on your birthday. The date of birth must be read from the console
+        (you can use Period object to compare the date of birth with current date)
