@@ -1,0 +1,58 @@
+package com.sessions.session8;
+
+import java.util.Arrays;
+
+public class ArrayClass {
+    public static void main(String[] args) {
+
+        // Arrays
+        int[] numbers =new int[] {2,3,6,7,9,2,3};
+        numbers[0] = 3;
+        for (int x: numbers) {
+            System.out.println(x);
+        }
+
+        // Next declaration through an out of bound exception
+        // because the index is grater than array's dimension
+        // numbers[7] = ....
+
+        String[][] userNames = {
+                {"Alex", "Diana", "Andreea"},
+                {"Popescu", "Ionescu"}
+        };
+        // Print Diana Ionescu
+        System.out.println("Name is: " + userNames[0][1] + " " + userNames[1][1]);
+
+        // copyOfRange method
+        String[] carMakers = {"Audi", "Audii", "Mercedes", "BMW", "Peugeot", "Renault", "Citroen"};
+        String[] germanMakers = Arrays.copyOfRange(carMakers, 3, 6);
+
+        for (String name: germanMakers) {
+            System.out.println(name);
+        }
+
+        // Binary search
+        int[] sortedNumbers = {1,2,3,4,5,6};
+        // If value is not found, returns where value would be found
+        int iResult = Arrays.binarySearch(sortedNumbers, 5);
+        System.out.println("Number 5 was found in position " + iResult);
+
+        int[] unsortedNumbers = {7,3,4,8,1,2};
+        // If value is not found, returns ... a surprise
+        iResult = Arrays.binarySearch(unsortedNumbers, 5);
+        System.out.println("Number 5 was found in position " + iResult);
+
+        // Sorting arrays
+        System.out.println(Arrays.toString(carMakers));
+        Arrays.sort(carMakers);
+        System.out.println(Arrays.toString(carMakers));
+
+        System.out.println("[Mercedes] is found in position " + Arrays.binarySearch(carMakers, "Mercedes"));
+
+        // Variable arguments
+
+
+
+    }
+
+}
