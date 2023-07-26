@@ -1,15 +1,16 @@
 /*
 
-Challenges with LocalDate and LocalDateTime
-[X]  1  Display today's date
-[X]  2  Write a method that prints a LocalDate with the following format 12-2005-20 (month-year-day)
-[X]  3  Check if today is 2019-12-22
-[X]  4  Judging whether two dates read from console are equal
-[X]  5  Write a method that prints local time with the following format HH:mm:ss
-[X]  6  Write a method that calculates your age based on your birthday. The date of birth must be read from the console
-        (you can use Period object to compare the date of birth with current date)
+   Challenges with LocalDate and LocalDateTime
+   [X]  1  Display today's date
+   [X]  2  Write a method that prints a LocalDate with the following format 12-2005-20 (month-year-day)
+   [X]  3  Check if today is 2019-12-22
+   [X]  4  Judging whether two dates read from console are equal
+   [X]  5  Write a method that prints local time with the following format HH:mm:ss
+   [X]  6  Write a method that calculates your age based on your birthday.
+           The date of birth must be read from the console.
+           (you can use Period object to compare the date of birth with current date)
 
- */
+*/
 
 package com.sessions.session6;
 

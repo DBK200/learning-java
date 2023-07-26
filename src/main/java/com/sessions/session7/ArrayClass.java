@@ -1,4 +1,10 @@
-package com.sessions.session8;
+/**********************
+ *                    *
+ *  Date: 25.07.2023  *
+ *                    *
+ **********************/
+
+package com.sessions.session7;
 
 import java.util.Arrays;
 

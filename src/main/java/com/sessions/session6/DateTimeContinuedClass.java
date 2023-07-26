@@ -1,4 +1,10 @@
-package com.sessions.session7;
+/**********************
+ *                    *
+ *  Date: 20.07.2023  *
+ *                    *
+ **********************/
+
+package com.sessions.session6;
 
 import java.time.*;
 import java.util.Date;
