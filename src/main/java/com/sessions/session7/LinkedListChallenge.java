@@ -11,6 +11,7 @@
    Use a ListIterator, to move, both backwards and forwards, through this ordered itinerary of places.
    First, create a type that has a town or place name, and a field for storing the distance from the start.
    Sydney should be the first element in your list.
+
    In addition, you'll create an interactive program with the following menu item options:
 
    Available actions (select word or letter):
@@ -31,13 +32,13 @@ public class LinkedListChallenge {
         // Different declaration using {var} keyword
         // var townLinkedList = new LinkedList<Town>();
         LinkedList<Town> llTowns = new LinkedList<>();
-        llTowns.add(new Town("Sydney", 0));
-        llTowns.add(new Town("Adelaide", 1374));
-        llTowns.add(new Town("Alice Springs", 2771));
-        llTowns.add(new Town("Brisbane", 917));
-        llTowns.add(new Town("Darwin", 3972));
-        llTowns.add(new Town("Melbourne", 917));
-        llTowns.add(new Town("Perth", 3923));
+        addItem(llTowns, new Town("Sydney", 0));
+        addItem(llTowns, new Town("Adelaide", 1374));
+        addItem(llTowns, new Town("Alice Springs", 2771));
+        addItem(llTowns, new Town("Brisbane", 917));
+        addItem(llTowns, new Town("Darwin", 3972));
+        addItem(llTowns, new Town("Melbourne", 917));
+        addItem(llTowns, new Town("Perth", 3923));
 
         // Sorts the list, first by distance, then by town name
         llTowns.sort(new Compare());
@@ -45,26 +46,33 @@ public class LinkedListChallenge {
         ListIterator<Town> iterator = llTowns.listIterator();
 
         Scanner sc = new Scanner(System.in);
-        String sMenu = "\nSelect action:\n(F)orward\n(B)ackward\n(L)ist Places\n(M)enu\n(Q)uit\n";
+        String sMenu = """
+                \nAvailable actions:
+                (F)orward
+                (B)ackwards
+                (L)ist Places
+                (M)enu
+                (Q)uit """;
 
+        // Variable used for list index checking
         int iIndex = 0;
 
         System.out.println(sMenu);
         while (true) {
+            System.out.print("\nEnter a choice: ");
             String sInput = sc.nextLine().toUpperCase();
-
             // Quit
             if (sInput.startsWith("Q")) break;
 
-                // Menu printing
+            // Menu printing
             else if (sInput.startsWith("M"))
                 System.out.println(sMenu);
 
-                // List printing
+            // List printing
             else if (sInput.startsWith("L"))
                 printList(llTowns);
 
-                // Moving forward
+            // Moving forward
             else if (sInput.startsWith("F")) {
                 if (iterator.hasNext()) {
                     if (iterator.nextIndex() == iIndex) {
@@ -97,7 +105,37 @@ public class LinkedListChallenge {
 
     }
 
-    private static void printList(LinkedList<Town> llTowns) {
+
+    /**
+     * Adds a Town object to a LinkedList of Towns, after checking its existence in the list.<br>
+     * {@code Town} class has two instance variables:<br>
+     * - {@code name} (type String)<br>and<br>
+     * - {@code distance} (type int).
+     * @param llTowns LinkedList of Town objects
+     * @param tTown Town object to be added to the list
+     */
+    public static void addItem(LinkedList<Town> llTowns, Town tTown) {
+        // A restrictive check
+        // if (llTowns.contains(tTown)) return;
+
+        // A less efficient but close to what an existence is supposed to be
+        for (Town element: llTowns) {
+            // If something matches town name exits the method
+            if (element.getName().equalsIgnoreCase(tTown.getName())) return;
+        }
+
+        llTowns.add(tTown);
+    }
+
+
+    /**
+     * Prints the LinkedList of Town objects.
+     * {@code Town} class has two instance variables:<br>
+     * - {@code name} (type String)<br>and<br>
+     * - {@code distance} (type int).
+     * @param llTowns LinkedList of Town objects
+     */
+    public static void printList(LinkedList<Town> llTowns) {
 
         System.out.println("List content is: ");
 
@@ -131,7 +169,7 @@ class Town {
 
     @Override
     public String toString() {
-        return name + " (" + distance + ")";
+        return String.format("%s (%d km)",name ,distance);
     }
 }
 
