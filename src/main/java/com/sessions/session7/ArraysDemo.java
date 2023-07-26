@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ArraysDemo {
+public class  ArraysDemo {
     public static void main(String[] args) {
         //Arrays
 //        int[] numbers = new int[3];
