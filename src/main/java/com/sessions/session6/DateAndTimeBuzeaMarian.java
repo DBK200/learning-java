@@ -1,16 +1,8 @@
 package com.sessions.session6;
 
-import java.time.LocalDate;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.time.ZoneId;
-import java.time.DateTimeException;
-import java.util.Date;
-import java.util.Random;
 import java.util.Scanner;
 
-public class DateAndTime {
+public class DateAndTimeBuzeaMarian {
     public static void main(String[] args) {
 //        LocalDate myLocalDate1 = LocalDate.now();
 //        System.out.println(myLocalDate1);
@@ -108,15 +100,15 @@ public class DateAndTime {
 //        System.out.println(random.nextDouble());
 
         //Scanner
-//        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 //        String myString = scanner.nextLine();
 //        System.out.println("you inserted these words: "+myString);
 
 //        int userNumber = scanner.nextInt();
 //        Random random = new Random();
 //        int pcNumber = random.nextInt(10);
-////        System.out.println("You have inserted these number: "+userNumber);
-////        System.out.println("PC has generated this number: "+pcNumber);
+//        System.out.println("You have inserted these number: "+userNumber);
+//        System.out.println("PC has generated this number: "+pcNumber);
 
 //        Scanner scanner = new Scanner(System.in);
 //        int sum = 0;
@@ -129,12 +121,12 @@ public class DateAndTime {
 //        }
 //        System.out.println("Sum is "+sum);
 
-        Scanner scanner = new Scanner(System.in);
-        int sum = 0;
-        while (scanner.hasNext()){
-            sum += scanner.nextInt();
-
-        }
-        System.out.println("Sum is "+sum);
+//        Scanner scanner = new Scanner(System.in);
+//        int sum = 0;
+//        while (scanner.hasNext()){
+//            sum += scanner.nextInt();
+//
+//        }
+//        System.out.println("Sum is "+sum);
     }
 }
