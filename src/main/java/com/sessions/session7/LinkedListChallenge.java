@@ -30,7 +30,7 @@ import java.util.*;
 public class LinkedListChallenge {
     public static void main(String[] args) {
         // Different declaration using {var} keyword
-        // var townLinkedList = new LinkedList<Town>();
+        // var llTowns = new LinkedList<Town>();
         LinkedList<Town> llTowns = new LinkedList<>();
         addItem(llTowns, new Town("Sydney", 0));
         addItem(llTowns, new Town("Adelaide", 1374));
@@ -44,6 +44,7 @@ public class LinkedListChallenge {
         // Sorts the list, first by distance, then by town name
         llTowns.sort(new Compare());
 
+        // List navigation object
         ListIterator<Town> iterator = llTowns.listIterator();
 
         Scanner sc = new Scanner(System.in);
