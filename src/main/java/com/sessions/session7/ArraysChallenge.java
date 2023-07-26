@@ -6,7 +6,7 @@
 
 /*
 
-   Challenge
+   == Challenge ==
    [X]  1.  Create a shopping list with Array and print the values
    [X]  2.  Create a wishlist for Christmas with ArrayList and print the values
    [X]  3.  Create 2 empty ArrayLists: [studentList] and [graduateStudentList]
