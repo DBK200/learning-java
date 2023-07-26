@@ -9,7 +9,7 @@
    Challenge
    [X]  1.  Create a shopping list with Array and print the values
    [X]  2.  Create a wishlist for Christmas with ArrayList and print the values
-   [ ]  3.  Create 2 empty ArrayLists: [studentList] and [graduateStudentList]
+   [X]  3.  Create 2 empty ArrayLists: [studentList] and [graduateStudentList]
             a.  populate studentList with 10 students
             b.  copy values from studentList to graduateStudentList
             c.  iterate through graduateStudentList and print each graduated student
