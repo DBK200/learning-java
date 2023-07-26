@@ -34,6 +34,7 @@ public class LinkedListChallenge {
         LinkedList<Town> llTowns = new LinkedList<>();
         addItem(llTowns, new Town("Sydney", 0));
         addItem(llTowns, new Town("Adelaide", 1374));
+        addItem(llTowns, new Town("Adelaide", 1000));
         addItem(llTowns, new Town("Alice Springs", 2771));
         addItem(llTowns, new Town("Brisbane", 917));
         addItem(llTowns, new Town("Darwin", 3972));
@@ -121,7 +122,10 @@ public class LinkedListChallenge {
         // A less efficient but close to what an existence is supposed to be
         for (Town element: llTowns) {
             // If something matches town name exits the method
-            if (element.getName().equalsIgnoreCase(tTown.getName())) return;
+            if (element.getName().equalsIgnoreCase(tTown.getName())) {
+                System.out.printf("%s is already present in the list!", tTown.getName());
+                return;
+            }
         }
 
         llTowns.add(tTown);
