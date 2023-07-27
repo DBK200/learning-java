@@ -14,18 +14,18 @@ public class Homework {
         }
 
         System.out.println( "\n\n2.Create a wishlist");
-        List wishList = new ArrayList<>();
+        List<String> wishList = new ArrayList<>();
         wishList.add("red blanket");
         wishList.add("bicycle");
         wishList.add("jeans");
         System.out.print("The wish list: ");
-        for (String item : shoppingList) {
+        System.out.println(wishList);
+        for (String item : wishList) {
             System.out.print(item + " ");
         }
 
         System.out.println( "\n\n3. Create 2 arrays");
-        List studentList = new ArrayList();
-        List graduateStudentList = new ArrayList();
+        List<String> studentList = new ArrayList<>();
         studentList.add("Alexandru Popescu");
         studentList.add("Elena Ionescu");
         studentList.add("Mihai Dumitrescu");
@@ -36,11 +36,12 @@ public class Homework {
         studentList.add("Maria Gheorghiu");
         studentList.add("Ion Preda");
         studentList.add("Laura Cojocaru");
-        graduateStudentList.addAll(studentList);
+        List<String> graduateStudentList = new ArrayList<>(studentList);
         System.out.println("The graduate student list:");
-        int index = 1;
-        for(int i = 0; i < graduateStudentList.size(); i++) {
-            System.out.println(index++ + ". " + graduateStudentList.get(i));
-        }
+//        int index = 1;
+//        for (String s : graduateStudentList) {
+//            System.out.println(index++ + ". " + s);
+//        }
+        graduateStudentList.forEach(System.out::println);
     }
 }
