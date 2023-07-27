@@ -63,7 +63,8 @@ public class LinkedListChallenge {
         while (true) {
             System.out.print("\nEnter a choice: ");
             String sInput = sc.nextLine().toUpperCase();
-            // Quit
+            
+           // Quit
             if (sInput.startsWith("Q")) break;
 
             // Menu printing
@@ -122,7 +123,7 @@ public class LinkedListChallenge {
 
         // A less efficient but close to what an existence is supposed to be
         for (Town element: llTowns) {
-            // If something matches town name exits the method
+            // If something matches town's name, exits the method
             if (element.getName().equalsIgnoreCase(tTown.getName())) {
                 System.out.printf("%s is already present in the list!", tTown.getName());
                 return;
@@ -174,7 +175,7 @@ class Town {
 
     @Override
     public String toString() {
-        return String.format("%s (%d km)",name ,distance);
+        return String.format("%s (%d km)", name, distance);
     }
 }
 
@@ -188,10 +189,10 @@ class Compare implements Comparator<Town> {
         else if ( tSecond.getDistance() - tFirst.getDistance() < 0 ) iDistanceCompare = 1;
         else iDistanceCompare = -1;
 
-        // [name] comparison in ascending order
+        // 2nd level comparison by [name] in ascending order
         int iNameCompare = tFirst.getName().compareTo(tSecond.getName());
 
-        // 2nd level comparison
+        // comparison logic
         return (iDistanceCompare == 0) ? iNameCompare : iDistanceCompare;
     }
 }
