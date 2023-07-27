@@ -1,6 +1,7 @@
 package com.sessions.session7;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Homework {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class Homework {
         }
 
         System.out.println( "\n\n2.Create a wishlist");
-        ArrayList<String> wishList = new ArrayList<>();
+        List wishList = new ArrayList<>();
         wishList.add("red blanket");
         wishList.add("bicycle");
         wishList.add("jeans");
@@ -23,8 +24,8 @@ public class Homework {
         }
 
         System.out.println( "\n\n3. Create 2 arrays");
-        ArrayList studentList = new ArrayList();
-        ArrayList graduateStudentList = new ArrayList();
+        List studentList = new ArrayList();
+        List graduateStudentList = new ArrayList();
         studentList.add("Alexandru Popescu");
         studentList.add("Elena Ionescu");
         studentList.add("Mihai Dumitrescu");
@@ -35,7 +36,7 @@ public class Homework {
         studentList.add("Maria Gheorghiu");
         studentList.add("Ion Preda");
         studentList.add("Laura Cojocaru");
-        graduateStudentList = studentList;
+        graduateStudentList.addAll(studentList);
         System.out.println("The graduate student list:");
         int index = 1;
         for(int i = 0; i < graduateStudentList.size(); i++) {
