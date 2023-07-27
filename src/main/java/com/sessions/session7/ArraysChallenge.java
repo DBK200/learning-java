@@ -21,7 +21,6 @@ package com.sessions.session7;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class ArraysChallenge {
 
@@ -90,7 +89,7 @@ public class ArraysChallenge {
 
         System.out.printf("%n%s%n%n", "== Exercise no. 3 " + "=".repeat(2));
 
-        List<String> studentList = new ArrayList<>();
+        ArrayList<String> studentList = new ArrayList<>();
         // Populates the list with values
         for (int i = 0; i < 10; i++) {
             studentList.add("Student" + ((i + 1 < 10) ? "0" : "") + (i+1));
@@ -98,7 +97,7 @@ public class ArraysChallenge {
         // List values printout
         System.out.println("[studentList] list is: " + Arrays.toString(studentList.toArray()));
 
-        List<String> graduateStudentList = new ArrayList<>(studentList);
+        ArrayList<String> graduateStudentList = new ArrayList<>(studentList);
         for (int i = 0; i < graduateStudentList.size(); i++) {
             System.out.print(((i == 0) ? "[graduateStudentList] list is: " : ", ") + graduateStudentList.get(i));
         }
