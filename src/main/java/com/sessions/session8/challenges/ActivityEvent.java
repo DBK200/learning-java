@@ -72,11 +72,14 @@ public class ActivityEvent {
     }
 
     /**
-     * <p>This method adds a new participant to {@code participants} list after checks if is not already present in the list.<br>
-     * If a person with the same {@code firstName} and {@code lastName} is found in the list, prints out a warning message.</p>
+     * <p>This method adds a new participant to {@code participants} list, after it checks if is not
+     * already present in the list.<br>
+     * If a person with the same {@code firstName} and {@code lastName} is found in the list,
+     * prints out a warning message.</p>
      * @param firstName is the participant's first name
      * @param lastName is the participant's last name
-     * @return {@code true} if the participant was added successfully and {@code false} if the participant is already present in {@code participants} list or method's arguments were wrong.
+     * @return {@code true} if the participant was added successfully and {@code false} if the participant
+     * is already present in {@code participants} list or method's arguments were wrong.
      */
     public boolean addParticipant(String firstName, String lastName) {
         // Initial validation
@@ -92,7 +95,7 @@ public class ActivityEvent {
             Participant participantPerson = iterator.next();
             if (participantPerson.getFirstName().equalsIgnoreCase(firstName)
                     && participantPerson.getLastName().equalsIgnoreCase(lastName)) {
-                System.out.printf("[Warning]%nA participant {%S %S} is already present in the list!", firstName, lastName);
+                System.out.printf("[Warning] A participant {%S %S} is already present in the list!%n", firstName, lastName);
                 return false;
             }
         }

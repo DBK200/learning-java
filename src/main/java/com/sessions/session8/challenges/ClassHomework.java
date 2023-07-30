@@ -18,6 +18,9 @@ public class ClassHomework {
         // Adds up 10 participants to the event
         // addParticipant() creates 10 class [Participant] new objects
         printAddParticipantsStatus(course1,0,1,10);
+        // Checks if {addParticipant()} adds a duplicate entry
+        printAddParticipantsStatus(course1,0,2,1);
+
 
         // Adds up another event to [course1]
         course1.addEvent(course1.getCode().concat(" 2023.08.08"), "(2023.08.08) ".concat(course1.getName()),
