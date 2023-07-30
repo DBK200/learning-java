@@ -11,25 +11,20 @@ public class ClassHomework {
                 "Centrul de Scolarizare PoRo", "Trainer1");
 
         // Adds up a new event to [course1]
+        // addEvent() creates a class [ActivityEvent] new object
         course1.addEvent(course1.getCode().concat(" 2023.08.01"), "(2023.08.01) ".concat(course1.getName()),
                 LocalDateTime.of(2023,8, 1, 9, 30,0),4);
 
         // Adds up 10 participants to the event
-        int iCounter = 0;
-        for(int i = 0; i < 10; i++) {
-            if (course1.getEvents().get(0).addParticipant("First" + i, "Last"+ i)) iCounter++;
-        }
-        if (iCounter > 0) System.out.printf("Successfully added %d entries to \"%s\" event",
-                iCounter, course1.getEvents().get(0).getName());
+        // addParticipant() creates 10 class [Participant] new objects
+        printAddParticipantsStatus(course1,0,1,10);
 
         // Adds up another event to [course1]
         course1.addEvent(course1.getCode().concat(" 2023.08.08"), "(2023.08.08) ".concat(course1.getName()),
                 LocalDateTime.of(2023,8, 8, 9, 30,0),4);
 
         // Adds 10 participants to the event
-        for(int i = 11; i < 21; i++) {
-            course1.getEvents().get(1).addParticipant("First" + i, "Last"+ i);
-        }
+        printAddParticipantsStatus(course1,1,11,10);
 
         // Prints out [course1] data
         System.out.println(course1.toString());
@@ -46,10 +41,10 @@ public class ClassHomework {
     private static void printAddParticipantsStatus(Activity activity, int eventIndex,
                                                    int iParticipantCountStart, int iParticipantCount) {
         int iCounter = 0;
-        for(int i = iParticipantCountStart; i < iParticipantCount; i++) {
+        for(int i = iParticipantCountStart; i < iParticipantCountStart + iParticipantCount; i++) {
             if (activity.getEvents().get(eventIndex).addParticipant("First" + i, "Last"+ i)) iCounter++;
         }
-        if (iCounter > 0) System.out.printf("Successfully added %d entries to \"%s\" event",
+        if (iCounter > 0) System.out.printf("Successfully added %d entries to \"%s\" event!%n",
                 iCounter, activity.getEvents().get(eventIndex).getName());
     }
 }
