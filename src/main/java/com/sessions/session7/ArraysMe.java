@@ -1,7 +1,5 @@
 package com.sessions.session7;
 
-import java.util.ArrayList;
-
 public class ArraysMe {
     public static void main(String[] args) {
         //Arrays
@@ -53,7 +51,7 @@ public class ArraysMe {
         //  System.out.println (tara+" "+orasul+" "+strada+" "+localitatea);
 
 
-        ArrayList list1 =new ArrayList();
+       /* ArrayList list1 =new ArrayList();
         ArrayList list2 =new ArrayList<>(2);
         ArrayList list3 =list1;
 
@@ -66,7 +64,7 @@ public class ArraysMe {
         list2.add("some string");
         list2.add(2);
 
-        System.out.println(list2);
+        System.out.println(list2);*/
 
     }
     }

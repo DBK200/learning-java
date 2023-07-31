@@ -1,6 +1,6 @@
 package com.sessions.session1;
 
-public class Laptop {
+/*public class Laptop {
 
     private String brandName;
     private int price;
@@ -48,6 +48,7 @@ public class Laptop {
 
     // discount will need validations
     public int applyDiscount(int discount) {
-            return price - discount;
+        return price - discount;
     }
 }
+*/
