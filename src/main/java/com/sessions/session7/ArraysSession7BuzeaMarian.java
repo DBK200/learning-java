@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class ArraysSession7BuzeaMarian {
     public static void main(String[] args) {
-        String [] myShoppingList = {"Breed", "Milk", "Chocolate", "Eggs", "Yogurt"};
+        String [] myShoppingList = {"Bread", "Milk", "Chocolate", "Eggs", "Yogurt"};
 
         ArrayList list1 = new ArrayList();
 
