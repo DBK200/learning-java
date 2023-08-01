@@ -72,6 +72,31 @@ public class ActivityEvent {
     }
 
     /**
+     * <p>This method looks for the existence of a person who has {@code firstName} and {@code lastName},
+     * in {@code participants} list.</p>
+     * @param firstName is the participant's first name
+     * @param lastName is the participant's last name
+     * @return {@code true} if the person was found and {@code false} if not.
+     */
+    public boolean findParticipant(String firstName, String lastName) {
+        // Initial validation
+        if (firstName.isEmpty() || lastName.isEmpty()) return false;
+
+        // Generates an iterator for list navigation
+        ListIterator<Participant> iterator = participants.listIterator();
+
+        // Navigates through list and checks if a participant with [firstName] [lastName]
+        // is already present in the list.
+        while (iterator.hasNext()) {
+            Participant participantPerson = iterator.next();
+            if (participantPerson.getFirstName().equalsIgnoreCase(firstName)
+                    && participantPerson.getLastName().equalsIgnoreCase(lastName)) return true;
+        }
+        // Final output
+        return false;
+    }
+
+    /**
      * <p>This method adds a new participant to {@code participants} list, after it checks if is not
      * already present in the list.<br>
      * If a person with the same {@code firstName} and {@code lastName} is found in the list,
@@ -85,24 +110,15 @@ public class ActivityEvent {
         // Initial validation
         if (firstName.isEmpty() || lastName.isEmpty()) return false;
 
-        // Generates an iterator for list navigation
-        ListIterator<Participant> iterator = participants.listIterator();
-
-        // Navigates through list and checks if a participant with [firstName] [lastName]
-        // is already present in the list.
-        // If a match is found, returns false without adding the participant to the list.
-        while (iterator.hasNext()) {
-            Participant participantPerson = iterator.next();
-            if (participantPerson.getFirstName().equalsIgnoreCase(firstName)
-                    && participantPerson.getLastName().equalsIgnoreCase(lastName)) {
-                System.out.printf("[Warning] A participant {%S %S} is already present in the list!%n", firstName, lastName);
-                return false;
-            }
+        if (findParticipant(firstName, lastName)) {
+            System.out.printf("[Warning] A participant {%S %S} is already present in the list!%n", firstName, lastName);
+            return false;
         }
-
-        // Adds a new participant to the list and returns true
-        participants.add(new Participant(firstName, lastName));
-        return true;
+        else {
+            // Adds a new participant to the list and returns true
+            participants.add(new Participant(firstName, lastName));
+            return true;
+        }
     }
 
     /**

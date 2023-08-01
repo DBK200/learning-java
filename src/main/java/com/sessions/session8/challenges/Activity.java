@@ -13,7 +13,9 @@ import java.util.ListIterator;
 public class Activity {
     private String code;
     private String name;
-    private String type = "online";
+
+    // PROTECTED to allow modification by child classes
+    protected String type = "online";
     private LinkedList<ActivityEvent> events;
 
     public Activity(String code, String name) {
@@ -35,13 +37,6 @@ public class Activity {
         return events;
     }
 
-    /**
-     * @return the value of {@code type}
-     */
-    public String activityType() {
-        return type;
-    }
-
     public void setCode(String code) {
         this.code = code;
     }
@@ -50,8 +45,26 @@ public class Activity {
         this.name = name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+
+    /**
+     * This method looks for the existence of an activity event that has {@code code} as activity event code, in {@code events} list.
+     * @param code is the activity event code
+     * @return {@code true} if the activity event exists and {@code false} if not.
+     */
+    public boolean findActivity(String code) {
+        // Initial validation
+        if (code.isEmpty()) return false;
+
+        // Generates an iterator for list navigation
+        ListIterator<ActivityEvent> iterator = events.listIterator();
+
+        // Navigates through [events] list and checks for presence of
+        // an activity event with [code].
+        while (iterator.hasNext()) {
+            if (iterator.next().getCode().equalsIgnoreCase(code)) return true;
+        }
+        // Final output
+        return false;
     }
 
     /**
@@ -71,26 +84,22 @@ public class Activity {
                 || name.isEmpty()
                 || eventDate.length == 0) return false;
 
-        // Generates an iterator for list navigation
-        ListIterator<ActivityEvent> iterator = events.listIterator();
+        // Checks the activity event existence
+        if (findActivity(code)) {
+            System.out.printf("[Warning] An event with code {%s} is already present in the list!%n", code);
+            return false;
+        }
+        else {
+            // Formats [eventStart] and [eventEnd] course DateTime data
+            LocalDateTime eventStart = eventDate[0];
+            LocalDateTime eventEnd = (eventDate.length > 1) ? eventDate[1] : eventDate[0];
 
-        // Navigates through list and checks if [code] is already present.
-        // If [code] is found, returns false without adding the element to the list.
-        while (iterator.hasNext()) {
-            if (iterator.next().getCode().equalsIgnoreCase(code)) {
-                System.out.printf("[Warning] An event with code {%s} is already present in the list!%n", code);
-                return false;
-            }
+            // Adds a new activity event to the list and returns true.
+            // Sets [parent] of the activity event to current activity [code].
+            events.add(new ActivityEvent(code, name, this.code, eventStart, eventEnd));
+            return true;
         }
 
-        // Formats [eventStart] and [eventEnd] course DateTime data
-        LocalDateTime eventStart = eventDate[0];
-        LocalDateTime eventEnd = (eventDate.length > 1) ? eventDate[1] : eventDate[0];
-
-        // Adds a new activity event to the list and returns true.
-        // Sets [parent] of the activity event to current activity [code].
-        events.add(new ActivityEvent(code, name, this.code,eventStart, eventEnd));
-        return true;
     }
 
     /**

@@ -11,14 +11,9 @@ public class FtfCourse extends Activity {
 
     public FtfCourse(String code, String name, String location, String trainer) {
         super(code, name);
-        super.setType("FtF");
+        super.type = "FtF";
         this.location = location;
         this.trainer = trainer;
     }
 
-    @Override
-    public void setType(String type) {
-        // Locks type setting
-        super.setType("FtF");
-    }
 }
