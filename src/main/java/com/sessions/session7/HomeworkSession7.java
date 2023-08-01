@@ -2,8 +2,6 @@ package com.sessions.session7;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class HomeworkSession7 {
     public static void main(String[] args) {
@@ -23,20 +21,12 @@ public class HomeworkSession7 {
         wishList.add("PlayStation");
         wishList.add("a new car");
 
-//        for(String element : wishList){
-//            System.out.println(element + " ");
-//        }
-//        System.out.println();
         System.out.println("The Christmas wishlist is: ");
-       String[] christmasWishList = wishList.toArray(new String[0]);
+        Object[] christmasWishList = wishList.toArray();
         for( Object listItem : christmasWishList){
             System.out.println(listItem);
         }
         System.out.println();
-
-
-        // from Array to ArrayList
-        List<String> wishList2 = Arrays.asList(christmasWishList);
 
         //3. Create:
             /*
@@ -64,7 +54,7 @@ public class HomeworkSession7 {
 
         // - copy values from studentList to graduateStudentList
         System.out.println("The graduate student list is: ");
-        graduateStudentList = studentList; // cu for each best practice
+        graduateStudentList = studentList;
         for(String element : graduateStudentList){
             System.out.println(element);
         }
