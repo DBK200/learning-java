@@ -115,7 +115,7 @@ public class Array {
 
         //Wrapper classes
         //autoboxing
-        int x=10;
+       // int x=10;
 //        Integer xAsInteger=Integer.valueOf(x);//explicit autoboxing
 //        Integer xAsInteger2=x;//implicit autoboxing
 
