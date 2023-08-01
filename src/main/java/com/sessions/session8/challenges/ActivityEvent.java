@@ -105,6 +105,9 @@ public class ActivityEvent {
         return true;
     }
 
+    /**
+     * @return formatted activity event data
+     */
     @Override
     public String toString() {
         return String.format("ActivityEvent:%n"

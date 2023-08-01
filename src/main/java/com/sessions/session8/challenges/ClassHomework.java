@@ -10,19 +10,24 @@ public class ClassHomework {
         FtfCourse course1 = new FtfCourse("PTB 0EL P.1", "Modul electrica de baza",
                 "Centrul de Scolarizare PoRo", "Trainer1");
 
-        // Adds up a new event to [course1]
+        // Adds a new event to [course1]
         // addEvent() creates a class [ActivityEvent] new object
         course1.addEvent(course1.getCode().concat(" 2023.08.01"), "(2023.08.01) ".concat(course1.getName()),
                 LocalDateTime.of(2023,8, 1, 9, 30,0),4);
 
-        // Adds up 10 participants to the event
+        // Checks if {addEvent()} adds a duplicate entry
+        course1.addEvent(course1.getCode().concat(" 2023.08.01"), "(2023.08.01) ".concat(course1.getName()),
+                LocalDateTime.of(2023,8, 1, 9, 30,0),4);
+
+
+        // Adds 10 participants to the event
         // addParticipant() creates 10 class [Participant] new objects
         printAddParticipantsStatus(course1,0,1,10);
         // Checks if {addParticipant()} adds a duplicate entry
         printAddParticipantsStatus(course1,0,2,1);
 
 
-        // Adds up another event to [course1]
+        // Adds another event to [course1]
         course1.addEvent(course1.getCode().concat(" 2023.08.08"), "(2023.08.08) ".concat(course1.getName()),
                 LocalDateTime.of(2023,8, 8, 9, 30,0),4);
 

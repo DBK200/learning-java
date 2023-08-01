@@ -78,7 +78,7 @@ public class Activity {
         // If [code] is found, returns false without adding the element to the list.
         while (iterator.hasNext()) {
             if (iterator.next().getCode().equalsIgnoreCase(code)) {
-                System.out.printf("[Warning]%nAn event with code {%s} is already present in the list!", code);
+                System.out.printf("[Warning] An event with code {%s} is already present in the list!%n", code);
                 return false;
             }
         }
@@ -135,6 +135,9 @@ public class Activity {
         return new ArrayList<Participant>(result);
     }
 
+    /**
+     * @return formatted activity data
+     */
     @Override
     public String toString() {
         return String.format("Activity info:%n"
