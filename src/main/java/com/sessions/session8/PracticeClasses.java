@@ -1,4 +1,4 @@
-package com.sessions.session8;
+/*ackage com.sessions.session8;
 
 public class PracticeClasses {
 
@@ -12,3 +12,4 @@ public class PracticeClasses {
     }
 
 }
+*/

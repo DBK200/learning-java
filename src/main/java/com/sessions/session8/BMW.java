@@ -1,4 +1,4 @@
-package com.sessions.session8;
+/*package com.sessions.session8;
 
 <<<<<<< HEAD
 public class BMW extends Car {
@@ -13,4 +13,4 @@ public class BMW extends Car{
 
     }
 >>>>>>> main
-}
+}*/

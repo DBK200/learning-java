@@ -1,7 +1,6 @@
-package com.sessions.session1;
+package com.sessions.session8;
 
 public class TemaSession8 {
-
     public static class Product{
 
         private String brandname;
@@ -63,7 +62,7 @@ public class TemaSession8 {
             System.out.println("BRAND"+":"+myWasher.getBrandname());
             System.out.println("COST Only"+":"+myWasher.getPrice()+" "+"Euro");
             System.out.println("NEW WASHER"+":"+myWasher.getIsnew());
-            System.out.println("Lenght"+":"+myWasher.getSize()+"m");
+            System.out.println("Length"+":"+myWasher.getSize()+"m");
             System.out.println("Energy CLASS IS"+":"+myWasher.getEnergy()+"+");
             System.out.println("---------------------------------------------");
         }
@@ -71,13 +70,9 @@ public class TemaSession8 {
             System.out.println("BRAND"+":"+myCar.getBrandname());
             System.out.println("COST Only"+":"+myCar.getPrice()+" "+"Euro");
             System.out.println("NEW Car"+":"+myCar.getIsnew());
-            System.out.println("Lenght"+":"+myCar.getSize()+"m");
+            System.out.println("Length"+":"+myCar.getSize()+"m");
             System.out.println("Car runs on"+":"+myCar.getEnergy()+"as");
             System.out.println("---------------------------------------------");
         }
     }
-
 }
-
-
-
