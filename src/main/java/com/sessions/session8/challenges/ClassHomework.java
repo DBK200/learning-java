@@ -35,7 +35,7 @@ public class ClassHomework {
         printAddParticipantsStatus(course1,1,11,10);
 
         // Prints out [course1] data
-        System.out.println(course1.toString());
+        System.out.println(course1);
 
     }
 
