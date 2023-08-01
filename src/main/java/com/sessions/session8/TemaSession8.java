@@ -1,7 +1,7 @@
 package com.sessions.session8;
 
 public class TemaSession8 {
-    public static class Product{
+    public static class Product {
 
         private String brandname;
         private int price;
@@ -9,70 +9,52 @@ public class TemaSession8 {
         private double size;
         private char energy;
 
-        private String getBrandname(){
+        // Constructor for Product
+        public Product(String brandname, int price, boolean isnew, double size, char energy) {
+            this.brandname = brandname;
+            this.price = price;
+            this.isnew = isnew;
+            this.size = size;
+            this.energy = energy;
+        }
+
+        // Getters
+        public String getBrandname() {
             return brandname;
         }
-        private void setBrandname(String brandname){
-            this.brandname= brandname;
-        }
-        private int getPrice(){
+
+        public int getPrice() {
             return price;
         }
-        private void setPrice(int price){
-            this.price=price;
-        }
-        private boolean getIsnew(){
+
+        public boolean isIsnew() {
             return isnew;
         }
-        private void setIsnew(boolean isnew){
-            this.isnew=isnew;
-        }
-        private double getSize(){
+
+        public double getSize() {
             return size;
         }
-        private void setSize(double size){
-            this.size=size;
-        }
-        private char getEnergy(){
+
+        public char getEnergy() {
             return energy;
-        }
-        private void setEnergy(char energy){
-            this.energy=energy;
         }
     }
 
     public static void main(String[] args) {
-        Product myWasher=new Product();
-        Product myCar=new Product();
-        {
-            myWasher.setBrandname("Whirlpool");
-            myWasher.setPrice(200);
-            myWasher.setIsnew(true);
-            myWasher.setSize(1.5);
-            myWasher.setEnergy('A');
-        }
-        {
-            myCar.setBrandname("Hyundai");
-            myCar.setPrice(1000);
-            myCar.setIsnew(false);
-            myCar.setSize(9.3);
-            myCar.setEnergy('G');
-        }
-        {
-            System.out.println("BRAND"+":"+myWasher.getBrandname());
-            System.out.println("COST Only"+":"+myWasher.getPrice()+" "+"Euro");
-            System.out.println("NEW WASHER"+":"+myWasher.getIsnew());
-            System.out.println("Length"+":"+myWasher.getSize()+"m");
-            System.out.println("Energy CLASS IS"+":"+myWasher.getEnergy()+"+");
-            System.out.println("---------------------------------------------");
-        }
-        {
-            System.out.println("BRAND"+":"+myCar.getBrandname());
-            System.out.println("COST Only"+":"+myCar.getPrice()+" "+"Euro");
-            System.out.println("NEW Car"+":"+myCar.getIsnew());
-            System.out.println("Length"+":"+myCar.getSize()+"m");
-            System.out.println("Car runs on"+":"+myCar.getEnergy()+"as");
-            System.out.println("---------------------------------------------");
-        }
+        Product myWasher = new Product("Whirlpool", 200, true, 1.5, 'A');
+        Product myCar = new Product("Hyundai", 1000, false, 9.3, 'G');
+
+        displayProductInfo(myWasher);
+        displayProductInfo(myCar);
+    }
+
+    public static void displayProductInfo(Product product) {
+        System.out.println("BRAND" + ":" + product.getBrandname());
+        System.out.println("COST Only" + ":" + product.getPrice() + " Euro");
+        System.out.println("NEW " + (product.isIsnew() ? "WASHER" : "Car"));
+        System.out.println("Length" + ":" + product.getSize() + "m");
+        System.out.println("Energy CLASS IS" + ":" + product.getEnergy() + "+");
+        System.out.println("---------------------------------------------");
     }
 }
+
