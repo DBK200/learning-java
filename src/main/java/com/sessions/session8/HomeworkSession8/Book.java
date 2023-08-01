@@ -1,4 +1,4 @@
-package com.sessions.HomeworkSession8;
+package com.sessions.session8.HomeworkSession8;
 
 public class Book {
     private String title;
