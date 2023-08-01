@@ -55,6 +55,7 @@ public class TemaSession8 {
         System.out.println("Length" + ":" + product.getSize() + "m");
         System.out.println("Energy CLASS IS" + ":" + product.getEnergy() + "+");
         System.out.println("---------------------------------------------");
+
     }
 }
 
