@@ -6,8 +6,7 @@ public class PracticeClasses {
         Car myCar = new Car(4, "red", "benzina");
         System.out.println(myCar.getPaintColor()); // se poate apela din orice clasa
 //        myCar.printHorsepower(); // nu o putem apela din alta clasa
-        BMW bmw =  new Bmw();
-        Student student = Student();
+        BMW bmw = new BMW();
 
     }
 
