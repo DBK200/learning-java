@@ -4,8 +4,9 @@ public class WorkingWithOOP
 {
     public static void main(String[] args)
     {
-        Car car = new Car(4,"Blue", "Benzina");
-
-        System.out.println("Color of the car is: " + car.getPaintColor());
+        Car myCar = new Car(4, "red", "benzina");
+        System.out.println(myCar.getPaintColor()); // se poate apela din orice clasa
+//        myCar.printHorsepower(); // nu o putem apela din alta clasa
+        BMW bmw = new BMW();
     }
 }

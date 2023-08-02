@@ -35,6 +35,7 @@ public class TimeHomework
         }
 
         //Exercise 4
+        System.out.println();
         System.out.println("Enter the first date: ");
         LocalDate date1 = readDate(scanner);
         System.out.println("Enter the second date: ");
@@ -59,6 +60,13 @@ public class TimeHomework
 
         //Exercise 5
         displayTimeWithCustomFormat();
+
+        //Exercise 6
+        System.out.println("Bellow you need to introduce your birth day");
+        System.out.println();
+        LocalDate yourBirthDay = readDate(scanner);
+
+        System.out.println("Your age in present is: " + calculateYourAge(yourBirthDay));
     }
 
     private static void displayTodaysDate()
@@ -119,4 +127,18 @@ public class TimeHomework
         System.out.println();
     }
 
+    private static int calculateYourAge(LocalDate yourBirthDate)
+    {
+        LocalDate currentDate = LocalDate.now();
+
+        int age = currentDate.getYear() - yourBirthDate.getYear();
+
+        if(currentDate.getMonthValue() < yourBirthDate.getMonthValue() ||
+                (currentDate.getMonthValue() == yourBirthDate.getMonthValue() && currentDate.getDayOfMonth() < yourBirthDate.getDayOfMonth()))
+        {
+            age--;
+        }
+
+        return age;
+    }
 }
