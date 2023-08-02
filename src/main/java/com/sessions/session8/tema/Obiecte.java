@@ -28,6 +28,7 @@ public class Obiecte
         myAtv.setNumberOfWheels(4);
 
         //4:Frigider
+
         Frigider myFrigider=new Frigider();
         myFrigider.setBrand("Arctic");
         myFrigider.setColor("White");
