@@ -4,7 +4,6 @@ public class ClassHomework {
 
     public static void main(String[] args) {
 //        Animal lion=new Animal(4,"yellow");
-//
 //        System.out.println(lion.GetColor());
 
 //        Student student1=new Student("David",9);
