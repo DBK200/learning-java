@@ -1,12 +1,12 @@
-//package com.sessions.session9;
-//
-//import java.time.LocalDate;
-//
-//public class PracticeClasses {
-//
-//    // variabila care nu e statica - nu poate fi apelata intr-o metoda statica, dar ceea ce este static poate fi folosit oriunde in cadrul clasei, adica atat in metode
-//    // statice cat si non-statice
-//
+package com.sessions.session9;
+
+import java.time.LocalDate;
+
+public class PracticeClasses {
+
+    // variabila care nu e statica - nu poate fi apelata intr-o metoda statica, dar ceea ce este static poate fi folosit oriunde in cadrul clasei, adica atat in metode
+    // statice cat si non-statice
+
 //    public int age; // instance variable
 //                    // we need an instance in order to call this variable
 //
@@ -16,8 +16,8 @@
 //    // static variables
 //    public static int counter;
 //    final private static int counter2 = 0;
-//
-//    public static void main(String[] args) {
+
+    public static void main(String[] args) {
 //       int result = calculateSum(2, 3);
 //        System.out.println(result);
 //        // counter2 = 2;
@@ -51,5 +51,5 @@
 //
 //    private static void printVariables2(){
 //        int x = 0;
-//    }
-//}
+    }
+}
