@@ -1,6 +1,7 @@
 package com.sessions.session6;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -39,12 +40,25 @@ public class TimeHomework
         System.out.println("Enter the second date: ");
         LocalDate date2 = readDate(scanner);
 
-        if(comparingDates(date1, date2) == 1)
+        int resultOfComparing = comparingDates(date1, date2);
+
+        System.out.println();
+
+        if(resultOfComparing > 0)
         {
-            System.out.println("First date ");
+            System.out.println("First date " + date1 + " is after the second date " + date2);
+        }
+        else if(resultOfComparing < 0)
+        {
+            System.out.println("First date " + date1 + " is before the second date " + date2);
+        }
+        else
+        {
+            System.out.println("Dates are equal!");
         }
 
         //Exercise 5
+        displayTimeWithCustomFormat();
     }
 
     private static void displayTodaysDate()
@@ -94,4 +108,15 @@ public class TimeHomework
     {
         return date1.compareTo(date2);
     }
+
+    private static void displayTimeWithCustomFormat()
+    {
+        DateTimeFormatter customFormat = DateTimeFormatter.ofPattern("HH:ss:mm");
+        LocalTime time = LocalTime.of(12, 13, 44);
+
+        System.out.println();
+        System.out.println("The time with the custom format is: " + time.format(customFormat));
+        System.out.println();
+    }
+
 }
