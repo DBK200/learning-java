@@ -1,0 +1,23 @@
+                                       Initializarea
+         -Instanta=obiect
+         -intai ruleaza static ,doar o data si dupa instanta
+         -instanta se foloseste cand vrei sa initializezi niste variabile
+         -THIS-obiect al clasei curente
+         -THIS()-ne referim la contructorul din clasa curenta
+         -ORDINE:static,instance,constructor,alte metode
+         -ordinea nu este mereu la rand
+         -cand discutam despre static ,se ruleaza prima data
+         -contructorul se ruleaza inaintea metodelor
+                                      Mostenirea
+
+         -mostenim propietati,refolosim din cod
+         -sa facem overriding
+         -daca vreau sa fac o clasa si nu vreau sa o mosteneasaca nimeni facem clasa final
+         -un avantaj la mostenire este acela ca putem suprascrie metodele
+                                       Encapsulation
+
+         -cand folosim getter si setter folosim implicit Encapsulation
+         -gruparea datelor si metodelor in aceeasi unitate
+         -nu dau acces la date direct
+
+
