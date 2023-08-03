@@ -85,7 +85,7 @@ public class Activity {
         else {
             // Formats [eventStart] and [eventEnd] course DateTime data
             LocalDateTime eventStart = eventDate[0];
-            LocalDateTime eventEnd = (eventDate.length > 1) ? eventDate[1] : eventDate[0];
+            LocalDateTime eventEnd = (eventDate.length > 1) ? eventDate[1] : eventDate[0].plusHours(8);
 
             // Adds a new activity event to the list and returns true.
             // Sets [parent] of the activity event to current activity [code].

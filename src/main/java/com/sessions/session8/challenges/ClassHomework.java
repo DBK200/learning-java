@@ -23,7 +23,7 @@ public class ClassHomework {
         // Adds 10 participants to the event
         // addParticipant() creates 10 class [Participant] new objects
         printAddParticipantsStatus(course1,0,1,10);
-        // Checks if {addParticipant()} adds a duplicate entry
+        // Checks if {addParticipant()} adds a duplicate entry to participants list
         printAddParticipantsStatus(course1,0,2,1);
 
 
@@ -32,7 +32,7 @@ public class ClassHomework {
                 LocalDateTime.of(2023,8, 8, 9, 30,0),4);
 
         // Adds 10 participants to the event
-        // The method also checks if {addParticipant()} creates duplicate [Persons] class objects
+        // Checks if {addParticipant()} creates duplicate [Persons] class objects
         printAddParticipantsStatus(course1,1,9,10);
 
         // Prints out [course1] data

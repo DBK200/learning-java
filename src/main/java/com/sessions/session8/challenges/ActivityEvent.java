@@ -17,7 +17,18 @@ public class ActivityEvent {
     private LocalDateTime eventEnd;
     private LinkedList<Persons> participants;
 
-    public ActivityEvent(String code, String name, String parent, LocalDateTime eventStart, LocalDateTime eventEnd) {
+    public ActivityEvent(String code, String name, String parent) {
+        this.code = code;
+        this.name = name;
+        this.parent = parent;
+        eventStart = LocalDateTime.now();
+        this.eventEnd = eventStart.plusHours(8);
+        // Instantiates the variable
+        participants = new LinkedList<>();
+    }
+
+    public ActivityEvent(String code, String name, String parent,
+                         LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.code = code;
         this.name = name;
         this.parent = parent;
