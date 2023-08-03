@@ -34,11 +34,11 @@ public class UserM {
             int sum = firstNumber + secondNumber;
             lastName = "Buzea";
             firstName = "Marian";
-            numberOfMemberFamily = 3;
+            numberOfMemberFamily = 4;
             age = 23;
             System.out.println("My name is "+ lastName + firstName);
             System.out.println("My age is "+ age);
-            System.out.println("User have 2 brothers "+numberOfMemberFamily);
+            System.out.println("User has 2 brothers "+numberOfMemberFamily);
             return sum;
         }
 
