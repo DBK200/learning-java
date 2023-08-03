@@ -1,0 +1,8 @@
+Session9 challenge is on Sessions8.challenges
+
+Added features/improvements:
+1. Optimisations and formatting of Javadocs
+2. Persons.java: Added new static instance variable {LinkedList<Persons> registrations}
+3. Persons.java: Added new static method {Persons findPerson(String, String)}
+4. ActivityEvent.java: Modified {int addParticipant(String, String)} method to avoid
+                       creating new [Persons] class objects if they already exist.
