@@ -1,0 +1,8 @@
+Challenge
+    1. Create a shopping list with Array and print the values
+    2. Create a wishlist for christmas with ArrayList and print the values
+    3. Create
+        - 2 empty ArrayLists: studentList and graduateStudentList
+        - populate studentList with 10 students
+        - copy values from studentList to graduateStudentList
+        - iterate through graduateStudentList and print each graduated student
