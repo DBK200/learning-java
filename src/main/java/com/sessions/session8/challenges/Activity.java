@@ -37,19 +37,11 @@ public class Activity {
         return events;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     /**
-     * This method looks for the existence of an activity event that has {@code code} as activity event code, in {@code events} list.
-     * @param code is the activity event code
-     * @return {@code true} if the activity event exists and {@code false} if not.
+     * This method looks for the existence of an activity event that has {@link Activity#code} as activity event code, in {@link Activity#events} list.
+     * @param code the activity event code
+     * @return {@code true} if the activity event was found. <br>
+     * {@code false} if the activity event wasn't found.
      */
     public boolean findActivity(String code) {
         // Initial validation
@@ -68,15 +60,16 @@ public class Activity {
     }
 
     /**
-     * <p>This method adds a new activity event to the {@code events} list after it checks
-     * if an activity event with the same {@code code} as the new activity event isn't
+     * <p>This method adds a new activity event to the {@link Activity#events} list after it checks
+     * if an activity event with the same {@link Activity#code} as the new activity event isn't
      * already present in the list.
      * <br>If an event with the same code is found in the list, prints out a warning message.</p>
-     * @param code is the activity event code
-     * @param name is the activity event name
+     * @param code the activity event code
+     * @param name the activity event name
      * @param eventDate (variable arguments) are the activity event start and end dates.<br>If only one argument is passed,
-     *                   event's {@code endDate} is identical with event's {@code startDate}.
-     * @return {@code true} if the event was added successfully and {@code false} if the event already exists or at least one method argument was wrong.
+     *                   {@link ActivityEvent#eventEnd} will be identical with {@link ActivityEvent#eventStart}.
+     * @return {@code true} if the event was added successfully. <br>
+     * {@code false} if the event activity already exists or at least one method argument was wrong.
      */
     public boolean addEvent(String code, String name, LocalDateTime...eventDate) {
         // Initial validation
@@ -103,15 +96,16 @@ public class Activity {
     }
 
     /**
-     * <p>This method adds a new activity event to the {@code events} list after it checks
-     * if an activity event with the same {@code code} as the new activity event isn't
+     * <p>This method adds a new activity event to the {@link Activity#events} list after it checks
+     * if an activity event with the same {@link Activity#code} as the new activity event isn't
      * already present in the list.
      * <br>If an event with the same code is found in the list, prints out a warning message.</p>
-     * @param code is the activity event code
-     * @param name is the activity event name
+     * @param code the activity event code
+     * @param name the activity event name
      * @param eventStart event's start date.
      * @param days event's duration in days. One day has 8 training hours.
-     * @return {@code true} if the event was added successfully and {@code false} if the event already exists or at least one method argument was wrong.
+     * @return {@code true} if the event was added successfully <br>
+     * {@code false} if the event already exists or at least one method argument was wrong.
      */
     public boolean addEvent(String code, String name, LocalDateTime eventStart, long days) {
         // Initial validation.
@@ -129,11 +123,11 @@ public class Activity {
      * This method aggregates into one ArrayList, all the participants registered to the events.
      * @return an aggregate ArrayList with all the registered participants.
      */
-    public ArrayList<Participant> getParticipants() {
+    public ArrayList<Persons> getParticipants() {
         // Generates an iterator for list navigation
         ListIterator<ActivityEvent> iterator = events.listIterator();
 
-        LinkedList<Participant> result = new LinkedList<>();
+        LinkedList<Persons> result = new LinkedList<>();
 
         // Navigates through the list of events and adds up every [participants] list
         // to an aggregate [result] list.
@@ -141,7 +135,7 @@ public class Activity {
             result.addAll(iterator.next().getParticipants());
         }
 
-        return new ArrayList<Participant>(result);
+        return new ArrayList<Persons>(result);
     }
 
     /**

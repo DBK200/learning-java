@@ -32,7 +32,8 @@ public class ClassHomework {
                 LocalDateTime.of(2023,8, 8, 9, 30,0),4);
 
         // Adds 10 participants to the event
-        printAddParticipantsStatus(course1,1,11,10);
+        // The method also checks if {addParticipant()} creates duplicate [Persons] class objects
+        printAddParticipantsStatus(course1,1,9,10);
 
         // Prints out [course1] data
         System.out.println(course1);
@@ -50,7 +51,7 @@ public class ClassHomework {
                                                    int iParticipantCountStart, int iParticipantCount) {
         int iCounter = 0;
         for(int i = iParticipantCountStart; i < iParticipantCountStart + iParticipantCount; i++) {
-            if (activity.getEvents().get(eventIndex).addParticipant("First" + i, "Last"+ i)) iCounter++;
+            if (activity.getEvents().get(eventIndex).addParticipant("First" + i, "Last"+ i) > -1) iCounter++;
         }
         if (iCounter > 0) System.out.printf("Successfully added %d entries to \"%s\" event!%n",
                 iCounter, activity.getEvents().get(eventIndex).getName());
