@@ -47,8 +47,8 @@ public class Persons {
      * in {@link Persons#registrations} list.</p>
      * @param firstName person's first name
      * @param lastName person's last name
-     * @return {@code true} if the person was found <br>
-     * {@code false} if the person wasn't found.
+     * @return {@link Persons} object with given parameters if the person was found <br>
+     * {@code null} if the person wasn't found.
      */
     static public Persons findPerson(String firstName, String lastName) {
         // Initial validation
