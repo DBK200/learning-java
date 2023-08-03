@@ -52,9 +52,5 @@ public class ClassHomework {
         System.out.println("Type: " + cat.getType());
         System.out.println("Age: " + cat.getAge());
         System.out.println("Color: " + cat.getColor());
-
-
-
-
     }
 }
