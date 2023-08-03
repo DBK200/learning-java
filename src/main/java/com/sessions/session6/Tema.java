@@ -19,9 +19,9 @@ public class Tema {
 
         //3 Checking if today is 2019-12-22
         LocalDate HomeworkDate2 = LocalDate.of(2023,07,20);
-         boolean date1isBeforeHomeworkDate2 = TodayDate.isBefore(HomeworkDate2);
-         boolean date1isBeforeHomeworkDate3 = TodayDate.isAfter(HomeworkDate2);
-         boolean date1isBeforeHomeworkDate4 = (!date1isBeforeHomeworkDate2 | !date1isBeforeHomeworkDate3);
+        boolean date1isBeforeHomeworkDate2 = TodayDate.isBefore(HomeworkDate2);
+        boolean date1isBeforeHomeworkDate3 = TodayDate.isAfter(HomeworkDate2);
+        boolean date1isBeforeHomeworkDate4 = (!date1isBeforeHomeworkDate2 | !date1isBeforeHomeworkDate3);
         System.out.println("3."+date1isBeforeHomeworkDate4);
 
       /* if (TodayDate.isEqual(HomeworkDate2)) {
