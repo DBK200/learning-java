@@ -89,8 +89,7 @@ public class Activity {
 
             // Adds a new activity event to the list and returns true.
             // Sets [parent] of the activity event to current activity [code].
-            events.add(new ActivityEvent(code, name, this.code, eventStart, eventEnd));
-            return true;
+            return events.add(new ActivityEvent(code, name, this.code, eventStart, eventEnd));
         }
 
     }
@@ -129,7 +128,7 @@ public class Activity {
 
         LinkedList<Persons> result = new LinkedList<>();
 
-        // Navigates through the list of events and adds up every [participants] list
+        // Navigates through the list of events and adds every [participants] list
         // to an aggregate [result] list.
         while (iterator.hasNext()) {
             result.addAll(iterator.next().getParticipants());

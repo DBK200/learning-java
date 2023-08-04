@@ -95,7 +95,7 @@ public class ActivityEvent {
      * @return {@link Persons} class object, representing the person that was found <br>
      * {@code null} if the person wasn't found.
      */
-    public Persons findParticipant(long personId) {
+    private Persons findParticipant(long personId) {
         // Initial validation
         if (personId <= 0) return null;
 
