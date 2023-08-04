@@ -17,6 +17,17 @@ public class ClassHomework {
                 LocalDateTime.of(2023,8, 1, 9, 30,0),
                 4);
 
+/*
+        // Adds an event to [course1] using the constructor.
+        // Using the constructor duplicates can be made!
+        ActivityEvent event1 = new ActivityEvent(course1.getCode().concat(" 2023.08.01"),
+                "(2023.08.01) ".concat(course1.getName()),
+                course1.getCode(),
+                LocalDateTime.of(2023,8, 1, 9, 30,0),
+                4);
+*/
+
+
         // Checks if {addEvent()} adds a duplicate entry
         course1.addEvent(course1.getCode().concat(" 2023.08.01"),
                 "(2023.08.01) ".concat(course1.getName()),
@@ -29,7 +40,10 @@ public class ClassHomework {
         printAddParticipantsStatus(course1,0,1,10);
         // Checks if {addParticipant()} adds a duplicate entry to participants list
         printAddParticipantsStatus(course1,0,2,1);
-
+        // Changes participation status for some registered participants
+        course1.getEvents().get(0).setParticipationStatus(1, EventStatus.ATTENDED);
+        course1.getEvents().get(0).setParticipationStatus(2, EventStatus.ATTENDED);
+        course1.getEvents().get(0).setParticipationStatus(11, EventStatus.ATTENDED);
 
         // Adds another event to [course1]
         course1.addEvent(course1.getCode().concat(" 2023.08.08"),
@@ -42,8 +56,11 @@ public class ClassHomework {
         printAddParticipantsStatus(course1,1,9,10);
 
         // Prints out all course participants
-        System.out.println(String.format("Registered participants to \"%s %s\": %s",
-                course1.getCode(), course1.getName(), course1.getParticipants()));
+        System.out.printf("Participants to \"%s %s\": %s%n",
+                course1.getCode(), course1.getName(), course1.getParticipants());
+        // Prints out all participants with status ATTENDED
+        System.out.printf("Participants to \"%s %s\" with status %s: %s%n",
+                course1.getCode(), course1.getName(), EventStatus.ATTENDED, course1.getParticipants(EventStatus.ATTENDED));
 
         // Prints out [course1] data
         System.out.println(course1);
@@ -63,7 +80,7 @@ public class ClassHomework {
         for(int i = iParticipantCountStart; i < iParticipantCountStart + iParticipantCount; i++) {
             if (activity.getEvents().get(eventIndex).addParticipant("First" + i, "Last"+ i) > -1) iCounter++;
         }
-        if (iCounter > 0) System.out.println(String.format("Successfully added %d entries to \"%s\" event!",
-                iCounter, activity.getEvents().get(eventIndex).getName()));
+        if (iCounter > 0) System.out.printf("Successfully added %d entries to \"%s\" event!%n",
+                iCounter, activity.getEvents().get(eventIndex).getName());
     }
 }

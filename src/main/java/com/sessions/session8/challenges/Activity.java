@@ -60,7 +60,7 @@ public class Activity {
     }
 
     /**
-     * <p>This method adds a new activity event to the {@link Activity#events} list after it checks
+     * <p>This method adds a new activity event to the {@link Activity#events} list, after it checks
      * if an activity event with the same {@link Activity#code} as the new activity event isn't
      * already present in the list.
      * <br>If an event with the same code is found in the list, prints out a warning message.</p>
@@ -119,14 +119,14 @@ public class Activity {
     }
 
     /**
-     * This method aggregates into one ArrayList, all the participants registered to the events.
-     * @return an aggregate ArrayList with all the registered participants.
+     * This method aggregates into one ArrayList, all the events recorded participants.
+     * @return an aggregate ArrayList with all recorded participants.
      */
-    public ArrayList<Persons> getParticipants() {
+    public ArrayList<Participants> getParticipants() {
         // Generates an iterator for list navigation
         ListIterator<ActivityEvent> iterator = events.listIterator();
 
-        LinkedList<Persons> result = new LinkedList<>();
+        LinkedList<Participants> result = new LinkedList<>();
 
         // Navigates through the list of events and adds every [participants] list
         // to an aggregate [result] list.
@@ -134,7 +134,27 @@ public class Activity {
             result.addAll(iterator.next().getParticipants());
         }
 
-        return new ArrayList<Persons>(result);
+        return new ArrayList<Participants>(result);
+    }
+
+    /**
+     * This method aggregates into one ArrayList, all the events participants who have {@link Participants#status}.
+     * @param status activity event status.
+     * @return an aggregate ArrayList with events participants who have {@link Participants#status}.
+     */
+    public ArrayList<Participants> getParticipants(EventStatus status) {
+        // Generates an iterator for list navigation
+        ListIterator<ActivityEvent> iterator = events.listIterator();
+
+        LinkedList<Participants> result = new LinkedList<>();
+
+        // Navigates through the list of events and adds every [participants] list
+        // to an aggregate [result] list.
+        while (iterator.hasNext()) {
+            result.addAll(iterator.next().getParticipants(status));
+        }
+
+        return new ArrayList<Participants>(result);
     }
 
     /**

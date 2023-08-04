@@ -12,31 +12,44 @@ import java.util.ListIterator;
 public class ActivityEvent {
     private String code;
     private String name;
-    private String parent;
+    private String parentCode;
     private LocalDateTime eventStart;
     private LocalDateTime eventEnd;
-    private LinkedList<Persons> participants;
+    private LinkedList<Participants> participants;
 
-    public ActivityEvent(String code, String name, String parent) {
-        this.code = code;
-        this.name = name;
-        this.parent = parent;
-        eventStart = LocalDateTime.now();
-        this.eventEnd = eventStart.plusHours(8);
-        // Instantiates the variable
-        participants = new LinkedList<>();
-    }
-
-    public ActivityEvent(String code, String name, String parent,
+    public ActivityEvent(String code, String name, String parentCode,
                          LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.code = code;
         this.name = name;
-        this.parent = parent;
+        this.parentCode = parentCode;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
         // Instantiates the variable
         participants = new LinkedList<>();
     }
+
+/*
+    public ActivityEvent(String code, String name, String parentCode,
+                         LocalDateTime eventStart, long days) {
+        this.code = code;
+        this.name = name;
+        this.parentCode = parentCode;
+        this.eventStart = eventStart;
+        this.eventEnd = eventStart.plusDays(days - 1).plusHours(8);
+        // Instantiates the variable
+        participants = new LinkedList<>();
+    }
+
+    public ActivityEvent(String code, String name, String parentCode) {
+        this.code = code;
+        this.name = name;
+        this.parentCode = parentCode;
+        eventStart = LocalDateTime.now();
+        this.eventEnd = eventStart.plusHours(8);
+        // Instantiates the variable
+        participants = new LinkedList<>();
+    }
+*/
 
     public String getCode() {
         return code;
@@ -46,8 +59,8 @@ public class ActivityEvent {
         return name;
     }
 
-    public String getParent() {
-        return parent;
+    public String getParentCode() {
+        return parentCode;
     }
 
     public LocalDateTime getEventStart() {
@@ -58,8 +71,29 @@ public class ActivityEvent {
         return eventEnd;
     }
 
-    public LinkedList<Persons> getParticipants() {
+    public LinkedList<Participants> getParticipants() {
         return participants;
+    }
+
+    /**
+     * This method gets into an ArrayList, all the participants who have {@link Participants#status}.
+     * @param status activity event status.
+     * @return an ArrayList with participants who have {@link Participants#status}.
+     */
+    public LinkedList<Participants> getParticipants(EventStatus status) {
+
+        LinkedList<Participants> result = new LinkedList<>(participants);
+
+        // Generates an iterator for list navigation
+        ListIterator<Participants> iterator = result.listIterator();
+
+        // Navigates through the list and removes participants with different [status]
+        while (iterator.hasNext()) {
+            Participants participant = iterator.next();
+            if (participant.getStatus() != status) iterator.remove();
+        }
+        // Final output
+        return result;
     }
 
     /**
@@ -67,22 +101,22 @@ public class ActivityEvent {
      * in {@link ActivityEvent#participants} list.</p>
      * @param firstName the participant's first name
      * @param lastName the participant's last name
-     * @return {@link Persons} class object, representing the person that was found <br>
-     * {@code null} if the person wasn't found.
+     * @return a {@link Participants} class object, representing the participant that was found <br>
+     * {@code null} if the participant wasn't found.
      */
-    public Persons findParticipant(String firstName, String lastName) {
+    public Participants findParticipant(String firstName, String lastName) {
         // Initial validation
         if (firstName.isEmpty() || lastName.isEmpty()) return null;
 
         // Generates an iterator for list navigation
-        ListIterator<Persons> iterator = participants.listIterator();
+        ListIterator<Participants> iterator = participants.listIterator();
 
         // Navigates through list and checks if a participant with [firstName] [lastName]
         // is already present in the list.
         while (iterator.hasNext()) {
-            Persons person = iterator.next();
-            if (person.getFirstName().equalsIgnoreCase(firstName)
-                    && person.getLastName().equalsIgnoreCase(lastName)) return person;
+            Participants participant = iterator.next();
+            if (participant.getPerson().getFirstName().equalsIgnoreCase(firstName)
+                    && participant.getPerson().getLastName().equalsIgnoreCase(lastName)) return participant;
         }
         // Final output
         return null;
@@ -92,21 +126,21 @@ public class ActivityEvent {
      * <p>This method looks for the existence of a participant who has {@link Persons#personId},
      * in {@link ActivityEvent#participants} list.</p>
      * @param personId the participant's ID number
-     * @return {@link Persons} class object, representing the person that was found <br>
-     * {@code null} if the person wasn't found.
+     * @return a {@link Participants} class object, representing the participant that was found <br>
+     * {@code null} if the participant wasn't found.
      */
-    private Persons findParticipant(long personId) {
+    private Participants findParticipant(long personId) {
         // Initial validation
         if (personId <= 0) return null;
 
         // Generates an iterator for list navigation
-        ListIterator<Persons> iterator = participants.listIterator();
+        ListIterator<Participants> iterator = participants.listIterator();
 
         // Navigates through list and checks if a participant with [personId]
         // is already present in the list.
         while (iterator.hasNext()) {
-            Persons person = iterator.next();
-            if (person.getParticipantId() == personId) return person;
+            Participants participant = iterator.next();
+            if (participant.getPerson().getPersonId() == personId) return participant;
         }
         // Final output
         return null;
@@ -123,36 +157,72 @@ public class ActivityEvent {
      * in the {@link ActivityEvent#participants} list <br>
      * {@code 0} -  if the participant is already present the class {@link Persons}
      * and was successfully added in the {@link ActivityEvent#participants} list<br>
-     * {@code -1} -  if the participant is already present the {@link ActivityEvent#participants}
+     * {@code -1} -  if the participant is already present in the {@link ActivityEvent#participants}
      * list or method's arguments were wrong.
      */
     public int addParticipant(String firstName, String lastName) {
         // Initial validation
         if (firstName.isEmpty() || lastName.isEmpty()) return -1;
 
-        // Finds out if a person with given [firstName] and [lastName]
+        // Finds out if a participant with given [firstName] and [lastName]
         // is already in [participants] list
-        Persons person = findParticipant(firstName, lastName);
+        Participants participant = findParticipant(firstName, lastName);
 
-        if (person == null) {
-            // Finds out if a person with given [firstName] and [lastName]
+        if (participant == null) {
+            // Finds out if a participant with given [firstName] and [lastName]
             // is already registered
-            person = Persons.findPerson(firstName,lastName);
+            Persons person = Persons.findPerson(firstName,lastName);
             if (person != null) {
-                System.out.printf("[Info] {%S %S} is already a registered person!%n", firstName, lastName);
-                participants.add(person);
+                System.out.printf("[Info] {%S %S} is already a registered participant!%n", firstName, lastName);
+                participants.add(new Participants(person));
                 return 0;
             }
             else {
-                participants.add(new Persons(firstName, lastName));
+                participants.add(new Participants(new Persons(firstName, lastName)));
                 return 1;
             }
         }
         else {
-            // The person is already present in [participants] list
+            // The participant is already present in [participants] list
             System.out.printf("[Warning] {%S %S} is already a present in the participants list!%n", firstName, lastName);
             return -1;
         }
+    }
+
+    /**
+     * The method changes the event course participation status of the given person
+     * with {@link Persons#firstName} and {@link Persons#lastName}.
+     * @param firstName the participant's first name
+     * @param lastName the participant's last name
+     * @param status activity event status.
+     * @return {@code true} if the status was modified successfully <br>
+     * {@code false} if the status couldn't be modified because the participant was not found
+     * in {@link ActivityEvent#participants} list.
+     */
+    public boolean setParticipationStatus(String firstName, String lastName, EventStatus status) {
+        Participants participant = findParticipant(firstName, lastName);
+        return participant != null && participant.setStatus(status);
+/*
+        if (participant != null) {
+            participant.setStatus(status);
+            return true;
+        }
+        else return false;
+*/
+    }
+
+    /**
+     * The method changes the event course participation status of the given person
+     * with {@link Persons#firstName} and {@link Persons#lastName}.
+     * @param personId the participant's ID number
+     * @param status activity event status.
+     * @return {@code true} if the status was modified successfully <br>
+     * {@code false} if the status couldn't be modified because the participant was not found
+     * in {@link ActivityEvent#participants} list.
+     */
+    public boolean setParticipationStatus(long personId, EventStatus status) {
+        Participants participant = findParticipant(personId);
+        return participant != null && participant.setStatus(status);
     }
 
     /**
@@ -167,6 +237,6 @@ public class ActivityEvent {
                 + "\t- StartDate: %s%n"
                 + "\t- EndDate: %s%n"
                 + "\t- Participants: %n\t\t%s%n",
-                code, name, parent, eventStart.toString(), eventEnd.toString(), participants);
+                code, name, parentCode, eventStart.toString(), eventEnd.toString(), participants);
     }
 }

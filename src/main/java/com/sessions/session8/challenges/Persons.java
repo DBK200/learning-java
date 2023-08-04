@@ -38,7 +38,7 @@ public class Persons {
         return lastName;
     }
 
-    public long getParticipantId() {
+    public long getPersonId() {
         return personId;
     }
 
@@ -69,10 +69,10 @@ public class Persons {
     }
 
     /**
-     * @return formatted participant data:  {@link Persons#firstName} {@link Persons#lastName} {@code [id: }{@link Persons#personId}{@code ]}
+     * @return formatted participant data:  {@link Persons#firstName} {@link Persons#lastName} {@code (id: }{@link Persons#personId}{@code )}
      */
     @Override
     public String toString() {
-        return String.format("%S %S [id: %d]", firstName, lastName, personId);
+        return String.format("%S %S (id: %d)", firstName, lastName, personId);
     }
 }
