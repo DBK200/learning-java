@@ -6,18 +6,22 @@ public class ClassHomework {
 
     public static void main(String[] args) {
 
-        // Creates a new course of type "FtF"
+        // Creates a new "FtF" type course
         FtfCourse course1 = new FtfCourse("PTB 0EL P.1", "Modul electrica de baza",
                 "Centrul de Scolarizare PoRo", "Trainer1");
 
-        // Adds a new event to [course1]
+        // Adds an event to [course1]
         // addEvent() creates a class [ActivityEvent] new object
-        course1.addEvent(course1.getCode().concat(" 2023.08.01"), "(2023.08.01) ".concat(course1.getName()),
-                LocalDateTime.of(2023,8, 1, 9, 30,0),4);
+        course1.addEvent(course1.getCode().concat(" 2023.08.01"),
+                "(2023.08.01) ".concat(course1.getName()),
+                LocalDateTime.of(2023,8, 1, 9, 30,0),
+                4);
 
         // Checks if {addEvent()} adds a duplicate entry
-        course1.addEvent(course1.getCode().concat(" 2023.08.01"), "(2023.08.01) ".concat(course1.getName()),
-                LocalDateTime.of(2023,8, 1, 9, 30,0),4);
+        course1.addEvent(course1.getCode().concat(" 2023.08.01"),
+                "(2023.08.01) ".concat(course1.getName()),
+                LocalDateTime.of(2023,8, 1, 9, 30,0),
+                4);
 
 
         // Adds 10 participants to the event
@@ -28,12 +32,18 @@ public class ClassHomework {
 
 
         // Adds another event to [course1]
-        course1.addEvent(course1.getCode().concat(" 2023.08.08"), "(2023.08.08) ".concat(course1.getName()),
-                LocalDateTime.of(2023,8, 8, 9, 30,0),4);
+        course1.addEvent(course1.getCode().concat(" 2023.08.08"),
+                "(2023.08.08) ".concat(course1.getName()),
+                LocalDateTime.of(2023,8, 8, 9, 30,0),
+                4);
 
         // Adds 10 participants to the event
         // Checks if {addParticipant()} creates duplicate [Persons] class objects
         printAddParticipantsStatus(course1,1,9,10);
+
+        // Prints out all course participants
+        System.out.println(String.format("Registered participants to \"%s %s\": %s",
+                course1.getCode(), course1.getName(), course1.getParticipants()));
 
         // Prints out [course1] data
         System.out.println(course1);
@@ -53,7 +63,7 @@ public class ClassHomework {
         for(int i = iParticipantCountStart; i < iParticipantCountStart + iParticipantCount; i++) {
             if (activity.getEvents().get(eventIndex).addParticipant("First" + i, "Last"+ i) > -1) iCounter++;
         }
-        if (iCounter > 0) System.out.printf("Successfully added %d entries to \"%s\" event!%n",
-                iCounter, activity.getEvents().get(eventIndex).getName());
+        if (iCounter > 0) System.out.println(String.format("Successfully added %d entries to \"%s\" event!",
+                iCounter, activity.getEvents().get(eventIndex).getName()));
     }
 }
