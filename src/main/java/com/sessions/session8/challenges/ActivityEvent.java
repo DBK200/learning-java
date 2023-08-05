@@ -17,8 +17,8 @@ public class ActivityEvent {
     private LocalDateTime eventEnd;
     private LinkedList<Participants> participants;
 
-    public ActivityEvent(String code, String name, String parentCode,
-                         LocalDateTime eventStart, LocalDateTime eventEnd) {
+    private ActivityEvent(String code, String name, String parentCode,
+                          LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.code = code;
         this.name = name;
         this.parentCode = parentCode;
@@ -28,28 +28,34 @@ public class ActivityEvent {
         participants = new LinkedList<>();
     }
 
-/*
-    public ActivityEvent(String code, String name, String parentCode,
-                         LocalDateTime eventStart, long days) {
-        this.code = code;
-        this.name = name;
-        this.parentCode = parentCode;
-        this.eventStart = eventStart;
-        this.eventEnd = eventStart.plusDays(days - 1).plusHours(8);
-        // Instantiates the variable
-        participants = new LinkedList<>();
-    }
+    /**
+     * Creates a new {@link ActivityEvent} class object after some validation.<br>
+     * Replaces the usual constructor introducing some flexibility in argument passing.
+     * @param code activity event code
+     * @param name activity event name
+     * @param parentCode parent {@link Activity} class object's code
+     * @param eventDate (variable arguments) are the activity event start and end dates.
+     *                  If only one argument is passed, {@link ActivityEvent#eventEnd} will be
+     *                  identical with {@link ActivityEvent#eventStart}.
+     * @return a new {@link ActivityEvent} class object.
+     */
+    public static ActivityEvent createEvent(String code, String name, String parentCode,
+                                            LocalDateTime... eventDate){
+        // Initial validation
+        if (code.isEmpty()
+                || name.isEmpty()
+                || parentCode.isEmpty()
+                || eventDate == null
+                || eventDate.length < 1) return null;
+        else {
+            // Formats [eventStart] and [eventEnd] course DateTime data
+            LocalDateTime eventStart = eventDate[0];
+            LocalDateTime eventEnd = (eventDate.length > 1) ? eventDate[1] : eventDate[0].plusHours(8);
 
-    public ActivityEvent(String code, String name, String parentCode) {
-        this.code = code;
-        this.name = name;
-        this.parentCode = parentCode;
-        eventStart = LocalDateTime.now();
-        this.eventEnd = eventStart.plusHours(8);
-        // Instantiates the variable
-        participants = new LinkedList<>();
+            // Creates a new ActivityEvent class object.
+            return new ActivityEvent(code, name, parentCode, eventStart, eventEnd);
+        }
     }
-*/
 
     public String getCode() {
         return code;

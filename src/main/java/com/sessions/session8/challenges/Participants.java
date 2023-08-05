@@ -1,5 +1,10 @@
 package com.sessions.session8.challenges;
 
+/**
+ * This class is used to implement participants' status.
+ * @author  Catalin Martazan
+ * */
+
 public class Participants {
     private Persons person;
     private EventStatus status;

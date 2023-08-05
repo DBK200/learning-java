@@ -11,22 +11,21 @@ public class ClassHomework {
                 "Centrul de Scolarizare PoRo", "Trainer1");
 
         // Adds an event to [course1]
-        // addEvent() creates a class [ActivityEvent] new object
+        // addEvent() creates a class [ActivityEvent] new object without making duplicates
         course1.addEvent(course1.getCode().concat(" 2023.08.01"),
                 "(2023.08.01) ".concat(course1.getName()),
                 LocalDateTime.of(2023,8, 1, 9, 30,0),
                 4);
 
 /*
-        // Adds an event to [course1] using the constructor.
-        // Using the constructor duplicates can be made!
-        ActivityEvent event1 = new ActivityEvent(course1.getCode().concat(" 2023.08.01"),
+        // Adding an event to [course1] using the pseudo-constructor.
+        // can introduce duplicates!
+        ActivityEvent event1 = ActivityEvent.addEvent(course1.getCode().concat(" 2023.08.01"),
                 "(2023.08.01) ".concat(course1.getName()),
                 course1.getCode(),
                 LocalDateTime.of(2023,8, 1, 9, 30,0),
-                4);
+                LocalDateTime.of(2023,8, 4, 17, 0,0));
 */
-
 
         // Checks if {addEvent()} adds a duplicate entry
         course1.addEvent(course1.getCode().concat(" 2023.08.01"),

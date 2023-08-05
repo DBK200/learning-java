@@ -1,0 +1,14 @@
+Session10 challenge is on Sessions8.challenges
+
+Added features/improvements:
+1. Optimisations, changes and formatting in all class files.
+2. Participants.java: Added a new class that holds person-event participation status.
+3. EventStatus.java: Added a new ENUM that holds all participation status choices.
+4. ActivityEvent.java:
+    - Set access modifier of the Constructor to PRIVATE.
+    - Added a pseudo-constructor {ActivityEvent createEvent(String, String, String, LocalDateTime...)}
+      with some more argument flexibility.
+    - Added methods for setting participation status {boolean setParticipationStatus(String, String, EventStatus)} and
+      {boolean setParticipationStatus(long, EventStatus)}.
+5.  Activity.java: Added a new method for getting all the participants with a specific participation status
+    {ArrayList getParticipants(EventStatus)}.
