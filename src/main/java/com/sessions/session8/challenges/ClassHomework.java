@@ -64,7 +64,7 @@ public class ClassHomework {
         System.out.printf("Participants to \"%s %s\": %n\t%s%n",
                 course1.getCode(), course1.getName(), course1.getParticipants());
 
-        // Prints out teh participants for every type of participation status
+        // Prints out the participants for every type of participation status
         for (EventStatus status: EventStatus.values()) {
             System.out.printf("Participants to \"%s %s\" with status %s: %n\t%s%n",
                     course1.getCode(), course1.getName(), status, course1.getParticipants(status));
