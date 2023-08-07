@@ -63,9 +63,18 @@ public class ClassHomework {
         // Prints out all course participants
         System.out.printf("Participants to \"%s %s\": %n\t%s%n",
                 course1.getCode(), course1.getName(), course1.getParticipants());
+
         // Prints out all participants with status ATTENDED
         System.out.printf("Participants to \"%s %s\" with status %s: %n\t%s%n",
                 course1.getCode(), course1.getName(), EventStatus.ATTENDED, course1.getParticipants(EventStatus.ATTENDED));
+
+        // Prints out all participants with status CANCELED
+        System.out.printf("Participants to \"%s %s\" with status %s: %n\t%s%n",
+                course1.getCode(), course1.getName(), EventStatus.CANCELED, course1.getParticipants(EventStatus.CANCELED));
+
+        // Prints out all participants with status NOSHOW
+        System.out.printf("Participants to \"%s %s\" with status %s: %n\t%s%n",
+                course1.getCode(), course1.getName(), EventStatus.NOSHOW, course1.getParticipants(EventStatus.NOSHOW));
 
         // Prints out [course1] data
         System.out.println(course1);
