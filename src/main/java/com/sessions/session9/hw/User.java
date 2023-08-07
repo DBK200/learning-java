@@ -1,4 +1,4 @@
-package com.sessions.HW8;
+package com.sessions.session9.hw;
 /* Cerinta:
 
 
@@ -64,12 +64,12 @@ public class User {
         User user1 = new User("Andrei", "andrei1997@gmail.com", 30, true, "Romania");
         User user2 = new User("Ionuth", "ionut@yahoo.com", 25, false, "Romania");
 
-        User.printUserStats(); // Total users: 2, Active users: 1
+        User.printUserStats();
 
-        user1.printUserInfo(); // Prints user1's information
-        user2.printUserInfo(); // Prints user2's information
+        user1.printUserInfo();
+        user2.printUserInfo();
 
-        user1.setStatus(false); // Set user1's status to inactive
-        User.printUserStats(); // Total users: 2, Active users: 0
+        user1.setStatus(false);
+        User.printUserStats();
     }
 }
