@@ -22,12 +22,12 @@ public class Product {
         this.numberOfReviews = numberOfReviews;
         this.specifications = specifications;
     }
-
+//
     // Getters
     public int getId(){
         return id;
     }
-
+//
     public float getPrice(){
         return price;
     }

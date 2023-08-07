@@ -3,10 +3,10 @@ package com.sessions.session10.EncapsulationHomework;
 public class Main {
     public static void main(String[] args) {
 
-
+//
     // Object of Product class made through no args constructor
     Product product = new Product();
-
+//
     // Setting the values of the product object's properties using setter methods
         product.setId(55478);
         System.out.println("Id set through setter method: " + product.getId());
