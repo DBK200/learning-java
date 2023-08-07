@@ -37,11 +37,17 @@ public class ClassHomework {
         // Adds 10 participants to the event
         // addParticipant() creates 10 class [Participant] new objects
         printAddParticipantsStatus(course1,0,1,10);
+
         // Checks if {addParticipant()} adds a duplicate entry to participants list
         printAddParticipantsStatus(course1,0,2,1);
+
         // Changes participation status for some registered participants
         course1.getEvents().get(0).setParticipationStatus(1, EventStatus.ATTENDED);
         course1.getEvents().get(0).setParticipationStatus(2, EventStatus.ATTENDED);
+        course1.getEvents().get(0).setParticipationStatus(3, EventStatus.CANCELED);
+        course1.getEvents().get(0).setParticipationStatus(4, EventStatus.NOSHOW);
+
+        // Checks if {setParticipationStatus()} changes the status of an unregistered person
         course1.getEvents().get(0).setParticipationStatus(11, EventStatus.ATTENDED);
 
         // Adds another event to [course1]
@@ -55,10 +61,10 @@ public class ClassHomework {
         printAddParticipantsStatus(course1,1,9,10);
 
         // Prints out all course participants
-        System.out.printf("Participants to \"%s %s\": %s%n",
+        System.out.printf("Participants to \"%s %s\": %n\t%s%n",
                 course1.getCode(), course1.getName(), course1.getParticipants());
         // Prints out all participants with status ATTENDED
-        System.out.printf("Participants to \"%s %s\" with status %s: %s%n",
+        System.out.printf("Participants to \"%s %s\" with status %s: %n\t%s%n",
                 course1.getCode(), course1.getName(), EventStatus.ATTENDED, course1.getParticipants(EventStatus.ATTENDED));
 
         // Prints out [course1] data

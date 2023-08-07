@@ -158,11 +158,14 @@ public class Activity {
      */
     @Override
     public String toString() {
-        return String.format("Activity info:%n"
+        return String.format("=".repeat(30) + "%n"
+                        + "Activity info:%n"
+                        + "=".repeat(30) + "%n"
                         + "- Code: %s%n"
                         + "- Name: %s%n"
                         + "- Type: %s%n"
-                        + "- %s%n",
+                        + "- %s"
+                        + "%n" + "=".repeat(30),
                 code, name, type, events);
     }
 }

@@ -11,5 +11,5 @@ Added features/improvements:
       with some more argument flexibility.
     - Added methods for setting participation status {boolean setParticipationStatus(String, String, EventStatus)} and
       {boolean setParticipationStatus(long, EventStatus)}.
-6.  Activity.java: Added a new method for getting all the participants with a specific participation status
-    {ArrayList getParticipants(EventStatus)}.
+6. Activity.java: Added a new method for getting all the participants with a specific participation status
+   {ArrayList getParticipants(EventStatus)}.

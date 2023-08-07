@@ -209,6 +209,7 @@ public class ActivityEvent {
         Participants participant = findParticipant(firstName, lastName);
         return participant != null && participant.setStatus(status);
 /*
+        // When {stStatus()} setter returns void
         if (participant != null) {
             participant.setStatus(status);
             return true;
@@ -219,7 +220,7 @@ public class ActivityEvent {
 
     /**
      * The method changes the event course participation status of the given person
-     * with {@link Persons#firstName} and {@link Persons#lastName}.
+     * with {@link Persons#personId}.
      * @param personId the participant's ID number
      * @param status activity event status.
      * @return {@code true} if the status was modified successfully <br>
@@ -237,12 +238,13 @@ public class ActivityEvent {
     @Override
     public String toString() {
         return String.format("ActivityEvent:%n"
-                + "\t- Code: %s%n"
-                + "\t- Name: %s%n"
-                + "\t- Parent: %s%n"
-                + "\t- StartDate: %s%n"
-                + "\t- EndDate: %s%n"
-                + "\t- Participants: %n\t\t%s%n",
+                        + "\t- Code: %s%n"
+                        + "\t- Name: %s%n"
+                        + "\t- Parent: %s%n"
+                        + "\t- StartDate: %s%n"
+                        + "\t- EndDate: %s%n"
+                        + "\t- Participants: %n"
+                        + "\t\t%s%n",
                 code, name, parentCode, eventStart.toString(), eventEnd.toString(), participants);
     }
 }
