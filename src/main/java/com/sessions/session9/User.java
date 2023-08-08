@@ -39,6 +39,7 @@ public class User {
         System.out.println("NAME : "+(name)+" |AGE :"+(age)+" |Email :"+(emai));
         System.out.println("Payment made: $" + amount);
         System.out.println("New Balance: $" + balance);
+        System.out.println("New Total Balance: $" + totalBalance);
     }
     public void earnMoney(double amount){
         balance += amount;
@@ -46,6 +47,7 @@ public class User {
         System.out.println("NAME : "+(name)+" |AGE :"+(age)+" |Email :"+(emai));
         System.out.println("Earned: $"+ amount);
         System.out.println("New Balance: $"+ balance);
+        System.out.println("New Total Balance: $"+ totalBalance);
     }
     // Getters and setters for instance properties
     public String getName(){
