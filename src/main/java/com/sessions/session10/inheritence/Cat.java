@@ -1,4 +1,4 @@
-package com.sessions.session10.inheritence;
+package com.sessions.session10.Inheritence;
 
 public class Cat extends Animal{
 
