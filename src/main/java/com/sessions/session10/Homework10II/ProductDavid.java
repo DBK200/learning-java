@@ -7,6 +7,10 @@ public class ProductDavid {
     private int numberOfReview;
     private String specification;
 
+    public ProductDavid(){
+
+    }
+
     public ProductDavid(int id,float price,String description,int numberOfReview,String specification){
         this.id=id;
         this.price=price;
