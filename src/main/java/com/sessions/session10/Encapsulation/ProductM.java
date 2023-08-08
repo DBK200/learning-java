@@ -49,14 +49,16 @@ public class ProductM {
         this.specification = specification;
     }
 
-      public static void ProductM(int id, double price, String description, int numberOfReviews, String specification){
-       id = 10;
-       description = "some text";
-       numberOfReviews = 15;
-       specification = "another text";
+    public  ProductM(int id, double price, String description, int numberOfReviews, String specification) {
+        this.id = id;
+        this.description = description;
+        this.numberOfReviews = numberOfReviews;
+        this.specification = specification;
+        System.out.println("User id " + id + "number of reviews " + numberOfReviews + "specification " + specification);
 
     }
-    public static void main(String[]args){
+
+    public static void main(String[] args) {
 
     }
 }

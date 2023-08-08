@@ -2,7 +2,7 @@ package com.sessions.session10.Encapsulation;
 
 public class ProductObj {
     public static void main(String[]args){
-        ProductM productM = new ProductM();
+        ProductM productM = new ProductM(4,2.2,"another text",6,"another text");
         productM.setId(10);
         productM.setPrice(20.80);
         productM.setDescription("text");
