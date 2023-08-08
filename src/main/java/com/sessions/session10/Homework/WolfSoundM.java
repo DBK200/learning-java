@@ -1,4 +1,4 @@
-package com.sessions.session10;
+package com.sessions.session10.Homework;
 
 public class WolfSoundM extends AnimalSoundM {
 

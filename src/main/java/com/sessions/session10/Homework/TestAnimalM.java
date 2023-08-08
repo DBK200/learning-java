@@ -1,4 +1,4 @@
-package com.sessions.session10;
+package com.sessions.session10.Homework;
 
 public class TestAnimalM {
     public static void main(String[] args) {
