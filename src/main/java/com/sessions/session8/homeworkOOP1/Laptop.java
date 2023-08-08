@@ -1,11 +1,11 @@
-package com.sessions.session8.homework;
+package com.sessions.session8.homeworkOOP1;
 
 import java.time.LocalDate;
 
 public class Laptop extends Electronics
 {
     private int RAM;
-    private Brand brand;
+    private LaptopBrand laptopBrand;
     private double price;
     final private int ID;
 
@@ -13,14 +13,14 @@ public class Laptop extends Electronics
     {
        super();
        ID = 0;
-       brand = Brand.valueOf("Unknown");
+       laptopBrand = LaptopBrand.valueOf("Unknown");
        price = 0;
     }
-    public Laptop(LocalDate dateOfFabrication, int RAM, Brand brand, double price, int ID)
+    public Laptop(LocalDate dateOfFabrication, int RAM, LaptopBrand laptopBrand, double price, int ID)
     {
         super(dateOfFabrication);
         this.RAM = RAM;
-        this.brand = brand;
+        this.laptopBrand = laptopBrand;
         this.price = price;
         this.ID = ID;
     }
@@ -35,14 +35,14 @@ public class Laptop extends Electronics
         this.RAM = RAM;
     }
 
-    public Brand getBrand()
+    public LaptopBrand getBrand()
     {
-        return brand;
+        return laptopBrand;
     }
 
-    public void setBrand(Brand brand)
+    public void setBrand(LaptopBrand laptopBrand)
     {
-        this.brand = brand;
+        this.laptopBrand = laptopBrand;
     }
 
     public double getPrice()
@@ -65,9 +65,9 @@ public class Laptop extends Electronics
     {
         return "The Laptop details are displayed bellow\n" +
                 "RAM = " + RAM +
-                ", Brand = " + brand +
+                ", Brand = " + laptopBrand +
                 ", Price = " + price +
-                ", ID laptop = " + ID +
-                ", Date of fabrication = " + dateOfFabrication + '\n';
+                ", ID laptop = " + ID + '\n' +
+                super.toString();
     }
 }
