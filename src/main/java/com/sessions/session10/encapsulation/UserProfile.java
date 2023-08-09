@@ -1,12 +1,17 @@
 package com.sessions.session10.encapsulation;
 
 public class UserProfile {
-
+//comment 1
     private String firstName;
+
+    // comment 2
     private int id;
     private String username;
     private String lastName;
     private String email;
+    private int lastNumber;
+    private int lastNumber2;
+
 
     UserProfile(){
     }
