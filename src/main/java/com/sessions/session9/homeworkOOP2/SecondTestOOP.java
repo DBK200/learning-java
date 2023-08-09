@@ -1,6 +1,9 @@
 package com.sessions.session9.homeworkOOP2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class SecondTestOOP
 {
@@ -34,5 +37,33 @@ public class SecondTestOOP
         User user4 = new User(18, "Carlos", LocalDate.of(2006, 4, 23), Nationality.Spanish, true);
         System.out.println("\nYou'll see another user made with all args constructor bellow\n");
         System.out.println(user4);
+
+        User user5 = new User(22, "Razvan", LocalDate.of(2001, 6, 1), Nationality.Romanian, true);
+
+        System.out.println("\nTesting if objects are the same: " + user2.equals(user5));
+        System.out.println("The hashcode for the second user is: " + user2.hashCode());
+        System.out.println("The hashcode for the fifth user is: " + user5.hashCode());
+
+        user5.setName("Vlad");
+        user5.setAge(21);
+        user5.setNationality(Nationality.Serbian);
+
+        System.out.println("\nTesting if objects are the same: " + user2.equals(user5));
+        System.out.println("The hashcode for the second user is: " + user2.hashCode());
+        System.out.println("The hashcode for the fifth user is: " + user5.hashCode());
+
+        List<User> users = new ArrayList<>();
+
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        users.add(user4);
+        users.add(user5);
+
+        System.out.println("\nWe'll sort the list by age desc\n");
+
+        Collections.sort(users);
+
+        System.out.println(users);
     }
 }

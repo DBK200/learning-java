@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Random;
 
-public class User
+public class User implements Comparable<User>
 {
     private int age;
     private String name;
@@ -124,9 +124,23 @@ public class User
     }
 
     @Override
-    public boolean equals(Object obj)
+    public boolean equals(Object object)
     {
-        return super.equals(obj);
+        if (this == object)
+        {
+            return true;
+        }
+
+        if (object == null || getClass() != object.getClass())
+        {
+            return false;
+        }
+
+        User user = (User) object;
+
+        return age == user.age && Objects.equals(name, user.name)
+                && Objects.equals(nationality, user.nationality)
+                && Objects.equals(dateOfBirth, user.dateOfBirth);
     }
 
     @Override
@@ -134,4 +148,11 @@ public class User
     {
         return Objects.hashCode(name);
     }
+
+    @Override
+    public int compareTo(User otherUser)
+    {
+        return otherUser.age - this.age;
+    }
+
 }
