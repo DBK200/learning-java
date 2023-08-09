@@ -1,4 +1,4 @@
-package com.sessions.session10.Immutabillity;
+package com.sessions.session10.immutabillity;
 
 public class UserRoxana
 {
