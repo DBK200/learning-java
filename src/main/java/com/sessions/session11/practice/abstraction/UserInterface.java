@@ -1,9 +1,11 @@
 package com.sessions.session11.practice.abstraction;
 
-public interface UserInterface extends UserInterfaceA {
+public interface UserInterface extends UserInterfaceA, UserInterfaceB {
     // For interface inheritance, the keyword EXTENDS must be used, not IMPLEMENT
+    // An interface can extend more than one interface!!!
 
     // All the variables are by default PUBLIC, STATIC and FINAL
+    // They have to be initialised because initialiser blocks and constructors are not allowed
     int x = 2;
     public static final int y = 3;
 
@@ -23,5 +25,9 @@ public interface UserInterface extends UserInterfaceA {
 }
 
 interface UserInterfaceA {
+    void getUserManager();
+}
+
+interface UserInterfaceB {
     void getUserManager();
 }

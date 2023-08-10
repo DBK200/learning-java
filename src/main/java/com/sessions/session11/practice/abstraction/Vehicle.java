@@ -5,6 +5,8 @@ public abstract class Vehicle extends Transportation {
     // It will offer a blueprint for all the child classes
     // that will inherit it.
 
+    // No restriction on instance variables
+
     Vehicle() {
         System.out.println("Inside constructor");
     }

@@ -31,7 +31,7 @@ class Test {
         double side = 5.5;
         double radius = 5.0;
 
-        Area area =new Area();
+        Area area = new Area();
         System.out.printf("Area of a rectangle with length: %1$2.1f and width: %2$2.1f is %5$.2f%n"
                         + "Area of a square with side: %3$2.1f is %6$.2f%n"
                         + "Area of a circle with radius: %4$2.1f is %7$.2f%n",
