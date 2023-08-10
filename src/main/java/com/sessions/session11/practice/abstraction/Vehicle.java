@@ -8,12 +8,13 @@ public abstract class Vehicle extends Transportation {
     Vehicle() {
         System.out.println("Inside constructor");
     }
+
+    // Can't be PRIVATE and FINAL because it must
+    // be overwritten in the child classes
     public abstract void startEngine();
 
-    // Can't be PRIVATE and FINAL because it has to be overwritten
-    // in the child class
     public static void myMethod() {
-        //
+        // some code here
     }
 
     public void calculateSomething() {

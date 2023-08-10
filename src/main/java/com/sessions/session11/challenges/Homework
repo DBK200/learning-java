@@ -1,0 +1,26 @@
+(2023.08.10)
+Homework
+
+1.  Create an abstract class 'Parent' with a method 'message'.
+    It has two subclasses each having a method with the same name 'message' that prints "This is first subclass" and
+    "This is second subclass" respectively.
+    Call the methods 'message' by creating an object for each subclass.
+
+2.  Create an abstract class 'Bank' with an abstract method 'getBalance'.
+    $100, $150 and $200 are deposited in banks A, B and C respectively.
+    'BankA', 'BankB' and 'BankC' are subclasses of class 'Bank', each having a method named 'getBalance'.
+    Call this method by creating an object of each of the three classes.
+
+3.  An abstract class has a constructor which prints "This is constructor of abstract class", an abstract method
+    named 'a_method' and a non-abstract method which prints "This is a normal method of abstract class".
+    A class 'SubClass' inherits the abstract class and has a method named 'a_method' which prints "This is abstract method".
+    Now create an object of 'SubClass' and call the abstract method and the non-abstract method. (Analyse the result)
+
+4.  We have to calculate the area of a rectangle, a square and a circle.
+    Create an abstract class 'Shape' with three abstract methods namely ‘rectangleArea' taking two parameters,
+    squareArea' and ‘circleArea' taking one parameter each.
+    The parameters of ‘rectangleArea ' are its length and breadth, that of ‘squareArea' is its side and
+    that of ‘circleArea' is its radius.
+    Now create another class 'Area' containing all the three methods 'rectangleArea', 'squareArea' and
+    'circleArea' for printing the area of rectangle, square and circle respectively.
+    Create an object of class 'Area' and call all the three methods.
