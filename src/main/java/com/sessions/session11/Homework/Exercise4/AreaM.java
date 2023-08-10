@@ -17,7 +17,7 @@ public class AreaM extends ShapeM {
 
     public double circleArea(double area) {
         //Area = pi * r^2
-        double radius = 8 / 2; //raza cercului se imparte la 2, raza daca diametrul este 8, atunci raza este 4
+        double radius = 8 / 2; //raza cercului se imparte la 2, daca diametrul este 8, atunci raza este 4
         area = Math.PI * radius * radius;
         return area;
 
