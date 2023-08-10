@@ -1,29 +1,27 @@
-//package com.sessions.practiceOOP;
+package com.sessions.practiceOOP;
+
+public interface Animal extends Interface1{
 //
-//public interface Animal {
-//
+    //cannot be private
 //    private void eat(); //does it compile?
+
+    //fields are final so they need to be initialized
 //    int age;//does it compile?
-//    String name = "Animal";//does it compile?
+
+    String name = "Animal";//does it compile?
 //
-//    default private String printName(String name){//does it compile?
+//    default String printName(String name){//does it compile?
 //        return "Animal name is " + name;
 //    }
 //
-//    final int getAge();//does it compile?
+     int getAge();//does it compile?
 //
-//    static int getNumberOfFeet(){ //does it compile?
-//        return 4;
-//    };
-//
-//
-//    public static void main(String[] args) {
-//     Animal animal = new Animal(); //does it compile?
-//        System.out.println(animal.getAge());
+    static int getNumberOfFeet(){ //does it compile?
+        return 4;
+    }
+
+//    Animal(){
+//        //does it compile
 //    }
 //
-//    Animal(String name){
-//        this.name=name;//does it compile
-//    }
-//
-//}
+}
