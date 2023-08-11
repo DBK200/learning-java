@@ -23,6 +23,7 @@ class Teacher extends User {
 interface Administrator {
     // some abstract and default methods
 }
+
 class Test {
     static User user = new Teacher();
     public static void main(String[] args) throws NoSuchFieldException {
@@ -41,12 +42,14 @@ class Test {
 
         User teacher = new Teacher();
 
-        // 1. Administrator
-        // 2. User
-        // 3. Student, Teacher
+        // Level 1. Administrator
+        // Level 2. User
+        // Level 3. Student, Teacher
         new Test().printDetails(student);
         new Test().printDetails(teacher);
+
         System.out.println(getObjectReferenceName("user"));
+        new Test().printDetails(user);
 
         // Redundant. Explicit casting is not required
         User user3 = (User) student;
@@ -55,11 +58,15 @@ class Test {
         Student student1 = (Student) user3;
 
         // Casting is possible only for related types
-        // (String) User
-
-
+        // (String) User ... won't compile
     }
 
+    /**
+     * This method returns the class of the instance variable's type
+     * @param fieldName the name of an instance variable from current class
+     * @return the type class of the instance variable
+     * @throws NoSuchFieldException
+     */
     static String getObjectReferenceName(String fieldName) throws NoSuchFieldException{
         return Test.class.getDeclaredField(fieldName).getType().getSimpleName();
     }
