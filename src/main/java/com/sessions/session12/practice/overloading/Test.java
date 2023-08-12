@@ -7,6 +7,7 @@ public class Test {
 
     // Method's signature must be different for overloaded methods
     // Method's signature is:
+    // - method's name
     // - number of arguments
     // - arguments types
     // Next method doesn't comply with argument type
