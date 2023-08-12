@@ -13,6 +13,8 @@ public class Main {
 
         obj.b_method();
         // Pare ca se comporta la fel pentru ca si method abstracta a_method() a primit intre timp o implementare
+        System.out.println();
+        obj.c_method();
 
     }
 }

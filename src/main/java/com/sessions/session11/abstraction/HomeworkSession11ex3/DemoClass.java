@@ -10,6 +10,8 @@ public abstract class DemoClass {
     // Abstract method
     public abstract void a_method();
 
+    public abstract void c_method();
+
     // Non-abstract method
     public void b_method(){
         System.out.println("This is a normal method of abstract class");
