@@ -25,7 +25,7 @@ public class AreaM extends ShapeM {
         AreaM areaM = new AreaM();
         areaM.rectangleArea(35,25);
         areaM.squareArea(5);
-        double radius = 8 / 2; // raza cercului se imparte la 2 si este jumatate de diametru, daca diametrul este 8, atunci raza este 4
+        double radius = 8 / 2; // raza cercului se imparte la 2 si este jumatate din diametru, daca diametrul este 8, atunci raza este 4
         areaM.circleArea(Math.PI * (radius * radius));
     }
 
