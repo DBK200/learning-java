@@ -318,7 +318,10 @@ public class Teams {
             // is allocated to another team
 
             // Not allocated
-            if(findRegistered.getAllocationData().equalsIgnoreCase("-;-;-")) {
+            if(findRegistered
+                    .getAllocationData()
+                    .equalsIgnoreCase(findRegistered.formatAllocationData())) {
+
                 // Adds the person to team's member list
                 team.teamMembers.add(findRegistered);
 

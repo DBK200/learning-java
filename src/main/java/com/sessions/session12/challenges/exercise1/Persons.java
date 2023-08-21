@@ -286,7 +286,8 @@ public class Persons {
                             && team.getCode().equalsIgnoreCase(this.allocationData.split(";")[1]);
 
                     if (bAllowed) this.employeeType = employeeType;
-                    else setMessage("[Err] The team already has a TEAMLEADER or/and current person is not member of the team!", msg);
+                    else setMessage("[Err] The team already has a TEAMLEADER or/and " +
+                            "current person is not member of the team!", msg);
 
                     return bAllowed;
                 }
