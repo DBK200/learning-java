@@ -1,0 +1,54 @@
+package com.sessions.session12.challenges.exercise1;
+
+/**
+ * This class is used to implement employee data.<br>
+ * An employee ({@link  Employees} class objects) is a person ({@link  Persons} class object)
+ * with an associated employee type ({@link  EmployeeType} enum).<br>
+ * Working teams ({@link  Teams} class objects) are formed with employees.
+ * @author  <b><i>Catalin Martazan</i></b>
+ * */
+public class Employees {
+    private Persons person;
+
+    private EmployeeType employeeType = EmployeeType.EMPLOYEE;
+
+    public Employees(Persons person) {
+        this.person = person;
+    }
+
+    public Persons getPerson() {
+        return person;
+    }
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    /**
+     * This method sets a new employee type, based on the {@code modifier} user rights.
+     * @param employeeType new employee type to be set.
+     * @param modifier the employee who sets the employee type.
+     * @return {@code true} if the employee type was set successfully, or <br>
+     * {@code false} otherwise due to lack of user rights.
+     */
+    public boolean setEmployeeType(EmployeeType employeeType, Employees modifier) {
+
+        // An ADMINISTRATOR can set any type
+        if (modifier.getEmployeeType().equals(EmployeeType.ADMINISTRATOR)) {
+            this.employeeType = employeeType;
+            return true;
+        }
+
+        // A MANAGER can only set types: TEAMLEADER and EMPLOYEE
+        else if (modifier.getEmployeeType().equals(EmployeeType.MANAGER)) {
+            if (employeeType.ordinal() > 1) {
+                this.employeeType = employeeType;
+                return true;
+            }
+            else return false;
+        }
+
+        // TEAMLEADER and EMPLOYEE aren't allowed to set any type
+        else return false;
+    }
+}

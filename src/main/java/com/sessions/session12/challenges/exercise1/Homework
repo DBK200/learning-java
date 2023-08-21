@@ -1,0 +1,53 @@
+Class Design (classes, interfaces, fields, whatever you need)
+Build the OOP concept of an application that can be used by the constructor engineer and project manager
+to track the construction of a building, from start to finish, with following requirements:
+
+1.  Roles
+    1.1  Admin - can bring changes to the application
+    1.2  User - manager or constructor engineer who can observe
+                the progress of the construction or interact with the data
+2.  The manager can see all company’s employee, available construction resources and needed resources
+3.  The application should take into account the fact that all the employees are working in teams,
+    and each team has a leader; The manager should be able to see each team structure
+    (members and team lead) and he should be able to change the team structure
+4.  The manager can change employee position (from team member to team lead)
+5.  The application should be able to send emails to the employees with company announcements
+
+
+
+[Home] available menu options:
+                (1)  Project
+                (2)  Teams
+                (3)  Inventory
+                (Q)uit
+
+
+[Project] available menu options:
+                (4)  Add project
+                (5)  Delete project
+                (6)  Select project
+                (H)ome
+                (Q)uit
+
+
+[Add project] menu options:
+                (B)ack
+                (H)ome
+                (Q)uit
+                Add the following project data separated by ';' [conditions, if any, are mentioned in parenthesis (..)]:
+                [Code];[Name];[Description];[StartDate (yyyy-mm-dd)];[EndDate (yyyy-mm-dd)]
+
+
+
+[Select project] menu:
+                Available projects:
+
+                Available menu options:
+                (xx)  Delete
+
+                (5/6) Add/Remove resource
+                (7/8) Add/Remove user
+                (9)   Change user account type
+                (B)ack
+                (H)ome
+                (Q)uit """;

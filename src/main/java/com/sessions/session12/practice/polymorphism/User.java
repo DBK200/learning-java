@@ -26,7 +26,7 @@ interface Administrator {
 
 class Test {
     static User user = new Teacher();
-    public static void main(String[] args) throws NoSuchFieldException {
+    public static void main(String[] args) throws NoSuchFieldException, ClassNotFoundException {
         Student student = new Student();
         System.out.println(student.getName() + " is " + student.getAge() + " years old");
 
@@ -39,6 +39,7 @@ class Test {
         // because is a class User type
         User user2 = new Student();
         System.out.println(user2.getAge());
+        System.out.println("Class reference type of [user2] is: " + typeInstanceOf(user2));
 
         User teacher = new Teacher();
 
@@ -48,7 +49,8 @@ class Test {
         new Test().printDetails(student);
         new Test().printDetails(teacher);
 
-        System.out.println(getObjectReferenceName("user"));
+        System.out.println("Class reference type [getObjectReferenceName]: " + getObjectReferenceName("user"));
+        System.out.println("Class reference type [typeInstanceOf]: " + typeInstanceOf(user));
         new Test().printDetails(user);
 
         // Redundant. Explicit casting is not required
@@ -59,6 +61,25 @@ class Test {
 
         // Casting is possible only for related types
         // (String) User ... won't compile
+    }
+
+    /**
+     * This method returns the class reference type name of the given parameter.
+     * @param obj object to be checked
+     * @return the name of the class reference type
+     * @throws ClassNotFoundException
+     */
+    static String typeInstanceOf(Object obj) throws ClassNotFoundException{
+        if(Class.forName("com.sessions.session12.practice.polymorphism.User").isInstance(obj))
+            return "User";
+
+        else if(Class.forName("com.sessions.session12.practice.polymorphism.Student").isInstance(obj))
+            return "Student";
+
+        else if(Class.forName("com.sessions.session12.practice.polymorphism.Teacher").isInstance(obj))
+            return "Teacher";
+
+        else return "Unknown";
     }
 
     /**

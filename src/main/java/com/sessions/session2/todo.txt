@@ -1,0 +1,24 @@
+Homework from session1:
+- objective: have some java code running to make sure jdk and ide are installed
+- get through some basic concepts in order to write a simple "Hello World" application.
+
+Theory:
+- Part1: git & github []
+- Part2: more on Java basics (classes and methods - keywords, access modifiers, static keyword, constructor, inheritance) - with practice []
+
+Practice:
+- git download and install []
+- create account on GitHub []
+- get permission to this project repository []
+- clone the project locally []
+- create a new branch and publish some changes on your branch []
+- create a pull request []
+- create a new project and push some changes on a branch created by you []
+- create a pull request from your branch to the main/master branch []
+
+Homework for session2:
+- objectives: becoming able to collaborate in a git repository, create a new git repository and add a new project to it
+Exercises:
+- Create a new branch, add some code, add & commit & push to remote repository
+- Using git, upload a small project to a repository created by you, make a few branches and practice git commands (status, add, commit, merge, etc)
+
