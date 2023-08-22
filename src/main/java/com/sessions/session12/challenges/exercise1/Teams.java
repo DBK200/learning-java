@@ -80,10 +80,9 @@ public class Teams {
             Teams findResult = findTeam(code);
 
             if (findResult == null) {
-                // This declaration returns a non-null object filled with default
-                // values for allocated variable types, thus was discarded and
-                // replaced with next one
-//                return new Teams(publisher, code, description, parent);
+                // The direct call of the constructor can return, when its conditions are not met,
+                // a non-null object filled with default values for allocated variable types,
+                // thus was discarded and replaced with the next one
                 Teams team = new Teams(publisher, code, description, parent);
                 team = (team.getCode() == null) ? null : team;
                 Persons.setMessage((team != null) ? team.toString() : null, msg);
@@ -129,6 +128,9 @@ public class Teams {
         return true;
     }
 
+    /**
+     * @param code
+     */
     private void setCode(String code) {
         // When a duplicate is found, the team code will be generated
         // automatically as follows:
