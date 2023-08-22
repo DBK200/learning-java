@@ -71,9 +71,9 @@ public class Resource {
             Resource findResult = findResource(code);
 
             if (findResult == null) {
-                // The direct call af the constructor can return, when its conditions are not met,
+                // The direct call of the constructor can return, when its conditions are not met,
                 // a non-null object filled with default values for allocated variable types,
-                // thus was discarded and replaced with next one
+                // thus was discarded and replaced with the next one
                 Resource resource = new Resource(publisher, code, name,
                         ((description == null || description.isBlank()) ? "(none)" : description), quantity);
                 resource = (resource.getCode() == null) ? null : resource;

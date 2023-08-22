@@ -137,9 +137,9 @@ public class Persons {
             Persons findResult = findPerson(ssn);
 
                 if (findResult == null) {
-                    // The direct call af the constructor can return, when its conditions are not met,
+                    // The direct call of the constructor can return, when its conditions are not met,
                     // a non-null object filled with default values for allocated variable types,
-                    // thus was discarded and replaced with next one
+                    // thus was discarded and replaced with the next one
                     Persons person = new Persons(publisher, firstName, lastName, address, ssn, idCardData, email, employeeType);
                     person = (person.getSsn() == null) ? null : person;
                     setMessage((person != null) ? person.toString() : null, msg);

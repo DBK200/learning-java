@@ -85,9 +85,9 @@ public class Projects {
             Projects findResult = findProject(code);
 
             if (findResult == null) {
-                // The direct call af the constructor can return, when its conditions are not met,
+                // The direct call of the constructor can return, when its conditions are not met,
                 // a non-null object filled with default values for allocated variable types,
-                // thus was discarded and replaced with next one
+                // thus was discarded and replaced with the next one
                 Projects project = new Projects(publisher, code, name, location,projectStart, projectEnd);
                 project = (project.getCode() == null) ? null : project;
                 Persons.setMessage((project != null) ? project.toString() : null, msg);

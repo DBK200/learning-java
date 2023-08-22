@@ -80,9 +80,9 @@ public class Teams {
             Teams findResult = findTeam(code);
 
             if (findResult == null) {
-                // The direct call af the constructor can return, when its conditions are not met,
+                // The direct call of the constructor can return, when its conditions are not met,
                 // a non-null object filled with default values for allocated variable types,
-                // thus was discarded and replaced with next one
+                // thus was discarded and replaced with the next one
                 Teams team = new Teams(publisher, code, description, parent);
                 team = (team.getCode() == null) ? null : team;
                 Persons.setMessage((team != null) ? team.toString() : null, msg);
