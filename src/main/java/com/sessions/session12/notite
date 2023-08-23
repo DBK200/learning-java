@@ -1,0 +1,20 @@
+
+
+                        Polimorfism
+          -e un obiect care poate avea mai multe forme ,conditia sa existe o relatie de mostenire
+          -sunt 2 tipuri:
+                1)compile-time se face prin suprainacarcare
+                2)run-time -se face prin suprascriere
+          -avem acces la metode din clasa respectiva->  Student mike=new Student()  <-ce prop are obiectul
+           mike-o referinta de acces a obiectului
+          -CASTING-transfoarmarea unui obiect ,daca au legatura de mostenire
+                    Reguli:
+          1 se permite din superclass in subclass
+          2 nu se permite din subclase in superclase
+
+                Compile-Time polymorphism
+          -method overloading-o clasa are mai multe metode cu acelsi nume,dar nr de parametri difera(int,double)
+          -operator overloading(not possible in java)
+
+
+
