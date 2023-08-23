@@ -4,42 +4,37 @@ import java.time.LocalDate;
 
 public class PracticeClasses {
 
-    // variabila care nu e statica - nu poate fi apelata intr-o metoda statica, dar ceea ce este static poate fi folosit oriunde in cadrul clasei, adica atat in metode
-    // statice cat si non-statice
-
     public int age; // instance variable
-                    // we need an instance in order to call this variable
-
-    public String name;
+    // we need an instance in order to call this variable
+    public String name = "numeceva";
     public boolean car;
 
-    // static variables
-    public static int counter;
-    final private static int counter2 = 0;
+    final private static int counter2 = 0; //static variable
+    public static int counter = 0; //static variable
 
-    public static void main(String[] args) {
-       int result = calculateSum(2, 3);
-        System.out.println(result);
-        // counter2 = 2;
-
-//        age // does not compile
+    public static void main(String[] args){
         PracticeClasses myObject = new PracticeClasses();
+//        age //does not compile
+
         System.out.println(myObject.age);
         System.out.println(myObject.name);
-        System.out.println(myObject.car);
+        System.out.print(myObject.car);
 
         System.out.println(counter);
+//        counter2 = 2;
 
     }
-//
-    private static int calculateSum(int primulNumar, int alDoileaNumar){
-//        int sum = primulNumar + alDoileaNumar;
+
+    private int calculateSum(int primulNumar,int alDoileaNumer){
+//        int sum = primulNumar + alDoileaNumer;
 //        return sum;
         int x = counter;
-        return primulNumar + alDoileaNumar;
+        return primulNumar + alDoileaNumer;
     }
-//
+
     static LocalDate getCurrentDate(){
+//        return LocalDate.now();
+
         LocalDate currentDate = LocalDate.now();
         return currentDate;
     }
@@ -51,5 +46,6 @@ public class PracticeClasses {
 
     private static void printVariables2(){
         int x = 0;
+//        name
     }
 }

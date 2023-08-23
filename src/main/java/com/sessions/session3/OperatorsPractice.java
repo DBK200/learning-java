@@ -80,7 +80,7 @@ public class OperatorsPractice {
         //4. After all promotion has occurred and the operands have the same data type, the resulting
         //value will have the same data type as its promoted operands.
 //        float result1 = 2 + 3L + 2.3f;
-//        double result2 = 2 + 3L + 2.3f + 3.4;
+//        double result2 = 2 + 3L + 2.3f + 3.4;102
 
 // ----------------------------------------------------------------------------
         //CASTING PRIMITIVE VALUES -
