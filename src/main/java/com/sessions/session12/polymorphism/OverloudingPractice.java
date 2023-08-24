@@ -16,9 +16,14 @@ public class OverloudingPractice {
 
     public static void main(String[] args) {
 
-        System.out.println( new  OverloudingPractice().calculateArea(2));
-        System.out.println( new  OverloudingPractice().calculateArea(2,3));
-        System.out.println( new  OverloudingPractice().calculateArea(2.5));
+//        System.out.println( new  OverloudingPractice().calculateArea(2));
+//        System.out.println( new  OverloudingPractice().calculateArea(2,3));
+//        System.out.println( new  OverloudingPractice().calculateArea(2.5));
 
+        UserDv student=new StudentDv();
+
+
+        System.out.println(student instanceof UserDv);
+        System.out.println(student instanceof StudentDv);
     }
 }

@@ -48,7 +48,7 @@ public class Book {
     }
 
     public static ArrayList<Book> getBookCollcection(){
-        return bookCollcection;8
+        return bookCollcection;
     }
 
 }
