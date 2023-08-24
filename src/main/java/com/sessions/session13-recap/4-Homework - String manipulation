@@ -1,0 +1,20 @@
+String Length: Write a program that prompts the user to enter a string and prints out the length of the string.
+
+String Concatenation: Write a program that prompts the user to enter two strings and concatenates them
+ using the + operator. Print out the concatenated string.
+
+Substring Extraction: Write a program that prompts the user to enter a string and extracts a substring from the string
+ using the substring() method. Print out the extracted substring.
+
+String Comparison: Write a program that prompts the user to enter two strings and compares them using the equals() method.
+ Print out a message indicating whether the strings are equal or not.
+
+Character Replacement: Write a program that prompts the user to enter a string and replaces all occurrences of a specific
+ character in the string with another character using the replace() method. Print out the modified string.
+
+String Formatting: Write a program that prompts the user to enter a name and an age, and formats them into a sentence
+ using the String.format() method. Print out the formatted sentence.
+
+
+
+
