@@ -9,7 +9,7 @@ import java.util.LinkedList;
  *
  * @author <b><i>Catalin Martazan</i></b>
  */
-public class Persons {
+public class Persons{
 
     // Constant. Holds the name of the class ADMINISTRATOR
     private final String ADMIN = "Administrators";

@@ -56,8 +56,8 @@ public class Resources {
      * {@code code} value in the {@link Resources#code} field, {@code publisher} doesn't have
      * {@link EmployeeType#ADMINISTRATOR}, or one or more input parameters are wrong.
      */
-    public static Resources createResource(Object publisher, String code, String name,
-                                           String description, int quantity, StringBuilder msg){
+    public static Resources createResources(Object publisher, String code, String name,
+                                            String description, int quantity, StringBuilder msg){
         // Initial validation
         if (!(publisher instanceof Persons)
                 || !((Persons) publisher).getEmployeeType().equals(EmployeeType.ADMINISTRATOR)
@@ -104,9 +104,9 @@ public class Resources {
      * {@code code} value in the {@link Resources#code} field, {@code publisher} doesn't have
      * {@link EmployeeType#ADMINISTRATOR}, or one or more input parameters are wrong.
      */
-    public static Resources createResource(Object publisher, String code, String name,
-                                           int quantity, StringBuilder msg){
-        return createResource(publisher, code, name, "", quantity, msg);
+    public static Resources createResources(Object publisher, String code, String name,
+                                            int quantity, StringBuilder msg){
+        return createResources(publisher, code, name, "", quantity, msg);
     }
 
     public String getName() {
@@ -137,7 +137,8 @@ public class Resources {
      * This method adds or removes {@code quantity} from {@link Resources#availableQuantity},
      * depending on {@code publisher} rights.<br>
      * If {@code quantity} is a positive number, the value will be added to the value of
-     * {@link Resources#availableQuantity}, otherwise it will be removed from it.<br>
+     * {@link Resources#availableQuantity} and/or removed from {@link Resources#neededQuantity},
+     * otherwise the other way around.<br>
      * Rights depend on the value of {@link Persons#employeeType} field of the parameter {@code publisher}.
      *
      * @param publisher the person who does the operation. Must be {@link EmployeeType#ADMINISTRATOR}
@@ -147,10 +148,11 @@ public class Resources {
      * @param msg       method's return message. This parameter is used to get a return message
      *                  after the method is executed. If no return message is wanted,
      *                  {@code null} must be used.
-     * @return {@code true} if the allocation data was set successfully,<br><i>or</i><br>
-     * {@code false} if allocation data has the same value as the one to be set.
+     * @return {@link Resources#neededQuantity} value,<br><i>or</i><br>
+     * {@code Integer.MAX_VALUE} if {@code publisher} doesn't have {@link EmployeeType#ADMINISTRATOR},
+     * or nothing to modify.
      */
-    public boolean setQuantity(Object publisher, int quantity, StringBuilder msg) {
+    public int setQuantity(Object publisher, int quantity, StringBuilder msg) {
         if (!(publisher instanceof Persons)
                 && ((Persons) publisher).getEmployeeType().equals(EmployeeType.ADMINISTRATOR)
                 && quantity != 0) {
@@ -172,11 +174,11 @@ public class Resources {
                     this.availableQuantity = 0;
                 }
             }
-            return true;
+            return this.neededQuantity;
         }
         else {
             Persons.setMessage("[Err] No publishing rights or/and nothing to modify!", msg);
-            return false;
+            return Integer.MAX_VALUE;
         }
     }
 

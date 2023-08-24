@@ -23,6 +23,9 @@ public class Projects {
     // Holds all teams successfully added to the project
     private LinkedList<Teams> projectTeams;
 
+    // Holds all resources successfully added to the project
+    private LinkedList<InventoryEntry> projectResources;
+
     // Holds all [Projects] class objects successfully created
     private static LinkedList<Projects> projects = new LinkedList<>();
 
@@ -42,6 +45,7 @@ public class Projects {
             this.projectStart = projectStart;
             this.projectEnd = projectEnd;
             this.projectTeams = new LinkedList<>();
+            this.projectResources = new LinkedList<>();
             projects.add(this);
         }
     }
