@@ -85,8 +85,8 @@ public class InventoryEntry {
     }
 
     /**
-     * This method updates the quantity of {@link InventoryEntry#resource}
-     * needed for current allocated project (i.e., with {@link InventoryEntry#neededQuantity}).
+     * This method updates the quantity of {@link InventoryEntry#resource} needed
+     * for current allocated project (i.e., with {@link InventoryEntry#neededQuantity}).
      *
      * @param publisher      the person who does the operation.
      *                       The person must have {@link EmployeeType#ADMINISTRATOR}.
