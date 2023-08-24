@@ -1,0 +1,4 @@
+Interfete
+-metoda default -doar in interfete
+-e un fel de sablon ,o clasa ,ii obliga pe toti copii clasei sa implementeze metodele
+-nu se pot crea obiecte
