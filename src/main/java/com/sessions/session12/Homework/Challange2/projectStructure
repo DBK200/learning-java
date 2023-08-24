@@ -1,0 +1,58 @@
+Company (defines all methods that an app can call,
+        most methods have a default implementation and are override in the classes below)
+Company is extended by
+       - Admin ( overrides the methods for which an admin role  can call )
+       - User is extended by (overrides common methods for Manager and ConstructionEngineer )
+             - Manager  ( overrides the methods for which an manager role can call )
+             - ConstructionEngineer  ( overrides the methods for which an manager role can call )
+
+Company contains:
+       - EmployeeList (object) - has methods for managing employees in company
+       - Project (list )
+       - ResourceRecord (list ) - a list of resources records (name and id)
+
+
+EmployeeList contains:
+       - Employee (list )
+
+
+
+Project contains
+       - ConstructionBlueprint (object)
+       - Team (object)
+
+Construction Blueprint (represents a design plan for a construction)
+Construction Blueprint contains
+        - Resource (list)
+
+Team  (contains list of employees assigned for a project)
+     - Employee (list)
+
+
+
+Use cases
+
+  - Admin can:
+         - Add Employee
+         - See all employees
+         - Find Employee by ID
+                - Modify Employee Data
+                - Remove Employee
+         - Create a new project
+                - Adding resources to a construction blueprint
+         - Display All Project
+         - Add resource type (that is, ResourceRecord)
+
+
+   Manager can:
+        - See all Projects
+        - Create team
+        - Modify team
+               - Add team member
+               - Remove team member
+               - Change team leader
+        - Edit Project Resources
+
+   Constructor Engineer can:
+        - See all projects
+        - Edit Project Resources
