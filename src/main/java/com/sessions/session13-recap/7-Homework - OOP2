@@ -1,0 +1,26 @@
+Inheritance:
+Create a class Animal with attributes such as name, age, and species.
+Create a subclass Dog that inherits from the Animal class, and add attributes such as breed and size.
+Implement methods such as bark() and fetch() in the Dog class that use the attributes inherited from
+the Animal class.
+
+Polymorphism:
+Create an abstract class Shape with an abstract method area(). Create subclasses such as Rectangle,
+Triangle, and Circle that implement the area() method differently. Create an array of Shape objects, and
+iterate through the array to calculate and print the area of each shape.
+
+Abstraction:
+Create an interface Vehicle with methods such as start(), stop(), and accelerate(). Create classes such as
+Car, Truck, and Motorcycle that implement the Vehicle interface, and implement the methods differently.
+Use these classes to create a traffic simulation that simulates different types of vehicles on a road.
+
+Encapsulation:
+Create a class Person with private attributes such as name, age, and address. Implement methods such as
+getName(), getAge(), and getAddress() that return the values of these attributes. Implement setter methods
+such as setName(), setAge(), and setAddress() that allow you to modify these attributes safely and securely,
+while maintaining proper data encapsulation.
+
+
+
+
+

@@ -1,0 +1,19 @@
+Bank Account: Create a Bank Account class that has the following attributes: account number, account type, balance, and
+interest rate. Implement methods for depositing and withdrawing money, calculating interest, and displaying the account
+information.
+
+Shape: Create a Shape class that has the following attributes: shape name, length, and width. Implement methods for
+calculating the area and perimeter of the shape.
+
+Car: Create a Car class that has the following attributes: make, model, year, and color. Implement methods for starting
+the car, stopping the car, accelerating, and braking.
+
+Employee: Create an Employee class that has the following attributes: name, id, salary, and job title. Implement methods
+ for calculating the employee's annual salary, giving the employee a raise, and displaying the employee's information.
+
+Animal: Create an Animal class that has the following attributes: name, type, and sound. Implement methods for making
+the animal make its sound, and for displaying the animal's name and type.
+
+
+
+
