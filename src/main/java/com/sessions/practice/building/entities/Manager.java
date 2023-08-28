@@ -1,6 +1,4 @@
-package com.sessions.practice.building;
-
-import com.sessions.session11.abstraction.defaultmethod.A;
+package com.sessions.practice.building.entities;
 
 import java.util.ArrayList;
 

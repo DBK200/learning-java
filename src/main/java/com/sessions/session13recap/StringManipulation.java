@@ -65,6 +65,10 @@ public class StringManipulation {
     // the user to enter a name and an age, and formats
     // them into a sentence using the String.format()
     // method. Print out the formatted sentence.
+    private static String nameAndAge(String name, int age){
+        String formatted = String.format("My name is %s and my age is %d ", name, age);
+        return formatted;
+    }
 
     public static void main(String[] args) {
 
@@ -122,5 +126,7 @@ public class StringManipulation {
         // the user to enter a name and an age, and formats
         // them into a sentence using the String.format()
         // method. Print out the formatted sentence.
+        System.out.println(nameAndAge("Andreea", 16));
+
     }
 }

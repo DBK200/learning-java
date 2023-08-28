@@ -1,4 +1,4 @@
-package com.sessions.practice.building;
+package com.sessions.practice.building.entities;
 
 public class TeamLeader {
     private String name;
