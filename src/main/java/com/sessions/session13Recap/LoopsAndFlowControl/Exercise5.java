@@ -1,4 +1,4 @@
-package com.sessions.session12.Exercises.LoopsAndFlowControl;
+package com.sessions.session13Recap.LoopsAndFlowControl;
 
 import java.util.Scanner;
 
@@ -11,8 +11,8 @@ public class Exercise5 {
         int sum = input.nextInt();
         int i = 0;
         int n = 0;
-        do{
-            sum+= n % 10;
+        do {
+            sum += n % 10;
             n = n / 10;
         } while (n > 0);
     }

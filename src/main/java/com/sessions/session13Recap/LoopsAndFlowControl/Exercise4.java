@@ -1,4 +1,4 @@
-package com.sessions.session12.Exercises.LoopsAndFlowControl;
+package com.sessions.session13Recap.LoopsAndFlowControl;
 
 public class Exercise4 {
     public static void main(String[] args) {

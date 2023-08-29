@@ -1,4 +1,4 @@
-package com.sessions.session12.Exercises;
+package com.sessions.session13Recap;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;

@@ -1,6 +1,4 @@
-package com.sessions.session12.Exercises.LoopsAndFlowControl;
-
-import java.util.Scanner;
+package com.sessions.session13Recap.LoopsAndFlowControl;
 
 public class Exercise3 {
     public static void main(String[] args) {
