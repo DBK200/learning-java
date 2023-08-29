@@ -1,4 +1,4 @@
-package com.sessions.recap;
+package com.sessions.recap.JavaBasics;
 
 public class Main {
     //        1.Division by Zero: Write a program that divides two int values.
@@ -23,6 +23,45 @@ public class Main {
 
 
 
+    //        3.Switch Statement: Write a program that prompts the user to enter a day of
+//        the week and prints out a message indicating whether it is a weekday or a weekend
+//        day, using a switch statement
+
+//    private  static  String isWeekDay(String day) {
+//        if (day.isBlank())
+//            return "Error";
+//        return switch (day.toUpperCase()) {
+//            case "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY" -> "WeekDay";
+//            case "SATURDAY","SUNDAY"->"WeekEndDay";
+//            default -> "Not a day";
+//        };
+//    }
+
+//    private static String isWeekDay(String day) {
+//        if (day.isBlank())
+//            return "Error";
+//
+//        String sResult;
+//        switch (day.toUpperCase()) {
+//            case "MONDAY":
+//            case "TUESDAY":
+//            case "WEDNESDAY":
+//            case "THURSDAY":
+//            case "FRIDAY":
+//                sResult = "WeekDay";
+//                break;
+//            case "SATURDAY":
+//            case "SUNDAY":
+//                sResult = "WeekEndDay";
+//                break;
+//            default:
+//                sResult = "Not a day";
+//        }
+//        return sResult;
+//    }
+
+
+
 
     public static void main(String[] args) {
 
@@ -43,46 +82,13 @@ public class Main {
 //        System.out.println(nr);
 //        System.out.println(x);
 
-//        3.Switch Statement: Write a program that prompts the user to enter a day of
-//        the week and prints out a message indicating whether it is a weekday or a weekend
-//        day, using a switch statement
 
+//        3
 //        String day="Monday";
 //        System.out.println(isWeekDay(day));
 
     }
 
-//    3
-//    private  static  String isWeekDay(String day) {
-//        if (day.isBlank())
-//            return "Error";
-//        return switch (day.toUpperCase()) {
-//            case "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY" -> "WeekDay";
-//            case "SATURDAY","SUNDAY"->"WeekEndDay";
-//            default -> "Not a day";
-//        };
-//    }
 
-    private static String isWeekDay(String day) {
-        if (day.isBlank())
-            return "Error";
 
-        String sResult;
-        switch (day.toUpperCase()) {
-            case "MONDAY":
-            case "TUESDAY":
-            case "WEDNESDAY":
-            case "THURSDAY":
-            case "FRIDAY":
-                sResult = "WeekDay";
-                break;
-            case "SATURDAY":
-            case "SUNDAY":
-                sResult = "WeekEndDay";
-                break;
-            default:
-                sResult = "Not a day";
-        }
-        return sResult;
-    }
 }
