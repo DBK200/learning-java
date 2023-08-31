@@ -49,19 +49,19 @@ public class CollectionsPractice {
 //        System.out.println(weekDays);
 
         //HashMap<String, String> emailAddressesMap = new HashMap();
-        TreeMap<String, String> emailAddressesMap = new TreeMap();
-        emailAddressesMap.put("George", "george@yahoo.com");
-        emailAddressesMap.put("Diana", "diana@yahoo.com");
-        System.out.println(emailAddressesMap);
-        System.out.println(emailAddressesMap.get("George"));
+//        TreeMap<String, String> emailAddressesMap = new TreeMap();
+//        emailAddressesMap.put("George", "george@yahoo.com");
+//        emailAddressesMap.put("Diana", "diana@yahoo.com");
+//        System.out.println(emailAddressesMap);
+//        System.out.println(emailAddressesMap.get("George"));
 
 //        for(String cheie : emailAddressesMap.keySet()) {
 //            System.out.println(emailAddressesMap.get(cheie));
 //        }
 
-        for(Map.Entry<String, String> entry : emailAddressesMap.entrySet()){
-            System.out.println(entry.getKey() + " has this address: " +
-                    entry.getValue());
-        }
+//        for(Map.Entry<String, String> entry : emailAddressesMap.entrySet()){
+//            System.out.println(entry.getKey() + " has this address: " +
+//                    entry.getValue());
+//        }
     }
 }
