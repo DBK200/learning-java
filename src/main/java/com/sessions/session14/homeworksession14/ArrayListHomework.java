@@ -139,14 +139,36 @@ public class ArrayListHomework {
 
         // 14. Write a Java program of swap two elements in an array list.
         Collections.swap(numbers, 0, 2);
-        System.out.println(numbers);
+       // System.out.println(numbers);
 
         // 15. Write a Java program to join two array lists.
         ArrayList<Integer> joinedArrayList = new ArrayList<>();
         joinedArrayList.addAll(numbers);
         joinedArrayList.addAll(numbers2);
-        System.out.println(joinedArrayList);
+       // System.out.println(joinedArrayList);
 
-        //
+        // 16. Write a Java program to clone an array list to another array list.
+        ArrayList<Integer> numbers3 = (ArrayList<Integer>) numbers2.clone();
+       // System.out.println(numbers3);
+
+        // 17. Write a Java program to empty an array list.
+        numbers3.clear();
+        //System.out.println(numbers3);
+
+        // 18. Write a Java program to test an array list is empty or not.
+//        if(numbers3.isEmpty())
+//            System.out.println("is empty");
+//        else
+//            System.out.println("is NOT empty");
+
+        // 19. Write a Java program to trim the capacity of an array list the current list size.
+        numbers2.trimToSize();
+        System.out.println(numbers2);
+
+        // 20. Write a Java program to increase the size of an array list.
+        numbers3.add(55);           // the size of an arraylist increases automatically when we add more elements to it
+        numbers3.add(777);
+        numbers3.add(333);
+
     }
 }
