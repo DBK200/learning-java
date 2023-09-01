@@ -63,5 +63,18 @@ public class CollectionsPractice {
 //            System.out.println(entry.getKey() + " has this address: " +
 //                    entry.getValue());
 //        }
+
+        Map<String, Integer> products = new HashMap<>();
+        products.put("shampoo", 15);
+        products.put("soap", 5);
+        products.put("conditioner", 20);
+        products.put("domestos", 19);
+        System.out.println(products);
+        System.out.println(products.get("soap"));
+        products.put("soap", 10);
+        System.out.println(products.get("soap"));
+
+
+
     }
 }
