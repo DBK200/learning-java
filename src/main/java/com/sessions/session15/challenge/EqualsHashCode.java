@@ -152,6 +152,24 @@ class Product {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    // Hash algorithm
+    // (https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key)
+    private int hash(int x) {
+        x = ((x >>> 16) ^ x) * 0x45d9f3b;
+        x = ((x >>> 16) ^ x) * 0x45d9f3b;
+        x = (x >>> 16) ^ x;
+        return x;
+    }
+
+    // Unhash algorithm for previous hashing algorithm
+    // (https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key)
+    private int unhash(int x) {
+        x = ((x >>> 16) ^ x) * 0x119de1f3;
+        x = ((x >>> 16) ^ x) * 0x119de1f3;
+        x = (x >>> 16) ^ x;
+        return x;
+    }
 }
 
 
@@ -275,25 +293,6 @@ class Rectangle{
 //        return hash(width) + hash(height);
         return Objects.hash(width, height);
     }
-
-    // Hash algorithm
-    // (https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key)
-    private int hash(int x) {
-        x = ((x >>> 16) ^ x) * 0x45d9f3b;
-        x = ((x >>> 16) ^ x) * 0x45d9f3b;
-        x = (x >>> 16) ^ x;
-        return x;
-    }
-
-    // Unhash algorithm for previous hashing algorithm
-    // (https://stackoverflow.com/questions/664014/what-integer-hash-function-are-good-that-accepts-an-integer-hash-key)
-    private int unhash(int x) {
-        x = ((x >>> 16) ^ x) * 0x119de1f3;
-        x = ((x >>> 16) ^ x) * 0x119de1f3;
-        x = (x >>> 16) ^ x;
-        return x;
-    }
-
 
     @Override
     public boolean equals(Object object) {

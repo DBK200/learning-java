@@ -15,8 +15,8 @@ import java.util.Scanner;
 public enum LightColor {
     RED("Stop", 30), YELLOW("Caution", 5), GREEN("Go", 45);
 
-    private String message;
-    private int seconds;
+    private final String message;
+    private final int seconds;
     private LightColor(String message, int seconds){
         this.message = message;
         this.seconds = seconds;
