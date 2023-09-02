@@ -59,9 +59,11 @@ class ArrayListChallenges {
                 + "\n[alResult2] is: " + alResult2);
 
         // Clearing the list and trims to the size
-        alResult2.clear();
+        //alResult2.clear();
         alResult2.trimToSize();
         System.out.println("[alResult2] After list clearing: " + alResult2);
+
+        System.out.println(alResult1.containsAll(alResult2));
 
 
     }

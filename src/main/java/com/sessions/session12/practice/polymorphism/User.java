@@ -29,6 +29,8 @@ class Test {
     public static void main(String[] args) throws NoSuchFieldException, ClassNotFoundException {
         Student student = new Student();
         System.out.println(student.getName() + " is " + student.getAge() + " years old");
+        new Test().printDetails(student);
+        System.out.println("Class reference type [typeInstanceOf]: " + typeInstanceOf(student));
 
         // user1 object can't access methods from child class Student
         // because is a class User type
@@ -46,7 +48,6 @@ class Test {
         // Level 1. Administrator
         // Level 2. User
         // Level 3. Student, Teacher
-        new Test().printDetails(student);
         new Test().printDetails(teacher);
 
         System.out.println("Class reference type [getObjectReferenceName]: " + getObjectReferenceName("user"));
@@ -70,16 +71,21 @@ class Test {
      * @throws ClassNotFoundException
      */
     static String typeInstanceOf(Object obj) throws ClassNotFoundException{
-        if(Class.forName("com.sessions.session12.practice.polymorphism.User").isInstance(obj))
-            return "User";
+        // Passing [Class].class.getName() and
+        // [Class].class.getSimpleName() takes care
+        // of class name changing in IntelliJ
+        StringBuilder sbResult = new StringBuilder();
 
-        else if(Class.forName("com.sessions.session12.practice.polymorphism.Student").isInstance(obj))
-            return "Student";
+        if(Class.forName(User.class.getName()).isInstance(obj))
+            sbResult.append((sbResult.isEmpty()?"":"#")).append(User.class.getSimpleName());
 
-        else if(Class.forName("com.sessions.session12.practice.polymorphism.Teacher").isInstance(obj))
-            return "Teacher";
+        if (Class.forName(Student.class.getName()).isInstance(obj))
+            sbResult.append((sbResult.isEmpty()?"":"#")).append(Student.class.getSimpleName());
 
-        else return "Unknown";
+        if(Class.forName(Teacher.class.getName()).isInstance(obj))
+            sbResult.append((sbResult.isEmpty()?"":"#")).append(Teacher.class.getSimpleName());
+
+        return sbResult.toString();
     }
 
     /**
@@ -89,11 +95,14 @@ class Test {
      * @throws NoSuchFieldException
      */
     static String getObjectReferenceName(String fieldName) throws NoSuchFieldException{
+
         return Test.class.getDeclaredField(fieldName).getType().getSimpleName();
     }
 
-    private void printDetails(Administrator administrator){
+    private void printDetails(Administrator administrator) throws ClassNotFoundException {
         String className = administrator.getClass().getSimpleName();
-        System.out.println(className + " details");
+        //String refType = administrator.getClass().getComponentType().getSimpleName();
+        System.out.println("Current object is a " + className + " instance and "
+                + typeInstanceOf(administrator) + " reference type");
     }
 }

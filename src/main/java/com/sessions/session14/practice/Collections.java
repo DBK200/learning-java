@@ -86,7 +86,14 @@ public class Collections {
             System.out.println("Name: " + emailAddressesMap.get(key));
         }
 
-        // entrySet() returns a complete set of keys
+        // Returns a complete set of values
+        System.out.println(emailAddressesMap.values());
+        // values() returns a complete set of values
+        for (String val: emailAddressesMap.values()) {
+            System.out.println("email: " + val);
+        }
+
+        // entrySet() returns a complete set of entries
         for (Map.Entry<String, String> set: emailAddressesMap.entrySet()) {
             System.out.println(set.getKey() + " has email address "
                     + set.getValue());
