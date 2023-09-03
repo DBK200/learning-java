@@ -110,13 +110,13 @@ public class EqualsHashCode {
         System.out.println("\n" + "=".repeat(20) + "\n");
     }
 
-    private static void printHashCode(Object... objects){
-        if (objects == null) return;
+    private static <T> void printHashCode(T... parameters){
+        if (parameters == null) return;
         System.out.print("HashCodes: ");
         int i = 0;
-        for (Object object: objects) {
-            System.out.printf("[param%d: %d]" + ((i == objects.length - 1) ? "%n" : ", "),
-                    ++i, object.hashCode());
+        for (T element: parameters) {
+            System.out.printf("[param%d: %d]" + ((i == parameters.length - 1) ? "%n" : ", "),
+                    ++i, element.hashCode());
         }
     }
 }
