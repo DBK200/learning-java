@@ -110,6 +110,7 @@ public class EqualsHashCode {
         System.out.println("\n" + "=".repeat(20) + "\n");
     }
 
+    @SafeVarargs
     private static <T> void printHashCode(T... parameters){
         if (parameters == null) return;
         System.out.print("HashCodes: ");

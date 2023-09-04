@@ -35,9 +35,15 @@ ArrayList
 class ArrayListChallenges {
     public static void main(String[] args) throws Exception {
 
+        ArrayList<Integer> alResult0 = new ArrayList<>(List.of(1,2,3,4,3233,6));
+        Integer iLookup = 33;
+        System.out.printf("The search of '%d' returned: %s%n",
+                iLookup, searchList(iLookup, alResult0));
+
         ArrayList<String> alResult1 = new ArrayList<>(List.of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"));
         String lookup = "sday";
-        System.out.printf("The search of '%s' returned: %s%n", lookup,searchList(lookup, alResult1));
+        System.out.printf("The search of '%s' returned: %s%n",
+                lookup, searchList(lookup, alResult1));
         sortList(alResult1, false);
         System.out.printf("The ascending sort returned: %s%n", alResult1);
         sortList(alResult1, true);
@@ -68,13 +74,18 @@ class ArrayListChallenges {
 
     }
 
-    private static ArrayList<String> searchList(String lookup, ArrayList<String> arrayList) {
+    private static <T> ArrayList<T> searchList(T lookup, ArrayList<T> arrayList) {
         if (arrayList.isEmpty()) return null;
 
-        ArrayList<String> alResult = new ArrayList<>();
+        ArrayList<T> alResult = new ArrayList<>();
 
-        for (String e: arrayList) {
-            if (e.contains(lookup)) alResult.add(e);
+        for (T e: arrayList) {
+            if (e instanceof String || e instanceof Number) {
+                if ((e.toString()).contains(lookup.toString())) alResult.add(e);
+            }
+            else {
+                if (e.equals(lookup)) alResult.add(e);
+            }
         }
 
         return alResult;
