@@ -47,21 +47,36 @@ public class CollectionsPracticeAV {
 //        weekDays.add("Monday");
 //        System.out.println(weekDays);
 
-        HashMap<String, String> emailAddressesMap = new HashMap<>();
-        emailAddressesMap.put("George", "george@yahoo.com");
-        emailAddressesMap.put("Diana", "diana@yahoo.com");
-        System.out.println(emailAddressesMap);
-        System.out.println(emailAddressesMap.get("George"));
+//        HashMap<String, String> emailAddressesMap = new HashMap<>();
+//        emailAddressesMap.put("George", "george@yahoo.com");
+//        emailAddressesMap.put("Diana", "diana@yahoo.com");
+//        System.out.println(emailAddressesMap);
+//        System.out.println(emailAddressesMap.get("George"));
 
 //        for(String cheie: emailAddressesMap.keySet()) {
 //            System.out.println(emailAddressesMap.get(cheie));
 //        }
+//
+//        for(String value: emailAddressesMap.values()) {
+//            System.out.println(value);
+//        }
+//
+//        for(Map.Entry entry: emailAddressesMap.entrySet()) {
+//            System.out.println(entry.getKey());
+//            System.out.println(entry.getValue());
+//        }
 
-        for(Map.Entry entry: emailAddressesMap.entrySet()) {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue());
-        }
+        HashMap<String, Integer> products = new HashMap<>();
+        products.put("shampoo", 15);
+        products.put("soap", 5);
+        products.put("conditioner", 20);
+        products.put("domestos", 19);
 
+        System.out.println(products);
+        System.out.println(products.get("soap"));
+
+        products.put("soap", 10);
+        System.out.println(products.get("soap"));
 
     }
 }
