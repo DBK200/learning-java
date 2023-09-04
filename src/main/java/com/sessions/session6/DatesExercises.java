@@ -238,10 +238,7 @@ public class DatesExercises {
 //        System.out.println(localDate1.equals(localDate2));
 
     }
-
-
     //exercise1
-
     private static void checkLeapYear(String localDateAsString) {
         LocalDate myDate = LocalDate.parse(localDateAsString); //parse the date
         if (myDate.isLeapYear()) {
@@ -254,6 +251,4 @@ public class DatesExercises {
 
 
     //RECAP: LocalDate, LocalTime, LocalDateTime, Formatter, ZoneId, Clock
-
-
 }

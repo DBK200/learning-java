@@ -1,10 +1,9 @@
 package com.sessions.session4;
 
-public class Statements {
-
-
-    public static void main(String[] args) {
-
+public class Statements
+{
+    public static void main(String[] args)
+    {
         //conditional statements
         //if-then
 //        int x =1;
@@ -190,12 +189,12 @@ public class Statements {
 //            }
 //            System.out.println("iteration completed");
 //        }
-
-
     }
 
-    private static void checkNumber(int x) {
-        if (x > 0) {
+    private static void checkNumber(int x)
+    {
+        if (x > 0)
+        {
             System.out.println("x is a positive number.");
         }
     }

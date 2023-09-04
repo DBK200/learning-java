@@ -1,5 +1,5 @@
 Challenge with LocalDate and LocalDateTime
-   1 Display today's date
+   1 Display today's date --done in a method
    2 Write a method that prints a LocalDate with the following format 12-2005-20 (month-year-day)
    3 Checking if today is 2019-12-22
    4 Judging whether two dates read from console are equal

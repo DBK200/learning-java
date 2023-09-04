@@ -1,16 +1,15 @@
 package com.sessions;
 
-//import java.time.LocalDate;
+public class MyApplication
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Hello World");
+        System.out.println("Hello World");
+        System.out.println("Hello World");
 
-import java.time.*;
+        System.out.println("Hello world");
 
-public class MyApplication{
-
-    public static void main(String[] args) {
-        MyApplication myApplication = new MyApplication();
-        myApplication.toString();
-
-        LocalDate localDate = LocalDate.now();
+        System.out.println("Salutari din InteliJ");
     }
-
 }

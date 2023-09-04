@@ -2,7 +2,8 @@ package com.sessions.session5;
 
 import java.util.Scanner;
 
-public class Exercises {
+public class Exercises
+{
 
 
     //1. Write a program to print all alphabets from a to z

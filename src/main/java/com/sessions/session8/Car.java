@@ -1,7 +1,7 @@
 package com.sessions.session8;
 
-public class Car {
-
+public class Car
+{
     private int numberOfWheels;
     private String paintColor;
     private String fuelType;
