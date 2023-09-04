@@ -1,0 +1,13 @@
+linked list- ele nu mai sunt adaugate cu componenta de index ci sunt
+             considerate noduri
+           -folosite pe situatii cand modificam lista respectiva ,stergem
+ Set-date care nu se repeta,se foloseste cand avem date unice
+       -HashSet-Ordinea nu este garantata,il folosim cand nu ne intereseaza ordinea
+       -TreeSet-le face in ordinea alfabetica la String(or by implementing Comparable)
+         ordinea lor naturala la numere
+       -LinkedHashSet-sortarea se face in ordinea in care a fost adaugate
+ Map-un fel de tabel,perechi de date
+    -exista 2 interfete pt map
+    -trei clase:HashMap-nu contine nicio ordine,LinkedHashMap-,TreeMap-conteaza ordinea adauagarii
+    -cheie nu pot fi duplcate,dar poate sa aiba mai multe valori dublicate
+    -
