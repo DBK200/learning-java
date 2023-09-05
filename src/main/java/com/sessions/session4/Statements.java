@@ -59,6 +59,8 @@ public class Statements {
 //        int[] numbers = {1, 2, 3, 4, 5};
 //        int[][] numberss = {{1, 2, 3}, {4, 5, 6},{9}};
 //        System.out.println(numberss[2][0]);
+//        System.out.println(numberss[2][0]);
+
 //
 //        String[] daysOfWeek = {"Monday", "Tuesday"};
 //        String days[] = {};

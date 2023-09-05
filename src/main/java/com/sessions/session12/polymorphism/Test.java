@@ -9,7 +9,7 @@ public class Test {
 //        System.out.println(student.getAge());
 
       //  User user = student; // se schimba tipul referintei, adica din referinta student se face o referinta de tip User
-                            // tipul diferentei da acces catre metode
+                            // tipul referintei da acces catre metode
         //user.getAge();
 //        user.getName; \\ does not compile
 
