@@ -61,7 +61,7 @@ class Person{
             return false;
         }
 
-        if(object==this){ // adica daca se compara acelasi obiect
+        if(object==this){     // adica daca se compara acelasi obiect
             return true;
         }
         if(!(object instanceof Person)){
