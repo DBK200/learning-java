@@ -49,14 +49,24 @@ public class CollectionsPracticeM {
         emailAdressesMap.put("Diana", "diana@yahoo.com");
         System.out.println(emailAdressesMap);
         System.out.println(emailAdressesMap.get("George"));
-//        for (String cheie : emailAdressesMap.keySet()) {
-//            System.out.println(emailAdressesMap.get(cheie));
-//        }
+        for (String value : emailAdressesMap.values()) {
+            System.out.println(value);
+        }
 
         for (Map.Entry<String, String> entry : emailAdressesMap.entrySet()) {
 
-            System.out.println(entry.getKey() + " has this address: "+ entry.getValue());
+            System.out.println(entry.getKey() + " has this address: " + entry.getValue());
         }
+        HashMap<String, Integer> products = new HashMap<>();
+        products.put("shampoo", 8);
+        products.put("soap", 5);
+        products.put("conditioner", 15);
+        products.put("domestos", 20);
+        System.out.println(products);
+        System.out.println(products.get("soap"));
+        products.put("soap", 10);
+        System.out.println(products.get("soap"));
+
 
     }
 
