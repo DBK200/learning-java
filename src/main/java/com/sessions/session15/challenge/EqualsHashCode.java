@@ -17,7 +17,7 @@ package com.sessions.session15.challenge;
        Implement the equals() method to check only the title and artist fields.
        Implement the hashCode() method to use the title and artist fields to calculate the hash code.
        Test that two instances with the same title and artist return true for equals() and have the same hash code.
-    5. Create a Product class with name, price, and id fields.
+    5. Create a ToString class with name, price, and id fields.
        Implement the equals() method to check only the id field.
        Implement the hashCode() method to use the id field to calculate the hash code.
        Test that two instances with the same id return true for equals() and have the same hash code.
@@ -124,7 +124,7 @@ public class EqualsHashCode {
 
 
 /*
-    5. Create a Product class with name, price, and id fields.
+    5. Create a ToString class with name, price, and id fields.
        Implement the equals() method to check only the id field.
        Implement the hashCode() method to use the id field to calculate the hash code.
        Test that two instances with the same id return true for equals() and have the same hash code.
@@ -264,6 +264,7 @@ class Person {
 
     @Override
     public boolean equals(Object object) {
+        if (object == null) return false;
         if (this == object) return true;
         if (!(object instanceof Person person)) return false;
         return person.age == age
