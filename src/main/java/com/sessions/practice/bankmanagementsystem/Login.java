@@ -24,29 +24,15 @@ public class Login {
         String passcode = scanner.next();
         scanner.nextLine();
 
-        //Account account = new Account(); // se creaza un cont gol
+
         boolean existAsCurrent = false;
         boolean existAsSavings = false;
-		/*for(Account acc : accounts) {
-			if( acc.getId() == id && acc.getPasscode() == passcode)
-				exist = true;
-				account = acc;
-		} // se cauta contul in lista de conturi deja existente
-		 */
 
         CurrentAccount cA = new CurrentAccount(firstName, lastName, id, balance, passcode);
         for(CurrentAccount cr : cAccounts) {
-//			System.out.println(cr.getId());
-//			System.out.println(cA.getId());
-//
-//			System.out.println(cA.getPasscode());
-//			System.out.println(cr.getPasscode());
-
             if(cr.getId().equals(cA.getId()) && cr.getPasscode().equals(cA.getPasscode())) {
                 System.out.println("Current account found");
                 existAsCurrent = true;
-                //new Menu(scanner, cA);
-                //cA = cr;
             } else {
                 System.out.println("Account not found of type current");
             }
@@ -58,8 +44,6 @@ public class Login {
             if(sv.getId().equals(id) && sv.getPasscode().equals(sA.getPasscode())) {
                 System.out.println("Savings Account found");
                 existAsSavings = true;
-                //new Menu(scanner, sA);
-                //sA = sv;
             } else {
                 System.out.println("Account not found of type savings");
             }
