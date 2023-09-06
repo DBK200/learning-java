@@ -12,13 +12,13 @@ public class Generics {
     }
 
     private static <E> void printArray(E[] array) {
-        StringBuilder sbResult = new StringBuilder("[");
+        StringBuilder sbResult = new StringBuilder();
         int i = 0;
         for (E element: array) {
-            sbResult.append(i==0?"":", ").append(element.toString());
-            ++i;
+            sbResult.append((i++ == 0) ? "[" : ", ")
+                    .append(element.toString())
+                    .append((i == array.length) ? "]" : "");
         }
-        sbResult.append("]");
         System.out.println(sbResult);
     }
 
@@ -40,7 +40,7 @@ class Order<T> {
     }
     @Override
     public String toString() {
-        return String.format("{ id: %d, name: %s, item: %s}",
+        return String.format("[id: %d, name: %s, item: %s]",
                 id, name, item);
     }
 }

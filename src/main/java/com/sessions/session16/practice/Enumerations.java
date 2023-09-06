@@ -4,9 +4,8 @@ public class Enumerations {
     public static void main(String[] args) {
         UserRoles role = UserRoles.SUPER_ADMIN;
         System.out.println(role);
-        System.out.println(role.getPermission() + " | " +
-                role.getDescription());
         role = UserRoles.ADMIN;
+        System.out.println(role);
         System.out.println(role.getPermission() + " | " +
                 role.getDescription());
 
@@ -15,6 +14,8 @@ public class Enumerations {
 
 enum UserRoles {
     SUPER_ADMIN("SUPER_ADMIN permissions","SUPER_ADMIN description"){
+        // Custom toString() available only for this constant
+        // Overrides enum's toString() method.
         @Override
         public String toString() {
             return this.name() + " * " + this.getPermission() + " * " + this.getDescription();
@@ -41,6 +42,7 @@ enum UserRoles {
 
     @Override
     public String toString() {
-        return this.name() + " | " + permission + " | " + description;
+        return String.format("[%s: permission=\"%s\", description=\"%s\"]",
+                this.name(), permission, description);
     }
 }
