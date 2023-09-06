@@ -1,4 +1,4 @@
-package com.sessions.session15.challenge;
+package com.sessions.session16.challenge;
 
 /*
     Challenge - Enumeration Classes
@@ -28,6 +28,12 @@ public enum LightColor {
 
     public int getSeconds() {
         return seconds;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[%s: message=\"%s\", seconds=\"%s\"]",
+                this.name(), message, seconds);
     }
 }
 

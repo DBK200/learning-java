@@ -21,7 +21,6 @@ public class Generics {
         }
         System.out.println(sbResult);
     }
-
 }
 
 class Order<T> {
