@@ -15,7 +15,7 @@ public class Worker {
     }
 
     // Constructor
-    // Cum fac o diferenta intre variabilele de initializat in constructor si celelalte ?
+
     public Worker(String name){
         this.name = name;
     }
