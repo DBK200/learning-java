@@ -62,8 +62,4 @@ public class Account {
     }
 }
 
-<<<<<<< HEAD
 
-=======
-//}
->>>>>>> 7a424397c0e74a3903dd0751ee27eb8f312e6470
