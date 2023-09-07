@@ -5,18 +5,15 @@ import java.util.ArrayList;
 public class Main {
 
     static Scanner scanner;
-    //static Integer lastaccid;
-    //static ArrayList<Account> accounts;//
     static ArrayList<CurrentAccount> cAccounts;
     static ArrayList<SavingsAccount> sAccounts;
 
     public static void main(String[] args) {
 
-        //accounts = new ArrayList<>();//
         cAccounts = new ArrayList<>();
         sAccounts = new ArrayList<>();
         scanner = new Scanner(System.in);
-        //lastaccid = 1;
+
 
         int i=0;
         System.out.println("Welcome to bank management system ");
@@ -28,7 +25,7 @@ public class Main {
             i = scanner.nextInt();
 
             switch(i) {
-                //case 1: new CreateAccount(scanner, lastaccid, cAccounts, sAccounts);
+
                 case 1 : new CreateAccount(scanner, cAccounts, sAccounts);
                     break;
                 case 2: new Login(scanner, cAccounts, sAccounts);
