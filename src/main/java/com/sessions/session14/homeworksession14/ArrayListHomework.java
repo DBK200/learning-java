@@ -4,10 +4,7 @@ import com.sessions.session11.abstraction.defaultmethod.A;
 import com.sun.security.jgss.GSSUtil;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class ArrayListHomework {
 
@@ -34,32 +31,40 @@ public class ArrayListHomework {
 //        }
 
         // 2. Write a Java program to iterate through all elements in a array list.
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(5);
+        numbers.add(7);
+        numbers.add(17);
+        numbers.add(22);
+        numbers.add(55);
+
+        // with Iterator - DONE
+        Iterator<Integer> iterator = numbers.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+//        for(Integer number : numbers){
+//            System.out.println(number);
+//        }
+
+//        for(int i=0; i < numbers.size(); i++){
+//            System.out.println("Element at " + i + " is " + numbers.get(i));
+//        }
+
+        // 3. Write a Java program to insert an element into the array list at the first position.
 //        ArrayList<Integer> numbers = new ArrayList<>();
 //        numbers.add(5);
 //        numbers.add(7);
 //        numbers.add(17);
 //        numbers.add(22);
 //        numbers.add(55);
-////        for(Integer number : numbers){
-////            System.out.println(number);
-////        }
-//
-//        for(int i=0; i < numbers.size(); i++){
-//            System.out.println("Element at " + i + " is " + numbers.get(i));
-//        }
-
-        // 3. Write a Java program to insert an element into the array list at the first position.
-//                ArrayList<Integer> numbers = new ArrayList<>();
-//        numbers.add(5);
-//        numbers.add(7);
-//        numbers.add(17);
-//        numbers.add(22);
-//        numbers.add(55);
 //        numbers.add(0, 77);
-//
+
 //        for(Integer number : numbers){
 //            System.out.println(number);
 //        }
+
+
 
         // 4. Write a Java program to retrieve an element (at a specified index) from a given array list.
 //        ArrayList<Integer> numbers = new ArrayList<>();
@@ -68,23 +73,25 @@ public class ArrayListHomework {
 //        numbers.add(17);
 //        numbers.add(22);
 //        numbers.add(55);
-
-        // remove element at index 3
+//
+//        // remove element at index 3
 //        numbers.remove(3);
+//        numbers.remove((Integer) 17);   // -- de verificat daca se poate elimina direct valoarea, nu prin index - done
 //        for(Integer number : numbers){
 //            System.out.println(number);
 //        }
 
         // 5. Write a Java program to update specific array element by given element.
 
-      ArrayList<Integer> numbers = new ArrayList<>();
-                numbers.add(5);
-                numbers.add(7);
-                numbers.add(17);
-                numbers.add(22);
-                numbers.add(55);
-
-               // numbers.set(2, 99);
+//      ArrayList<Integer> numbers = new ArrayList<>();
+//                numbers.add(5);
+//                numbers.add(7);
+//                numbers.add(17);
+//                numbers.add(22);
+//                numbers.add(55);
+//
+//                numbers.set(2, 99);   // - set() modifica valoarea la indexul specificat
+//               // numbers.add(2, 99);  // - add() adauga o noua valoare la indexul specificat dar nu o elimina pe cea care era inainte la acel index, ci o pune la indexul urmator, la fel si cu celelalte valori care urmeaza
 //                for(int i=0; i < numbers.size(); i++){
 //                    System.out.println("Element at index " + i + " is " + numbers.get(i));
 //                }
@@ -120,39 +127,39 @@ public class ArrayListHomework {
 //        System.out.println(numbers2);
 
         // 13. Write a Java program to compare two arraylists.
-        ArrayList<Integer> numbers2 = new ArrayList<>();
+//        ArrayList<Integer> numbers2 = new ArrayList<>();
 //        numbers2.add(5);
 //        numbers2.add(7);
 //        numbers2.add(17);
 //        numbers2.add(22);
 //        numbers2.add(55);
 
-        numbers2.add(55);
-        numbers2.add(77);
-        numbers2.add(122);
-        numbers2.add(515);
-        numbers2.add(99);
-        numbers2.add(99);
-
+//        numbers2.add(55);
+//        numbers2.add(77);
+//        numbers2.add(122);
+//        numbers2.add(515);
+//        numbers2.add(99);
+//        numbers2.add(99);
+//
 //        boolean equals = numbers.equals(numbers2);
 //        System.out.println(equals);
 
         // 14. Write a Java program of swap two elements in an array list.
-        Collections.swap(numbers, 0, 2);
+//        Collections.swap(numbers, 0, 2);
        // System.out.println(numbers);
 
         // 15. Write a Java program to join two array lists.
-        ArrayList<Integer> joinedArrayList = new ArrayList<>();
-        joinedArrayList.addAll(numbers);
-        joinedArrayList.addAll(numbers2);
+//        ArrayList<Integer> joinedArrayList = new ArrayList<>();
+//        joinedArrayList.addAll(numbers);
+//        joinedArrayList.addAll(numbers2);
        // System.out.println(joinedArrayList);
 
         // 16. Write a Java program to clone an array list to another array list.
-        ArrayList<Integer> numbers3 = (ArrayList<Integer>) numbers2.clone();
+//        ArrayList<Integer> numbers3 = (ArrayList<Integer>) numbers2.clone();
        // System.out.println(numbers3);
 
         // 17. Write a Java program to empty an array list.
-        numbers3.clear();
+//        numbers3.clear();
         //System.out.println(numbers3);
 
         // 18. Write a Java program to test an array list is empty or not.
@@ -162,13 +169,13 @@ public class ArrayListHomework {
 //            System.out.println("is NOT empty");
 
         // 19. Write a Java program to trim the capacity of an array list the current list size.
-        numbers2.trimToSize();
-        System.out.println(numbers2);
+//        numbers2.trimToSize();
+//        System.out.println(numbers2);
 
         // 20. Write a Java program to increase the size of an array list.
-        numbers3.add(55);           // the size of an arraylist increases automatically when we add more elements to it
-        numbers3.add(777);
-        numbers3.add(333);
+//        numbers3.add(55);           // the size of an arraylist increases automatically when we add more elements to it
+//        numbers3.add(777);
+//        numbers3.add(333);
 
     }
 }

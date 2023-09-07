@@ -1,6 +1,7 @@
 package com.sessions.session14.homeworksession14;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class LinkedListHomework {
@@ -21,6 +22,12 @@ public class LinkedListHomework {
         // 2.Write a Java program to iterate through all elements in a linked list.
 //        for(int i=0; i < words.size(); i++){
 //            System.out.println("Element at index " + i + " is " + words.get(i));
+//        }
+
+        // with Iterator - done
+//        Iterator iterator = words.iterator();
+//        while(iterator.hasNext()){
+//            System.out.println(iterator.next());
 //        }
 
         // 3.Write a Java program to iterate through all elements in a linked list starting at the specified position.
@@ -53,13 +60,13 @@ public class LinkedListHomework {
 //        System.out.println(words);
 
         // 9. Write a Java program to insert some elements at the specified position into a linked list
-//        words.add(3, "add me at third positon");
-//        words.add(4, "add me at fourth positon");
-//        words.add(5, "add me at fifth positon");
+//        words.add(3, "add me at third position");
+//        words.add(4, "add me at fourth position");
+//        words.add(5, "add me at fifth position");
 //        System.out.println(words);
 
         // 10. Write a Java program to get the first and last occurrence of the specified elements in a linked list
-        words.add("soap");
+       // words.add("soap");
 //        String targetElement = "nnnnn";
 //        //String targetElement="soap";
 //
@@ -122,7 +129,7 @@ public class LinkedListHomework {
 //        wordsConcat.addAll(words2);
 //        System.out.println(wordsConcat);
 
-        // 18. Write a Java program to clone an linked list to another linked list
+        // 18. Write a Java program to clone a linked list to another linked list
 //        LinkedList<String> words2 = new LinkedList<>();
 //        words2 = (LinkedList) words.clone();
 //        System.out.println(words2);
@@ -133,6 +140,6 @@ public class LinkedListHomework {
 //        System.out.println(words);
 
         // 20. Write a Java program to retrieve but does not remove, the first element of a linked list
-        System.out.println(words.getFirst());
+        //System.out.println(words.getFirst());
     }
 }

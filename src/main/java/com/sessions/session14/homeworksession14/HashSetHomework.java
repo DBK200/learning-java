@@ -36,10 +36,10 @@ public class HashSetHomework {
 
          Iterator<String> iterator = fruits.iterator();
          // iterator can be used to iterate through all Java Collections
-//        while(iterator.hasNext()){
-//            String element = iterator.next();
-//            System.out.println(element);
-//        }
+        while(iterator.hasNext()){
+            String element = iterator.next();
+            System.out.println(element);
+        }
 
         // 3. Write a Java program to get the number of elements in a hashset.
         //System.out.println("The number of elements of fruits HashSet is " + fruits.size());
@@ -99,9 +99,9 @@ public class HashSetHomework {
         fruits2.add("mango");
         fruits2.add("banana");
         fruits2.add("cherries");
-//
-//        System.out.println(fruits.equals(fruits2));
-//        System.out.println(fruits.equals(fruits));
+
+        System.out.println(fruits.equals(fruits2));
+        System.out.println(fruits.equals(fruits));
 
         // 11. Write a Java program to compare two sets and retain elements which are same on both sets   --> with function retainAll()
 //        HashSet<String> sameElements = new HashSet<>(fruits);
@@ -111,10 +111,5 @@ public class HashSetHomework {
         // 12. Write a Java program to remove all of the elements from a hash set
 //        fruits2.clear();;
 //        System.out.println(fruits2);
-
-
-
-
-
     }
 }
