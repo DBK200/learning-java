@@ -14,7 +14,7 @@ public class NumberGuessingGame {
     public static void guessNumberGame() {
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Cheat to check: " + nr);
+       // System.out.println("Cheat to check: " + nr);
         for(int i =1; i < 5; i++) {
             System.out.println("Type your trial number: ");
             int trial = input.nextInt();
