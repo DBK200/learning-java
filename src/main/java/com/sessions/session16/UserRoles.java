@@ -23,8 +23,6 @@ public enum UserRoles {
     public String getDescription(){
         return description;
     }
-
-
 }
 
 class EnumTest {
