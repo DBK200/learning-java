@@ -20,7 +20,7 @@ public class Product {
     }
 }
 
-class Practice {
+class PracticeS16 {
 
         public static void main(String[] args) {
         Product product = new Product(23, "laptop", "this is a good laptop");

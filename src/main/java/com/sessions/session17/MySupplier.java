@@ -10,7 +10,7 @@ public interface MySupplier {
     String generateDescription();
 }
 
-class Practice {
+class PracticeS17 {
     public static void main(String[] args) {
         List<String> myList = List.of("abcd","abc","a");
         System.out.println(myList);

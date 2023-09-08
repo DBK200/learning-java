@@ -27,14 +27,14 @@ public class GenericsPractice {
 
 
 // Electronics, Auto, ...
-class Order<T,U> {
+class OrderS16<T,U> {
 
     private int id;
     private String name;
     private T item;
 
     private U category;
-    public Order(int id, String name, T item, U category) {
+    public OrderS16(int id, String name, T item, U category) {
         this.id = id;
         this.name = name;
         this.item = item;

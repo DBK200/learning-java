@@ -4,9 +4,9 @@ public class Practice {
 
     public static void main(String[] args) {
 
-        Person person1 = new Person(1, "Alex", "RO", 23);
-        Person person2 = new Person(2, "Alex", "DE", 23);
-        Person person3 = new Person(2, "Alex", "RO", 23);
+        PersonS15 person1 = new PersonS15(1, "Alex", "RO", 23);
+        PersonS15 person2 = new PersonS15(2, "Alex", "DE", 23);
+        PersonS15 person3 = new PersonS15(2, "Alex", "RO", 23);
         // person1 = person2 -> person2 = person3 => person1=person3
 //        System.out.println(person1.equals(person2));
 //        System.out.println(person1.equals("SomeString"));
@@ -22,7 +22,7 @@ public class Practice {
     }
 }
 
-class Person {
+class PersonS15 {
     private String name;
     private String country;
     private int age;
@@ -41,7 +41,7 @@ class Person {
         return age;
     }
 
-    Person(int id, String name, String country, int age) {
+    PersonS15(int id, String name, String country, int age) {
         this.id = id;
         this.name = name;
         this.country = country;
@@ -61,7 +61,7 @@ class Person {
             return false;
         }
 
-        Person person = (Person) object;
+        PersonS15 person = (PersonS15) object;
         return id == person.id && name.equals(person.name) &&
                 country.equals(person.country) && age == person.age;
     }

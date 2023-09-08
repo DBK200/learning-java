@@ -22,7 +22,7 @@ public class Store {
     }
 }
 
-class HashCodePractice{
+class HashCodePracticeS16{
     public static void main(String[] args) {
         Store store1= new Store("magazin12", 3);
         Store store2= new Store("magazin1", 3);

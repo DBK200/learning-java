@@ -14,7 +14,7 @@ public class Book {
     }
 }
 
-class AnonymousClass {
+class AnonymousClassS17 {
     public static void main(String[] args) {
         Book book = new Book("Leaders eat last"){
             public String getTitle(){

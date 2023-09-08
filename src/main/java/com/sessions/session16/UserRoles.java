@@ -25,7 +25,7 @@ public enum UserRoles {
     }
 }
 
-class EnumTest {
+class EnumTestS16 {
     public static void main(String[] args) {
 //        UserRoles role = UserRoles.ADMIN;
 //        System.out.println(role.name());
