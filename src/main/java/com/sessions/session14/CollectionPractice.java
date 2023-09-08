@@ -46,5 +46,25 @@ public class CollectionPractice {
 //        weekDays.add("Monday");
 //        System.out.println(weekDays);
 
+
+//        LinkedHashMap<String,String>emailAddressesMap= new LinkedHashMap<>();
+//        emailAddressesMap.put("George","george@yahoo.com");
+//        emailAddressesMap.put("Diana","diana@yahoo.com");
+//        System.out.println(emailAddressesMap);
+//        System.out.println(emailAddressesMap.get("George"));
+//
+//        for(String cheie:emailAddressesMap.keySet()){
+//            System.out.println(emailAddressesMap.get(cheie));
+//        }
+//        for(String value:emailAddressesMap.values()){
+//            System.out.println(value);
+//        }
+
+//        for (Map.Entry<String,String>entry: emailAddressesMap.entrySet()){
+//            System.out.println(entry.getKey()+" has this address: "+entry.getValue());
+//        }
+
+
+
     }
 }
