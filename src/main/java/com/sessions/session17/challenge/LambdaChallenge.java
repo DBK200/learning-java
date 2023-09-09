@@ -2,7 +2,6 @@ package com.sessions.session17.challenge;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class LambdaChallenge {
     public static void main(String[] args) {
@@ -27,16 +26,17 @@ public class LambdaChallenge {
         Filter filter = list -> {
             List<Number> lResult = new ArrayList<>();
             for (Number e: list) {
-                if (e.longValue() % 2 == 0) lResult.add(e);
+                if (e.doubleValue() - e.longValue() == 0
+                        && e.longValue() % 2 == 0) lResult.add(e);
             };
             return lResult;
         };
-        List<Float> alList1 = (List<Float>) filter.even(List.of(10f, 11f, 12.55f, 15.2f, 33f, 34.1f));
-        System.out.println(alList1);
+//        List<Integer> alList1 = List.of(10, 11, 12, 15, 33, 34);
+        List<Float> alList1 = List.of(10f, 11f, 12.55f, 15.2f, 33f, 34.1f);
+        System.out.println(filter.even(alList1));
 
-        ///////////////////////////////////////
-        // A more concise version using STREAMS
-        List<Integer> alList0 = Stream.of(10, 11, 12, 15, 33, 34).filter(x -> x % 2 == 0).toList();
+        // Using streams(): filter()
+        List alList0 = alList1.stream().filter(x -> x % 2 == 0).toList();
         System.out.println(alList0);
 
 
