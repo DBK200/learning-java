@@ -86,7 +86,8 @@ class Person {
 
     @Override
     public int hashCode() {
-        return id + name.hashCode(); //super.hashCode();
+        return id + name.hashCode();
+        // super.hashCode();
     }
 
     public String getName() {
