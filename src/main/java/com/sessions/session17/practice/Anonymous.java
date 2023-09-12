@@ -84,7 +84,7 @@ interface Test {
 }
 @FunctionalInterface
 interface MySupplier {
-    // An operation that takes no input arguments and returns a result
+    // SUPPLIER: An operation that takes no input arguments and returns a result
     String generateDescription();
     // This declaration will
     // String a();
@@ -92,18 +92,18 @@ interface MySupplier {
 
 @FunctionalInterface
 interface MyConsumer {
-    //The Consumers - an operation that takes a single input argument and returns no result
+    // CONSUMER: An operation that takes a single input argument and returns no result
     void printArea(int a);
 }
 
 @FunctionalInterface
 interface MyFunction {
-    //The Functions - an operation that takes a single input argument and returns a result
+    // FUNCTION: An operation that takes a single input argument and returns a result
     int sqr(int x);
 }
 
 @FunctionalInterface
 interface MyPredicate {
-    //The Predicates - a boolean-valued operation that takes a single input argument
+    // PREDICATE: A boolean-valued operation that takes a single input argument
     boolean checkSize(String s);
 }

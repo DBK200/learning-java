@@ -23,6 +23,7 @@ public class LambdaChallenge {
             return list;
         };
 *************************************************************************/
+
         Filter filter = list -> {
             List<Number> lResult = new ArrayList<>();
             for (Number e: list) {
@@ -31,8 +32,10 @@ public class LambdaChallenge {
             };
             return lResult;
         };
-//        List<Integer> alList1 = List.of(10, 11, 12, 15, 33, 34);
-        List<Float> alList1 = List.of(10f, 11f, 12.55f, 15.2f, 33f, 34.1f);
+
+
+        //List<Integer> alList1 = List.of(10, 11, 12, 15, 33, 34);
+        List<Float> alList1 = List.of(10.0f, 11f, 12.55f, 15.2f, 33f, 34.2f);
         System.out.println(filter.even(alList1));
 
         // Using streams(): filter()
@@ -99,13 +102,4 @@ interface Filter {
 @FunctionalInterface
 interface MathFunc {
     Number sum(List<? extends Number> list);
-}
-
-class Test {
-
-    public static void main(String[] args) {
-        ArrayList<Integer> alList = null;
-        System.out.println(alList.get(0));
-
-    }
 }
