@@ -1,0 +1,24 @@
+If-Else Statement: Write a program that prompts the user to enter a number and checks if it is even or odd using
+ an if-else statement. Print out a message indicating whether the number is even or odd.
+
+Switch Statement: Write a program that prompts the user to enter a day of the week and prints out a message
+ indicating whether it is a weekday or a weekend day, using a switch statement.
+
+For Loop: Write a program that prompts the user to enter a number and calculates the factorial of that number
+ using a for loop. Print out the factorial of the number.
+
+While Loop: Write a program that prompts the user to enter a number and checks if it is a prime number using
+a while loop. Print out a message indicating whether the number is prime or not.
+
+Do-While Loop: Write a program that prompts the user to enter a number and calculates the sum of the digits of
+that number using a do-while loop. Print out the sum of the digits.
+
+Break Statement: Write a program that prompts the user to enter a series of numbers until they enter a negative
+number. Calculate the sum of the positive numbers using a break statement to exit the loop when a negative number
+ is entered.
+
+Continue Statement: Write a program that prompts the user to enter a series of numbers and calculates the sum of
+the even numbers using a continue statement to skip over the odd numbers.
+
+
+
