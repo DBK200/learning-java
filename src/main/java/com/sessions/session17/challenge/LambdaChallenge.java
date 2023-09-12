@@ -11,7 +11,7 @@ public class LambdaChallenge {
             a list of integers and return only the even numbers.
 */
 
-/*
+/**********************************************************************
         // This implementation will throw an exception when
         // the input parameter is an immutable list passed
         // by a List.of() call, thus was discarded.
@@ -22,7 +22,7 @@ public class LambdaChallenge {
             };
             return list;
         };
-*/
+*************************************************************************/
         Filter filter = list -> {
             List<Number> lResult = new ArrayList<>();
             for (Number e: list) {
@@ -99,4 +99,13 @@ interface Filter {
 @FunctionalInterface
 interface MathFunc {
     Number sum(List<? extends Number> list);
+}
+
+class Test {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> alList = null;
+        System.out.println(alList.get(0));
+
+    }
 }
