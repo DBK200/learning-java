@@ -106,6 +106,7 @@ public class StreamChallenge {
         // Create a stream from a List of Strings that in the end reduces all the elements
         // to a single String made from the concatenation of all the Strings inside the original collection
         String sConcat = stringList.stream().reduce("", (s1, s2) -> s1.concat(s2));
-        System.out.println(sConcat);
+        System.out.printf("String list: %s%n" +
+                "Flatten list: %s%n", stringList, sConcat);
     }
 }
