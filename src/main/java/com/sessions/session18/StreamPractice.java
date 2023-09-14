@@ -1,7 +1,5 @@
 package com.sessions.session18;
 
-import org.newdawn.slick.opengl.SlickCallable;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
