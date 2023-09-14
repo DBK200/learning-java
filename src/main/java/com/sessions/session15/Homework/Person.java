@@ -6,22 +6,25 @@ public class Person {
     private int id;
     private String email;
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public int getAge(){
+
+    public int getAge() {
         return age;
     }
 
     public String getEmail() {
         return email;
     }
-    Person(int id, String name, int age, String email){
+
+    Person(int id, String name, int age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
     }
-    public boolean equals (Object object){
+
+    public boolean equals(Object object) {
         if (object == null) {
             return false;
         }
@@ -35,15 +38,16 @@ public class Person {
         }
         Person person = (Person) object;
 
-        return id==person.id && name.equals(name) && age==person.age;
+        return id == person.id && name.equals(name) && age == person.age;
     }
-    public int hashCode(){
-        return age+name.hashCode();
+
+    public int hashCode() {
+        return age + name.hashCode();
     }
 
     public static void main(String[] args) {
-        Person person1 = new Person(1,"Marian", 20, "marian@yahoo.com");
-        Person person2 = new Person(1,"Marian", 20, "marian2@yahoo.com");
+        Person person1 = new Person(1, "Marian", 20, "marian@yahoo.com");
+        Person person2 = new Person(1, "Marian", 20, "marian2@yahoo.com");
         System.out.println(person1.equals(person2));
         System.out.println(person1.hashCode());
         System.out.println(person2.hashCode());

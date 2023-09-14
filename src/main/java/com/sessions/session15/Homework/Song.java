@@ -5,7 +5,7 @@ public class Song {
     private String artist;
     private int length;
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
 
@@ -17,10 +17,10 @@ public class Song {
         return length;
     }
 
-    Song(String title, String artist, int length){
-        this.title=title;
-        this.artist=artist;
-        this.length=length;
+    Song(String title, String artist, int length) {
+        this.title = title;
+        this.artist = artist;
+        this.length = length;
     }
 
 
@@ -43,12 +43,12 @@ public class Song {
 
 
     public int hashCode() {
-        return title.hashCode()+artist.hashCode();
+        return title.hashCode() + artist.hashCode();
     }
 
     public static void main(String[] args) {
-        Song song1 = new Song("Not Afraid","Eminem", 4);
-        Song song2 = new Song("Not Afraid","Eminem", 6);
+        Song song1 = new Song("Not Afraid", "Eminem", 4);
+        Song song2 = new Song("Not Afraid", "Eminem", 6);
         System.out.println(song1.equals(song2));
         System.out.println(song1.hashCode());
         System.out.println(song2.hashCode());

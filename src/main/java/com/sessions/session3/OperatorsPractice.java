@@ -5,10 +5,10 @@ public class OperatorsPractice {
     public static void main(String[] args) {
 
         //post-unary operators expression++, expression--
-        int x = 0;
-        int y = x++;
-        System.out.println("x = " + x);
-        System.out.println("y = " +y);
+//        int x = 0;
+//        int y = x++;
+//        System.out.println("x = " + x);
+//        System.out.println("y = " +y);
 
         //pre-unary operators ++expression, --expression
 //        int x = 0;

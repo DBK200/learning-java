@@ -19,7 +19,8 @@ public class Rectangle {
         this.height = height;
         this.id = id;
     }
-    public boolean equals (Object object){
+
+    public boolean equals(Object object) {
         if (object == null) {
             return false;
         }
@@ -33,19 +34,19 @@ public class Rectangle {
         }
         Rectangle rectangle1 = (Rectangle) object;
 
-        return id==rectangle1.id && width==rectangle1.width && height==rectangle1.height;
+        return id == rectangle1.id && width == rectangle1.width && height == rectangle1.height;
     }
+
     public int hashCode() {
         return id;
     }
 
     public static void main(String[] args) {
-        Rectangle rectangle1 = new Rectangle(1,8, 8);
-        Rectangle rectangle2 = new Rectangle(1,8,8);
+        Rectangle rectangle1 = new Rectangle(1, 8, 8);
+        Rectangle rectangle2 = new Rectangle(1, 8, 8);
         System.out.println(rectangle1.equals(rectangle2));
         System.out.println(rectangle1.hashCode());
         System.out.println(rectangle2.hashCode());
-
 
 
     }

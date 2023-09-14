@@ -16,10 +16,11 @@ public class Product {
     public int getId() {
         return id;
     }
-    Product(String name, int price, int id){
-        this.name=name;
-        this.price=price;
-        this.id=id;
+
+    Product(String name, int price, int id) {
+        this.name = name;
+        this.price = price;
+        this.id = id;
     }
 
 
@@ -37,7 +38,7 @@ public class Product {
         }
         Product product = (Product) object;
 
-        return id==product.id;
+        return id == product.id;
     }
 
 
@@ -46,8 +47,8 @@ public class Product {
     }
 
     public static void main(String[] args) {
-        Product product1 = new Product("Water",10,1);
-        Product product2 = new Product("Water",10,1);
+        Product product1 = new Product("Water", 10, 1);
+        Product product2 = new Product("Water", 10, 1);
         System.out.println(product1.equals(product2));
         System.out.println(product1.hashCode());
         System.out.println(product2.hashCode());

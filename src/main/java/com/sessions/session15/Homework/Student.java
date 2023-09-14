@@ -21,13 +21,15 @@ public class Student {
     public int getStudentID() {
         return studentID;
     }
-    Student(String name, String email, int age, int studentID){
+
+    Student(String name, String email, int age, int studentID) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.studentID = studentID;
     }
-    public boolean equals (Object object) {
+
+    public boolean equals(Object object) {
         if (object == null) {
             return false;
         }
@@ -39,22 +41,22 @@ public class Student {
         if (!(object instanceof Student)) {
             return false;
         }
-            Student student = (Student) object;
+        Student student = (Student) object;
 
-            return  age==student.age && name.equals(name) && email.equals(email);
-        }
+        return age == student.age && name.equals(name) && email.equals(email);
+    }
 
 
     public int hashCode() {
-        return name.hashCode()+age+email.hashCode();
+        return name.hashCode() + age + email.hashCode();
     }
 
     public static void main(String[] args) {
-        Student student1 = new Student("Bogdan", "bogdan@yahoo.com",25,10);
-        Student student2 = new Student("Bogdan", "bogdan@yahoo.com",25,10);
+        Student student1 = new Student("Bogdan", "bogdan@yahoo.com", 25, 10);
+        Student student2 = new Student("Bogdan", "bogdan@yahoo.com", 25, 10);
         System.out.println(student1.equals(student2));
         System.out.println(student1.hashCode());
         System.out.println(student2.hashCode());
     }
-    }
+}
 
