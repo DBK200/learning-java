@@ -1,6 +1,7 @@
 package com.sessions.session19.challenge;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class OptionalsChallenge {
@@ -42,14 +43,46 @@ public class OptionalsChallenge {
                 getSum(op1, op2));
 
 
+        // Challenge 5 (Find-in and Optional)
+        //   Given a list of integers, find the first even number greater than 5 and print it.
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, -5, -6, -7, -18, 9, 10, 22);
+
+        // 5.1: Using streams
+        //      - the value
+        Integer iResult = numbers.stream().filter(x -> x % 2 == 0 && x > 5).findFirst().orElse(-1);
+        if(iResult != -1) {
+            // - the index in the list
+            int iIndex = numbers.indexOf(iResult);
+            System.out.printf("First even number greater than 5 is found at index %d and has value %d%n",
+                    iIndex, iResult);
+        }
+        else
+            System.out.println("No even number greater than 5 was found in the list.");
+
+        System.out.println("=".repeat(30));
+
+        // 5.2: Using a for loop
+        //      - the value and index
+        for (int i = 0; i < numbers.size(); i++) {
+            int iValue = numbers.get(i);
+            if (iValue % 2 == 0 && iValue > 30){
+                System.out.printf("First even number greater than 5 is found at index %d and has value %d%n",
+                        i, iValue);
+                break;
+            }
+            if (i == numbers.size() - 1)
+                System.out.println("No even number greater than 5 was found in the list.");
+        }
     }
+
 
     private static <T> String getValue(Optional<T> optional){
         return (optional.isPresent()) ? String.valueOf(optional.get()) : "Empty Optional";
     }
 
     private static <T,U> void printOptional(T argument, Optional<U> method){
-        System.out.printf("Optional value for input parameter [%s]: %s%n",
+        System.out.printf("Optional value for input parameter [%s]: %s%n"
+                        + "=".repeat(30) + "%n",
                 argument, getValue(method));
     }
 
