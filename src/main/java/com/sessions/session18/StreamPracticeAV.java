@@ -26,9 +26,35 @@ public class StreamPracticeAV {
         System.out.println(sortedList);
 
         words.stream().forEach(x -> System.out.println(x));
+        words.stream().forEach(x -> consumeString(x));
 
+        //reduce
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,7,8);
+        Integer result = numbers.stream().reduce(0, (a, b) -> a + b);
+        System.out.println(result);
+
+        //Supplier: IN: () OUT: object
+        //Consumer: IN: objects OUT: void
+        //Function: x-> y
+        //Bifundtion: (x, y)-> z
+        //Predicate: x -> boolean
+
+        long numberOfElements = numbers.stream().distinct().count();
+        System.out.println(numberOfElements);
+
+        boolean isGreaterThan3 = numbers.stream().anyMatch(x-> x > 30);
+        boolean isGreaterThan30 = numbers.stream().noneMatch(x-> x > 30);
+        boolean isGreaterThan310 = numbers.stream().allMatch(x-> x > 310);
+        System.out.println(isGreaterThan3);
+        System.out.println(isGreaterThan30);
+        System.out.println(isGreaterThan310);
+
+        words.stream().reduce((a, b) -> a + b).get();
 
 
     }
 
+    private static void consumeString(String name) {
+        System.out.println(name + "altceva");
+    }
 }
