@@ -14,7 +14,7 @@ public class OptionalsChallenge03 {
 
         String sValue = "--123456";
         sValue = "+00123";
-        OptionalsUtils.printOptional(sValue, strToInt(sValue));
+        Utils.out.printOptional("", sValue, strToInt(sValue));
     }
     private static Optional<Integer> strToInt(String value) {
         try{

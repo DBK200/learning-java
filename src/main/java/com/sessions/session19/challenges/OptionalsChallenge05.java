@@ -23,7 +23,7 @@ public class OptionalsChallenge05 {
         //    returns the value and index in the list
 
         // Starts the Stopwatch
-        OptionalsUtils.startStopwatch();
+        Timer.out.startStopwatch();
 
         Integer iResult = numbers.stream().filter(x -> x % 2 == 0 && x > LIMIT).findFirst().orElse(-1);
 //        Integer iResult = numbers.stream().filter(x -> x % 2 == 0 && x > LIMIT).toList().get(0);
@@ -37,14 +37,14 @@ public class OptionalsChallenge05 {
             System.out.printf("No even number greater than %d was found in the list%n", LIMIT);
 
         // Prints out duration
-        OptionalsUtils.printStopwatch("1. Using streams w/ index returning, was calculated in:");
+        Timer.out.printStopwatch("1. Using streams w/ index returning, was calculated in:");
 
 
         // 2: Using streams
         //    returns only the value
 
         // Starts the Stopwatch
-        OptionalsUtils.startStopwatch();
+        Timer.out.startStopwatch();
 
         iResult = numbers.stream().filter(x -> x % 2 == 0 && x > LIMIT).findFirst().orElse(-1);
 //        iResult = numbers.stream().filter(x -> x % 2 == 0 && x > LIMIT).toList().get(0);
@@ -55,14 +55,14 @@ public class OptionalsChallenge05 {
             System.out.printf("No even number greater than %d was found in the list%n", LIMIT);
 
         // Prints out duration
-        OptionalsUtils.printStopwatch("2. Using streams w/o index returning, was calculated in:");
+        Timer.out.printStopwatch("2. Using streams w/o index returning, was calculated in:");
 
 
         //  3: Using a for loop
         //     - the value and index at once
 
         // Starts the Stopwatch
-        OptionalsUtils.startStopwatch();
+        Timer.out.startStopwatch();
 
         for (int i = 0; i < numbers.size(); i++) {
             int iValue = numbers.get(i);
@@ -76,6 +76,6 @@ public class OptionalsChallenge05 {
         }
 
         // Prints out duration
-        OptionalsUtils.printStopwatch("3. Using FOR loop, was calculated in:");
+        Timer.out.printStopwatch("3. Using FOR loop, was calculated in:");
     }
 }

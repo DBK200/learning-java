@@ -14,9 +14,8 @@ public class OptionalsChallenge04 {
 
         Optional<Integer> op1 = Optional.ofNullable(25);
         Optional<Integer> op2 = Optional.ofNullable(null);
-        OptionalsUtils.printOptional(OptionalsUtils.getOptionalValue(op1)
-                        .concat(", ")
-                        .concat(OptionalsUtils.getOptionalValue(op2)),
+        Utils.out.printOptional("The sum of %s is %s",
+                Utils.out.getOptionalValue(op1, op2),
                 getSum(op1, op2));
     }
 

@@ -13,7 +13,8 @@ public class OptionalsChallenge02 {
 
         Integer[] array = {-1,2,9,-44,2,-41,51};
         // array = null;
-        OptionalsUtils.printOptional(array, getMaxArrayElement(array));
+        Utils.out.printOptional("Maximum value in array %s is: %s",
+                array, getMaxArrayElement(array));
     }
 
     private static Optional<Integer> getMaxArrayElement(Integer[] array) {
