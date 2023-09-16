@@ -22,6 +22,7 @@ public class OptionalsUtils {
 
     static void startStopwatch(){
         start = System.nanoTime();
+        end = 0;
     }
 
     static void stopStopwatch(){
@@ -29,14 +30,17 @@ public class OptionalsUtils {
     }
 
     static double getStopwatch(){
+        if (start == 0) return 0;
+        if (end == 0) stopStopwatch();
         return (end - start)/1e+9;
     }
 
     static void printStopwatch(String message) {
+        double duration = getStopwatch();
         StringBuilder sbResult = new StringBuilder();
         if (message.isBlank()) sbResult.append("Duration:");
         else sbResult.append(message);
-        sbResult.append(" ").append(getStopwatch()).append(" [s]\n");
+        sbResult.append(" ").append(duration).append(" [s]\n");
         System.out.println(sbResult);
     }
 

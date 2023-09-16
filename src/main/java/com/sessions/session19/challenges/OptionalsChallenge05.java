@@ -15,7 +15,7 @@ public class OptionalsChallenge05 {
         List<Integer> numbers = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 1e6; i++) {
-            numbers.add(random.nextInt(-999999,912000));
+            numbers.add(random.nextInt(-LIMIT,LIMIT + 100));
         }
 
 
@@ -36,8 +36,7 @@ public class OptionalsChallenge05 {
         else
             System.out.printf("No even number greater than %d was found in the list%n", LIMIT);
 
-        // Stops the Stopwatch
-        OptionalsUtils.stopStopwatch();
+        // Prints out duration
         OptionalsUtils.printStopwatch("1. Using streams w/ index returning, was calculated in:");
 
 
@@ -55,8 +54,7 @@ public class OptionalsChallenge05 {
         else
             System.out.printf("No even number greater than %d was found in the list%n", LIMIT);
 
-        // Stops the Stopwatch
-        OptionalsUtils.stopStopwatch();
+        // Prints out duration
         OptionalsUtils.printStopwatch("2. Using streams w/o index returning, was calculated in:");
 
 
@@ -77,8 +75,7 @@ public class OptionalsChallenge05 {
                 System.out.printf("No even number greater than %d was found in the list%n", LIMIT);
         }
 
-        // Stops the Stopwatch
-        OptionalsUtils.stopStopwatch();
+        // Prints out duration
         OptionalsUtils.printStopwatch("3. Using FOR loop, was calculated in:");
     }
 }
