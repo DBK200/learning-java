@@ -6,7 +6,7 @@
      On second and third line read two words (i.e., w/o spaces),
      [oldWord] and [newWord].
 
-     The challenge is to implement an algorithm to partially replace all occurrences
+     The challenges is to implement an algorithm to partially replace all occurrences
      of [oldWord] with [newWord], except for first and last ones.
 
      The rules are:

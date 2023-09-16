@@ -6,7 +6,7 @@
 
      Next, read from system input a keyword (i.e., a lookup word, no spaces).
 
-     The challenge is to implement a method {lettersMatchIgnoreCase(String[] array, String key)}
+     The challenges is to implement a method {lettersMatchIgnoreCase(String[] array, String key)}
      that uses the previously entered data and returns an array containing all words that have
      at least one letter identical to the keyword.
 

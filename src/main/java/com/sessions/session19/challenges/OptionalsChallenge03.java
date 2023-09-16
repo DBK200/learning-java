@@ -1,4 +1,4 @@
-package com.sessions.session19.challenge;
+package com.sessions.session19.challenges;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
 /*
 
-05.  The challenge is to implement a method that takes two arguments as follows:
+05.  The challenges is to implement a method that takes two arguments as follows:
       (a) a Sentence (i.e., words separated by spaces and/or punctuation marks)
      and
       (b) a Keyword (i.e., only letters from English alphabet)
@@ -14,7 +14,7 @@
       1. The method must be case-insensitive (e.g., "A" is the same as "a").
       2. Write 2 methods, one for each request mentioned above.
       3. [Bonus]
-           Try to solve the challenge without duplicating the input string
+           Try to solve the challenges without duplicating the input string
            or to store its containing words into an array.
 
 */

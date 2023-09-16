@@ -1,6 +1,6 @@
 /*
 
-06.  The challenge is to implement 2 methods that takes two arguments as follows:
+06.  The challenges is to implement 2 methods that takes two arguments as follows:
        {int compareTwoStrings(String str1, String str2)}
      and
        {int compareTwoStringsIgnoreCase(String str1, String str2)}

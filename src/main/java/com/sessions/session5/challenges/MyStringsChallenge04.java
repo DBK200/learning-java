@@ -1,6 +1,6 @@
 /*
 
-04.  The challenge is to implement a method that switches letter casing
+04.  The challenges is to implement a method that switches letter casing
      (lower -> upper and upper -> lower) of a given string and
      prints out the result.
 
