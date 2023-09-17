@@ -2,7 +2,7 @@ package com.sessions.session19.challenges;
 
 public class Timer {
 
-    public static Timer out = new Timer();
+    public static final Timer out = new Timer();
     private long startTimer = 0;
     private long endTimer = 0;
 

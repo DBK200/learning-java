@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class Utils {
 
-    public static Utils out = new Utils();
+    public static final Utils out = new Utils();
 
     @SafeVarargs
     public final <T> String getOptionalValue(Optional<T>... values){
