@@ -5,8 +5,18 @@ import java.util.Optional;
 
 public class Utils {
 
+    /**
+     * Used to get access to public class methods
+     */
     public static final Utils out = new Utils();
 
+    /**
+     * Returns the string value representation of passed argument(s).
+     *
+     * @param values {@link Optional} class argument(s)
+     * @param T      The type of the {@code Optional} argument(s)
+     * @return The string value representation of the argument(s)
+     */
     @SafeVarargs
     public final <T> String getOptionalValue(Optional<T>... values){
 
@@ -22,6 +32,16 @@ public class Utils {
         return sbResult.toString();
     }
 
+    /**
+     * Prints out in the console the result of {@code method} parameter, using the message
+     * passed by the user in the {@code message} parameter.
+     *
+     * @param message  The message shown in the console
+     * @param argument Input argument for the parameter {@code method}
+     * @param method   The method for which the result is to be printed out
+     * @param T        The type of the {@code argument} parameter
+     * @param U        The type of the {@code method} parameter
+     */
     public <T,U> void printOptional(String message, T argument, Optional<U> method){
 
         if (message == null
@@ -46,6 +66,15 @@ public class Utils {
         System.out.printf(message, sbArgument, getOptionalValue(method));
     }
 
+    /**
+     * Prints out in the console the result of {@code method} parameter
+     * using a default message.
+     *
+     * @param argument Input argument for the parameter {@code method}
+     * @param method   The method for which the result is to be printed out
+     * @param T        The type of the {@code argument} parameter
+     * @param U        The type of the {@code method} parameter
+     */
     public <T,U> void printOptional(T argument, Optional<U> method){
         printOptional(null, argument, method);
     }

@@ -1,7 +1,13 @@
 package com.sessions.session19.challenges;
 
+/**
+ * Class used for operation duration (Stopwatch)
+ */
 public class Timer {
 
+    /**
+     * Used to get access to public class methods
+     */
     public static final Timer out = new Timer();
     private long startTimer = 0;
     private long endTimer = 0;
