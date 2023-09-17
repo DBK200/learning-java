@@ -1,6 +1,6 @@
 package com.sessions.session19.challenges;
 
-import java.util.*;
+import java.util.Optional;
 
 /**
  *   <h1>Challenge 4 (Suma numerelor întregi)</h1>
@@ -12,17 +12,16 @@ import java.util.*;
 public class OptionalsChallenge04 {
     public static void main(String[] args) {
 
-        Optional<Integer> op1 = Optional.ofNullable(25);
+        Optional<Integer> op1 = Optional.of(25);
         Optional<Integer> op2 = Optional.ofNullable(null);
         Utils.out.printOptional("The sum of %s is %s",
                 Utils.out.getOptionalValue(op1, op2),
                 getSum(op1, op2));
     }
 
-    private static Optional<Integer> getSum(Optional<Integer> op1, Optional<Integer> op2){
+    private static <T extends Number> Optional<Double> getSum(Optional<T> op1, Optional<T> op2){
         return (op1.isPresent() && op2.isPresent())
-                ? Optional.of(op1.get() + op2.get())
+                ? Optional.of(op1.get().doubleValue() + op2.get().doubleValue())
                 : Optional.empty();
     }
-
 }

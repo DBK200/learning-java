@@ -28,20 +28,22 @@ public class Utils {
                 || message.isBlank()
                 || !message.contains("%s")
                 || message.indexOf("%s") == message.lastIndexOf("%s"))
-            message = "Optional value for input parameter [%s] is %s";
+            message = "Value for input %s is %s";
         message += "%n" + "=".repeat(30) + "%n";
 
-        String sArgument;
+        StringBuilder sbArgument = new StringBuilder();
 
         if (argument != null) {
             if (argument.getClass().isArray())
-                sArgument = Arrays.toString((Object[]) argument);
-            else
-                sArgument = argument.toString();
+                sbArgument.append(Arrays.toString((Object[]) argument));
+            else {
+                sbArgument.append(argument.toString());
+                if (!sbArgument.toString().contains("[")) sbArgument.insert(0,"[").append("]");
+            }
         }
-        else sArgument = null;
+        else sbArgument = null;
 
-        System.out.printf(message, sArgument, getOptionalValue(method));
+        System.out.printf(message, sbArgument, getOptionalValue(method));
     }
 
     public <T,U> void printOptional(T argument, Optional<U> method){
