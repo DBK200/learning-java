@@ -1,5 +1,5 @@
-                                       Initializare
-         Instanta=obiect
+                                       Initializarea
+         -Instanta=obiect
          -intai ruleaza static ,doar o data si dupa instanta
          -instanta se foloseste cand vrei sa initializezi niste variabile
          -THIS-obiect al clasei curente
@@ -18,6 +18,6 @@
 
          -cand folosim getter si setter folosim implicit Encapsulation
          -gruparea datelor si metodelor in aceeasi unitate
-
+         -nu dau acces la date direct
 
 

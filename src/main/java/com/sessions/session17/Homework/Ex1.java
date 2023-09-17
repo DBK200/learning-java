@@ -20,7 +20,7 @@ public class Ex1
         Exercitiu1 lista1 = lista2 -> {
             List<Integer> lista = new ArrayList<>();
             // Iterarea prin lista de numere pentru a filtra numerele pare
-            for (int el : numar)
+            for (int el : lista2)
             {
                 if (el % 2 == 0)
                 {
@@ -43,3 +43,4 @@ interface Exercitiu1
 {
     List<Integer> isEven(List<Integer> nr);
 }
+

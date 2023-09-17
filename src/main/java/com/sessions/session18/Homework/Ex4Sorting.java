@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Ex4
+public class Ex4Sorting
 {
     //write a program that uses a stream to sort a list of custom objects by a specific property ,such as age or name
 
