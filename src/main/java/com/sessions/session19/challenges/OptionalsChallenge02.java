@@ -12,14 +12,14 @@ public class OptionalsChallenge02 {
     public static void main(String[] args) {
 
         Integer[] array = {-1,2,9,-44,2,-41,51};
-        // array = null;
+        array = null;
         Utils.out.printOptional("Maximum value in array %s is: %s",
                 array, getMaxArrayElement(array));
     }
 
     private static Optional<Integer> getMaxArrayElement(Integer[] array) {
         return Optional.ofNullable(array).isPresent()
-                ? Optional.of(Arrays.stream(array).distinct().max(Integer::compareTo).orElse(Integer.MIN_VALUE))
+                ? Arrays.stream(array).distinct().max(Integer::compareTo)
                 : Optional.empty();
     }
 }

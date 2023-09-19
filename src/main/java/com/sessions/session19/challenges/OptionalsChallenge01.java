@@ -19,7 +19,8 @@ public class OptionalsChallenge01 {
     }
 
     private static Optional<String> getUpperCaseString(String value) {
-        return Optional.ofNullable(value).isPresent()
-                ? Optional.of(value.toUpperCase()) : Optional.empty();
+//        return Optional.ofNullable(value).isPresent()
+//                ? Optional.of(value.toUpperCase()) : Optional.empty();
+        return Optional.ofNullable(value).map(String::toUpperCase);
     }
 }
