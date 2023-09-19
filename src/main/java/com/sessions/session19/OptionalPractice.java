@@ -30,7 +30,6 @@ public class OptionalPractice {
 //        System.out.println(resultOptional.get());
 
 //        System.out.println(stringOptional.orElseGet(() -> "a" + "b"));
-//        stringOptional.ifPresent(x -> System.out.println(x + " inside consumer function "));
 
     }
 
