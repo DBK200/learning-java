@@ -25,15 +25,40 @@ public class StreamPractice {
         List<String> sortedList = words.stream().sorted().collect(Collectors.toList());
         System.out.println(sortedList);
 
-        words.stream().forEach(x -> System.out.println(x));
+        //Supplier -> IN: () OUT: object (returneaza ceva)
+        //Cosumer ->   IN: objects..(String)... OUT: void
+        words.stream().forEach(x -> consumeString(x));
 
+//        words.stream().forEach(x -> {
 //        Mapping: Write a program that uses a stream to transform a list of strings
 //        to uppercase and then sort them in alphabetical order.
 
-        List<String> stringList = List.of("ergerg", "abc",  "wwWERRgrger3");
-        List<String> upperCaseList = stringList.stream().map(s -> s.toUpperCase()).sorted().toList();
-        System.out.println(upperCaseList);
+//        List<String> stringList = List.of("ergerg", "abc",  "wwWERRgrger3");
+//        List<String> upperCaseList = stringList.stream().map(s -> s.toUpperCase()).sorted().toList();
+//        System.out.println(upperCaseList);
 
+        //reduce                                                       distinct()       filter()      count()
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,7,8); /*->1,2,3,4,5,6,7,8 -> 4,5,6,7,8 -> 5*/
+        Integer result = numbers.stream().reduce(1, (a,b)->a+b);
+        System.out.println(result);
+        //Function: x -> y
+        //Bifunction: x,y -> z
+        //count
+        long numberOfElements = numbers.stream().distinct().filter(x->x>3).count();
+        System.out.println(numberOfElements);
+        boolean isGreaterThan3 = numbers.stream().anyMatch(x->x>7);
+//        boolean isGreaterThan3 = numbers.stream().noneMatch(x->x>7);
+//        boolean isGreaterThan3 = numbers.stream().allMatch(x->x>7);
+        System.out.println(isGreaterThan3);
+
+
+
+
+
+    }
+
+    private static void consumeString(String name){
+        System.out.println(name + " altceva");
     }
 
 }
