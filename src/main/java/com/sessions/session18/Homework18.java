@@ -26,14 +26,14 @@ public class Homework18 {
 //        System.out.println(product);
 
 //        Sorting: Write a program that uses a stream to sort a list of custom objects by a specific property, such as age or name.
-//        List<Person>personList=new ArrayList<>();
-//        personList.add(new Person("David",21));
-//        personList.add(new Person("Alex",30));
-//        personList.add(new Person("Cristi",18));
-//        personList.add(new Person("Bogdan",46));
-//        System.out.println(personList);
-//        List<Person> alphabeticalSorting=personList.stream().sorted(Comparator.comparing(Person::getName)).toList();
-//        System.out.println(alphabeticalSorting);
+        List<Person>personList=new ArrayList<>();
+        personList.add(new Person("David",21));
+        personList.add(new Person("Alex",30));
+        personList.add(new Person("Cristi",18));
+        personList.add(new Person("Bogdan",46));
+        System.out.println(personList);
+        List<Person> alphabeticalSorting=personList.stream().sorted(Comparator.comparing(Person::getName)).toList();
+        System.out.println(alphabeticalSorting);
 
 
     }
@@ -53,5 +53,13 @@ class Person {
 
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
