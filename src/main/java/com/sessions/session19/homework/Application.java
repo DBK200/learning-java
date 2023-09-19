@@ -2,8 +2,8 @@ package com.sessions.session19.homework;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 public class Application {
@@ -45,16 +45,15 @@ public class Application {
 
         /* Exercitiul 5: Given a list of integers, find the first even number greater than 5 and print it. */
         System.out.println("**** Exercitiul 5 ****");
-        System.out.println(Stream.of(3, 7, 32, 56).filter(e -> e % 2 == 0).toList().get(0));
+        System.out.println(Stream.of(3, 7, 32, 56).filter(e -> e % 2 == 0).filter(e -> e > 5).toList().get(0));
         System.out.println(getFirstEvenGreaterThan5(new int[]{3, 7, 32, 56}));
 
     }
     public static Optional<String> toUpperCase(String input) {
-        Optional<String> stringOptional = Optional.ofNullable(input);
-        stringOptional.ifPresent(x -> {
-            x = x.toUpperCase();
-        });
-        return stringOptional;
+        AtomicReference<Optional<String>> stringOptional = new AtomicReference<>(Optional.ofNullable(input));
+        stringOptional.get().ifPresent(x ->  {
+            stringOptional.set(Optional.of(x.toUpperCase()));});
+        return stringOptional.get();
     }
     public static Optional<Integer> maximumValue(Integer[] list) {
         Optional<Integer[]> listOptional = Optional.ofNullable(list);
@@ -89,7 +88,7 @@ public class Application {
     public static int getFirstEvenGreaterThan5 (int[] numbers) {
         int firstEven = 0;
         for (int number : numbers) {
-            if (number % 2 == 0) {
+            if (number % 2 == 0 && number > 5) {
                 return number;
             }
         }
