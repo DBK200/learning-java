@@ -61,7 +61,7 @@ public class Utils {
                 if (!sbArgument.toString().contains("[")) sbArgument.insert(0,"[").append("]");
             }
         }
-        else sbArgument = null;
+        else sbArgument.append("[null]");
 
         System.out.printf(message, sbArgument, getOptionalValue(method));
     }
