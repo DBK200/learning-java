@@ -3,7 +3,6 @@ package com.sessions.session19.homework;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 public class Application {
@@ -13,9 +12,9 @@ public class Application {
         returnează un Optional care conține valoarea în majuscule a parametrului, dacă acesta nu este nul, sau un
         Optional gol în caz contrar. */
         System.out.println("**** Exercitiul 1 ****");
-        System.out.println(toUpperCase("alabala"));
-        System.out.println(toUpperCase(""));
-        System.out.println(toUpperCase(null));
+        System.out.println(toUpperCaseUsingMap("alabala"));
+        System.out.println(toUpperCaseUsingMap(""));
+        System.out.println(toUpperCaseUsingMap(null));
 
         /* Exercițiul 2: Găsirea maximului - Scrieți o metodă care primește un array de numere întregi și returnează un
         Optional care conține valoarea maximă din array, sau un Optional gol dacă array-ul este gol. */
@@ -50,10 +49,18 @@ public class Application {
 
     }
     public static Optional<String> toUpperCase(String input) {
-        AtomicReference<Optional<String>> stringOptional = new AtomicReference<>(Optional.ofNullable(input));
-        stringOptional.get().ifPresent(x ->  {
-            stringOptional.set(Optional.of(x.toUpperCase()));});
-        return stringOptional.get();
+        Optional<String> stringOptional = Optional.ofNullable(input);
+        if (stringOptional.isPresent()) {
+            return Optional.of(input.toUpperCase());
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public static Optional<String> toUpperCaseUsingMap (String input) {
+        Optional<String> stringOptional = Optional.ofNullable(input);
+        return stringOptional.map(String::toUpperCase);
+
     }
     public static Optional<Integer> maximumValue(Integer[] list) {
         Optional<Integer[]> listOptional = Optional.ofNullable(list);
