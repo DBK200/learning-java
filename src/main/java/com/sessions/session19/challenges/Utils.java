@@ -26,7 +26,8 @@ public class Utils {
 
         for(Optional<T> element: values){
             sbResult.append(sbResult.isEmpty() ? "" : " and ")
-                    .append(element.map(t -> "[".concat(String.valueOf(t)).concat("]")).orElse("[Empty Optional]"));
+                    .append(element.map(t -> "[".concat(String.valueOf(t)).concat("]"))
+                                   .orElse("[Empty Optional]"));
         }
 
         return sbResult.toString();
