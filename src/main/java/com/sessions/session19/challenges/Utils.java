@@ -10,6 +10,18 @@ public class Utils {
      */
     public static final Utils out = new Utils();
 
+    private Utils(){}
+
+// Singleton: it has to be used as a method
+//    private static Utils instance;
+//
+//    private Utils(){}
+//
+//    public static synchronized Utils out(){
+//        if (instance == null) instance = new Utils();
+//        return instance;
+//    }
+
     /**
      * Returns the string value representation of passed argument(s).
      *

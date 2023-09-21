@@ -11,12 +11,13 @@ public class Timer {
     public static final Timer out = new Timer();
     private long startTimer = 0;
     private long endTimer = 0;
+    private Timer(){}
 
     /**
      * Starts the Stopwatch, setting up the {@link Timer#startTimer start}
      * and {@link Timer#endTimer end} values.
      */
-     public void startStopwatch(){
+    public void startStopwatch(){
         startTimer = System.nanoTime();
         endTimer = 0;
     }
@@ -57,5 +58,4 @@ public class Timer {
     public void printStopwatch() {
          printStopwatch("");
     }
-
 }

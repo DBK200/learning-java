@@ -12,10 +12,8 @@ import java.util.*;
 
 public class OptionalsChallenge01 {
     public static void main(String[] args) {
-
         Utils.out.printOptional(Utils.out.getOptionalValue(null), getUpperCaseString(null));
         Utils.out.printOptional("parameter", getUpperCaseString("parameter"));
-
     }
 
     private static Optional<String> getUpperCaseString(String value) {
