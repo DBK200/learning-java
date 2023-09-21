@@ -6,11 +6,27 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Ex4 {
+
+    public static void main(String[] args) {
+        //Sorting: Write a program that uses a stream to sort a list of custom objects by a specific property, such as age or name.
+        List<User> list = new ArrayList<>();
+        list.add(new User(25, "Robert"));
+        list.add(new User(30, "Ion"));
+        list.add(new User(20, "Marian"));
+
+        list.sort(Comparator.comparing(User::getAge));
+        System.out.println(list);
+        List<User> sortedList = list.stream().sorted(Comparator.comparing(User::getAge)).toList();
+        System.out.println(sortedList);
+
+    }
+}
+class User{
     private int age;
     private String name;
 
 
-    Ex4(int age, String name){
+    User(int age, String name){
         this.age = age;
         this.name = name;
     }
@@ -24,18 +40,5 @@ public class Ex4 {
     }
     public String toString(){
         return this.age + " " + this.name;
-    }
-
-    public static void main(String[] args) {
-        //Sorting: Write a program that uses a stream to sort a list of custom objects by a specific property, such as age or name.
-        List<Ex4> list = new ArrayList<Ex4>();
-        list.add(new Ex4(25, "Robert"));
-        list.add(new Ex4(30, "Ion"));
-        list.add(new Ex4(20, "Marian"));
-
-        list.sort(Comparator.comparing(Ex4::getAge));
-
-
-
     }
 }

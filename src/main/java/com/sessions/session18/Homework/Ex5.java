@@ -10,6 +10,7 @@ public class Ex5 {
     public static void main(String[] args) {
         List<String> listOfStrings = Arrays.asList("abc" + "def" + "hgu");
         listOfStrings.stream().reduce("", String::concat);
+        System.out.println(listOfStrings);
     }
 
 }
