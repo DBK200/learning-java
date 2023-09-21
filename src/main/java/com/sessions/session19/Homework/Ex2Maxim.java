@@ -12,8 +12,8 @@ public class Ex2Maxim
 
     public static void main(String[] args)
         {
-            ArrayList<Integer> numbers = new ArrayList<>(); // Creăm o listă goală de numere
-            Optional<Integer> result = maxx(numbers); // Apelăm metoda maxx pentru lista noastră
+            ArrayList<Integer> numbers = new ArrayList<>();
+            Optional<Integer> result = maxx(numbers);
 
             if (result.isPresent())
             {
@@ -21,7 +21,7 @@ public class Ex2Maxim
             }
             else
             {
-                System.out.println("Optionalul este gol"); // Afișăm un mesaj dacă Optional este gol
+                System.out.println("Optionalul este gol");
             }
         }
     //creeam o metoda care primeste un ArrayList<Integer> si returneaza valoarea maxima din lista,in caz ca nr este null,in caz
@@ -30,11 +30,11 @@ public class Ex2Maxim
     {
         if (nr == null || nr.isEmpty())
         {
-            return Optional.empty(); // Returnăm un Optional gol dacă lista este null sau goală
+            return Optional.empty();
         }
         else
         {
-            return Optional.of(nr.stream().max(Integer::compareTo).get()); // Returnăm valoarea maximă din lista de numere
+            return Optional.of(nr.stream().max(Integer::compareTo).get());
         }
     }
 }

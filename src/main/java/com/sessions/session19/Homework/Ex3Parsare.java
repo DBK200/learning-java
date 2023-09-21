@@ -14,12 +14,11 @@ public class Ex3Parsare
         String sir = "123";
         //apelam metoda parsare cu sirul de mai sus "sir" si in stocam in Optionalul "result"
         Optional<Integer> result = parsare(sir);
-        //verificam daca optionalul contine o valoare
-        if (result.isPresent()) {
-            // Dacă conține o valoare, se afișează "Nr parsat:" urmat de valoarea parsată.
+        if (result.isPresent())
+        {
             System.out.println("Nr parsat:" + result.get());
-        } else {
-
+        } else
+        {
             System.out.println("Optional gol");
         }
     }

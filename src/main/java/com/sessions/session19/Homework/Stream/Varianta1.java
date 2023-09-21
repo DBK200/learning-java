@@ -22,12 +22,10 @@ public class Varianta1
         // Verificarea dacă s-a găsit un rezultat
         if(result.isPresent())
         {
-            // Afișarea rezultatului găsit
             System.out.println("Cel mai mare nr par ca 5 este "+result.get());
         }
         else
         {
-            // Afișarea unui mesaj în cazul în care nu s-a găsit niciun rezultat
             System.out.println("Optional gol");
         }
     }

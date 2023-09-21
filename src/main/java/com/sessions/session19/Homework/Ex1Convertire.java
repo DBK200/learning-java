@@ -28,14 +28,12 @@ public class Ex1Convertire
     //daca este null ,returneaza un Optional gol
     public static Optional<String> convert(String name)
     {
-        //verific daca String ul name este null
         if(name==null)
         {
            return Optional.empty();
         }
         else
         {
-            //Transformam toate literele in litere mari ,daca String ul nu este null
             return Optional.of(name.toUpperCase());
         }
     }
