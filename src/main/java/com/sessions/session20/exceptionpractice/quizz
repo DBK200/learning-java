@@ -1,0 +1,74 @@
+When does a NullPointerException typically occur?
+a) When trying to open a file
+b) When dividing by zero
+c) When dereferencing a null object
+d) When reading from the keyboard
+
+In Java, which exception is a subclass of RuntimeException and does not need to be declared in a method's throws clause?
+a) FileNotFoundException
+b) ArithmeticException
+c) IOException
+d) ClassNotFoundException
+
+When does an ArrayIndexOutOfBoundsException occur?
+a) When a file is not found
+b) When attempting to access an array element with an invalid index
+c) When a network connection fails
+d) When dividing by zero
+
+Which exception is commonly used to handle errors related to file I/O operations?
+a) IOException
+b) NullPointerException
+c) ArrayIndexOutOfBoundsException
+d) ArithmeticException
+
+What type of exceptions are known as checked exceptions in Java?
+a) Exceptions that are always checked at compile-time
+b) Exceptions that occur during runtime
+c) Exceptions that don't need to be caught or declared
+d) Exceptions related to user input validation
+
+Answers:
+
+c) When dereferencing a null object
+b) ArithmeticException
+b) When attempting to access an array element with an invalid index
+a) IOException
+a) Exceptions that are always checked at compile-time
+
+---
+What does the NumberFormatException typically indicate in Java?
+a) An error in file I/O operations
+b) An attempt to divide by zero
+c) An invalid conversion from a string to a numeric type
+d) An array index out of bounds error
+
+When might a ClassCastException occur?
+a) When trying to open a non-existing file
+b) When accessing an array element that doesn't exist
+c) When casting an object to a type that it is not compatible with
+d) When performing arithmetic operations on incompatible data types
+
+Which exception is commonly used to handle issues related to network communication, such as a lost connection?
+a) IOException
+b) NullPointerException
+c) ArrayIndexOutOfBoundsException
+d) SocketException
+
+What is the purpose of the finally block in a try-catch-finally construct?
+a) To catch and handle exceptions
+b) To specify which exceptions are thrown
+c) To ensure that certain code is always executed, whether an exception occurs or not
+d) To define custom exception classes
+
+In a multi-catch block, can you catch exceptions of unrelated types (i.e., exceptions that do not share a common superclass or interface)?
+a) Yes
+b) No
+
+Answers:
+
+c) An invalid conversion from a string to a numeric type
+c) When casting an object to a type that it is not compatible with
+d) SocketException
+c) To ensure that certain code is always executed, whether an exception occurs or not
+b) No

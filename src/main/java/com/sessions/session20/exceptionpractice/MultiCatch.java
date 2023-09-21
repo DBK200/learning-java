@@ -3,7 +3,6 @@ package com.sessions.session20.exceptionpractice;
 public class MultiCatch {
     public static void main(String[] args) {
 
-
 //    Syntax: To use multi-catch, you specify multiple exception types in a single catch block, separated by the pipe | symbol
 //    (| is often referred to as the "or" operator).
 
