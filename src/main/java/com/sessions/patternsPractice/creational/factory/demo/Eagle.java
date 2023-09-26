@@ -1,4 +1,4 @@
-package com.sessions.patternsPractice.creational.factory;
+package com.sessions.patternsPractice.creational.factory.demo;
 
 public class Eagle implements Bird{
     public void fly(){

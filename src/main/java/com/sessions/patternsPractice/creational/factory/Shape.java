@@ -1,5 +1,6 @@
 package com.sessions.patternsPractice.creational.factory;
 
-public interface Bird {
-    void fly();
+// Shape interface
+interface Shape {
+    void draw();
 }
