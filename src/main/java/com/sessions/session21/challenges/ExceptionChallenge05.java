@@ -37,8 +37,9 @@ public class ExceptionChallenge05 {
         Scanner sc = new Scanner(System.in);
         //Exception throwing test: IOException
         //boolean bStop = Tools.out(new StringBuilder("Messages_RO.txt")).stopped();
-        //boolean bStop = Tools.out("EN").stopped();
-        boolean bStop = Tools.out().stopped();
+
+        //boolean bStop = Tools.out().stopped();
+        boolean bStop = Tools.out("RO").stopped();
 
         while(!bStop) {
             try {
@@ -58,7 +59,7 @@ public class ExceptionChallenge05 {
 
 /**
  * <h1>Utility class</h1>
- * <p>Singleton class with all the methods needed for the {@code Calculator} challenge</p>
+ * <p>Singleton01 class with all the methods needed for the {@code Calculator} challenge</p>
  * <p>Localisation is done by means of language dependent external text files.
  */
 class Tools{
@@ -70,6 +71,7 @@ class Tools{
 
     private Tools(String language, StringBuilder... path){
 
+        // Var arg check
         if (path.length == 0) {
             path = new StringBuilder[1];
             path[0] = new StringBuilder(String.format("src/main/java/com/sessions/session21/challenges/Messages_%s.txt",
@@ -86,20 +88,19 @@ class Tools{
         }
     }
 
-
     public boolean stopped() {
         return stop;
     }
 
-    public static synchronized Tools out(String language, StringBuilder ... path){
+    public static synchronized Tools out(String language, StringBuilder... path) {
         if (instance == null)
             instance = new Tools((Arrays.stream(LANGUAGES.values()).noneMatch(s -> Objects.equals(s.name(), language)))
                     ? "EN" : language, path);
         return instance;
     }
 
-    public static synchronized Tools out(StringBuilder... path){
-        return out("RO", path);
+    public static synchronized Tools out(StringBuilder... path) {
+        return out("EN", path);
     }
 
     public void calculator(Scanner sc) throws RuntimeException {
@@ -112,7 +113,7 @@ class Tools{
             System.out.print(messages[0] + "\t");
 
             String sResponse = sc.nextLine();
-            if (sResponse.isEmpty()) throw  new RuntimeException(messages[1]);
+            if (sResponse.trim().isEmpty()) throw new RuntimeException(messages[1]);
             else if (sResponse.toUpperCase().charAt(0) == 'Q') {
                 stop = true;
                 System.out.print(messages[15]);
@@ -236,7 +237,6 @@ class Tools{
             return sbResult.toString().split("\\n</p>\\n");
         }
         catch (IOException e){
-//            System.out.println("Source file not found.");
             return null;
         }
     }

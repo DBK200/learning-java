@@ -12,7 +12,7 @@ public class Utils {
 
     private Utils(){}
 
-// Singleton: it has to be used as a method
+// Singleton01: it has to be used as a method
 //    private static Utils instance;
 //
 //    private Utils(){}
