@@ -21,7 +21,7 @@ Possible operations:
  2. Subtraction: -      │   5. Power: ^
  3. Multiplication: *   │   6. Square root: R,r
 
- Input:
+ _✏️
 </p>
 
 <p> 1
@@ -80,3 +80,8 @@ No message available.
 Wrong insert position.
 </p>
 
+<p> 15
+
+Bye 👋
+
+</p>

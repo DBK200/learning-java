@@ -22,7 +22,7 @@ Operatii posibile:
  2. Scadere: -     │   5. Ridicare la putere: ^
  3. Inmultire: *   │   6. Radical: R,r
 
- Introducere:
+ _✏️
 </p>
 
 <p> 1
@@ -80,4 +80,11 @@ Mesaj inexistent.
 <p> 14
 Pozitie gresita pentru inserare text.
 </p>
+
+<p> 15
+
+La revedere 👋
+
+</p>
+
 

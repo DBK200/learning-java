@@ -37,7 +37,8 @@ public class ExceptionChallenge05 {
         Scanner sc = new Scanner(System.in);
         //Exception throwing test: IOException
         //boolean bStop = Tools.out(new StringBuilder("Messages_RO.txt")).stopped();
-        boolean bStop = Tools.out("EN").stopped();
+        //boolean bStop = Tools.out("EN").stopped();
+        boolean bStop = Tools.out("").stopped();
 
         while(!bStop) {
             try {
@@ -113,6 +114,7 @@ class Tools{
             if (sResponse.isEmpty()) throw  new RuntimeException(messages[1]);
             else if (sResponse.toUpperCase().charAt(0) == 'Q') {
                 stop = true;
+                System.out.print(messages[15]);
                 sc.close();
                 break;
             }
