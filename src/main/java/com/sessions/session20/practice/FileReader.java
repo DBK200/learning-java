@@ -21,7 +21,7 @@ public class FileReader {
             reader.close();
         }
         catch (IOException e){
-            System.out.println("File not find!");
+            System.out.println("File not found.");
         }
     }
 
@@ -36,7 +36,7 @@ public class FileReader {
             //reader.close();
         }
         catch (IOException e){
-            System.out.println("File not find!");
+            System.out.println("File not found.");
         }
     }
 

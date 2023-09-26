@@ -1,0 +1,82 @@
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│    :: Localisation file ::                                                        │
+│    This file contains messages used in application                                │
+│    Language:   ENGLISH (EN)                                                       │
+│    File name:  Messages_EN.txt                                                    │
+│    Usage:                                                                         │
+│     - The <p> and </p> tags must be placed at the beginning of distinct lines.    │
+│     - The content must be placed between <p> and </p> tags.                       │
+│     - The content that is not placed between <p> and </p> tags is ignored.        │
+│     - The content placed on tag lines, after tag declaration, will be ignored.    │
+│       Suggestion: here comments can be placed                                     │
+└───────────────────────────────────────────────────────────────────────────────────┘
+
+<p> 0
+Please enter next 2 DOUBLE type operands and 1 operator,
+separated by spaces [Q/q to quit].
+(place them in the real sequence, e.g., a + b)
+
+Possible operations:
+ 1. Addition: +         │   4. Division: /
+ 2. Subtraction: -      │   5. Power: ^
+ 3. Multiplication: *   │   6. Square root: R,r
+
+ Input:
+</p>
+
+<p> 1
+No arguments entered.
+</p>
+
+<p> 2
+Wrong number of arguments (/3).
+</p>
+
+<p> 3
+Divisor can not be 0.
+</p>
+
+<p> 4
+Addition
+</p>
+
+<p> 5
+Subtraction
+</p>
+
+<p> 6
+Multiplication
+</p>
+
+<p> 7
+Division
+</p>
+
+<p> 8
+Square root
+</p>
+
+<p> 9
+Power
+</p>
+
+<p> 10
+Result overflows the type Double range.
+</p>
+
+<p> 11
+Wrong operator ''.
+</p>
+
+<p> 12
+Wrong operator for 2 arguments calculations ('').
+</p>
+
+<p> 13
+No message available.
+</p>
+
+<p> 14
+Wrong insert position.
+</p>
+

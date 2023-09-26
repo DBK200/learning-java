@@ -1,0 +1,83 @@
+┌────────────────────────────────────────────────────────────────────────────────────┐
+│    :: Fisier localizare ::                                                         │
+│    Acest fisier contine mesajele utilizate in aplicatie                            │
+│    Limba:            ROMANA (RO)                                                   │
+│    Denumire fisier:  Messages_EN.txt                                               │
+│    Instructiuni:                                                                   │
+│     - tag-urile <p> si </p> trebuie sa fie pozitionate la inceputul unor linii     │
+│       distincte.                                                                   │
+│     - continutul trebuie plasat intre tag-urile <p> si </p>.                       │
+│     - continutul neplasat intre tag-urile <p> si </p> va fi ignorat.               │
+│     - continutul existent pe liniile tag-urilor, aflat dupa ele, va fi ignorat.    │
+│       Sugestie: acest spatiu se poate utiliza pentru comentarii/adnotari.          │
+└────────────────────────────────────────────────────────────────────────────────────┘
+
+<p> 0
+Introduceti in continuare 2 operanzi de tip DOUBLE si 1 operator,
+separati prin spatii [Q/q pentru renuntare].
+(introducerea se va face in ordinea normala, e.g., a + b)
+
+Operatii posibile:
+ 1. Adunare: +     │   4. Impartire: /
+ 2. Scadere: -     │   5. Ridicare la putere: ^
+ 3. Inmultire: *   │   6. Radical: R,r
+
+ Introducere:
+</p>
+
+<p> 1
+Nu s-a introdus vreun argument.
+</p>
+
+<p> 2
+Numar incorect de argumente (/3).
+</p>
+
+<p> 3
+Divizorul nu poate fi 0.
+</p>
+
+<p> 4
+Adunare
+</p>
+
+<p> 5
+Scadere
+</p>
+
+<p> 6
+Inmultire
+</p>
+
+<p> 7
+Impartire
+</p>
+
+<p> 8
+Radical
+</p>
+
+<p> 9
+Putere
+</p>
+
+<p> 10
+Rezultatul depaseste intervalul numerelor de tip Double.
+</p>
+
+<p> 11
+Operator incorect ''.
+</p>
+
+<p> 12
+Operator incorect pentru calcule cu 2 argumente ('').
+</p>
+
+<p> 13
+Mesaj inexistent.
+</p>
+
+<p> 14
+Pozitie gresita pentru inserare text.
+</p>
+
