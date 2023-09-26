@@ -26,18 +26,16 @@ public class ExceptionChallenge04 {
                 System.out.print("Please enter your age [0<age<150]: ");
                 if (sc.hasNextInt()) {
                     age = sc.nextInt();
-                    //validateAge(age, "Age exception.");
-                    validateAgeB(age);
+                    validateAgeA(age);
+                    //validateAgeB(age);
                     break;
                 }
                 else sc.next();
             }
+            System.out.printf("Your are %d %s old.", age, (age == 1 ? "year" : "years"));
         }
         catch (InvalidAgeExceptionA | InvalidAgeExceptionB e) {
             System.out.println("Exception message: " + e.getMessage());
-        }
-        finally {
-            System.out.printf("Your are %d %s old.", age, (age == 1 ? "year" : "years"));
         }
     }
 

@@ -38,15 +38,16 @@ public class ExceptionChallenge05 {
         //Exception throwing test: IOException
         //boolean bStop = Tools.out(new StringBuilder("Messages_RO.txt")).stopped();
         //boolean bStop = Tools.out("EN").stopped();
-        boolean bStop = Tools.out("").stopped();
+        boolean bStop = Tools.out().stopped();
 
         while(!bStop) {
             try {
                 Tools.out().calculator(sc);
-                bStop = Tools.out().stopped();
             }
             catch (RuntimeException e) {
                 Tools.out().formatOutput(e);
+            }
+            finally {
                 bStop = Tools.out().stopped();
             }
         }
