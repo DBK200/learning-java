@@ -1,46 +1,46 @@
 package com.sessions.patternsPractice.structural.facade;
 
-class SubsystemClass1 {
-    public void method1() {
-        System.out.println("SubsystemClass1 - Method1");
+class DriverHistory {
+    public void checkDriverHistory() {
+        System.out.println("Checking driver history");
     }
 }
 
-class SubsystemClass2 {
-    public void method2() {
-        System.out.println("SubsystemClass2 - Method2");
+class CarStock {
+    public void checkAvailableCars() {
+        System.out.println("Checking available cars");
     }
 }
 
-class SubsystemClass3 {
-    public void method3() {
-        System.out.println("SubsystemClass3 - Method3");
+class CarBooking {
+    public void bookCarForCustomer() {
+        System.out.println("Booking a car for a customer...");
     }
 }
 
 // Facade class
-class Facade {
-    private SubsystemClass1 subsystemClass1;
-    private SubsystemClass2 subsystemClass2;
-    private SubsystemClass3 subsystemClass3;
+class CarRentalFacade {
+    private DriverHistory driverHistory;
+    private CarStock carStock;
+    private CarBooking carBooking;
 
-    public Facade() {
-        subsystemClass1 = new SubsystemClass1();
-        subsystemClass2 = new SubsystemClass2();
-        subsystemClass3 = new SubsystemClass3();
+    public CarRentalFacade() {
+        driverHistory = new DriverHistory();
+        carStock = new CarStock();
+        carBooking = new CarBooking();
     }
 
-    public void operation() {
-        subsystemClass1.method1();
-        subsystemClass2.method2();
-        subsystemClass3.method3();
+    public void rentCar() {
+        driverHistory.checkDriverHistory();
+        carStock.checkAvailableCars();
+        carBooking.bookCarForCustomer();
     }
 }
 
 // Main class
 public class Main {
     public static void main(String[] args) {
-        Facade facade = new Facade();
-        facade.operation();
+        CarRentalFacade carRentalFacade = new CarRentalFacade();
+        carRentalFacade.rentCar();
     }
 }
