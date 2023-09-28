@@ -1,7 +1,5 @@
 package com.sessions.session12.polymorphism;
 
-import com.sessions.session11.abstraction.Motorcycle;
-
 public class Test {
 
     public static void main(String[] args) {

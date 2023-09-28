@@ -8,12 +8,12 @@ public class ProductR
     daca eu am un obiect si nu are o variabila,cu constructor trebuie sa faci mai multe
 
      */
-    private String name;
-    private int price;
-    private String description;
-    private int starReview;
-    private String type;
-    private long id;
+    private final String name;
+    private final int price;
+    private final String description;
+    private final int starReview;
+    private final String type;
+    private final long id;
     private ProductR(String name,int price,String description,int starReview,String type,long id)
     // este privat ca sa poata fi apelat doar de builder
 

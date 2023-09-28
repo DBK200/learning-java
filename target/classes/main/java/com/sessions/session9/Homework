@@ -1,7 +1,0 @@
-Homework
-1. Create a new class called User that has at least 5 instance properties (variables)
-2. Create a no arg constructor
-3. Create an all arg constructor
-4. Add 2 new static variables
-5. Add 2 new methods that makes use of the static variables
-6. Add at least one method that uses local and instance variables (add some logic like printing to the console or manipulating the variables)
