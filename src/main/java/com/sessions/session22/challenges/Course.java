@@ -176,6 +176,6 @@ class CourseTest{
                 .withStartDateTime(LocalDateTime.now())
                 .withEndDateTime(LocalDateTime.now().plusDays(2))
                 .build();
-        System.out.println(course2);
+        System.out.println(course3);
     }
 }

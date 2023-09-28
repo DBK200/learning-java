@@ -2,7 +2,8 @@ package com.sessions.session22.challenges;
 
 /**
  * <h1>Different Builder Class</h1>
- * <p>The class is a simplified version of a builder class</p>
+ * <p>The class is a simplified version of a builder class.</p>
+ * <p>This clas will not be {@code IMMUTABLE}</p>
  */
 public class NewProduct {
     private String name;
@@ -11,16 +12,6 @@ public class NewProduct {
     private int starReview;
     private String type;
     private long id;
-
-    // Default Constructor made private
-//    private NewProduct() {}
-
-    // Object instantiation method.
-    // Creates new class instance objects filled with default values.
-    // This method is used to access Public methods
-    public static NewProduct buildNewProduct() {
-        return new NewProduct();
-    }
 
     // Getters declaration
     public String getName() {
@@ -98,7 +89,8 @@ public class NewProduct {
 class NewProductTest{
     public static void main(String[] args) {
 
-        NewProduct iphone = NewProduct.buildNewProduct()
+
+        NewProduct iphone = new NewProduct()
                 .withId(23)
                 .withName("iPhone 12")
                 .withType("Phone")
