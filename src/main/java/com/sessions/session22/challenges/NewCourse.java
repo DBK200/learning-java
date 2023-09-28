@@ -8,31 +8,32 @@ import java.time.LocalTime;
  * <h1>Builder Class Challenge</h1>
  * <p>Builder class for a NewCourse type object</p>
  **/
-public class Course {
-    // Every variable is optional, i.e.,
-    // they don't require initial values
+public class NewCourse {
+    // Required variables
     private long id;
     private String code;
     private String name;
+    private String type;
+
+    // Optional variables
     private String description;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
-    private String type;
     private String parentCode;
 
-    private Course(CourseBuilder courseBuilder) {
-        this.id = courseBuilder.id;
-        this.code = courseBuilder.code;
-        this.name = courseBuilder.name;
-        this.description = courseBuilder.description;
-        this.startDateTime = (courseBuilder.startDateTime == null)
+    private NewCourse(NewCourseBuilder newCourseBuilder) {
+        this.id = newCourseBuilder.id;
+        this.code = newCourseBuilder.code;
+        this.name = newCourseBuilder.name;
+        this.description = newCourseBuilder.description;
+        this.startDateTime = (newCourseBuilder.startDateTime == null)
                 ? LocalDateTime.of(LocalDate.now(), LocalTime.of(8,30,0))
-                : courseBuilder.startDateTime;
-        this.endDateTime = (courseBuilder.endDateTime == null)
+                : newCourseBuilder.startDateTime;
+        this.endDateTime = (newCourseBuilder.endDateTime == null)
                 ? this.startDateTime.plusHours(9)
-                : courseBuilder.endDateTime;
-        this.type = courseBuilder.type;
-        this.parentCode = courseBuilder.parentCode;
+                : newCourseBuilder.endDateTime;
+        this.type = newCourseBuilder.type;
+        this.parentCode = newCourseBuilder.parentCode;
     }
 
     // Getters
@@ -88,91 +89,63 @@ public class Course {
     }
 
     // Builder subclass
-    public static class CourseBuilder {
+    public static class NewCourseBuilder {
+        // Required variables - instanced by constructor
         private long id;
         private String code;
         private String name;
+        private String type;
+
+        // Optional variables - instanced by pseudo-setters
         private String description;
         private LocalDateTime startDateTime;
         private LocalDateTime endDateTime;
-        private String type;
         private String parentCode;
 
-        public static CourseBuilder createCourseBuilder(){
-            return new CourseBuilder();
-        }
-
-        // Pseudo-setters
-        public CourseBuilder withId(long id) {
+        public NewCourseBuilder(long id, String code, String name, String type) {
             this.id = id;
-            return this;
-        }
-
-        public CourseBuilder withCode(String code) {
             this.code = code;
-            return this;
-        }
-
-        public CourseBuilder withName(String name) {
             this.name = name;
-            return this;
+            this.type = type;
         }
 
-        public CourseBuilder withDescription(String description) {
+        // Required pseudo-setters
+        public NewCourseBuilder withDescription(String description) {
             this.description = description;
             return this;
         }
 
-        public CourseBuilder withStartDateTime(LocalDateTime startDateTime) {
+        public NewCourseBuilder withStartDateTime(LocalDateTime startDateTime) {
             this.startDateTime = startDateTime;
             return this;
         }
 
-        public CourseBuilder withEndDateTime(LocalDateTime endDateTime) {
+        public NewCourseBuilder withEndDateTime(LocalDateTime endDateTime) {
             this.endDateTime = endDateTime;
             return this;
         }
 
-        public CourseBuilder withType(String type) {
-            this.type = type;
-            return this;
-        }
-
-        public CourseBuilder withParentCode(String parentCode) {
+        public NewCourseBuilder withParentCode(String parentCode) {
             this.parentCode = parentCode;
             return this;
         }
 
         // Parent class builder (i.e., NewCourse class)
-        public Course build(){
-            return new Course(this);
+        public NewCourse build(){
+            return new NewCourse(this);
         }
     }
 }
 
-class CourseTest{
+class NewCourseTest{
     public static void main(String[] args) {
-        Course course1 = Course.CourseBuilder.createCourseBuilder()
-                .withId(10)
-                .withCode("PTB 0EL P.1")
-                .withName("Basic electrics")
-                .withType("Face-to-Face")
+        NewCourse course1 = new NewCourse.NewCourseBuilder(10, "PTB 0EL P.1", "Basic electrics", "Face-to-Face")
+                .withDescription("Automotive basic electrics course")
                 .build();
         System.out.println(course1);
 
-        Course course2 = new Course.CourseBuilder()
-                .withId(10)
-                .withCode("PTB 0EL P.1")
-                .withName("Basic electrics")
-                .withType("Face-to-Face")
-                .build();
-        System.out.println(course2);
-
-        Course course3 = Course.CourseBuilder.createCourseBuilder()
-                .withId(11)
-                .withCode("PTB 0EC P.1")
-                .withName("Basic communication networks")
-                .withType("Face-to-Face")
+        NewCourse course2 = new NewCourse.NewCourseBuilder(12, "PTB 0EC P.1", "Basic communication networks", "Face-to-Face")
+                .withDescription("Automotive basic communication networks course")
                 .withStartDateTime(LocalDateTime.now())
                 .withEndDateTime(LocalDateTime.now().plusDays(2))
                 .build();

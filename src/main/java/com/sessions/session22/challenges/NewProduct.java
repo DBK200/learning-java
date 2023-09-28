@@ -13,7 +13,7 @@ public class NewProduct {
     private long id;
 
     // Default Constructor made private
-    private NewProduct() {}
+//    private NewProduct() {}
 
     // Object instantiation method.
     // Creates new class instance objects filled with default values.
@@ -105,5 +105,13 @@ class NewProductTest{
                 .withStarReview(3);
 
         System.out.println(iphone);
+
+        System.out.println(iphone.withName("iPhone 13").getName());
+
+        NewProduct phone = new NewProduct()
+                .withId(20)
+                .withName("Nokia 8110")
+                .withType("Phone")
+                .withStarReview(9);
     }
 }

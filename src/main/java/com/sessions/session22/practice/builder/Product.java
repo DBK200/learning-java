@@ -106,10 +106,11 @@ public class Product {
 
 class Test{
     public static void main(String[] args) {
-        Product iphone = Product.ProductBuilder.createProductBuilder()
-                .withId(23)
-                .withType("Phone")
-                .withStarReview(3)
+        Product iphone = new Product.ProductBuilder()
+//                .createProductBuilder()
+//                .withId(23)
+//                .withType("Phone")
+//                .withStarReview(3)
                 .build();
         System.out.println(iphone);
     }
