@@ -1,0 +1,19 @@
+Declare and initialize variables: Declare and initialize variables of different data types such as int, double,
+String, boolean, and char. Print out the values of these variables to verify that they were initialized correctly.
+
+Arithmetic Operations: Declare two int variables and perform arithmetic operations on them, such as addition,
+subtraction, multiplication, and division. Print out the results of each operation to verify that they were
+calculated correctly.
+
+Type Casting: Declare a variable of one data type, and then assign it to a variable of another data type using
+type casting. For example, declare a double variable and assign it to an int variable using type casting.
+Print out the value of the int variable to verify that the type casting was successful.
+
+Constants: Declare a constant using the final keyword, and assign it a value. Use the constant in your code to
+ensure that it cannot be changed.
+
+Scope: Declare variables in different scopes, such as local scope, instance scope, and static scope.
+Use the variables in your code to ensure that they are only accessible within their respective scopes.
+
+Default Values: Declare variables of different data types without initializing them.
+Print out their default values to verify that they were initialized correctly.

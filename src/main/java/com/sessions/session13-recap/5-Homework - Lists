@@ -1,0 +1,19 @@
+List Creation: Write a program that creates a List of strings and populates it with a few elements.
+ Print out the contents of the list using a loop.
+
+List Addition: Write a program that creates an empty List of integers and prompts the user to enter a series of numbers.
+ Add each number to the list, and then print out the contents of the list.
+
+List Searching: Write a program that creates a List of strings and prompts the user to enter a string to search for.
+ Use the contains() method to check if the string is in the list, and print out a message indicating whether the string was found or not.
+
+List Sorting: Write a program that creates a List of integers and sorts it in ascending order using the Collections.sort()
+ method. Print out the sorted list.
+
+List Removal: Write a program that creates a List of strings and prompts the user to enter a string to remove. Use the
+ remove() method to remove the first occurrence of the string from the list, and then print out the modified list.
+
+
+
+
+
