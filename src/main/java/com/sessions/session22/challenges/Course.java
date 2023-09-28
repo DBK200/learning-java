@@ -18,21 +18,19 @@ public class Course {
     private String type;
     private String parentCode;
 
-    private Course(long id, String code, String name, String description,
-                   LocalDateTime startDateTime, LocalDateTime endDateTime,
-                   String type, String parentCode) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.description = description;
-        this.startDateTime = (startDateTime == null)
+    private Course(CourseBuilder courseBuilder) {
+        this.id = courseBuilder.id;
+        this.code = courseBuilder.code;
+        this.name = courseBuilder.name;
+        this.description = courseBuilder.description;
+        this.startDateTime = (courseBuilder.startDateTime == null)
                 ? LocalDateTime.of(LocalDate.now(), LocalTime.of(8,30,0))
-                : startDateTime;
-        this.endDateTime = (endDateTime == null)
+                : courseBuilder.startDateTime;
+        this.endDateTime = (courseBuilder.endDateTime == null)
                 ? this.startDateTime.plusHours(9)
-                : endDateTime;
-        this.type = type;
-        this.parentCode = parentCode;
+                : courseBuilder.endDateTime;
+        this.type = courseBuilder.type;
+        this.parentCode = courseBuilder.parentCode;
     }
 
     // Getters
@@ -147,8 +145,7 @@ public class Course {
 
         // Parent class builder (i.e., Course class)
         public Course build(){
-            return new Course(id, code, name, description,
-                    startDateTime, endDateTime, type, parentCode);
+            return new Course(this);
         }
     }
 }
