@@ -1,13 +1,5 @@
 package com.sessions.patternsPractice.creational.factory;
 
-
-
-
-// Concrete Circle class
-
-
-
-
 // Shape factory
 class ShapeFactory {
     // Factory method to create shapes

@@ -1,7 +1,5 @@
 package com.sessions.session22.creational.singletonexample;
 
-import com.sessions.session11.abstraction.defaultmethod.A;
-
 public class AppConfig {
     private static AppConfig appConfig;
 
