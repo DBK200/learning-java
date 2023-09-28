@@ -12,11 +12,12 @@ public class NewProduct {
     private String type;
     private long id;
 
-    // Makes the constructor private
+    // Default Constructor made private
     private NewProduct() {}
 
     // Object instantiation method.
-    // Creates a new object filled with default values
+    // Creates new class instance objects filled with default values.
+    // This method is used to access Public methods
     public static NewProduct buildNewProduct() {
         return new NewProduct();
     }
@@ -77,6 +78,7 @@ public class NewProduct {
         return this;
     }
 
+    // Class objects viewer
     @Override
     public String toString() {
         return String.format("NewProduct {name: " + format(name) +
@@ -93,7 +95,7 @@ public class NewProduct {
 }
 
 
-class Test{
+class NewProductTest{
     public static void main(String[] args) {
 
         NewProduct iphone = NewProduct.buildNewProduct()
