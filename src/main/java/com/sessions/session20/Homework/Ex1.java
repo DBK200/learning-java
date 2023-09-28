@@ -1,5 +1,6 @@
 package com.sessions.session20.Homework;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ex1 {
@@ -10,12 +11,17 @@ public class Ex1 {
         int secondNumber;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter two numbers");
+        try {
         firstNumber = input.nextInt();
         secondNumber = input.nextInt();
-        try {
+
             int dividedNumbers = (firstNumber / secondNumber);
+            System.out.println(dividedNumbers);
+        }catch (InputMismatchException e){
+            System.out.println("No such element");
         }catch (ArithmeticException e) {
             System.out.println("Inside catch block - arithmetic exception");
+
         }
     }
 }
