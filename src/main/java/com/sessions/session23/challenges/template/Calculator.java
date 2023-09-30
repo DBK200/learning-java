@@ -1,5 +1,7 @@
 package com.sessions.session23.challenges.template;
 
+import com.sessions.session21.challenges.ExceptionChallenge05;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
@@ -8,7 +10,8 @@ import java.util.*;
 
 /**
  * <h1>Calculator</h1>
- * <p>Class constructed using the TEMPLATE pattern</p>
+ * <p>Class similar to {@link ExceptionChallenge05}, constructed using the TEMPLATE pattern.</p>
+ * <p>The messages are embedded in class declarations, not external like in session21's {@link ExceptionChallenge05} challenge.</p>
  */
 public class Calculator {
 
