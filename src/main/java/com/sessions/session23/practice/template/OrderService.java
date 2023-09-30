@@ -1,4 +1,4 @@
-package com.sessions.session23.practice.facade;
+package com.sessions.session23.practice.template;
 
 /**
  * <h1>OrderService class</h1>

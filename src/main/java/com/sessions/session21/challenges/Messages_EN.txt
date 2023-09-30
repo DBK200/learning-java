@@ -25,7 +25,7 @@ Possible operations:
 </p>
 
 <p> 1
-No arguments entered.
+Nothing entered.
 </p>
 
 <p> 2
