@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * <h1>Calculator</h1>
  * <p>Class similar to {@link ExceptionChallenge05}, constructed using the TEMPLATE pattern.</p>
- * <p>The messages are embedded in class declarations, not external like in session21's {@link ExceptionChallenge05} challenge.</p>
+ * <p>The class supports internationalisation via properties files.</p>
  */
 public class Calculator {
 
@@ -37,32 +37,33 @@ public class Calculator {
     }
 
     /**
-     * {@code Calculator}'s start method
+     * {@code Calculator}'s start method with default lacalisation
      */
     public void start() {
+        // Default localisation data
+        String baseName = "i18n/Text";
+        Locale locale = new Locale("ro", "RO");
+        start(baseName, locale);
+    }
+
+    /**
+     * {@code Calculator}'s start method with localisation arguments
+     */
+    public void start(String baseName, Locale locale) {
+
         Scanner sc = new Scanner(System.in);
         boolean bStop = false;
 
         while (!bStop) {
             try {
                 // 1. Start/stop operation
-                starter.start("""
-                    Please enter next 2 DOUBLE type operands and 1 operator,
-                    separated by spaces [Q/q to quit].
-                    (place them in the real sequence, e.g., a + b)
-                                    
-                    Possible operations:
-                     1. Addition: +         │   4. Division: /
-                     2. Subtraction: -      │   5. Power: ^
-                     3. Multiplication: *   │   6. Square root: R,r
-                                    
-                     _✏️""");
+                starter.start(baseName, locale);
 
                 // 2. Validate input arguments
-                if (bStop = argumentsValidator.validateArguments(sc)) break;
+                if (bStop = argumentsValidator.validateArguments(sc, baseName, locale)) break;
 
                 // 3. Calculate the result
-                resultCalculator.calculate();
+                resultCalculator.calculate(baseName, locale);
 
                 // 4. Print the result
                 resultPrinter.print(result.getStringResult());
@@ -70,6 +71,9 @@ public class Calculator {
             catch (RuntimeException e) {
                 // 5. Print exceptions
                 exceptionPrinter.print(e);
+
+                // If resource data is not properly entered exits the loop
+                if (e instanceof MissingResourceException) break;
             }
         }
     }
@@ -82,12 +86,15 @@ class Starter {
         this.arguments = arguments;
     }
 
-    public void start(String message) {
+    public void start(String baseName, Locale locale) {
         // Resets the arguments
         arguments = new Arguments();
 
+        // Gets app properties
+        ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
+
         // Prints out the initial message
-        System.out.print(message + '\t');
+        System.out.print(properties.getString("txtIntro"));
     }
 }
 
@@ -98,17 +105,20 @@ class ArgumentsValidator {
         this.arguments = arguments;
     }
 
-    public boolean validateArguments(Scanner sc) throws RuntimeException {
+    public boolean validateArguments(Scanner sc, String baseName, Locale locale) throws RuntimeException {
 
         // Gets the trimmed user input
         String sInput = sc.nextLine().trim();
 
+        // Gets app properties
+        ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
+
         // ENTER key pressed checking
-        if (sInput.isEmpty()) throw new RuntimeException("Nothing entered.");
+        if (sInput.isEmpty()) throw new RuntimeException(properties.getString("msgRunTimeNoArgs"));
 
         // QUIT checking
         else if (sInput.toUpperCase().charAt(0) == 'Q') {
-            System.out.print("\nBye \uD83D\uDC4B\n\n");
+            System.out.print(properties.getString("txtOutro"));
             return true;
         }
 
@@ -127,27 +137,32 @@ class ArgumentsValidator {
                 // 1st operand validation
                 if (nc.isNumber(arResult[0])) {
                     if (nc.isDouble(arResult[0])) arguments.setOperand1(Double.parseDouble(arResult[0]));
-                    else throw new NumberFormatException(arResult[0] + " exceeds the range of type Double.");
+                    else throw new NumberFormatException(arResult[0] + properties.getString("msgNumFormatNumOverflow"));
                 }
-                else throw new NumberFormatException("Wrong operand '" + arResult[0] + "'.");
+                else throw new NumberFormatException(properties.getString("msgNumFormatWrongOperand") + arResult[0] + "].");
 
                 // Operator validation
                 if (new Operators().OPERATORS.contains(arResult[1].toLowerCase())) {
+                    // Covers both cases, i.e., 1 or 2 operands calculations
                     if (iLength == 2 && arResult[1].equalsIgnoreCase("r")
                             || iLength >= 3)
                         arguments.setOperator(arResult[1].toLowerCase());
+
                     // Operator is OK, but 2nd operand is NULL
-                    else throw new NumberFormatException("Second operand can't be NULL.");
+                    else throw new NumberFormatException(properties.getString("msgNumFormatScndOperand"));
                 }
-                else throw new RuntimeException("Wrong operator '" + arResult[1] + "'.");
+                else throw new RuntimeException(properties.getString("msgNumFormatWrongOperator") + arResult[1] + "'.");
 
                 // 2nd operand validation
                 if (iLength >= 3) {
                     if (nc.isNumber(arResult[2])) {
-                        if (nc.isDouble(arResult[2])) arguments.setOperand2(Double.parseDouble(arResult[2]));
-                        else throw new NumberFormatException(arResult[2] + " exceeds the range of type Double.");
+                        if (nc.isDouble(arResult[2]))
+                            arguments.setOperand2(Double.parseDouble(arResult[2]));
+                        else throw new NumberFormatException(arResult[2] +
+                                properties.getString("msgNumFormatNumOverflow"));
                     }
-                    else throw new NumberFormatException("Wrong operand '" + arResult[2] + "'.");
+                    else throw new NumberFormatException(properties.getString("msgNumFormatWrongOperand")
+                            + arResult[2] + "].");
                 }
 
                 // Operation validations
@@ -155,27 +170,36 @@ class ArgumentsValidator {
                 // Attention: 2nd operand is NULL in 2 arguments calculations
                 if (arguments.getOperand2() != null
                         && arguments.getOperand2() == 0.0
-                        && Objects.equals(arguments.getOperator(), "/"))  throw new ArithmeticException("Divisor can not be 0.");
+                        && Objects.equals(arguments.getOperator(), "/"))
+                    throw new ArithmeticException(properties.getString("msgNumFormatZeroDivisor"));
 
                 if (arguments.getOperand1() == 0.0
                         && arguments.getOperand2() != null
                         && arguments.getOperand2() < 0.0
-                        && Objects.equals(arguments.getOperator(), "^")) throw new ArithmeticException("Division by 0.");
+                        && Objects.equals(arguments.getOperator(), "^"))
+                    throw new ArithmeticException(properties.getString("msgNumFormatDivByZero"));
             }
 
             // Wrong number of arguments passed
             else {
-                throw new RuntimeException("Wrong number of arguments.");
+                throw new RuntimeException(properties.getString("msgRunTimeWrongArgNum"));
             }
         }
         return false;
     }
 
-    public void validateCalculation(TreeMap<String, BigDecimal> treeMap) throws NumberFormatException {
+    public void validateCalculation(TreeMap<String, BigDecimal> treeMap, String baseName, Locale locale)
+            throws NumberFormatException {
+
         String sDoubleResult = treeMap.firstEntry().getValue().toString();
+
         // Type overflow validation
-        if (!(new NumberChecker()).isDouble(sDoubleResult))
-            throw new NumberFormatException(sDoubleResult + " exceeds the range of type Double.");
+        if (!(new NumberChecker()).isDouble(sDoubleResult)) {
+            // Gets app properties
+            ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
+
+            throw new NumberFormatException(properties.getString("msgNumFormatTypeOverflow"));
+        }
     }
 
 }
@@ -183,7 +207,10 @@ class ArgumentsValidator {
 class ResultCalculator {
     private Arguments arguments;
     private Result result;
-    private static final int SCALE = 324;
+    private final int SCALE = 324;
+    private final int SETPRECISION = 20;
+    private final String SMALLNUMBERPRECISION = "7.5g";
+    private final String BIGNUMBERPRECISION = ".5f";
 
     public ResultCalculator(Arguments arguments, Result result) {
         this.arguments = arguments;
@@ -204,34 +231,38 @@ class ResultCalculator {
                 : bdResult;
     }
 
-    private TreeMap<String, BigDecimal> calculate(Arguments arguments) {
+    private TreeMap<String, BigDecimal> calculate(Arguments arguments, String baseName, Locale locale) {
 
         BigDecimal bdOperand1 = BigDecimal.valueOf(arguments.getOperand1()),
                 bdOperand2 = BigDecimal.valueOf((arguments.getOperand2() == null)
                         ? 0.0 : arguments.getOperand2());
 
+        // Gets app properties
+        ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
+
         TreeMap<String, BigDecimal> tmResult = switch (arguments.getOperator()) {
-            case "+" -> new TreeMap<>(Map.of("Addition", bdOperand1.add(bdOperand2)));
-            case "-" -> new TreeMap<>(Map.of("Subtraction", bdOperand1.subtract(bdOperand2)));
-            case "*" -> new TreeMap<>(Map.of("Multiplication", bdOperand1.multiply(bdOperand2)));
-            case "/" -> new TreeMap<>(Map.of("Division", bdOperand1.divide(bdOperand2, SCALE, RoundingMode.HALF_UP)));
-            case "r" -> new TreeMap<>(Map.of("Square root", bdOperand1.sqrt(new MathContext(20))));
-            default -> new TreeMap<>(Map.of("Power", power(arguments.getOperand1(), arguments.getOperand2())));
+            case "+" -> new TreeMap<>(Map.of(properties.getString("lbAddition"), bdOperand1.add(bdOperand2)));
+            case "-" -> new TreeMap<>(Map.of(properties.getString("lbSubtraction"), bdOperand1.subtract(bdOperand2)));
+            case "*" -> new TreeMap<>(Map.of(properties.getString("lbMultiplication"), bdOperand1.multiply(bdOperand2)));
+            case "/" -> new TreeMap<>(Map.of(properties.getString("lbDivision"), bdOperand1.divide(bdOperand2, SCALE, RoundingMode.HALF_UP)));
+            case "r" -> new TreeMap<>(Map.of(properties.getString("lbSqRoot"), bdOperand1.sqrt(new MathContext(SETPRECISION))));
+            default -> new TreeMap<>(Map.of(properties.getString("lbPower"), power(arguments.getOperand1(), arguments.getOperand2())));
         };
 
         return new TreeMap<>(tmResult);
     }
 
-    public void calculate() throws NumberFormatException {
+    public void calculate(String baseName, Locale locale) throws NumberFormatException {
 
-        TreeMap<String, BigDecimal> tmResult = calculate(this.arguments);
+        TreeMap<String, BigDecimal> tmResult = calculate(this.arguments, baseName, locale);
 
         // Result overflow validation
-        new ArgumentsValidator(this.arguments).validateCalculation(tmResult);
+        new ArgumentsValidator(this.arguments).validateCalculation(tmResult, baseName, locale);
 
         Double doubleResult = tmResult.firstEntry().getValue().doubleValue();
 
-        String stringResult = String.format("%s: " + ((Math.abs(doubleResult) < 1) ? "%7.5g" : "%.5f"),
+        String stringResult = String.format("%s: %" + ((Math.abs(doubleResult) < 1)
+                        ? SMALLNUMBERPRECISION : BIGNUMBERPRECISION),
                 tmResult.firstEntry().getKey(), doubleResult);
 
         result.setDoubleResult(doubleResult).setStringResult(stringResult);
@@ -258,17 +289,6 @@ class Arguments {
     private String operator;
     private Double operand1;
     private Double operand2;
-
-//    public Arguments(String operator, Double operand1, Double operand2) {
-//        this.operator = operator;
-//        this.operand1 = operand1;
-//        this.operand2 = operand2;
-//    }
-//    public Arguments(String operator, Double operand1){
-//        this(operator, operand1, null);
-//    }
-//
-//    public Arguments(){}
 
     public Double getOperand1() {
         return operand1;
@@ -386,7 +406,10 @@ class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator1 = new Calculator();
         calculator1.start();
+
         Calculator calculator2 = new Calculator();
-        calculator2.start();
+        String baseName = "i18n/Text";
+        Locale locale = Locale.getDefault();
+        calculator2.start(baseName, locale);
     }
 }
