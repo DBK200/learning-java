@@ -10,7 +10,7 @@ import java.util.*;
 
 /**
  * <h1>Calculator</h1>
- * <p>Class similar to {@link ExceptionChallenge05}, constructed using the TEMPLATE pattern.</p>
+ * <p>TEMPLATE pattern class, similar to {@link ExceptionChallenge05} from {@code session21/challenges}.</p>
  * <p>The class supports internationalisation via properties files.</p>
  */
 public class Calculator {
