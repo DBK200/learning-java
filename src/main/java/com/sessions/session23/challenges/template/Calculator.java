@@ -52,28 +52,25 @@ public class Calculator {
     public void start(String baseName, Locale locale) {
 
         Scanner sc = new Scanner(System.in);
-        boolean bStop = false;
+        I18n i18n = new I18n(baseName, locale);
 
-        while (!bStop) {
+        while (true) {
             try {
                 // 1. Start/stop operation
-                starter.start(baseName, locale);
+                if (starter.start(i18n)) break;
 
-                // 2. Validate input arguments
-                if (bStop = argumentsValidator.validateArguments(sc, baseName, locale)) break;
+                // 2. Validates input arguments
+                if (argumentsValidator.validateArguments(sc, i18n)) break;
 
-                // 3. Calculate the result
-                resultCalculator.calculate(baseName, locale);
+                // 3. Calculates the result
+                resultCalculator.calculate(i18n);
 
-                // 4. Print the result
-                resultPrinter.print(result.getStringResult());
+                // 4. Prints out the result
+                resultPrinter.print(result.getMessageResult());
             }
             catch (RuntimeException e) {
-                // 5. Print exceptions
+                // 5. Prints out the exceptions
                 exceptionPrinter.print(e);
-
-                // If resource data is not properly entered exits the loop
-                if (e instanceof MissingResourceException) break;
             }
         }
     }
@@ -86,15 +83,16 @@ class Starter {
         this.arguments = arguments;
     }
 
-    public void start(String baseName, Locale locale) {
-        // Resets the arguments
+    public boolean start(I18n i18n) {
+
+        // Resets the arguments everytime it starts
         arguments = new Arguments();
 
-        // Gets app properties
-        ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
+        if (i18n.getProperty("txtIntro") == null) return true;
 
         // Prints out the initial message
-        System.out.print(properties.getString("txtIntro"));
+        System.out.print(i18n.getProperty("txtIntro"));
+        return false;
     }
 }
 
@@ -105,20 +103,17 @@ class ArgumentsValidator {
         this.arguments = arguments;
     }
 
-    public boolean validateArguments(Scanner sc, String baseName, Locale locale) throws RuntimeException {
+    public boolean validateArguments(Scanner sc, I18n i18n) throws RuntimeException {
 
         // Gets the trimmed user input
         String sInput = sc.nextLine().trim();
 
-        // Gets app properties
-        ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
-
         // ENTER key pressed checking
-        if (sInput.isEmpty()) throw new RuntimeException(properties.getString("msgRunTimeNoArgs"));
+        if (sInput.isEmpty()) throw new RuntimeException(i18n.getProperty("msgRunTimeNoArgs"));
 
         // QUIT checking
         else if (sInput.toUpperCase().charAt(0) == 'Q') {
-            System.out.print(properties.getString("txtOutro"));
+            System.out.print(i18n.getProperty("txtOutro"));
             return true;
         }
 
@@ -133,13 +128,15 @@ class ArgumentsValidator {
             // What's beyond 3rd element is ignored.
             int iLength = arResult.length;
             NumberChecker nc = new NumberChecker();
+
             if (iLength >= 2) {
+
                 // 1st operand validation
                 if (nc.isNumber(arResult[0])) {
                     if (nc.isDouble(arResult[0])) arguments.setOperand1(Double.parseDouble(arResult[0]));
-                    else throw new NumberFormatException(arResult[0] + properties.getString("msgNumFormatNumOverflow"));
+                    else throw new NumberFormatException(i18n.getProperty("msgNumFormatNumOverflow", arResult[0]));
                 }
-                else throw new NumberFormatException(properties.getString("msgNumFormatWrongOperand") + arResult[0] + "].");
+                else throw new NumberFormatException(i18n.getProperty("msgNumFormatWrongOperand",arResult[0]));
 
                 // Operator validation
                 if (new Operators().OPERATORS.contains(arResult[1].toLowerCase())) {
@@ -149,9 +146,9 @@ class ArgumentsValidator {
                         arguments.setOperator(arResult[1].toLowerCase());
 
                     // Operator is OK, but 2nd operand is NULL
-                    else throw new NumberFormatException(properties.getString("msgNumFormatScndOperand"));
+                    else throw new NumberFormatException(i18n.getProperty("msgNumFormatScndOperand"));
                 }
-                else throw new RuntimeException(properties.getString("msgNumFormatWrongOperator") + arResult[1] + "'.");
+                else throw new RuntimeException(i18n.getProperty("msgNumFormatWrongOperator", arResult[1]));
 
                 // 2nd operand validation
                 if (iLength >= 3) {
@@ -159,10 +156,9 @@ class ArgumentsValidator {
                         if (nc.isDouble(arResult[2]))
                             arguments.setOperand2(Double.parseDouble(arResult[2]));
                         else throw new NumberFormatException(arResult[2] +
-                                properties.getString("msgNumFormatNumOverflow"));
+                                i18n.getProperty("msgNumFormatNumOverflow"));
                     }
-                    else throw new NumberFormatException(properties.getString("msgNumFormatWrongOperand")
-                            + arResult[2] + "].");
+                    else throw new NumberFormatException(i18n.getProperty("msgNumFormatWrongOperand",arResult[2]));
                 }
 
                 // Operation validations
@@ -171,37 +167,29 @@ class ArgumentsValidator {
                 if (arguments.getOperand2() != null
                         && arguments.getOperand2() == 0.0
                         && Objects.equals(arguments.getOperator(), "/"))
-                    throw new ArithmeticException(properties.getString("msgNumFormatZeroDivisor"));
+                    throw new ArithmeticException(i18n.getProperty("msgNumFormatZeroDivisor"));
 
                 if (arguments.getOperand1() == 0.0
                         && arguments.getOperand2() != null
                         && arguments.getOperand2() < 0.0
                         && Objects.equals(arguments.getOperator(), "^"))
-                    throw new ArithmeticException(properties.getString("msgNumFormatDivByZero"));
+                    throw new ArithmeticException(i18n.getProperty("msgNumFormatDivByZero"));
             }
 
             // Wrong number of arguments passed
             else {
-                throw new RuntimeException(properties.getString("msgRunTimeWrongArgNum"));
+                throw new RuntimeException(i18n.getProperty("msgRunTimeWrongArgNum"));
             }
         }
         return false;
     }
 
-    public void validateCalculation(TreeMap<String, BigDecimal> treeMap, String baseName, Locale locale)
+    public void validateResult(BigDecimal numberValue, I18n i18n)
             throws NumberFormatException {
-
-        String sDoubleResult = treeMap.firstEntry().getValue().toString();
-
         // Type overflow validation
-        if (!(new NumberChecker()).isDouble(sDoubleResult)) {
-            // Gets app properties
-            ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
-
-            throw new NumberFormatException(properties.getString("msgNumFormatTypeOverflow"));
-        }
+        if (! new NumberChecker().isDouble(numberValue.toString()))
+            throw new NumberFormatException(i18n.getProperty("msgNumFormatTypeOverflow"));
     }
-
 }
 
 class ResultCalculator {
@@ -209,63 +197,61 @@ class ResultCalculator {
     private Result result;
     private final int SCALE = 324;
     private final int SETPRECISION = 20;
-    private final String SMALLNUMBERPRECISION = "7.5g";
-    private final String BIGNUMBERPRECISION = ".5f";
+    private final String PRECISION = "21.19g";
 
     public ResultCalculator(Arguments arguments, Result result) {
         this.arguments = arguments;
         this.result = result;
     }
 
-    public BigDecimal power(Double base, Double exponent){
+    public BigDecimal power(Double base, Double exponent, I18n i18n) throws RuntimeException {
 
-        boolean isExponentNegative = BigDecimal.valueOf(exponent).signum() == -1;
+        boolean isExponentNegative = exponent < 0.0;
 
-        if (BigDecimal.valueOf(base).signum() == 0 && isExponentNegative)
-            throw new ArithmeticException("Division by 0.");
+        if (base == 0.0 && isExponentNegative)
+            throw new ArithmeticException(i18n.getProperty("msgNumFormatDivByZero"));
 
         BigDecimal bdResult = BigDecimal.valueOf(base).pow(Math.abs(exponent.intValue()));
+        if (! new NumberChecker().isDouble(bdResult.toString()))
+            throw new NumberFormatException(i18n.getProperty("msgNumFormatTypeOverflow"));
 
         return (isExponentNegative)
                 ? BigDecimal.ONE.divide(bdResult, SCALE, RoundingMode.HALF_UP)
                 : bdResult;
     }
 
-    private TreeMap<String, BigDecimal> calculate(Arguments arguments, String baseName, Locale locale) {
+    private TreeMap<String, BigDecimal> calculate(Arguments arguments, I18n i18n)  throws RuntimeException {
 
         BigDecimal bdOperand1 = BigDecimal.valueOf(arguments.getOperand1()),
                 bdOperand2 = BigDecimal.valueOf((arguments.getOperand2() == null)
                         ? 0.0 : arguments.getOperand2());
-
-        // Gets app properties
-        ResourceBundle properties = ResourceBundle.getBundle(baseName, locale);
-
+        
         TreeMap<String, BigDecimal> tmResult = switch (arguments.getOperator()) {
-            case "+" -> new TreeMap<>(Map.of(properties.getString("lbAddition"), bdOperand1.add(bdOperand2)));
-            case "-" -> new TreeMap<>(Map.of(properties.getString("lbSubtraction"), bdOperand1.subtract(bdOperand2)));
-            case "*" -> new TreeMap<>(Map.of(properties.getString("lbMultiplication"), bdOperand1.multiply(bdOperand2)));
-            case "/" -> new TreeMap<>(Map.of(properties.getString("lbDivision"), bdOperand1.divide(bdOperand2, SCALE, RoundingMode.HALF_UP)));
-            case "r" -> new TreeMap<>(Map.of(properties.getString("lbSqRoot"), bdOperand1.sqrt(new MathContext(SETPRECISION))));
-            default -> new TreeMap<>(Map.of(properties.getString("lbPower"), power(arguments.getOperand1(), arguments.getOperand2())));
+            case "+" -> new TreeMap<>(Map.of(i18n.getProperty("lbAddition"), bdOperand1.add(bdOperand2)));
+            case "-" -> new TreeMap<>(Map.of(i18n.getProperty("lbSubtraction"), bdOperand1.subtract(bdOperand2)));
+            case "*" -> new TreeMap<>(Map.of(i18n.getProperty("lbMultiplication"), bdOperand1.multiply(bdOperand2)));
+            case "/" -> new TreeMap<>(Map.of(i18n.getProperty("lbDivision"), bdOperand1.divide(bdOperand2, SCALE, RoundingMode.HALF_UP)));
+            case "r" -> new TreeMap<>(Map.of(i18n.getProperty("lbSqRoot"), bdOperand1.sqrt(new MathContext(SETPRECISION))));
+            default -> new TreeMap<>(Map.of(i18n.getProperty("lbPower"), power(arguments.getOperand1(), arguments.getOperand2(), i18n)));
         };
 
         return new TreeMap<>(tmResult);
     }
 
-    public void calculate(String baseName, Locale locale) throws NumberFormatException {
+    public void calculate(I18n i18n) throws NumberFormatException {
 
-        TreeMap<String, BigDecimal> tmResult = calculate(this.arguments, baseName, locale);
+        TreeMap<String, BigDecimal> tmResult = calculate(this.arguments, i18n);
+        BigDecimal numberResult = tmResult.firstEntry().getValue();
 
-        // Result overflow validation
-        new ArgumentsValidator(this.arguments).validateCalculation(tmResult, baseName, locale);
+        // Result Double overflow validation
+        new ArgumentsValidator(this.arguments).validateResult(numberResult, i18n);
 
-        Double doubleResult = tmResult.firstEntry().getValue().doubleValue();
+        String stringResult = String.format("%s: %" + PRECISION,
+                tmResult.firstEntry().getKey(), numberResult);
 
-        String stringResult = String.format("%s: %" + ((Math.abs(doubleResult) < 1)
-                        ? SMALLNUMBERPRECISION : BIGNUMBERPRECISION),
-                tmResult.firstEntry().getKey(), doubleResult);
-
-        result.setDoubleResult(doubleResult).setStringResult(stringResult);
+        result.setNumberResult(numberResult)
+                .setStringResult(numberResult.toString())
+                .setMessageResult(stringResult);
     }
 }
 
@@ -333,19 +319,24 @@ class Arguments {
 }
 
 class Result {
-    private Double doubleResult;
+    private BigDecimal numberResult;
     private String stringResult;
+    private String messageResult;
 
-    public Double getDoubleResult() {
-        return doubleResult;
+    public BigDecimal getNumberResult() {
+        return numberResult;
     }
 
     public String getStringResult() {
         return stringResult;
     }
 
-    public Result setDoubleResult(Double doubleResult) {
-        this.doubleResult = doubleResult;
+    public String getMessageResult() {
+        return messageResult;
+    }
+
+    public Result setNumberResult(BigDecimal numberResult) {
+        this.numberResult = numberResult;
         return this;
     }
 
@@ -354,11 +345,17 @@ class Result {
         return this;
     }
 
+    public Result setMessageResult(String messageResult) {
+        this.messageResult = messageResult;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Result{" +
-                "doubleResult = " + doubleResult +
+                "numberResult = " + numberResult +
                 ", stringResult = " + format(stringResult) +
+                ", messageResult = " + format(messageResult) +
                 '}';
     }
 
@@ -398,15 +395,59 @@ class NumberChecker {
     }
 }
 
+class I18n {
+    private String baseName;
+    private Locale locale;
+    private Map<String, String> properties;
+
+    public I18n (String baseName, Locale locale) {
+        this.baseName = baseName;
+        this.locale = locale;
+        properties = new TreeMap<>();
+        try {
+            setProperties(baseName, locale);
+        }
+        catch (MissingResourceException e) {
+            new ExceptionPrinter().print(e);
+        }
+    }
+
+    public <T> String getProperty(String key, T... values) throws NullPointerException {
+        if (key == null) throw new NullPointerException();
+        if (values.length == 0)
+            return properties.get(key);
+        else {
+            String sResult = properties.get(key);
+            if (sResult == null) return null;
+            return (sResult.indexOf("%s") == -1)
+                    ? sResult
+                    : String.format(sResult, values[0]);
+        }
+    }
+
+    private void setProperties(String baseName, Locale locale) throws MissingResourceException {
+        // Gets app properties
+        ResourceBundle bundle = ResourceBundle.getBundle(baseName, locale);
+        Enumeration<String> keys = bundle.getKeys();
+        while(keys.hasMoreElements()) {
+            String key = keys.nextElement();
+            this.properties.put(key, bundle.getString(key));
+        }
+    }
+}
 
 /**
  * <h1>Calculator Test</h1>
+ * Testing class
  */
 class CalculatorTest {
     public static void main(String[] args) {
+
+        // Default language
         Calculator calculator1 = new Calculator();
         calculator1.start();
 
+        // Custom language
         Calculator calculator2 = new Calculator();
         String baseName = "i18n/Text";
         Locale locale = Locale.getDefault();
