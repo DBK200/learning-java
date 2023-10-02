@@ -413,16 +413,18 @@ class I18n {
     }
 
     public <T> String getProperty(String key, T... values) throws NullPointerException {
-        if (key == null) throw new NullPointerException();
-        if (values.length == 0)
-            return properties.get(key);
-        else {
-            String sResult = properties.get(key);
-            if (sResult == null) return null;
-            return (sResult.indexOf("%s") == -1)
+
+        if (key == null) throw new NullPointerException("No property key given.");
+
+        String exceptionMessage = String.format("Property key '%s' does not exist.", key);
+        String sResult = properties.get(key);
+        if (sResult == null) return exceptionMessage;
+
+        if (values.length == 0) return sResult;
+        else return (!sResult.contains("%s"))
                     ? sResult
                     : String.format(sResult, values[0]);
-        }
+
     }
 
     private void setProperties(String baseName, Locale locale) throws MissingResourceException {

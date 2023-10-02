@@ -93,15 +93,22 @@ class Motorcycle implements Vehicle {
  * <p>This class builds up all the objects based on classes that implement {@link Vehicle} interface.</p>
  */
 class VehicleBuilder {
-    public Vehicle build(String className) {
+    public Vehicle build(String className) throws NullPointerException {
 
-        return switch (String.format("%S", className)) {
+        Vehicle result = switch (String.format("%S", className)) {
             case "CAR" -> new Car();
             case "ICECAR" -> new IceCar();
             case "ELECTRICCAR" -> new ElectricCar();
             case "MOTORCYCLE" -> new Motorcycle();
             default -> null;
         };
+
+        // If nothing's found, throws a NullPointerException exception
+        // ... so no funny business can happen, like a call to printDetails()
+        if (result == null)
+            throw new NullPointerException(String.format("There is no class named '%s' between building classes.", className));
+
+        return result;
     }
 }
 
@@ -120,5 +127,14 @@ class VehicleTest {
         // Trying to reset the warranty starting date
         passat.startWarrantyPeriod(LocalDate.of(2023, 9, 22))
                 .printDetails();
+
+        // Inline Motorcycle class object instancing, brand setting and printing
+        Vehicle ktm = ((Motorcycle) new VehicleBuilder().build("motorcycle")).setBrand("KTM").printDetails();
+        // Setting the warranty starting date
+        ktm.startWarrantyPeriod(LocalDate.now()).printDetails();
+
+        // Testing exception throwing
+        Vehicle tractor = new VehicleBuilder().build("Tractor");
+
     }
 }
