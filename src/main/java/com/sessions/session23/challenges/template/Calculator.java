@@ -117,13 +117,13 @@ class ArgumentsValidator {
 
         // Arguments checking
         else {
-            // Gets the input into an array, trimming and replacing
-            // in the process multiple white spaces with a space
-            String[] arResult = sInput.trim().replaceAll("\\s+", " ").split("\\s");
+            // Gets the input into an array, replacing in the process
+            // multiple white spaces with a space
+            String[] arResult = sInput.replaceAll("\\s+", " ").split("\\s");
 
             // The input has to have at least 2 elements (i.e., for 1 operand calculations)
             // otherwise, at least 3 elements.
-            // What's beyond 3rd element is ignored.
+            // Anything beyond the 3rd element is ignored.
             int iLength = arResult.length;
             NumberChecker nc = new NumberChecker();
 
