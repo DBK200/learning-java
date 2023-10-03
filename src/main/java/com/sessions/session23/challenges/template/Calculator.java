@@ -130,11 +130,7 @@ class ArgumentsValidator {
             if (iLength >= 2) {
 
                 // 1st operand validation
-                if (nc.isNumber(arResult[0])) {
-                    if (nc.isDouble(arResult[0])) arguments.setOperand1(Double.parseDouble(arResult[0]));
-                    else throw new NumberFormatException(i18n.getProperty("msgNumFormatNumOverflow", arResult[0]));
-                }
-                else throw new NumberFormatException(i18n.getProperty("msgNumFormatWrongOperand",arResult[0]));
+                validateOperand(arResult[0], 1, i18n);
 
                 // Operator validation
                 if (new Operators().OPERATORS.contains(arResult[1].toLowerCase())) {
@@ -149,15 +145,8 @@ class ArgumentsValidator {
                 else throw new RuntimeException(i18n.getProperty("msgNumFormatWrongOperator", arResult[1]));
 
                 // 2nd operand validation
-                if (iLength >= 3) {
-                    if (nc.isNumber(arResult[2])) {
-                        if (nc.isDouble(arResult[2]))
-                            arguments.setOperand2(Double.parseDouble(arResult[2]));
-                        else throw new NumberFormatException(arResult[2] +
-                                i18n.getProperty("msgNumFormatNumOverflow"));
-                    }
-                    else throw new NumberFormatException(i18n.getProperty("msgNumFormatWrongOperand",arResult[2]));
-                }
+                // (only for 2 operands operations)
+                if (iLength >= 3) validateOperand(arResult[2], 2, i18n);
 
                 // Operation validations
                 // Division by zero validation
@@ -187,6 +176,18 @@ class ArgumentsValidator {
         // Type overflow validation
         if (! new NumberChecker().isDouble(numberValue.toString()))
             throw new NumberFormatException(i18n.getProperty("msgNumFormatTypeOverflow"));
+    }
+
+    public void validateOperand(String operand, int operandNumber, I18n i18n) throws RuntimeException, NoPropertyKeyException {
+        NumberChecker nc = new NumberChecker();
+        if (nc.isNumber(operand)) {
+            if (nc.isDouble(operand)) {
+                if (operandNumber == 1) arguments.setOperand1(Double.parseDouble(operand));
+                else arguments.setOperand2(Double.parseDouble(operand));
+            }
+            else throw new NumberFormatException(i18n.getProperty("msgNumFormatNumOverflow", operand));
+        }
+        else throw new NumberFormatException(i18n.getProperty("msgNumFormatWrongOperand",operand));
     }
 }
 
