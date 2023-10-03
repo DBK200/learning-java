@@ -87,7 +87,7 @@ class Starter {
     public void start(I18n i18n) throws NoPropertyKeyException {
 
         // Resets the arguments everytime it starts
-        arguments = new Arguments();
+        arguments = arguments.setOperand1(null).setOperand2(null).setOperator(null);
 
         // Prints out the initial message
         System.out.print(i18n.getProperty("txtIntro"));
@@ -287,26 +287,26 @@ class Arguments {
     }
 
     public Arguments setOperator(String operator) {
-        this.operator = operator;
+        if (!Objects.equals(this.operator, operator)) this.operator = operator;
         return this;
     }
 
-    public Arguments setOperand1(double operand1) {
-        this.operand1 = operand1;
+    public Arguments setOperand1(Double operand1) {
+        if (!Objects.equals(this.operand1, operand1)) this.operand1 = operand1;
         return this;
     }
 
-    public Arguments setOperand2(double operand2) {
-        this.operand2 = operand2;
+    public Arguments setOperand2(Double operand2) {
+        if (!Objects.equals(this.operand2, operand2)) this.operand2 = operand2;
         return this;
     }
 
     // Class objects viewer
     @Override
     public String toString() {
-        return String.format("Arguments{operator: " + format(operator) +
-                ", operand1: " + operand1 +
-                ", operand2: " + operand2 +
+        return String.format("Arguments{operator: " + format(getOperator()) +
+                ", operand1: " + getOperand1() +
+                ", operand2: " + getOperand2() +
                 '}');
     }
 
@@ -334,26 +334,29 @@ class Result {
     }
 
     public Result setNumberResult(BigDecimal numberResult) {
-        this.numberResult = numberResult;
+        if (!Objects.equals(this.numberResult, numberResult))
+            this.numberResult = numberResult;
         return this;
     }
 
     public Result setStringResult(String stringResult) {
-        this.stringResult = stringResult;
+        if (!Objects.equals(this.stringResult, stringResult))
+            this.stringResult = stringResult;
         return this;
     }
 
     public Result setMessageResult(String messageResult) {
-        this.messageResult = messageResult;
+        if (!Objects.equals(this.messageResult, messageResult))
+            this.messageResult = messageResult;
         return this;
     }
 
     @Override
     public String toString() {
         return "Result{" +
-                "numberResult = " + numberResult +
-                ", stringResult = " + format(stringResult) +
-                ", messageResult = " + format(messageResult) +
+                "numberResult = " + getNumberResult() +
+                ", stringResult = " + format(getStringResult()) +
+                ", messageResult = " + format(getMessageResult()) +
                 '}';
     }
 
