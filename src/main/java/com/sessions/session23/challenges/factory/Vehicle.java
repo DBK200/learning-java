@@ -104,7 +104,7 @@ class VehicleBuilder {
         };
 
         // If nothing's found, throws a NullPointerException exception
-        // ... so no funny business can happen, like a call to printDetails()
+        // ... so there's no funny business, like a call to printDetails()
         if (result == null)
             throw new NullPointerException(String.format("There is no class named '%s' between building classes.", className));
 
