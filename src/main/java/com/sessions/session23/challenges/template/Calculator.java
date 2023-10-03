@@ -57,7 +57,7 @@ public class Calculator {
         while (true) {
             try {
                 // 1. Start/stop operation
-                if (starter.start(i18n)) break;
+                starter.start(i18n);
 
                 // 2. Validates input arguments
                 if (argumentsValidator.validateArguments(sc, i18n)) break;
@@ -68,9 +68,10 @@ public class Calculator {
                 // 4. Prints out the result
                 resultPrinter.print(result.getMessageResult());
             }
-            catch (RuntimeException e) {
+            catch (RuntimeException | NoPropertyKeyException e) {
                 // 5. Prints out the exceptions
                 exceptionPrinter.print(e);
+                if (e instanceof NoPropertyKeyException) break;
             }
         }
     }
@@ -83,16 +84,13 @@ class Starter {
         this.arguments = arguments;
     }
 
-    public boolean start(I18n i18n) {
+    public void start(I18n i18n) throws NoPropertyKeyException {
 
         // Resets the arguments everytime it starts
         arguments = new Arguments();
 
-        if (i18n.getProperty("txtIntro") == null) return true;
-
         // Prints out the initial message
         System.out.print(i18n.getProperty("txtIntro"));
-        return false;
     }
 }
 
@@ -103,7 +101,7 @@ class ArgumentsValidator {
         this.arguments = arguments;
     }
 
-    public boolean validateArguments(Scanner sc, I18n i18n) throws RuntimeException {
+    public boolean validateArguments(Scanner sc, I18n i18n) throws RuntimeException, NoPropertyKeyException {
 
         // Gets the trimmed user input
         String sInput = sc.nextLine().trim();
@@ -185,7 +183,7 @@ class ArgumentsValidator {
     }
 
     public void validateResult(BigDecimal numberValue, I18n i18n)
-            throws NumberFormatException {
+            throws NumberFormatException, NoPropertyKeyException {
         // Type overflow validation
         if (! new NumberChecker().isDouble(numberValue.toString()))
             throw new NumberFormatException(i18n.getProperty("msgNumFormatTypeOverflow"));
@@ -204,7 +202,7 @@ class ResultCalculator {
         this.result = result;
     }
 
-    public BigDecimal power(Double base, Double exponent, I18n i18n) throws RuntimeException {
+    public BigDecimal power(Double base, Double exponent, I18n i18n) throws RuntimeException, NoPropertyKeyException {
 
         boolean isExponentNegative = exponent < 0.0;
 
@@ -220,7 +218,7 @@ class ResultCalculator {
                 : bdResult;
     }
 
-    private TreeMap<String, BigDecimal> calculate(Arguments arguments, I18n i18n)  throws RuntimeException {
+    private TreeMap<String, BigDecimal> calculate(Arguments arguments, I18n i18n) throws RuntimeException, NoPropertyKeyException {
 
         BigDecimal bdOperand1 = BigDecimal.valueOf(arguments.getOperand1()),
                 bdOperand2 = BigDecimal.valueOf((arguments.getOperand2() == null)
@@ -238,7 +236,7 @@ class ResultCalculator {
         return new TreeMap<>(tmResult);
     }
 
-    public void calculate(I18n i18n) throws NumberFormatException {
+    public void calculate(I18n i18n) throws NumberFormatException, NoPropertyKeyException {
 
         TreeMap<String, BigDecimal> tmResult = calculate(this.arguments, i18n);
         BigDecimal numberResult = tmResult.firstEntry().getValue();
@@ -412,19 +410,17 @@ class I18n {
         }
     }
 
-    public <T> String getProperty(String key, T... values) throws NullPointerException {
+    @SafeVarargs
+    public final <T> String getProperty(String key, T... values) throws NoPropertyKeyException {
 
-        if (key == null) throw new NullPointerException("No property key given.");
+        if (key == null || !properties.containsKey(key)) throw new NoPropertyKeyException(key);
 
-        String exceptionMessage = String.format("Property key '%s' does not exist.", key);
         String sResult = properties.get(key);
-        if (sResult == null) return exceptionMessage;
 
         if (values.length == 0) return sResult;
         else return (!sResult.contains("%s"))
                     ? sResult
                     : String.format(sResult, values[0]);
-
     }
 
     private void setProperties(String baseName, Locale locale) throws MissingResourceException {
@@ -437,6 +433,19 @@ class I18n {
         }
     }
 }
+
+class NoPropertyKeyException extends Exception {
+    public NoPropertyKeyException() {
+        super("Property key does not exist.");
+    }
+    public NoPropertyKeyException(String key) {
+        super((key == null)
+                ? "No property key was given."
+                : String.format("Property key '%s' does not exist.", key));
+    }
+
+}
+
 
 /**
  * <h1>Calculator Test</h1>
