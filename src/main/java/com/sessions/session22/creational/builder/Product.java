@@ -85,7 +85,7 @@ public class Product {
             return this;
         }
 
-        public Product buildProduct() {
+        public Product build() {
             return new Product(name, price, description, starReview,
                     type, id);
         }
@@ -99,7 +99,7 @@ class Test{
                 .withType("phone")
                 .withStarReview(3)
                 .withDescription("this is a description")
-                .buildProduct();
+                .build();
 
         Product tv = Product.ProductBuilder.createProductBuilder()
                 .withType("TV")
@@ -107,7 +107,7 @@ class Test{
                 .withDescription("this is a tv")
                 .withId(2)
                 .withStarReview(5)
-                .buildProduct();
+                .build();
 
 
         System.out.println(iphone);

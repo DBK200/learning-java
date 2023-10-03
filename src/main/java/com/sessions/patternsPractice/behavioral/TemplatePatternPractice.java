@@ -1,20 +1,13 @@
 package com.sessions.patternsPractice.behavioral;
-
+//Template
 abstract class Game {
     abstract void initialize();
     abstract void startPlay();
     abstract void endPlay();
 
-    //template method, final so subclasses can't override
     public final void play(){
-
-        //initialize the game
         initialize();
-
-        //start game
         startPlay();
-
-        //end game
         endPlay();
     }
 }

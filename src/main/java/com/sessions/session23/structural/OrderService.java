@@ -1,6 +1,6 @@
 package com.sessions.session23.structural;
 
-public class OrderService {
+public class OrderService { //has a
     private final StockService stockService = new StockService();
     private final PaymentService paymentService = new PaymentService();
     private final DeliveryService deliveryService = new DeliveryService();
@@ -17,7 +17,6 @@ public class OrderService {
 //        customerHistoryService.checkCustomerDiscount..
         paymentService.checkPayment(price);
         //verify customer history,...
-
         deliveryService.checkDelivery(location);
     }
 
