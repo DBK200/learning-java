@@ -1,4 +1,4 @@
-package com.sessions.session22.practice.builder;
+package com.sessions.session22.practice.creational.builder;
 
 public class Product {
     private String name;

@@ -1,4 +1,4 @@
-package com.sessions.session22.practice.singleton;
+package com.sessions.session22.practice.creational.singleton;
 
 public class AppConfig {
 

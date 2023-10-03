@@ -257,10 +257,10 @@ class ResultCalculator {
     }
 }
 
-class ResultPrinter {
-    public <T> void print(T message) {
+class ResultPrinter <T> {
+    public void print(T t) {
         System.out.printf("┌%1$s┐%n│ %2$s │%n└%1$s┘%n%n",
-                "─".repeat(message.toString().trim().length() + 2), message.toString().trim());
+                "─".repeat(t.toString().trim().length() + 2), t.toString().trim());
     }
 }
 

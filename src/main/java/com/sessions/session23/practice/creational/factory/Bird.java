@@ -1,4 +1,4 @@
-package com.sessions.session23.practice.factory;
+package com.sessions.session23.practice.creational.factory;
 
 import java.util.Objects;
 
