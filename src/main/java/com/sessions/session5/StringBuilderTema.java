@@ -23,7 +23,7 @@ public class StringBuilderTema {
                 String word = "Level";
                 String palindromeWord = "";
                 for (int b = word.length() - 1; b >= 0; b--) {
-                    palindromeWord += word.charAt(i);
+                    palindromeWord += word.charAt(b);
                 }
                 boolean isPalindrome = palindromeWord.equalsIgnoreCase(word);
                 System.out.println(isPalindrome);
