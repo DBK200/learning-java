@@ -1,4 +1,4 @@
-package com.sessions.session23.challenges.template;
+package com.sessions.session23.challenges.facade;
 
 import com.sessions.session21.challenges.ExceptionChallenge05;
 
@@ -10,7 +10,7 @@ import java.util.*;
 
 /**
  * <h1>Calculator</h1>
- * <p>TEMPLATE pattern class, similar to {@link ExceptionChallenge05} from {@code session21/challenges}.</p>
+ * <p>FACADE pattern class, similar to {@link ExceptionChallenge05} from {@code session21/challenges}.</p>
  * <p>The class supports internationalisation via properties files.</p>
  */
 public class Calculator {
@@ -94,6 +94,9 @@ class Starter {
     }
 }
 
+/**
+ * Arguments validation class
+ */
 class ArgumentsValidator {
     private Arguments arguments;
 
@@ -275,34 +278,64 @@ class Arguments {
     private Double operand1;
     private Double operand2;
 
+    /**
+     * Getter for {@link Arguments#operand1 operand1} variable.
+     * @return The value of {@link Arguments#operand1 operand1} variable.
+     */
     public Double getOperand1() {
         return operand1;
     }
 
+    /**
+     * Getter for {@link Arguments#operand2 operand2} variable.
+     * @return The value of {@link Arguments#operand2 operand2} variable.
+     */
     public Double getOperand2() {
         return operand2;
     }
 
+    /**
+     * Getter for {@link Arguments#operator operator} variable.
+     * @return The value of {@link Arguments#operator operator} variable.
+     */
     public String getOperator() {
         return operator;
     }
 
+    /**
+     * Setter for the {@link Arguments#operator operator} variable.
+     * @param operator The value set to {@link Arguments#operator operator} variable.
+     * @return An {@link Arguments Arguments} class object.
+     */
     public Arguments setOperator(String operator) {
         if (!Objects.equals(this.operator, operator)) this.operator = operator;
         return this;
     }
 
+    /**
+     * Setter for the first operand.
+     * @param operand1 The value set to {@link Arguments#operand1 operand1} variable.
+     * @return An {@link Arguments Arguments} class object.
+     */
     public Arguments setOperand1(Double operand1) {
         if (!Objects.equals(this.operand1, operand1)) this.operand1 = operand1;
         return this;
     }
 
+    /**
+     * Setter for the second operand.
+     * @param operand2 The value set to {@link Arguments#operand2 operand2} variable.
+     * @return An {@link Arguments Arguments} class object.
+     */
     public Arguments setOperand2(Double operand2) {
         if (!Objects.equals(this.operand2, operand2)) this.operand2 = operand2;
         return this;
     }
 
-    // Class objects viewer
+    /**
+     * Thic method prints out the class content.
+     * @return String formatted class content.
+     */
     @Override
     public String toString() {
         return String.format("Arguments{operator: " + format(getOperator()) +
@@ -367,10 +400,16 @@ class Result {
 
 }
 
+/**
+ * Class for holding
+ */
 class Operators {
     public final List<String> OPERATORS = List.of("+", "-", "*", "/", "^", "r");
 }
 
+/**
+ * Number checking class.
+ */
 class NumberChecker {
     public boolean isDouble(String value) {
         BigDecimal bdValue = new BigDecimal(value.replace('-', '+'));
@@ -397,6 +436,9 @@ class NumberChecker {
     }
 }
 
+/**
+ * Internationalisation class
+ */
 class I18n {
     private String baseName;
     private Locale locale;
@@ -438,7 +480,11 @@ class I18n {
     }
 }
 
+/**
+ * Custom exception class for wrong properties
+ */
 class NoPropertyKeyException extends Exception {
+
     public NoPropertyKeyException() {
         super("Property key does not exist.");
     }

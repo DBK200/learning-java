@@ -92,8 +92,8 @@ class Motorcycle implements Vehicle {
  * <h1>Factory class</h1>
  * <p>This class builds up all the objects based on classes that implement {@link Vehicle} interface.</p>
  */
-class VehicleBuilder {
-    public Vehicle build(String className) throws NullPointerException {
+class VehicleFactory {
+    public Vehicle create(String className) throws NullPointerException {
 
         Vehicle result = switch (String.format("%S", className)) {
             case "CAR" -> new Car();
@@ -118,7 +118,7 @@ class VehicleBuilder {
  */
 class VehicleTest {
     public static void main(String[] args) {
-        Vehicle passat = new VehicleBuilder().build("IceCar")
+        Vehicle passat = new VehicleFactory().create("IceCar")
                 .startWarrantyPeriod(LocalDate.now())
                 .printDetails();
         // Accessing engineType variable
@@ -129,12 +129,12 @@ class VehicleTest {
                 .printDetails();
 
         // Inline Motorcycle class object instancing, brand setting and printing
-        Vehicle ktm = ((Motorcycle) new VehicleBuilder().build("motorcycle")).setBrand("KTM").printDetails();
+        Vehicle ktm = ((Motorcycle) new VehicleFactory().create("motorcycle")).setBrand("KTM").printDetails();
         // Setting the warranty starting date
         ktm.startWarrantyPeriod(LocalDate.now()).printDetails();
 
         // Testing exception throwing
-        Vehicle tractor = new VehicleBuilder().build("Tractor");
+        Vehicle tractor = new VehicleFactory().create("Tractor").printDetails();
 
     }
 }
