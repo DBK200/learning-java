@@ -1,0 +1,33 @@
+1. Which design pattern is suitable when you want to ensure that only a single instance of a class is created and provide a global point of access to that instance?
+
+a) Singleton
+b) Builder
+c) Factory
+d) Facade
+
+2. Which design pattern is useful when you want to provide a way to construct complex objects step by step and have control over the construction process?
+
+a) Singleton
+b) Builder
+c) Factory
+d) Facade
+
+3. Which design pattern would you use when you want to create objects without exposing the creation logic to the client and allow the subclasses to decide which class to instantiate?
+
+a) Singleton
+b) Builder
+c) Factory
+d) Facade
+
+4. Which design pattern is suitable when you want to provide a simplified interface to a complex subsystem or group of classes?
+
+a) Singleton
+b) Builder
+c) Factory
+d) Facade
+
+Answers:
+1. a) Singleton
+2. b) Builder
+3. c) Factory
+4. d) Facade
