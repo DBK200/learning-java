@@ -18,6 +18,7 @@ public abstract class CustomOps {
     public final BigDecimal operateAll(Collection<? extends Number> collection)
             throws NullPointerException, ArithmeticException {
 
+        // Empty collection validation
         if (collection.isEmpty()) throw new NullPointerException("Empty collection.");
 
         BigDecimal result = null;
@@ -94,7 +95,7 @@ class TestOp {
     public static void main(String[] args) {
 
         CustomOps div = new DivisionOps(324);
-        div.print(div.operateAll(Arrays.asList(null, null, 0)));
+        div.print(div.operateAll(Arrays.asList(10.2, null, 2)));
 
         CustomOps multiply = new MultiplicationOps();
         multiply.print(multiply.operateAll(List.of(2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192)));
