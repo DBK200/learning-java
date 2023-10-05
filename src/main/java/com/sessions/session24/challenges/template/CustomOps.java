@@ -72,6 +72,7 @@ class DivisionOps extends CustomOps {
 
     @Override
     BigDecimal operate(Number operand1, Number operand2) {
+
         if (operand1 == null || operand2 == null) throw new NullPointerException("Null operands.");
         if(operand2.equals(0) || operand2.equals(0.0)) throw new ArithmeticException("Divisor is 0.");
 
@@ -87,13 +88,14 @@ class DivisionOps extends CustomOps {
  * <h1>Testing class</h1>
  */
 class TestOp {
+
     public static void main(String[] args) {
+
         CustomOps div = new DivisionOps(324);
         div.print(div.operateAll(List.of(1.0234e25, 100, 200, 300, 400.22)));
 
         CustomOps multiply = new MultiplicationOps();
         multiply.print(multiply.operateAll(List.of(2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192)));
-
     }
 }
 
