@@ -1,7 +1,7 @@
-package com.sessions.session24.practice.behavioural;
+package com.sessions.session24.practice.behavioural.template;
 
 /**
- * <h1>Behavioural pattern abstract class</h1>
+ * <h1>Template pattern abstract class</h1>
  */
 public abstract class Order {
 

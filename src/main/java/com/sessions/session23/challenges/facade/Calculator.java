@@ -107,7 +107,9 @@ class ArgumentsValidator {
     public boolean validateArguments(Scanner sc, I18n i18n) throws RuntimeException, NoPropertyKeyException {
 
         // Gets the trimmed user input
-        String sInput = sc.nextLine().trim();
+        String sInput = sc.nextLine();
+        // Trims the input only if it's not empty
+        if(!sInput.isEmpty()) sInput = sInput.trim();
 
         // ENTER key pressed checking
         if (sInput.isEmpty()) throw new RuntimeException(i18n.getProperty("msgRunTimeNoArgs"));
@@ -258,9 +260,14 @@ class ResultCalculator {
 }
 
 class ResultPrinter <T> {
+
     public void print(T t) {
+
+        String sResult = t.toString().trim();
+        int iLength = sResult.length() + 2;
+
         System.out.printf("┌%1$s┐%n│ %2$s │%n└%1$s┘%n%n",
-                "─".repeat(t.toString().trim().length() + 2), t.toString().trim());
+                "─".repeat(iLength), sResult);
     }
 }
 
@@ -268,7 +275,7 @@ class ExceptionPrinter extends ResultPrinter {
 
     // Overloads parent print() method
     public void print(Exception e) {
-        super.print(String.format("%s: %s%n%n",
+        super.print(String.format("%s: %s",
                 e.getClass().getSimpleName(), e.getMessage()));
     }
 }
