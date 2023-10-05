@@ -1,6 +1,6 @@
 package com.sessions.session25.practice.single_responsabilty_principle.after;
 
-public class ResultPrinter <T> {
+class ResultPrinter <T> {
     T t;
     public <T> void printMessage(T message) {
         System.out.println(message.toString()); //formatat

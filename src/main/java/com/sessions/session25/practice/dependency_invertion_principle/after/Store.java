@@ -15,9 +15,12 @@ public class Store {
 
 
 
-class Test{
+class Test {
     public static void main(String[] args) {
         Store store = new Store(new Book());
+        store.buyProduct();
+
+        store = new Store(new ComicBook());
         store.buyProduct();
     }
 }
