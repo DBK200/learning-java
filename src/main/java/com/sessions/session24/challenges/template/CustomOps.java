@@ -2,6 +2,7 @@ package com.sessions.session24.challenges.template;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,13 +19,14 @@ public abstract class CustomOps {
             throws NullPointerException, ArithmeticException {
 
         if (collection.isEmpty()) throw new NullPointerException("Empty collection.");
-        if (collection.size() == 1) return new BigDecimal(String.valueOf(collection.iterator().next()));
 
         BigDecimal result = null;
 
         for(Number value: collection) {
-           if (result == null) result = new BigDecimal(String.valueOf(value));
-           else result = operate(result, new BigDecimal(String.valueOf(value)));
+           if (value != null) {
+               if (result == null) result = new BigDecimal(String.valueOf(value));
+               else result = operate(result, new BigDecimal(String.valueOf(value)));
+           }
         }
         return result;
     }
@@ -92,7 +94,7 @@ class TestOp {
     public static void main(String[] args) {
 
         CustomOps div = new DivisionOps(324);
-        div.print(div.operateAll(List.of(1.0234e25, 100, 200, 300, 400.22)));
+        div.print(div.operateAll(Arrays.asList(null, null, 0)));
 
         CustomOps multiply = new MultiplicationOps();
         multiply.print(multiply.operateAll(List.of(2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192)));

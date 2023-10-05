@@ -32,15 +32,24 @@ public enum LightColor {
 
     @Override
     public String toString() {
-        return String.format("[%s: message=\"%s\", seconds=\"%s\"]",
-                this.name(), message, seconds);
+        return String.format("[%s: message='%s', seconds=%d]",
+                this.name(), getMessage(), getSeconds());
     }
 }
 
 class EnumTest{
 
     public static void main(String[] args) {
+
         var scanner = new Scanner(System.in);
+
+        normalApproach(scanner);
+
+        lambdaApproach(scanner);
+    }
+
+    public static void normalApproach(Scanner scanner) {
+
         System.out.print("Enter a color [RED, YELLOW, GREEN]: ");
 
         String sInput = scanner.next().toUpperCase();
@@ -50,7 +59,7 @@ class EnumTest{
             color = LightColor.valueOf(sInput);
         }
         catch (IllegalArgumentException e) {
-            System.out.printf("[%s] is not present in list %s",
+            System.out.printf("[%s] is not present in list %s%n",
                     sInput, Arrays.toString(LightColor.values()));
         }
 
@@ -59,7 +68,37 @@ class EnumTest{
                             + "The entry has the following additional values:%n"
                             + "\t- list index: %d%n"
                             + "\t- message: %s%n"
-                            + "\t- time: %s [seconds]%n",
+                            + "\t- time: %d [seconds]%n",
                     sInput, color.ordinal(), color.getMessage(), color.getSeconds());
     }
+
+    public static void lambdaApproach(Scanner scanner) {
+
+        System.out.print("Enter a color [RED, YELLOW, GREEN]: ");
+
+        String sInput = scanner.next().toUpperCase();
+
+        LightColor color;
+
+        long count = Arrays.stream(LightColor.values())
+                .filter(e -> e.name().equals(sInput))
+                .count();
+
+        if (count > 0) {
+            System.out.printf("You've entered : %s%n"
+                            + "The entry has the following additional values:%n"
+                            + "\t- list index: %d%n"
+                            + "\t- message: %s%n"
+                            + "\t- time: %d [seconds]%n",
+                    sInput,
+                    (color = LightColor.valueOf(sInput)).ordinal(),
+                    color.getMessage(),
+                    color.getSeconds());
+        }
+        else {
+            System.out.printf("[%s] is not present in list %s%n",
+                    sInput, Arrays.toString(LightColor.values()));
+        }
+    }
+
 }
