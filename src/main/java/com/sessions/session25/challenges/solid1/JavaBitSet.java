@@ -9,14 +9,14 @@ import java.util.Scanner;
  * of size <b><i>N</i></b> where all bits in both BitSets are initialized to <b><i>0</i></b>,
  * perform a series of <b><i>M</i></b> operations.<br>
  * After each operation, print the number of set bits in the respective BitSets as two space-separated
- * integers on a new line.</p>
+ * integers on a new line.
  * <h2>Input Format</h2>
  * <p>The first line contains <b><i>2</i></b> space-separated integers, <b><i>N</i></b> (the length of both BitSets
  * <b><i>B<sub>1</sub></i></b> and <b><i>B<sub>2</sub></i></b>) and <b><i>M</i></b>
- * (the number of operations to perform), respectively.</p>
+ * (the number of operations to perform), respectively.
  * <h2>Output Format</h2>
  * <p>After each operation, print the respective number of set bits in BitSet <b><i>B<sub>1</sub></i></b> and
- * BitSet <b><i>B<sub>2</sub></i></b> as space-separated integers on a new line.</p>
+ * BitSet <b><i>B<sub>2</sub></i></b> as space-separated integers on a new line.
  */
 public class JavaBitSet {
     public static void main(String[] args) {
