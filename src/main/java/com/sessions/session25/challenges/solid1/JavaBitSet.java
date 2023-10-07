@@ -3,9 +3,26 @@ package com.sessions.session25.challenges.solid1;
 import java.util.BitSet;
 import java.util.Scanner;
 
+/**
+ * <h1>SOLID Challenge</h1>
+ * <p>Given <b><i>2</i></b> BitSets, <b><i>B<sub>1</sub></i></b> and <b><i>B<sub>2</sub></i></b>,
+ * of size <b><i>N</i></b> where all bits in both BitSets are initialized to <b><i>0</i></b>,
+ * perform a series of <b><i>M</i></b> operations.<br>
+ * After each operation, print the number of set bits in the respective BitSets as two space-separated
+ * integers on a new line.</p>
+ * <h2>Input Format</h2>
+ * <p>The first line contains <b><i>2</i></b> space-separated integers, <b><i>N</i></b> (the length of both BitSets
+ * <b><i>B<sub>1</sub></i></b> and <b><i>B<sub>2</sub></i></b>) and <b><i>M</i></b>
+ * (the number of operations to perform), respectively.</p>
+ * <h2>Output Format</h2>
+ * <p>After each operation, print the respective number of set bits in BitSet <b><i>B<sub>1</sub></i></b> and
+ * BitSet <b><i>B<sub>2</sub></i></b> as space-separated integers on a new line.</p>
+ */
 public class JavaBitSet {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+
         System.out.println("""
                 Enter data separated by spaces:
                 - 1st line:         N (number of bits in the bitset) M (number of operation lines)
@@ -13,12 +30,14 @@ public class JavaBitSet {
                                     or
                                     [Operation name] [bitset no.] [index]
                 """);
+
         int n = sc.nextInt(); // BitSet size
         int m = sc.nextInt(); // No. of bitset operations
 
         BitSet bs[] = {new BitSet(n), new BitSet(n)};
 
         for (int i = 0; i < m; i++) {
+
             String op = sc.next();
 
             int operand1 = sc.nextInt(), operand2 = sc.nextInt();

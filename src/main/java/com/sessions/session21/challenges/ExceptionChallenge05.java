@@ -60,7 +60,7 @@ public class ExceptionChallenge05 {
 /**
  * <h1>Utility class</h1>
  * <p>Singleton01 class with all the methods needed for the {@code Calculator} challenge</p>
- * <p>Localisation is done by means of language dependent external text files.
+ * <p>Localisation is done by means of language dependent external text io_files.
  */
 class Tools{
     private static Tools instance;
