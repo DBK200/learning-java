@@ -19,9 +19,9 @@ import java.util.Scanner;
  * BitSet <b><i>B<sub>2</sub></i></b> as space-separated integers on a new line.
  */
 public class JavaBitSet {
-    public static void main(String[] args) {
+    private static final Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
 
         System.out.println("""
                 Enter data separated by spaces:
