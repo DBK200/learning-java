@@ -1,6 +1,8 @@
 package com.sessions.session25.challenges.solid1;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.BitSet;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -21,7 +23,7 @@ import java.util.Scanner;
 public class JavaBitSet {
     private static final Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 
         System.out.println("""
                 Enter data separated by spaces:
@@ -43,89 +45,136 @@ public class JavaBitSet {
             int operand1 = sc.nextInt(), operand2 = sc.nextInt();
             Functions function = Functions.valueOf(op.toUpperCase());
 
-            Operation operation = new Operation(function, operand1, operand2);
+            Operation operation = new Operation(function, operand1, operand2, bs);
 
-            BitSetOperation bitSetOperation = switch (function) {
-                case AND, ANDNOT, OR, XOR -> new BooleanBitSetOp(operation, bs);
-                default -> new BitBitSetOp(operation, bs);
-            };
-            bitSetOperation.bitsetOperate();
+            for (Methods method: Methods.values()) {
+                BitSetOperations bitSetOperations = new BitSetOperations(method.name(), operation);
+                if (bitSetOperations.operate()) break;
+            }
 
             System.out.println(bs[0].cardinality() + " " + bs[1].cardinality());
         }
     }
 }
 
+enum Methods {BitBitSetOp, BooleanBitSetOp, AndNotBitSetOp} //BitBitSetOp, BooleanBitSetOp
+
+record Operation(Functions function, int operand1, int operand2, BitSet[] bs) {}
+
+enum Functions {AND, OR, XOR, FLIP, SET, ANDNOT}
+
 abstract class BitSetOperation {
     private final Operation operation;
-    private BitSet bs[];
 
-    BitSetOperation(Operation operation, BitSet[] bs) {
+    BitSetOperation(Operation operation) {
         this.operation = operation;
-        this.bs = bs;
     }
 
     public Operation getOperation() {
         return operation;
     }
 
-    public BitSet[] getBs() {
-        return bs;
-    }
-
-    abstract void bitsetOperate();
+    abstract boolean bitsetOperate();
 }
 
 class BooleanBitSetOp extends BitSetOperation {
-    public BooleanBitSetOp(Operation operation, BitSet[] bs) {
-        super(operation, bs);
+    public BooleanBitSetOp(Operation operation) {
+        super((operation.function().name().equalsIgnoreCase("OR")
+                || operation.function().name().equalsIgnoreCase("XOR")
+                || operation.function().name().equalsIgnoreCase("AND"))
+                ? operation
+                : null);
     }
 
     @Override
-    public void bitsetOperate() {
-        int operand1 = super.getOperation().operand1() - 1;
-        int operand2 = super.getOperation().operand2() - 1;
+    public boolean bitsetOperate() {
+        if (super.getOperation() != null) {
 
-        switch (super.getOperation().function()) {
-            case XOR -> super.getBs()[operand1].xor(super.getBs()[operand2]);
-            case AND -> super.getBs()[operand1].and(super.getBs()[operand2]);
-            case ANDNOT -> super.getBs()[operand1].andNot(super.getBs()[operand2]);
-            default -> super.getBs()[operand1].or(super.getBs()[operand2]);
+            int operand1 = super.getOperation().operand1() - 1;
+            int operand2 = super.getOperation().operand2() - 1;
+
+            switch (Objects.requireNonNull(super.getOperation().function())) {
+                case XOR -> super.getOperation().bs()[operand1]
+                        .xor(super.getOperation().bs()[operand2]);
+                case AND -> super.getOperation().bs()[operand1]
+                        .and(super.getOperation().bs()[operand2]);
+                case OR -> super.getOperation().bs()[operand1]
+                        .or(super.getOperation().bs()[operand2]);
+                default -> {return false;}
+            }
+            return true;
         }
+        return false;
     }
 }
 
 class BitBitSetOp extends BitSetOperation {
-    public BitBitSetOp(Operation operation, BitSet[] bs) {
-        super(operation, bs);
+    public BitBitSetOp(Operation operation) {
+        super((operation.function().name().equalsIgnoreCase("FLIP")
+                || operation.function().name().equalsIgnoreCase("SET"))
+                ? operation
+                : null);
     }
 
     @Override
-    public void bitsetOperate() {
-        int operand1 = super.getOperation().operand1() - 1;
-        int operand2 = super.getOperation().operand2();
+    public boolean bitsetOperate() {
+        if (super.getOperation() != null
+                && (super.getOperation().function().name().equalsIgnoreCase("FLIP")
+                || super.getOperation().function().name().equalsIgnoreCase("SET"))) {
 
-        switch (super.getOperation().function()) {
-            case FLIP -> super.getBs()[operand1]
-                    .flip(operand2);
-            default -> super.getBs()[operand1]
-                    .set(operand2);
+            int operand1 = super.getOperation().operand1() - 1;
+            int operand2 = super.getOperation().operand2();
+
+            if (Objects.requireNonNull(super.getOperation().function()) == Functions.FLIP)
+                super.getOperation().bs()[operand1].flip(operand2);
+            else super.getOperation().bs()[operand1].set(operand2);
+
+            return true;
         }
+        return false;
     }
 }
 
 class BitSetOperations {
     private BitSetOperation bitSetOperation;
 
-    public BitSetOperations(BitSetOperation bitSetOperation) {
-        this.bitSetOperation = bitSetOperation;
+    public BitSetOperations(String className, Operation operation)
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+
+        String path = BitSetOperations.class.getPackage().getName();
+        bitSetOperation = (BitSetOperation) Class.forName(path + "." + className)
+                .getConstructor(Operation.class)
+                .newInstance(operation);
     }
 
-    public void operate() {
-        bitSetOperation.bitsetOperate();
+    public boolean operate() {
+        return bitSetOperation.bitsetOperate();
     }
 }
 
-record Operation(Functions function, int operand1, int operand2) {}
 
-enum Functions {AND, ANDNOT, OR, XOR, FLIP, SET}
+// New declaration
+class AndNotBitSetOp extends BitSetOperation {
+    public AndNotBitSetOp(Operation operation) {
+        super((operation.function().name().equalsIgnoreCase("ANDNOT"))
+                ? operation
+                : null);
+    }
+
+    @Override
+    public boolean bitsetOperate() {
+
+        if (super.getOperation() != null
+                && super.getOperation().function().name().equalsIgnoreCase("ANDNOT")) {
+            int operand1 = super.getOperation().operand1() - 1;
+            int operand2 = super.getOperation().operand2() - 1;
+
+            super.getOperation().bs()[operand1]
+                    .andNot(super.getOperation().bs()[operand2]);
+
+            return true;
+        }
+        return false;
+    }
+}
