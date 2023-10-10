@@ -59,9 +59,9 @@ public class JavaBitSet {
 
 enum Methods {BitBitSetOp, BooleanBitSetOp, AndNotBitSetOp} //BitBitSetOp, BooleanBitSetOp
 
-record Operation(Functions function, int operand1, int operand2, BitSet[] bs) {}
-
 enum Functions {AND, OR, XOR, FLIP, SET, ANDNOT}
+
+record Operation(Functions function, int operand1, int operand2, BitSet[] bs) {}
 
 abstract class BitSetOperation {
     private final Operation operation;
@@ -142,7 +142,10 @@ class BitSetOperations {
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
             InstantiationException, IllegalAccessException {
 
+        // Gets the fully qualified name of the class
         String path = BitSetOperations.class.getPackage().getName();
+
+        // Gets a new instance of the class [className] using Java Reflection
         bitSetOperation = (BitSetOperation) Class.forName(path + "." + className)
                 .getConstructor(Operation.class)
                 .newInstance(operation);
