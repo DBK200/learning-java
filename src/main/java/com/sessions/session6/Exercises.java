@@ -8,6 +8,8 @@ public class Exercises {
 //    2. Write a method that prints local time with the following format HH:mm:ss
 
 // 3. Write a method that calculates your age (you can use Period object)
+public static void main(String[] args) {
 
+}
 
 }
