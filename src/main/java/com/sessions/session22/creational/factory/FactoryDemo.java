@@ -9,7 +9,5 @@ public class FactoryDemo {
         parrotBird.talking();
         parrotBird.fly();
 
-
-
     }
 }
