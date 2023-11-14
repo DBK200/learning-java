@@ -8,4 +8,5 @@ public interface Device {
     void playMusic();
     void playVideo();
     void takePicture();
+    //....
 }

@@ -1,4 +1,36 @@
-CLEAN CODE
-- codul sa fie usor de citit (de inteles)
-- variabile numite sugestiv, sa respectam conventiile de denumiri, identari <- code style -
-- sa foloseasca design patterns (cand e cazul)
+What does the "S" in SOLID stand for, and what does it encourage?
+a) Single Responsibility Principle - Encourages a class to have only one reason to change. X
+b) Substitution Principle - Encourages using subtypes interchangeably.
+c) Single Instance Principle - Encourages using a single instance of a class.
+
+Which SOLID principle states that a class should have only one reason to change?
+a) Single Responsibility Principle X
+b) Open-Closed Principle
+c) Liskov Substitution Principle
+
+The "O" in SOLID stands for what?
+a) Open-Closed Principle - open for new stuff (extension) closed for modification (existing stuff)
+b) Open Source Principle
+c) Object-Oriented Principle
+
+Which SOLID principle suggests that software entities should be open for extension but closed for modification?
+a) Single Responsibility Principle
+b) Open-Closed Principle X
+c) Interface Segregation Principle
+
+Which SOLID principle is concerned with ensuring that subclasses can be substituted for their base classes without affecting
+ the correctness of the program?
+a) Liskov Substitution Principle
+b) Dependency Inversion Principle
+c) Interface Segregation Principle
+
+What does the "I" in SOLID stand for, and what does it advocate?
+a) Immutable Principle - Advocates making objects immutable.
+b) Interface Segregation Principle - Advocates splitting large interfaces into smaller, specific ones.
+c) Inheritance Principle - Advocates using inheritance to achieve code reusability.
+
+Which SOLID principle recommends that high-level modules should not depend on low-level modules but both
+ should depend on abstractions?
+a) Interface Segregation Principle
+b) Dependency Inversion Principle
+c) Liskov Substitution Principle
