@@ -1,11 +1,9 @@
 package com.sessions.examples_solid.dependency_inversion.after;
 
-public class Book implements Product {
-
-    private int price = 290;
+public class ComicBook implements Product {
+    private int price = 10;
 
     public int getPrice() {
         return price;
     }
-
 }

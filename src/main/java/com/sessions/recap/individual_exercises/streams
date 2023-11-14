@@ -1,0 +1,108 @@
+What is the purpose of the map operation in a Java stream?
+a) To filter elements based on a predicate
+b) To transform each element of the stream using a given function
+c) To remove duplicate elements
+d) To collect elements into a new list
+
+Which method is used to terminate a stream and produce a result in a non-stream form?
+a) filter()
+b) collect()
+c) map()
+d) forEach()
+
+
+Which terminal operation is used to find the maximum element in a stream?
+a) max()
+b) findMax()
+c) maximum()
+d) largest()
+
+What is the output of the following stream operation?
+    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+    int sum = numbers.stream().filter(n -> n % 2 == 0).mapToInt(Integer::intValue).sum();
+    System.out.println(sum);
+
+a) 6
+b) 9
+c) 10
+d) 15
+
+
+In a Java stream, what does the distinct() operation do?
+a) Removes all elements from the stream
+b) Removes duplicate elements from the stream
+c) Sorts the elements in the stream
+d) Filters the elements based on a predicate
+
+Which interface in the java.util.function package is commonly used with stream operations to perform a filtering operation?
+a) Predicate
+b) Consumer
+c) Function
+d) Supplier
+
+*
+How is parallel stream processing achieved in Java?
+a) By using the parallel() method on any collection
+b) By using the parallelStream() method on any collection
+c) By explicitly specifying parallel processing in the stream operations
+d) Parallel processing is not supported in Java streams
+
+
+
+public class ParallelStreamExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Sequential stream to calculate the sum of squares
+        long sumOfSquaresSequential = numbers.stream()
+                .mapToLong(n -> square(n))
+                .sum();
+
+        System.out.println("Sum of squares (Sequential): " + sumOfSquaresSequential);
+
+        // Parallel stream to calculate the sum of squares
+        long sumOfSquaresParallel = numbers.parallelStream()
+                .mapToLong(n -> square(n))
+                .sum();
+
+        System.out.println("Sum of squares (Parallel): " + sumOfSquaresParallel);
+    }
+
+    private static long square(int n) {
+        // Simulate a time-consuming operation
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return n * n;
+    }
+}
+
+
+*
+What is the purpose of the flatMap operation in Java streams?
+a) To flatten a stream of elements into a single element
+b) To transform each element of the stream into a stream of elements and flatten the result
+c) To concatenate two streams
+d) To filter elements based on a predicate
+
+
+public class FlatMapExample {
+    public static void main(String[] args) {
+        List<String> sentences = Arrays.asList(
+                "Hello world",
+                "Java streams are powerful",
+                "FlatMap is interesting"
+        );
+
+        // Using flatMap to split each sentence into words
+        List<String> words = sentences.stream()
+                .map(sentence -> sentence.split("\\s+")) // Split each sentence into an array of words
+                .flatMap(Arrays::stream) // Flatten the arrays of words into a single stream of words
+                .collect(Collectors.toList());
+
+        // Display the result
+        System.out.println(words);
+    }
+}

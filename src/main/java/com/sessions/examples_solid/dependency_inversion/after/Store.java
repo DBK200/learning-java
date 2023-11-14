@@ -2,22 +2,27 @@ package com.sessions.examples_solid.dependency_inversion.after;
 
 public class Store {
 
-    private Product product;
+    private Product myProduct;
 
-    Store(Product product){
-        this.product=product;
+    Store(Product productFromUser) {
+        myProduct = productFromUser;
     }
 
     public void buyProduct() {
-        System.out.println("Buying product with price " + product.getPrice());
+        System.out.println("Buying product with price " + myProduct.getPrice());
     }
 }
 
-
-
-class Test{
+class Test {
     public static void main(String[] args) {
         Store store = new Store(new Book());
         store.buyProduct();
+
+        store = new Store(new CD());
+        store.buyProduct();
+
+        store = new Store(new ComicBook());
+        store.buyProduct();
+
     }
 }

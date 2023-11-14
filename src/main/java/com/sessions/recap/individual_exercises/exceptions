@@ -1,0 +1,57 @@
+What is an exception in Java?
+a) A syntax error
+b) A runtime error
+c) A logical error
+d) A compilation error
+
+Which keyword is used to handle exceptions in Java?
+a) try
+b) catch
+c) throw
+d) all of the above
+
+What is the purpose of the "finally" block in a try-catch-finally statement?
+a) To catch exceptions
+b) To specify the code that always executes, whether an exception occurs or not
+c) To throw an exception
+d) To declare exceptions
+
+Which of the following is a checked exception in Java?
+a) NullPointerException
+b) ArrayIndexOutOfBoundsException
+c) IOException
+d) IllegalArgumentException
+
+What will happen if an exception is thrown inside a "try" block, but there is no corresponding "catch" block to handle it?
+a) The program will terminate
+b) The exception will be ignored
+c) The program will continue executing the code outside the "try" block
+d) It is a compilation error
+
+Can you have multiple catch blocks for a single try block?
+a) Yes
+b) No
+
+What is the purpose of the "throws" clause in a method signature?
+a) To declare that the method may throw exceptions
+b) To handle exceptions within the method
+c) To catch exceptions thrown by other methods
+d) To specify the return type of the method
+
+Which of the following is not a subclass of the Throwable class in Java?
+a) Error
+b) Exception
+c) RuntimeException
+d) String
+
+What does the "printStackTrace()" method do in Java exception handling?
+a) Prints the exception message to the console
+b) Prints the stack trace of the exception to the console
+c) Prints the line number where the exception occurred
+d) Prints the name of the exception class
+
+In a multi-catch block, how are multiple exceptions separated?
+a) Using commas
+b) Using semicolons
+c) Using a pipe symbol (|)
+d) Each exception requires a separate catch block
