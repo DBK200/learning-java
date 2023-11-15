@@ -1,0 +1,54 @@
+Encapsulation:
+
+1. What is encapsulation in Java?
+a) The process of converting an object into a byte stream
+b) The bundling of data and the methods that operate on that data into a single unit
+c) Creating multiple instances of a class
+d) The process of hiding the implementation details of a class
+
+2. Inheritance:
+Which keyword is used to establish inheritance in Java?
+a) implement
+b) extend
+c) inheritance
+d) inherits
+
+3. Polymorphism:
+What is polymorphism in Java?
+a) The ability of a class to have multiple constructors
+b) The ability of a method to have multiple implementations
+c) The process of creating an object from a class
+d) The ability of a class to have multiple instance variables
+
+
+4.Abstraction:
+What is abstraction in Java?
+a) The process of creating an object from a class
+b) The ability of a class to have multiple constructors
+c) The bundling of data and the methods that operate on that data into a single unit
+d) The process of hiding the implementation details of a class
+
+
+5. Method Overriding:
+What is method overriding in Java?
+a) Creating a new method with the same name in a subclass
+b) Creating a new method with a different name in a subclass
+c) Modifying the implementation of a method in a superclass
+d) Creating a static method in a subclass with the same name as a static method in a superclass
+
+
+6. Abstract Classes:
+Can an abstract class have concrete (non-abstract) methods?
+a) Yes
+b) No
+
+7. Interfaces:
+In Java, a class can implement multiple interfaces. (True/False)
+Encapsulation Example:
+
+8. Which access modifiers are often used to achieve encapsulation in Java?
+a) public and protected
+b) private and protected
+c) public and private
+d) default and private
+
