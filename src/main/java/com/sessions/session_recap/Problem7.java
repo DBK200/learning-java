@@ -1,4 +1,4 @@
-package com.sessions.session26.recap;
+package com.sessions.session_recap;
 
 public class Problem7 {
 
