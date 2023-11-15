@@ -41,9 +41,9 @@ public class JavaBitSet {
         for (int i = 0; i < m; i++) {
 
             String op = sc.next();
+            Functions function = Functions.valueOf(op.toUpperCase());
 
             int operand1 = sc.nextInt(), operand2 = sc.nextInt();
-            Functions function = Functions.valueOf(op.toUpperCase());
 
             Operation operation = new Operation(function, operand1, operand2, bs);
 
