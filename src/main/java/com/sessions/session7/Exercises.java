@@ -1,6 +1,4 @@
-package com.sessions.session5;
-
-import java.util.Scanner;
+package com.sessions.session7;
 
 public class Exercises {
 
